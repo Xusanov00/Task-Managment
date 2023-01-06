@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49BCBD14A7B77DFFEB972F93 /* Pods_Task_Managment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30F7CAC96C052CFD412B680 /* Pods_Task_Managment.framework */; };
 		5F018440296856F4005F9EBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01843F296856F4005F9EBF /* AppDelegate.swift */; };
 		5F018449296856F5005F9EBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F018448296856F5005F9EBF /* Assets.xcassets */; };
 		5F01844C296856F5005F9EBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F01844A296856F5005F9EBF /* LaunchScreen.storyboard */; };
@@ -36,12 +37,10 @@
 		5F01849529685D08005F9EBF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01849329685D08005F9EBF /* SignUpVC.swift */; };
 		5F01849729685D2A005F9EBF /* LanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01849629685D2A005F9EBF /* LanguageVC.swift */; };
 		5F01849929685D55005F9EBF /* LanguageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01849829685D55005F9EBF /* LanguageCache.swift */; };
-		94594EFB60AC1467A165AD53 /* Pods_Task_Managment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905E156CD926833ED545F1F5 /* Pods_Task_Managment.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3A3C209F8C62A39FD659B873 /* Pods-Task_Managment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.release.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.release.xcconfig"; sourceTree = "<group>"; };
-		4E53EB6BB3E48BE9AC6D334F /* Pods-Task_Managment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.debug.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.debug.xcconfig"; sourceTree = "<group>"; };
+		463C7CDD1E2BFC1B3791599C /* Pods-Task_Managment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.release.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.release.xcconfig"; sourceTree = "<group>"; };
 		5F01843C296856F4005F9EBF /* Task_Managment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task_Managment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F01843F296856F4005F9EBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F018448296856F5005F9EBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,7 +72,8 @@
 		5F01849329685D08005F9EBF /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		5F01849629685D2A005F9EBF /* LanguageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageVC.swift; sourceTree = "<group>"; };
 		5F01849829685D55005F9EBF /* LanguageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCache.swift; sourceTree = "<group>"; };
-		905E156CD926833ED545F1F5 /* Pods_Task_Managment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task_Managment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		856172EE5206F7579CB30F50 /* Pods-Task_Managment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.debug.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.debug.xcconfig"; sourceTree = "<group>"; };
+		A30F7CAC96C052CFD412B680 /* Pods_Task_Managment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task_Managment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,20 +81,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94594EFB60AC1467A165AD53 /* Pods_Task_Managment.framework in Frameworks */,
+				49BCBD14A7B77DFFEB972F93 /* Pods_Task_Managment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F10B4209F916E7FD1929182 /* Pods */ = {
+		28C33BEAF0F9C59E34C0366C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4E53EB6BB3E48BE9AC6D334F /* Pods-Task_Managment.debug.xcconfig */,
-				3A3C209F8C62A39FD659B873 /* Pods-Task_Managment.release.xcconfig */,
+				A30F7CAC96C052CFD412B680 /* Pods_Task_Managment.framework */,
 			);
-			path = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5F018433296856F4005F9EBF = {
@@ -102,8 +101,8 @@
 			children = (
 				5F01843E296856F4005F9EBF /* Task_Managment */,
 				5F01843D296856F4005F9EBF /* Products */,
-				0F10B4209F916E7FD1929182 /* Pods */,
-				B32E20D3A143364CC95D5C37 /* Frameworks */,
+				637A5331000C842F32FC8A08 /* Pods */,
+				28C33BEAF0F9C59E34C0366C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,12 +223,14 @@
 			path = VC;
 			sourceTree = "<group>";
 		};
-		B32E20D3A143364CC95D5C37 /* Frameworks */ = {
+		637A5331000C842F32FC8A08 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				905E156CD926833ED545F1F5 /* Pods_Task_Managment.framework */,
+				856172EE5206F7579CB30F50 /* Pods-Task_Managment.debug.xcconfig */,
+				463C7CDD1E2BFC1B3791599C /* Pods-Task_Managment.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +271,7 @@
 				};
 			};
 			buildConfigurationList = 5F018437296856F4005F9EBF /* Build configuration list for PBXProject "Task_Managment" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -506,7 +507,7 @@
 		};
 		5F018451296856F5005F9EBF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E53EB6BB3E48BE9AC6D334F /* Pods-Task_Managment.debug.xcconfig */;
+			baseConfigurationReference = 856172EE5206F7579CB30F50 /* Pods-Task_Managment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -539,7 +540,7 @@
 		};
 		5F018452296856F5005F9EBF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A3C209F8C62A39FD659B873 /* Pods-Task_Managment.release.xcconfig */;
+			baseConfigurationReference = 463C7CDD1E2BFC1B3791599C /* Pods-Task_Managment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

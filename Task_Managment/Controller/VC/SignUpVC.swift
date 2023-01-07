@@ -21,7 +21,7 @@ class SignUpVC: UIViewController {
         super.viewDidLoad()
         setLanguage() 
         setTextField()
-        continueBtn.addShadow()
+        continueBtn.addShadow(cornerRadius: 12)
     }
     
     //language details
@@ -51,7 +51,7 @@ class SignUpVC: UIViewController {
         numberTF.backgroundColor = .white
         numberTF.withFlag = true
         numberTF.withExamplePlaceholder = true
-        numberTF.addShadow()
+        numberTF.addShadow(cornerRadius: 12)
     }
 
     

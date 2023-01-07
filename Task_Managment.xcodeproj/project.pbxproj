@@ -36,6 +36,9 @@
 		5F01849529685D08005F9EBF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01849329685D08005F9EBF /* SignUpVC.swift */; };
 		5F01849729685D2A005F9EBF /* LanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01849629685D2A005F9EBF /* LanguageVC.swift */; };
 		5F01849929685D55005F9EBF /* LanguageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01849829685D55005F9EBF /* LanguageCache.swift */; };
+		5F2C4BD02969731E00D0285D /* Ex+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2C4BCF2969731E00D0285D /* Ex+String.swift */; };
+		5F397BBF296869410059A1B0 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F397BBD296869410059A1B0 /* EditProfileVC.swift */; };
+		5F397BC0296869410059A1B0 /* EditProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F397BBE296869410059A1B0 /* EditProfileVC.xib */; };
 		94594EFB60AC1467A165AD53 /* Pods_Task_Managment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905E156CD926833ED545F1F5 /* Pods_Task_Managment.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +76,9 @@
 		5F01849329685D08005F9EBF /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		5F01849629685D2A005F9EBF /* LanguageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageVC.swift; sourceTree = "<group>"; };
 		5F01849829685D55005F9EBF /* LanguageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCache.swift; sourceTree = "<group>"; };
+		5F2C4BCF2969731E00D0285D /* Ex+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+String.swift"; sourceTree = "<group>"; };
+		5F397BBD296869410059A1B0 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		5F397BBE296869410059A1B0 /* EditProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileVC.xib; sourceTree = "<group>"; };
 		905E156CD926833ED545F1F5 /* Pods_Task_Managment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task_Managment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -154,6 +160,7 @@
 				5F01846229685824005F9EBF /* Ex+UIView.swift */,
 				5F01846329685824005F9EBF /* Ex+UIViewController.swift */,
 				5F01849829685D55005F9EBF /* LanguageCache.swift */,
+				5F2C4BCF2969731E00D0285D /* Ex+String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -206,6 +213,7 @@
 				5F018482296858A2005F9EBF /* StartTaskVC.swift */,
 				5F018481296858A1005F9EBF /* StartVC.swift */,
 				5F018480296858A1005F9EBF /* TodaysTaskVC.swift */,
+				5F397BBD296869410059A1B0 /* EditProfileVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -220,6 +228,7 @@
 				5F0184702968588C005F9EBF /* StartTaskVC.xib */,
 				5F0184742968588C005F9EBF /* StartVC.xib */,
 				5F0184722968588C005F9EBF /* TodaysTaskVC.xib */,
+				5F397BBE296869410059A1B0 /* EditProfileVC.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -294,6 +303,7 @@
 			files = (
 				5F01846029685819005F9EBF /* LexendDeca-Regular.ttf in Resources */,
 				5F01846E29685881005F9EBF /* TaskTVC.xib in Resources */,
+				5F397BC0296869410059A1B0 /* EditProfileVC.xib in Resources */,
 				5F01845F29685819005F9EBF /* LexendDeca-Medium.ttf in Resources */,
 				5F0184772968588C005F9EBF /* StartTaskVC.xib in Resources */,
 				5F01847A2968588C005F9EBF /* ProfileVC.xib in Resources */,
@@ -368,7 +378,9 @@
 				5F01846429685824005F9EBF /* Ex+UIView.swift in Sources */,
 				5F018487296858A2005F9EBF /* TodaysTaskVC.swift in Sources */,
 				5F01846B2968586F005F9EBF /* SettingsTVC.swift in Sources */,
+				5F2C4BD02969731E00D0285D /* Ex+String.swift in Sources */,
 				5F01849729685D2A005F9EBF /* LanguageVC.swift in Sources */,
+				5F397BBF296869410059A1B0 /* EditProfileVC.swift in Sources */,
 				5F01848B296858A2005F9EBF /* HomeVC.swift in Sources */,
 				5F01849529685D08005F9EBF /* SignUpVC.swift in Sources */,
 				5F01846529685824005F9EBF /* Ex+UIViewController.swift in Sources */,

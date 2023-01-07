@@ -44,25 +44,16 @@ import UIKit
     ///set shadow to view
     func addShadow(cornerRadius: CGFloat) {
         
-        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = false
         layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: cornerRadius).cgPath
         layer.shadowColor = UIColor.systemGray.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 1)
         layer.shadowRadius = 5
         layer.shadowOpacity = 0.2
-        layer.shadowPath = nil
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
         
-        
-//            layer.masksToBounds = false
-//            layer.shadowColor = UIColor.systemGray.cgColor
-//            layer.shadowOpacity = 0.2
-//        layer.shadowOffset = CGSize(width: 0, height: 2)
-//            layer.shadowRadius = 5
-//            layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: cornerRadius).cgPath
-//            layer.shouldRasterize = true
-//        layer.rasterizationScale = UIScreen.main.scale
-        
-        }
+    }
 }
 
 

@@ -206,6 +206,7 @@
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="refreshRate">
                                                                     <real key="value" value="1"/>
                                                                 </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCap" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                     </subviews>

@@ -13,7 +13,9 @@
 		41C606D229686512001BF536 /* LanguageTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41C606D029686512001BF536 /* LanguageTVC.xib */; };
 		41C606D429686760001BF536 /* LanguageDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606D329686760001BF536 /* LanguageDM.swift */; };
 		41C606D629687316001BF536 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606D529687316001BF536 /* ShadowView.swift */; };
-		49BCBD14A7B77DFFEB972F93 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		49BCBD14A7B77DFFEB972F93 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		5205E00029698D9500F91A05 /* ChatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205DFFE29698D9500F91A05 /* ChatsVC.swift */; };
+		5205E00129698D9500F91A05 /* ChatsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5205DFFF29698D9500F91A05 /* ChatsVC.xib */; };
 		524022EE296948A3003C17CE /* DayCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524022EC296948A3003C17CE /* DayCVC.swift */; };
 		524022EF296948A3003C17CE /* DayCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524022ED296948A3003C17CE /* DayCVC.xib */; };
 		524022F32969557A003C17CE /* StatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524022F12969557A003C17CE /* StatisticsVC.swift */; };
@@ -62,8 +64,8 @@
 		41C606D329686760001BF536 /* LanguageDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDM.swift; sourceTree = "<group>"; };
 		41C606D529687316001BF536 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		463C7CDD1E2BFC1B3791599C /* Pods-Task_Managment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.release.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.release.xcconfig"; sourceTree = "<group>"; };
-		3A3C209F8C62A39FD659B873 /* Pods-Task_Managment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.release.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.release.xcconfig"; sourceTree = "<group>"; };
-		4E53EB6BB3E48BE9AC6D334F /* Pods-Task_Managment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.debug.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.debug.xcconfig"; sourceTree = "<group>"; };
+		5205DFFE29698D9500F91A05 /* ChatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsVC.swift; sourceTree = "<group>"; };
+		5205DFFF29698D9500F91A05 /* ChatsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatsVC.xib; sourceTree = "<group>"; };
 		524022EC296948A3003C17CE /* DayCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCVC.swift; sourceTree = "<group>"; };
 		524022ED296948A3003C17CE /* DayCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCVC.xib; sourceTree = "<group>"; };
 		524022F12969557A003C17CE /* StatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVC.swift; sourceTree = "<group>"; };
@@ -110,7 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49BCBD14A7B77DFFEB972F93 /* BuildFile in Frameworks */,
+				49BCBD14A7B77DFFEB972F93 /* (null) in Frameworks */,
 				A7B44C3ECBD77BF770A2BFB3 /* Pods_Task_Managment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +263,7 @@
 				5F397BBD296869410059A1B0 /* EditProfileVC.swift */,
 				4162489F296962260080C77A /* TaskVC.swift */,
 				524022F12969557A003C17CE /* StatisticsVC.swift */,
+				5205DFFE29698D9500F91A05 /* ChatsVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				5F397BBE296869410059A1B0 /* EditProfileVC.xib */,
 				416248A0296962260080C77A /* TaskVC.xib */,
 				524022F22969557A003C17CE /* StatisticsVC.xib */,
+				5205DFFF29698D9500F91A05 /* ChatsVC.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -353,6 +357,7 @@
 			files = (
 				5F01846029685819005F9EBF /* LexendDeca-Regular.ttf in Resources */,
 				41C606D229686512001BF536 /* LanguageTVC.xib in Resources */,
+				5205E00129698D9500F91A05 /* ChatsVC.xib in Resources */,
 				5F01846E29685881005F9EBF /* TaskTVC.xib in Resources */,
 				5F397BC0296869410059A1B0 /* EditProfileVC.xib in Resources */,
 				5F01845F29685819005F9EBF /* LexendDeca-Medium.ttf in Resources */,
@@ -432,6 +437,7 @@
 				5F018440296856F4005F9EBF /* AppDelegate.swift in Sources */,
 				5F018489296858A2005F9EBF /* StartTaskVC.swift in Sources */,
 				524022EE296948A3003C17CE /* DayCVC.swift in Sources */,
+				5205E00029698D9500F91A05 /* ChatsVC.swift in Sources */,
 				5F01848D296858B0005F9EBF /* SettingsDM.swift in Sources */,
 				5F01846429685824005F9EBF /* Ex+UIView.swift in Sources */,
 				5F018487296858A2005F9EBF /* TodaysTaskVC.swift in Sources */,

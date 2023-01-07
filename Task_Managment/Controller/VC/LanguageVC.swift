@@ -14,6 +14,8 @@ class LanguageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.backButtonTitle = ""
+        self.navigationController?.navigationBar.tintColor = .black
 
         addShadow()
     }

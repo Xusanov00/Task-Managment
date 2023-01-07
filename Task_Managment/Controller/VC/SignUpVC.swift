@@ -22,6 +22,9 @@ class SignUpVC: UIViewController {
         setLanguage() 
         setTextField()
         continueBtn.addShadow()
+        self.navigationItem.backButtonTitle = ""
+        self.navigationController?.navigationBar.tintColor = .black
+
     }
     
     //language details

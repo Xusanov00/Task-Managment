@@ -19,7 +19,8 @@ class StartVC: UIViewController {
     @IBAction func startTapped(_ sender: Any) {
         let vc = LanguageVC(nibName: "LanguageVC", bundle: nil)
         self.navigationItem.backButtonTitle = ""
-        
+        self.navigationController?.navigationBar.tintColor = .black
+
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

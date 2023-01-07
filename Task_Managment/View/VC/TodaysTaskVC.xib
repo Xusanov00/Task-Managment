@@ -14,14 +14,16 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TodaysTaskVC" customModule="TaskManagement" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TodaysTaskVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
+                <outlet property="backV" destination="O0c-Yi-yDN" id="PW5-VW-Yee"/>
+                <outlet property="collectionView" destination="Jut-ux-moA" id="WLT-Gm-eYb"/>
                 <outlet property="tableView" destination="I3W-Ck-gGi" id="4Hr-V3-VSu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="btns" destination="PUN-zO-xQr" collectionClass="NSMutableArray" id="Ilt-P4-O0J"/>
+                <outletCollection property="btns" destination="W89-I0-RRz" collectionClass="NSMutableArray" id="3Ly-fn-34N"/>
                 <outletCollection property="btns" destination="Hwd-ez-eOm" collectionClass="NSMutableArray" id="krW-Ct-lDe"/>
                 <outletCollection property="btns" destination="3E1-S4-fgn" collectionClass="NSMutableArray" id="IxL-YC-Cs5"/>
-                <outletCollection property="btns" destination="W89-I0-RRz" collectionClass="NSMutableArray" id="3Ly-fn-34N"/>
-                <outletCollection property="btns" destination="PUN-zO-xQr" collectionClass="NSMutableArray" id="Ilt-P4-O0J"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -29,94 +31,119 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="rm9-lv-cVw">
-                    <rect key="frame" x="24" y="83" width="345" height="32"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="nPS-RW-cWY">
+                    <rect key="frame" x="16" y="59" width="361" height="793"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwd-ez-eOm">
-                            <rect key="frame" x="0.0" y="0.0" width="48.666666666666664" height="32"/>
-                            <color key="backgroundColor" red="0.33725491169999999" green="0.38823530080000002" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="All">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="7"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="btnTapped:" destination="-1" eventType="touchUpInside" id="Dxx-34-g5x"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3E1-S4-fgn">
-                            <rect key="frame" x="48.666666666666679" y="0.0" width="126.33333333333331" height="32"/>
-                            <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="In Progress">
-                                <color key="titleColor" systemColor="systemGrayColor"/>
-                            </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="7"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="btnTapped:" destination="-1" eventType="touchUpInside" id="h1Y-oo-IDd"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W89-I0-RRz">
-                            <rect key="frame" x="175" y="0.0" width="107" height="32"/>
-                            <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="Complate">
-                                <color key="titleColor" systemColor="systemGrayColor"/>
-                            </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="7"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="btnTapped:" destination="-1" eventType="touchUpInside" id="QmE-vH-l4t"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUN-zO-xQr">
-                            <rect key="frame" x="281.66666666666669" y="0.0" width="63.333333333333314" height="32"/>
-                            <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="To Do">
-                                <color key="titleColor" systemColor="systemGrayColor"/>
-                            </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="7"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="btnTapped:" destination="-1" eventType="touchUpInside" id="4O5-kl-R1Y"/>
-                            </connections>
-                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0c-Yi-yDN">
+                            <rect key="frame" x="0.0" y="0.0" width="361" height="100"/>
+                            <subviews>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Jut-ux-moA">
+                                    <rect key="frame" x="0.0" y="0.0" width="361" height="100"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cz2-1e-x99">
+                                        <size key="itemSize" width="128" height="128"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Jut-ux-moA" secondAttribute="trailing" id="JPD-GL-fnS"/>
+                                <constraint firstItem="Jut-ux-moA" firstAttribute="leading" secondItem="O0c-Yi-yDN" secondAttribute="leading" id="OGf-wH-bRE"/>
+                                <constraint firstAttribute="height" constant="100" id="QLj-aN-YRm"/>
+                                <constraint firstItem="Jut-ux-moA" firstAttribute="top" secondItem="O0c-Yi-yDN" secondAttribute="top" id="n5r-su-2cv"/>
+                                <constraint firstAttribute="bottom" secondItem="Jut-ux-moA" secondAttribute="bottom" id="tbp-UN-mA4"/>
+                            </constraints>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="rm9-lv-cVw">
+                            <rect key="frame" x="0.0" y="104" width="361" height="32"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwd-ez-eOm">
+                                    <rect key="frame" x="0.0" y="0.0" width="51" height="32"/>
+                                    <color key="backgroundColor" red="0.33725491169999999" green="0.38823530080000002" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="All">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="7"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="btnTapped:" destination="-1" eventType="touchUpInside" id="Dxx-34-g5x"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3E1-S4-fgn">
+                                    <rect key="frame" x="51" y="0.0" width="132" height="32"/>
+                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="In Progress">
+                                        <color key="titleColor" systemColor="systemGrayColor"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="7"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="btnTapped:" destination="-1" eventType="touchUpInside" id="h1Y-oo-IDd"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W89-I0-RRz">
+                                    <rect key="frame" x="183" y="0.0" width="112" height="32"/>
+                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Complate">
+                                        <color key="titleColor" systemColor="systemGrayColor"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="7"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="btnTapped:" destination="-1" eventType="touchUpInside" id="QmE-vH-l4t"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUN-zO-xQr">
+                                    <rect key="frame" x="295" y="0.0" width="66" height="32"/>
+                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="To Do">
+                                        <color key="titleColor" systemColor="systemGrayColor"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="7"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="btnTapped:" destination="-1" eventType="touchUpInside" id="4O5-kl-R1Y"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="fTD-rr-gbJ"/>
+                            </constraints>
+                        </stackView>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="I3W-Ck-gGi">
+                            <rect key="frame" x="0.0" y="140" width="361" height="653"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
                     </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="32" id="fTD-rr-gbJ"/>
-                    </constraints>
                 </stackView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="I3W-Ck-gGi">
-                    <rect key="frame" x="0.0" y="131" width="393" height="663"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="I3W-Ck-gGi" secondAttribute="bottom" constant="24" id="3hS-ad-A59"/>
-                <constraint firstItem="rm9-lv-cVw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="9c7-MM-avc"/>
-                <constraint firstItem="rm9-lv-cVw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="Gfc-Iy-0jn"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="I3W-Ck-gGi" secondAttribute="trailing" id="TnO-MD-7AV"/>
-                <constraint firstItem="I3W-Ck-gGi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="o3K-Jc-D8e"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rm9-lv-cVw" secondAttribute="trailing" constant="24" id="ps6-x0-aiv"/>
-                <constraint firstItem="I3W-Ck-gGi" firstAttribute="top" secondItem="rm9-lv-cVw" secondAttribute="bottom" constant="16" id="yLq-8w-JQb"/>
+                <constraint firstAttribute="bottom" secondItem="nPS-RW-cWY" secondAttribute="bottom" id="EqX-Kz-CPl"/>
+                <constraint firstItem="nPS-RW-cWY" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-16" id="nQm-Bk-4y3"/>
+                <constraint firstItem="nPS-RW-cWY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="swa-TA-FzN"/>
+                <constraint firstItem="nPS-RW-cWY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="vB9-kb-jcz"/>
             </constraints>
             <point key="canvasLocation" x="57.251908396946561" y="20.422535211267608"/>
         </view>

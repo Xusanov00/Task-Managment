@@ -10,23 +10,27 @@ import UIKit
 class LanguageVC: UIViewController {
 
     
-    @IBOutlet var backV: [UIView]!
+    @IBOutlet weak var langTablView: UITableView!
+    
+    var languageArr: [LanguageDM] = [
+        LanguageDM(image: "uzbF", language: "O'zbekcha"),
+        LanguageDM(image: "rusF", language: "Русский"),
+        LanguageDM(image: "engF", language: "English"),
+    ]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLangTableView()
+    }
+    
+    //tableView registration
+    func setLangTableView() {
+        langTablView.separatorStyle = .none
+        langTablView.dataSource = self
+        langTablView.register(LanguageTVC.nib(), forCellReuseIdentifier: LanguageTVC.id)
+    }
 
-        addShadow()
-    }
-    func addShadow() {
-        for i in backV {
-            i.layer.masksToBounds = false
-            i.layer.shadowOffset = CGSize(width: 0, height: 0)
-            i.layer.shadowRadius = 5
-            i.layer.shadowOpacity = 0.2
-            i.layer.cornerRadius = 10
-            i.layer.shadowColor = UIColor.systemGray.cgColor
-        }
-    }
 
     @IBAction func continueTapped(_ sender: Any) {
         let vc = SignUpVC(nibName: "SignUpVC", bundle: nil)
@@ -36,14 +40,30 @@ class LanguageVC: UIViewController {
     @IBAction func languageTapped(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            SetCache.saveCache(for: LanguageDM.uz.rawValue, for: KeysDM.language)
+            SetCache.saveCache(for: LanguageEnum.uz.rawValue, for: KeysDM.language)
         case 1:
-            SetCache.saveCache(for: LanguageDM.ru.rawValue, for: KeysDM.language)
+            SetCache.saveCache(for: LanguageEnum.ru.rawValue, for: KeysDM.language)
         case 2:
-            SetCache.saveCache(for: LanguageDM.en.rawValue, for: KeysDM.language)
+            SetCache.saveCache(for: LanguageEnum.en.rawValue, for: KeysDM.language)
         default:
             print("error select language button tag")
         }
     }
+    
+}
+
+
+extension LanguageVC: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        languageArr.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = langTablView.dequeueReusableCell(withIdentifier: LanguageTVC.id, for: indexPath) as? LanguageTVC else {return UITableViewCell()}
+        cell.updateCell(cell: languageArr[indexPath.row])
+        return cell
+    }
+    
     
 }

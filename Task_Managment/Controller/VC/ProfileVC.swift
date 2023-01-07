@@ -53,7 +53,7 @@ class ProfileVC: UIViewController {
         self.navigationItem.rightBarButtonItems = [alertBtn]
         
         for v in statusVs {
-            v.addShadow()
+            v.addShadow(cornerRadius: 12)
         }
         
     }

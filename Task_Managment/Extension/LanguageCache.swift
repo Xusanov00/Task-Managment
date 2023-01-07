@@ -15,8 +15,7 @@ enum KeysDM: String {
     case language = "APPLANGUAGE"
 }
 
-
-enum LanguageDM: String {
+enum LanguageEnum: String {
     case uz = "uz"
     case ru = "ru"
     case en = "en"

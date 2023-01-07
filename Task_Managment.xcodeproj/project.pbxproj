@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		416248A1296962260080C77A /* TaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4162489F296962260080C77A /* TaskVC.swift */; };
+		416248A2296962260080C77A /* TaskVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416248A0296962260080C77A /* TaskVC.xib */; };
+		41C606D129686512001BF536 /* LanguageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606CF29686512001BF536 /* LanguageTVC.swift */; };
+		41C606D229686512001BF536 /* LanguageTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41C606D029686512001BF536 /* LanguageTVC.xib */; };
+		41C606D429686760001BF536 /* LanguageDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606D329686760001BF536 /* LanguageDM.swift */; };
+		41C606D629687316001BF536 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606D529687316001BF536 /* ShadowView.swift */; };
 		49BCBD14A7B77DFFEB972F93 /* Pods_Task_Managment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30F7CAC96C052CFD412B680 /* Pods_Task_Managment.framework */; };
 		5F018440296856F4005F9EBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01843F296856F4005F9EBF /* AppDelegate.swift */; };
 		5F018449296856F5005F9EBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F018448296856F5005F9EBF /* Assets.xcassets */; };
@@ -40,6 +46,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4162489F296962260080C77A /* TaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskVC.swift; sourceTree = "<group>"; };
+		416248A0296962260080C77A /* TaskVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskVC.xib; sourceTree = "<group>"; };
+		41C606CF29686512001BF536 /* LanguageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTVC.swift; sourceTree = "<group>"; };
+		41C606D029686512001BF536 /* LanguageTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageTVC.xib; sourceTree = "<group>"; };
+		41C606D329686760001BF536 /* LanguageDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDM.swift; sourceTree = "<group>"; };
+		41C606D529687316001BF536 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		463C7CDD1E2BFC1B3791599C /* Pods-Task_Managment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.release.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.release.xcconfig"; sourceTree = "<group>"; };
 		5F01843C296856F4005F9EBF /* Task_Managment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task_Managment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F01843F296856F4005F9EBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +62,7 @@
 		5F01845B29685819005F9EBF /* LexendDeca-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Medium.ttf"; sourceTree = "<group>"; };
 		5F01845C29685819005F9EBF /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
 		5F01845D29685819005F9EBF /* LexendDeca-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Bold.ttf"; sourceTree = "<group>"; };
-		5F01846229685824005F9EBF /* Ex+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+UIView.swift"; sourceTree = "<group>"; };
+		5F01846229685824005F9EBF /* Ex+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+UIView.swift"; sourceTree = "<group>"; wrapsLines = 0; };
 		5F01846329685824005F9EBF /* Ex+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+UIViewController.swift"; sourceTree = "<group>"; };
 		5F0184682968586F005F9EBF /* TaskTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTVC.swift; sourceTree = "<group>"; };
 		5F0184692968586F005F9EBF /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
@@ -134,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				5F01848C296858B0005F9EBF /* SettingsDM.swift */,
+				41C606D329686760001BF536 /* LanguageDM.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,8 +154,8 @@
 		5F01845429685776005F9EBF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5F018459296857CC005F9EBF /* TVC */,
 				5F0184662968583C005F9EBF /* VC */,
+				5F018459296857CC005F9EBF /* TVC */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -151,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				5F01846229685824005F9EBF /* Ex+UIView.swift */,
+				41C606D529687316001BF536 /* ShadowView.swift */,
 				5F01846329685824005F9EBF /* Ex+UIViewController.swift */,
 				5F01849829685D55005F9EBF /* LanguageCache.swift */,
 			);
@@ -160,8 +174,8 @@
 		5F01845629685789005F9EBF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5F018458296857C6005F9EBF /* TVC */,
 				5F0184672968584D005F9EBF /* VC */,
+				5F018458296857C6005F9EBF /* TVC */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,6 +196,7 @@
 			children = (
 				5F01846D29685881005F9EBF /* SettingsTVC.xib */,
 				5F01846C29685881005F9EBF /* TaskTVC.xib */,
+				41C606D029686512001BF536 /* LanguageTVC.xib */,
 			);
 			path = TVC;
 			sourceTree = "<group>";
@@ -191,6 +206,7 @@
 			children = (
 				5F0184692968586F005F9EBF /* SettingsTVC.swift */,
 				5F0184682968586F005F9EBF /* TaskTVC.swift */,
+				41C606CF29686512001BF536 /* LanguageTVC.swift */,
 			);
 			path = TVC;
 			sourceTree = "<group>";
@@ -198,13 +214,14 @@
 		5F0184662968583C005F9EBF /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				5F018484296858A2005F9EBF /* HomeVC.swift */,
-				5F01847E296858A1005F9EBF /* ProfileVC.swift */,
+				5F018481296858A1005F9EBF /* StartVC.swift */,
 				5F01849629685D2A005F9EBF /* LanguageVC.swift */,
 				5F01849329685D08005F9EBF /* SignUpVC.swift */,
+				5F018484296858A2005F9EBF /* HomeVC.swift */,
+				5F01847E296858A1005F9EBF /* ProfileVC.swift */,
 				5F018482296858A2005F9EBF /* StartTaskVC.swift */,
-				5F018481296858A1005F9EBF /* StartVC.swift */,
 				5F018480296858A1005F9EBF /* TodaysTaskVC.swift */,
+				4162489F296962260080C77A /* TaskVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -212,13 +229,14 @@
 		5F0184672968584D005F9EBF /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				5F0184712968588C005F9EBF /* HomeVC.xib */,
-				5F0184732968588C005F9EBF /* ProfileVC.xib */,
+				5F0184742968588C005F9EBF /* StartVC.xib */,
 				5F01848E29685CEF005F9EBF /* LanguageVC.xib */,
 				5F01848F29685CEF005F9EBF /* SignUpVC.xib */,
+				5F0184712968588C005F9EBF /* HomeVC.xib */,
+				5F0184732968588C005F9EBF /* ProfileVC.xib */,
 				5F0184702968588C005F9EBF /* StartTaskVC.xib */,
-				5F0184742968588C005F9EBF /* StartVC.xib */,
 				5F0184722968588C005F9EBF /* TodaysTaskVC.xib */,
+				416248A0296962260080C77A /* TaskVC.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -229,7 +247,6 @@
 				856172EE5206F7579CB30F50 /* Pods-Task_Managment.debug.xcconfig */,
 				463C7CDD1E2BFC1B3791599C /* Pods-Task_Managment.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -294,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F01846029685819005F9EBF /* LexendDeca-Regular.ttf in Resources */,
+				41C606D229686512001BF536 /* LanguageTVC.xib in Resources */,
 				5F01846E29685881005F9EBF /* TaskTVC.xib in Resources */,
 				5F01845F29685819005F9EBF /* LexendDeca-Medium.ttf in Resources */,
 				5F0184772968588C005F9EBF /* StartTaskVC.xib in Resources */,
@@ -306,6 +324,7 @@
 				5F01849029685CEF005F9EBF /* LanguageVC.xib in Resources */,
 				5F0184782968588C005F9EBF /* HomeVC.xib in Resources */,
 				5F01849129685CEF005F9EBF /* SignUpVC.xib in Resources */,
+				416248A2296962260080C77A /* TaskVC.xib in Resources */,
 				5F01846F29685881005F9EBF /* SettingsTVC.xib in Resources */,
 				5F01845E29685819005F9EBF /* LexendDeca-SemiBold.ttf in Resources */,
 			);
@@ -360,8 +379,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41C606D429686760001BF536 /* LanguageDM.swift in Sources */,
 				5F01849929685D55005F9EBF /* LanguageCache.swift in Sources */,
 				5F018485296858A2005F9EBF /* ProfileVC.swift in Sources */,
+				416248A1296962260080C77A /* TaskVC.swift in Sources */,
 				5F01846A2968586F005F9EBF /* TaskTVC.swift in Sources */,
 				5F018440296856F4005F9EBF /* AppDelegate.swift in Sources */,
 				5F018489296858A2005F9EBF /* StartTaskVC.swift in Sources */,
@@ -371,8 +392,10 @@
 				5F01846B2968586F005F9EBF /* SettingsTVC.swift in Sources */,
 				5F01849729685D2A005F9EBF /* LanguageVC.swift in Sources */,
 				5F01848B296858A2005F9EBF /* HomeVC.swift in Sources */,
+				41C606D129686512001BF536 /* LanguageTVC.swift in Sources */,
 				5F01849529685D08005F9EBF /* SignUpVC.swift in Sources */,
 				5F01846529685824005F9EBF /* Ex+UIViewController.swift in Sources */,
+				41C606D629687316001BF536 /* ShadowView.swift in Sources */,
 				5F018488296858A2005F9EBF /* StartVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,19 +11,32 @@ class TodaysTaskVC: UIViewController {
 
     @IBOutlet var btns: [UIButton]!
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var backV: UIView!
     @IBOutlet weak var tableView: UITableView!
     var num = 0
     var str = ["Complation","In Progress","Complation","In Progress","Complation","To Do", "Complation", "Complation", "To Do"]
-    
+    var weeks:[String] = ["Du","Se","Chor","Pay","Ju","Shan","Yak"]
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.title = "Today’s task"
         self.navigationController?.navigationBar.tintColor = .black
-        
+        backV.isHidden = true
         setUpNavigationV()
         setupTableView()
+        setUpCollectionView()
     }
+    
+    func setUpCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        collectionView.register(UINib(nibName: "DayCVC", bundle: nil), forCellWithReuseIdentifier: "DayCVC")
+    }
+    
+    
+    
     
     func setupTableView() {
         tableView.delegate = self
@@ -69,7 +82,11 @@ class TodaysTaskVC: UIViewController {
 }
 //MARK: - UITableViewDelegate
 extension TodaysTaskVC:UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationItem.backButtonTitle = ""
+        self.navigationController?.navigationBar.tintColor = .black
+        navigationController?.pushViewController(StartTaskVC.loadFromNib(), animated: true)
+    }
 }
 //MARK: - UITableViewDataSource
 extension TodaysTaskVC:UITableViewDataSource {
@@ -78,6 +95,7 @@ extension TodaysTaskVC:UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTVC", for: indexPath) as? TaskTVC else {return UITableViewCell()}
+        
         cell.updateCell(str: str[indexPath.row])
         
         if self.num == 1 {
@@ -94,5 +112,28 @@ extension TodaysTaskVC:UITableViewDataSource {
             }
         }
         return cell
+    }
+}
+//MARK: - UICollectionViewDelegate
+extension TodaysTaskVC:UICollectionViewDelegate {
+    
+}
+//MARK: - UICollectionViewDataSource
+extension TodaysTaskVC:UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        weeks.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCVC", for: indexPath) as? DayCVC else {return UICollectionViewCell()}
+        cell.addShadow()
+        cell.updateCell(weekdays: weeks[indexPath.item])
+        return cell
+    }
+}
+//MARK: - UICollectionViewDelegate
+extension TodaysTaskVC:UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 2*(collectionView.frame.width - 50)/11, height: collectionView.frame.height-20)
+        
     }
 }

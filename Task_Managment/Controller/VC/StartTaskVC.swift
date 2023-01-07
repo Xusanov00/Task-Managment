@@ -20,7 +20,10 @@ class StartTaskVC: UIViewController {
         self.navigationItem.backBarButtonItem?.image = UIImage(systemName: "chevron.left")
         self.navigationItem.backButtonTitle = ""
         let alertBtn = UIBarButtonItem(image: UIImage(systemName: "bell.badge"), style: .done, target: self, action: #selector(alertTapped))
+       
         alertBtn.tintColor = .black
+        
+        
         self.navigationItem.rightBarButtonItems = [alertBtn]
     }
     

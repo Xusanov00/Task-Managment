@@ -21,13 +21,14 @@ class ProfileVC: UIViewController {
         SettingsDM(img: "bell", title: "Notifications"),
         SettingsDM(img: "checkmark.shield", title: "Security"),
         SettingsDM(img: "exclamationmark.circle", title: "Help"),
-        SettingsDM(img: "person", title: "Logout", tintColor: .systemRed, titleColor: .systemRed)
+        SettingsDM(img: "trash", title: "Logout", tintColor: .systemRed, titleColor: .systemRed)
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNav()
         setUpTableView()
+        self.navigationController?.navigationBar.tintColor = .black
         
     }
 
@@ -46,11 +47,12 @@ class ProfileVC: UIViewController {
         self.navigationItem.title = "Profile Edit"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
         let alertBtn = UIBarButtonItem(image: UIImage(systemName: "bell.badge"), style: .done, target: self, action: #selector(alertTapped))
-        let backBtn = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .done, target: self, action: #selector(alertTapped))
+        
         alertBtn.tintColor = .black
-        backBtn.tintColor = .black
-        self.navigationItem.leftBarButtonItem = backBtn
+        self.navigationItem.backButtonTitle = ""
         self.navigationItem.rightBarButtonItems = [alertBtn]
+        self.navigationItem.leftBarButtonItem?.tintColor = .black
+        self.navigationItem.rightBarButtonItem?.tintColor = .black
         
         for v in statusVs {
             v.addShadow(cornerRadius: 12)
@@ -67,15 +69,15 @@ class ProfileVC: UIViewController {
 //MARK: - UITableViewDelegate
 extension ProfileVC: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = .clear
-        return headerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
-    }
+//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        let footerView = UIView()
+//        footerView.backgroundColor = .white
+//        return footerView
+//    }
+//    
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 10
+//    }
 
 }
 

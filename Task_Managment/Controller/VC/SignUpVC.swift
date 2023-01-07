@@ -15,6 +15,7 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var signUpDescryptLbl: UILabel!
     @IBOutlet weak var numberTF: PhoneNumberTextField!
     
+    @IBOutlet weak var passwordTF: UITextField!
     
     @IBOutlet weak var continueBtn: UIButton!
     override func viewDidLoad() {

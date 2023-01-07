@@ -46,15 +46,15 @@
                                 <rect key="frame" x="10" y="5" width="273" height="81"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="1S8-30-Ors">
-                                        <rect key="frame" x="7.3333333333333428" y="0.0" width="258.33333333333326" height="35.666666666666664"/>
+                                        <rect key="frame" x="5" y="0.0" width="263" height="35.666666666666664"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Competitive Analysis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6B-sz-2mL">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Competitive Analysis" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6B-sz-2mL">
                                                 <rect key="frame" x="0.0" y="0.0" width="145" height="17.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="LexendDeca-Medium" family="Lexend Deca" pointSize="14"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This productive tool is designed productive..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvR-9x-CGd">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This productive tool is designed productive..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvR-9x-CGd">
                                                 <rect key="frame" x="0.0" y="20.666666666666664" width="258.33333333333331" height="15"/>
                                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="12"/>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
@@ -115,6 +115,8 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="1S8-30-Ors" firstAttribute="leading" secondItem="kbU-F9-YfA" secondAttribute="leading" constant="5" id="NAK-JR-5aw"/>
+                                    <constraint firstAttribute="trailing" secondItem="1S8-30-Ors" secondAttribute="trailing" constant="5" id="mEE-cE-yPW"/>
                                     <constraint firstAttribute="trailing" secondItem="9fV-fH-tpy" secondAttribute="trailing" id="v7i-v3-DHg"/>
                                     <constraint firstItem="9fV-fH-tpy" firstAttribute="leading" secondItem="kbU-F9-YfA" secondAttribute="leading" id="yKT-mP-gt7"/>
                                 </constraints>
@@ -155,9 +157,12 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="backV" destination="BiO-sS-Toy" id="SSk-aY-v2M"/>
-                <outlet property="priorityLbl" destination="Zdg-hL-HnG" id="5Yl-1J-7ib"/>
-                <outlet property="shadowV" destination="OHe-JY-ikm" id="Ego-7T-TFU"/>
+                <outlet property="descryptionLbl" destination="xvR-9x-CGd" id="CVc-fn-KGV"/>
+                <outlet property="priorityLbl" destination="Zdg-hL-HnG" id="WQO-Uu-ysq"/>
+                <outlet property="priorityView" destination="BiO-sS-Toy" id="mJY-Dm-t4F"/>
+                <outlet property="shadowV" destination="OHe-JY-ikm" id="LNi-hu-LcC"/>
+                <outlet property="timeLbl" destination="cFU-JW-Wc4" id="7sK-XP-UUg"/>
+                <outlet property="topicLbl" destination="N6B-sz-2mL" id="51O-al-mbL"/>
             </connections>
             <point key="canvasLocation" x="191" y="-195"/>
         </tableViewCell>

@@ -9,6 +9,7 @@ import UIKit
 import FSCalendar
 import Charts
 import CircleProgressView
+
 class HomeVC: UIViewController, ChartViewDelegate,FSCalendarDelegate,FSCalendarDataSource {
 
     @IBOutlet weak var progressLbl: UILabel!

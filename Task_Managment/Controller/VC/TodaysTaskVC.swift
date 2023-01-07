@@ -8,15 +8,29 @@
 import UIKit
 
 class TodaysTaskVC: UIViewController {
-
+    
     @IBOutlet var btns: [UIButton]!
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var backV: UIView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var taskTableView: UITableView!
     var num = 0
-    var str = ["Complation","In Progress","Complation","In Progress","Complation","To Do", "Complation", "Complation", "To Do"]
+    var taskArr: [TaskDM] = [
+        TaskDM(topic: "Topic1", definition: "Definition1", time: "12:00 - 18-00", priority: "Completed"),
+        TaskDM(topic: "Topic2", definition: "Definition2", time: "12:00 - 18-00", priority: "In Progress"),
+        TaskDM(topic: "Topic3", definition: "Definition3", time: "12:00 - 18-00", priority: "To Do"),
+        TaskDM(topic: "Topic4", definition: "Definition4", time: "12:00 - 18-00", priority: "Completed"),
+        TaskDM(topic: "Topic5", definition: "Definition5", time: "12:00 - 18-00", priority: "To Do"),
+        TaskDM(topic: "Topic6", definition: "Definition6", time: "12:00 - 18-00", priority: "In Progress"),
+        TaskDM(topic: "Topic7", definition: "Definition7", time: "12:00 - 18-00", priority: "Completed"),
+        TaskDM(topic: "Topic8", definition: "Definition8", time: "12:00 - 18-00", priority: "To Do"),
+    ]
+    var sortedTasks: [TaskDM] = []
+    
     var weeks:[String] = ["Du","Se","Chor","Pay","Ju","Shan","Yak"]
+    
+    
+    //viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
@@ -26,6 +40,7 @@ class TodaysTaskVC: UIViewController {
         setUpNavigationV()
         setupTableView()
         setUpCollectionView()
+        setBackColor(tag: 0)
     }
     
     func setUpCollectionView() {
@@ -39,11 +54,9 @@ class TodaysTaskVC: UIViewController {
     
     
     func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorStyle = .none
-        
-        tableView.register(UINib(nibName: "TaskTVC", bundle: nil), forCellReuseIdentifier: "TaskTVC")
+        taskTableView.dataSource = self
+        taskTableView.separatorStyle = .none
+        taskTableView.register(UINib(nibName: "TaskTVC", bundle: nil), forCellReuseIdentifier: "TaskTVC")
         
     }
     
@@ -53,8 +66,8 @@ class TodaysTaskVC: UIViewController {
     
     @IBAction func btnTapped(_ sender: UIButton) {
         setBackColor(tag: sender.tag)
-         num = sender.tag
-        tableView.reloadData()
+        num = sender.tag
+        taskTableView.reloadData()
     }
     
     
@@ -78,8 +91,10 @@ class TodaysTaskVC: UIViewController {
         btns[tag].backgroundColor = #colorLiteral(red: 0.324398458, green: 0.3902252913, blue: 0.9221590161, alpha: 1)
         btns[tag].setTitleColor(.white, for: .normal)
     }
-
+    
 }
+
+
 //MARK: - UITableViewDelegate
 extension TodaysTaskVC:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -88,38 +103,68 @@ extension TodaysTaskVC:UITableViewDelegate {
         navigationController?.pushViewController(StartTaskVC.loadFromNib(), animated: true)
     }
 }
+
+
 //MARK: - UITableViewDataSource
-extension TodaysTaskVC:UITableViewDataSource {
+extension TodaysTaskVC: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        str.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTVC", for: indexPath) as? TaskTVC else {return UITableViewCell()}
-        
-        cell.updateCell(str: str[indexPath.row])
-        
-        if self.num == 1 {
-            if str[indexPath.row] == "Complation" {
-                return cell
-            }
-        } else  if self.num == 2 {
-            if str[indexPath.row] == "In Progress" {
-                return cell
-            }
-        }else if self.num == 3 {
-            if str[indexPath.row] == "To Do" {
-                return cell
-            }
+        switch num {
+        case 0:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr
+        case 1:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr.filter { $0.priority == "In Progress" }
+        case 2:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr.filter { $0.priority == "Completed" }
+        case 3:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr.filter { $0.priority == "To Do" }
+            
+        default:
+            print("")
         }
-        return cell
+        return sortedTasks.count
     }
-}
-//MARK: - UICollectionViewDelegate
-extension TodaysTaskVC:UICollectionViewDelegate {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = taskTableView.dequeueReusableCell(withIdentifier: "TaskTVC", for: indexPath) as? TaskTVC else {return UITableViewCell()}
+        
+        
+        switch num {
+        case 0:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr
+        case 1:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr.filter { $0.priority == "In Progress" }
+        case 2:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr.filter { $0.priority == "Completed" }
+        case 3:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr.filter { $0.priority == "To Do" }
+        default:
+            print("")
+        }
+        
+        cell.updateCell(cell: sortedTasks[indexPath.row])
+        return cell
+        
+    }
+    
     
 }
+
+
+
+
+
 //MARK: - UICollectionViewDataSource
 extension TodaysTaskVC:UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         weeks.count
     }
@@ -130,6 +175,8 @@ extension TodaysTaskVC:UICollectionViewDataSource {
         return cell
     }
 }
+
+
 //MARK: - UICollectionViewDelegate
 extension TodaysTaskVC:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

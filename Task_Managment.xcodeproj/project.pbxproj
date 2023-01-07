@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		416248A1296962260080C77A /* TaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4162489F296962260080C77A /* TaskVC.swift */; };
 		416248A2296962260080C77A /* TaskVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416248A0296962260080C77A /* TaskVC.xib */; };
+		416E6AD42969827B00716612 /* SignUpCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416E6AD32969827B00716612 /* SignUpCodeVC.swift */; };
+		416E6AD62969828700716612 /* SignUpCodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416E6AD52969828700716612 /* SignUpCodeVC.xib */; };
+		416E6AD8296982A700716612 /* OTPview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416E6AD7296982A700716612 /* OTPview.swift */; };
+		416E6ADA296988F300716612 /* TaskDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416E6AD9296988F300716612 /* TaskDM.swift */; };
 		41C606D129686512001BF536 /* LanguageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606CF29686512001BF536 /* LanguageTVC.swift */; };
 		41C606D229686512001BF536 /* LanguageTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41C606D029686512001BF536 /* LanguageTVC.xib */; };
 		41C606D429686760001BF536 /* LanguageDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606D329686760001BF536 /* LanguageDM.swift */; };
-		41C606D629687316001BF536 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606D529687316001BF536 /* ShadowView.swift */; };
-		49BCBD14A7B77DFFEB972F93 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		49BCBD14A7B77DFFEB972F93 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		524022EE296948A3003C17CE /* DayCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524022EC296948A3003C17CE /* DayCVC.swift */; };
 		524022EF296948A3003C17CE /* DayCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524022ED296948A3003C17CE /* DayCVC.xib */; };
 		524022F32969557A003C17CE /* StatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524022F12969557A003C17CE /* StatisticsVC.swift */; };
@@ -57,13 +60,14 @@
 		085BCAAB5C6C7959AD3C5AF6 /* Pods_Task_Managment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task_Managment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4162489F296962260080C77A /* TaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskVC.swift; sourceTree = "<group>"; };
 		416248A0296962260080C77A /* TaskVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskVC.xib; sourceTree = "<group>"; };
+		416E6AD32969827B00716612 /* SignUpCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpCodeVC.swift; sourceTree = "<group>"; };
+		416E6AD52969828700716612 /* SignUpCodeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpCodeVC.xib; sourceTree = "<group>"; };
+		416E6AD7296982A700716612 /* OTPview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPview.swift; sourceTree = "<group>"; };
+		416E6AD9296988F300716612 /* TaskDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDM.swift; sourceTree = "<group>"; };
 		41C606CF29686512001BF536 /* LanguageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTVC.swift; sourceTree = "<group>"; };
 		41C606D029686512001BF536 /* LanguageTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageTVC.xib; sourceTree = "<group>"; };
 		41C606D329686760001BF536 /* LanguageDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDM.swift; sourceTree = "<group>"; };
-		41C606D529687316001BF536 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		463C7CDD1E2BFC1B3791599C /* Pods-Task_Managment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.release.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.release.xcconfig"; sourceTree = "<group>"; };
-		3A3C209F8C62A39FD659B873 /* Pods-Task_Managment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.release.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.release.xcconfig"; sourceTree = "<group>"; };
-		4E53EB6BB3E48BE9AC6D334F /* Pods-Task_Managment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.debug.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.debug.xcconfig"; sourceTree = "<group>"; };
 		524022EC296948A3003C17CE /* DayCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCVC.swift; sourceTree = "<group>"; };
 		524022ED296948A3003C17CE /* DayCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCVC.xib; sourceTree = "<group>"; };
 		524022F12969557A003C17CE /* StatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVC.swift; sourceTree = "<group>"; };
@@ -110,7 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49BCBD14A7B77DFFEB972F93 /* BuildFile in Frameworks */,
+				49BCBD14A7B77DFFEB972F93 /* (null) in Frameworks */,
 				A7B44C3ECBD77BF770A2BFB3 /* Pods_Task_Managment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,6 +185,7 @@
 			children = (
 				5F01848C296858B0005F9EBF /* SettingsDM.swift */,
 				41C606D329686760001BF536 /* LanguageDM.swift */,
+				416E6AD9296988F300716612 /* TaskDM.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,8 +203,8 @@
 		5F01845529685780005F9EBF /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				416E6AD7296982A700716612 /* OTPview.swift */,
 				5F01846229685824005F9EBF /* Ex+UIView.swift */,
-				41C606D529687316001BF536 /* ShadowView.swift */,
 				5F01846329685824005F9EBF /* Ex+UIViewController.swift */,
 				5F01849829685D55005F9EBF /* LanguageCache.swift */,
 				5F2C4BCF2969731E00D0285D /* Ex+String.swift */,
@@ -256,6 +261,7 @@
 				5F01849329685D08005F9EBF /* SignUpVC.swift */,
 				5F018484296858A2005F9EBF /* HomeVC.swift */,
 				5F01847E296858A1005F9EBF /* ProfileVC.swift */,
+				416E6AD32969827B00716612 /* SignUpCodeVC.swift */,
 				5F018482296858A2005F9EBF /* StartTaskVC.swift */,
 				5F018480296858A1005F9EBF /* TodaysTaskVC.swift */,
 				5F397BBD296869410059A1B0 /* EditProfileVC.swift */,
@@ -273,6 +279,7 @@
 				5F01848F29685CEF005F9EBF /* SignUpVC.xib */,
 				5F0184712968588C005F9EBF /* HomeVC.xib */,
 				5F0184732968588C005F9EBF /* ProfileVC.xib */,
+				416E6AD52969828700716612 /* SignUpCodeVC.xib */,
 				5F0184702968588C005F9EBF /* StartTaskVC.xib */,
 				5F0184722968588C005F9EBF /* TodaysTaskVC.xib */,
 				5F397BBE296869410059A1B0 /* EditProfileVC.xib */,
@@ -360,6 +367,7 @@
 				5F0184772968588C005F9EBF /* StartTaskVC.xib in Resources */,
 				5F01847A2968588C005F9EBF /* ProfileVC.xib in Resources */,
 				524022EF296948A3003C17CE /* DayCVC.xib in Resources */,
+				416E6AD62969828700716612 /* SignUpCodeVC.xib in Resources */,
 				5F01846129685819005F9EBF /* LexendDeca-Bold.ttf in Resources */,
 				5F0184792968588C005F9EBF /* TodaysTaskVC.xib in Resources */,
 				5F01847B2968588C005F9EBF /* StartVC.xib in Resources */,
@@ -429,10 +437,12 @@
 				5F018485296858A2005F9EBF /* ProfileVC.swift in Sources */,
 				416248A1296962260080C77A /* TaskVC.swift in Sources */,
 				5F01846A2968586F005F9EBF /* TaskTVC.swift in Sources */,
+				416E6AD8296982A700716612 /* OTPview.swift in Sources */,
 				5F018440296856F4005F9EBF /* AppDelegate.swift in Sources */,
 				5F018489296858A2005F9EBF /* StartTaskVC.swift in Sources */,
 				524022EE296948A3003C17CE /* DayCVC.swift in Sources */,
 				5F01848D296858B0005F9EBF /* SettingsDM.swift in Sources */,
+				416E6ADA296988F300716612 /* TaskDM.swift in Sources */,
 				5F01846429685824005F9EBF /* Ex+UIView.swift in Sources */,
 				5F018487296858A2005F9EBF /* TodaysTaskVC.swift in Sources */,
 				5F01846B2968586F005F9EBF /* SettingsTVC.swift in Sources */,
@@ -443,8 +453,8 @@
 				41C606D129686512001BF536 /* LanguageTVC.swift in Sources */,
 				5F01849529685D08005F9EBF /* SignUpVC.swift in Sources */,
 				5F01846529685824005F9EBF /* Ex+UIViewController.swift in Sources */,
-				41C606D629687316001BF536 /* ShadowView.swift in Sources */,
 				5F018488296858A2005F9EBF /* StartVC.swift in Sources */,
+				416E6AD42969827B00716612 /* SignUpCodeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

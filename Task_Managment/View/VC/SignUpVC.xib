@@ -8,11 +8,17 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LexendDeca-Regular.ttf">
+            <string>LexendDeca-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
                 <outlet property="continueBtn" destination="HA3-qP-Py6" id="5oe-1C-OSQ"/>
                 <outlet property="numberTF" destination="uH9-LB-Iic" id="bPx-u7-pAS"/>
+                <outlet property="passwordTF" destination="U9j-6f-6dH" id="2F7-ZH-SPK"/>
                 <outlet property="signUpDescryptLbl" destination="6Tl-VZ-YhX" id="oMx-30-aBU"/>
                 <outlet property="signUpLbl" destination="uTH-5f-XL0" id="kZC-om-h5U"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -30,7 +36,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="LcW-XU-azM">
-                                    <rect key="frame" x="24" y="180" width="345" height="204.33333333333337"/>
+                                    <rect key="frame" x="24" y="180" width="345" height="230.33333333333337"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="gd7-Qk-I1L">
                                             <rect key="frame" x="0.0" y="0.0" width="345" height="74.333333333333329"/>
@@ -70,12 +76,30 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rKm-sp-IKl">
-                                            <rect key="frame" x="0.0" y="170.33333333333331" width="345" height="34"/>
-                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="za4-mx-yle">
+                                            <rect key="frame" x="0.0" y="170.33333333333331" width="345" height="60"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U9j-6f-6dH">
+                                                    <rect key="frame" x="10" y="5" width="325" height="50"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="U9j-6f-6dH" firstAttribute="top" secondItem="za4-mx-yle" secondAttribute="top" constant="5" id="B9z-tP-aIe"/>
+                                                <constraint firstAttribute="trailing" secondItem="U9j-6f-6dH" secondAttribute="trailing" constant="10" id="etg-dr-bOz"/>
+                                                <constraint firstItem="U9j-6f-6dH" firstAttribute="leading" secondItem="za4-mx-yle" secondAttribute="leading" constant="10" id="ig6-gi-Hxl"/>
+                                                <constraint firstAttribute="bottom" secondItem="U9j-6f-6dH" secondAttribute="bottom" constant="5" id="yF9-Nz-Nur"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="12"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Da1-Mx-Nxv">

@@ -18,12 +18,9 @@ class StartTaskVC: UIViewController {
     
     func setUpNav() {
         self.navigationItem.backBarButtonItem?.image = UIImage(systemName: "chevron.left")
-        
+        self.navigationItem.backButtonTitle = ""
         let alertBtn = UIBarButtonItem(image: UIImage(systemName: "bell.badge"), style: .done, target: self, action: #selector(alertTapped))
-        let backBtn = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .done, target: self, action: #selector(alertTapped))
         alertBtn.tintColor = .black
-        backBtn.tintColor = .black
-        self.navigationItem.leftBarButtonItem = backBtn
         self.navigationItem.rightBarButtonItems = [alertBtn]
     }
     

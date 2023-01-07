@@ -21,21 +21,21 @@ class SignUpVC: UIViewController {
         super.viewDidLoad()
         setLanguage() 
         setTextField()
-        continueBtn.addShadow()
+        continueBtn.addShadow(cornerRadius: 12)
     }
     
     //language details
     func setLanguage() {
         switch SetCache.getCache(for: KeysDM.language) {
-        case LanguageDM.uz.rawValue:
+        case LanguageEnum.uz.rawValue:
             signUpLbl.text = "Ro'yhatdan o'tish"
             signUpDescryptLbl.text = "Ro'yhatdan o'ting va hamma ishingizni re'ja asosida qilishni boshlang"
             continueBtn.setTitle("Davom etish", for: .normal)
-        case LanguageDM.ru.rawValue:
+        case LanguageEnum.ru.rawValue:
             signUpLbl.text = "Регистрация"
             signUpDescryptLbl.text = "Зарегестрируйтесь и начните выполнять все свои дела с планом"
             continueBtn.setTitle("Продолжить", for: .normal)
-        case LanguageDM.en.rawValue:
+        case LanguageEnum.en.rawValue:
             signUpLbl.text = "Sign up"
             signUpDescryptLbl.text = "Sign up and start doing all your work with a plan"
             continueBtn.setTitle("Continue", for: .normal)
@@ -51,7 +51,7 @@ class SignUpVC: UIViewController {
         numberTF.backgroundColor = .white
         numberTF.withFlag = true
         numberTF.withExamplePlaceholder = true
-        numberTF.addShadow()
+        numberTF.addShadow(cornerRadius: 12)
     }
 
     

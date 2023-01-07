@@ -8,6 +8,13 @@
 import UIKit
 
 class TaskTVC: UITableViewCell {
+    
+    static func nib() -> UINib {
+        UINib(nibName: "TaskTVC", bundle: nil)
+    };static let id = "TaskTVC"
+    
+    
+    
     @IBOutlet weak var backV: UIView!
     @IBOutlet weak var priorityLbl: UILabel!
     
@@ -19,6 +26,7 @@ class TaskTVC: UITableViewCell {
         // Initialization code
     }
     func updateCell(str:String) {
+        shadowV.addShadow(cornerRadius: 12)
         priorityLbl.text = str
         if priorityLbl.text == "Complation" {
             backV.backgroundColor = #colorLiteral(red: 0.9281279445, green: 0.9780753255, blue: 0.9470465779, alpha: 1)

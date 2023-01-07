@@ -125,7 +125,7 @@ extension TodaysTaskVC:UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCVC", for: indexPath) as? DayCVC else {return UICollectionViewCell()}
-        cell.addShadow()
+        cell.addShadow(cornerRadius: 10)
         cell.updateCell(weekdays: weeks[indexPath.item])
         return cell
     }

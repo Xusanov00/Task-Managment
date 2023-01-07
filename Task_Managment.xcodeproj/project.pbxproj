@@ -12,10 +12,13 @@
 		41C606D129686512001BF536 /* LanguageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606CF29686512001BF536 /* LanguageTVC.swift */; };
 		41C606D229686512001BF536 /* LanguageTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41C606D029686512001BF536 /* LanguageTVC.xib */; };
 		41C606D429686760001BF536 /* LanguageDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606D329686760001BF536 /* LanguageDM.swift */; };
-		41C606D629687316001BF536 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606D529687316001BF536 /* ShadowView.swift */; };
 		49BCBD14A7B77DFFEB972F93 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		5205E00029698D9500F91A05 /* ChatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205DFFE29698D9500F91A05 /* ChatsVC.swift */; };
 		5205E00129698D9500F91A05 /* ChatsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5205DFFF29698D9500F91A05 /* ChatsVC.xib */; };
+		5205E02429699E8C00F91A05 /* GetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205E02229699E8C00F91A05 /* GetTVC.swift */; };
+		5205E02529699E8C00F91A05 /* GetTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5205E02329699E8C00F91A05 /* GetTVC.xib */; };
+		5205E02829699EA600F91A05 /* SendTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205E02629699EA600F91A05 /* SendTVC.swift */; };
+		5205E02929699EA600F91A05 /* SendTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5205E02729699EA600F91A05 /* SendTVC.xib */; };
 		524022EE296948A3003C17CE /* DayCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524022EC296948A3003C17CE /* DayCVC.swift */; };
 		524022EF296948A3003C17CE /* DayCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524022ED296948A3003C17CE /* DayCVC.xib */; };
 		524022F32969557A003C17CE /* StatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524022F12969557A003C17CE /* StatisticsVC.swift */; };
@@ -67,6 +70,10 @@
 		463C7CDD1E2BFC1B3791599C /* Pods-Task_Managment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.release.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.release.xcconfig"; sourceTree = "<group>"; };
 		5205DFFE29698D9500F91A05 /* ChatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsVC.swift; sourceTree = "<group>"; };
 		5205DFFF29698D9500F91A05 /* ChatsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatsVC.xib; sourceTree = "<group>"; };
+		5205E02229699E8C00F91A05 /* GetTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTVC.swift; sourceTree = "<group>"; };
+		5205E02329699E8C00F91A05 /* GetTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetTVC.xib; sourceTree = "<group>"; };
+		5205E02629699EA600F91A05 /* SendTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTVC.swift; sourceTree = "<group>"; };
+		5205E02729699EA600F91A05 /* SendTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendTVC.xib; sourceTree = "<group>"; };
 		524022EC296948A3003C17CE /* DayCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCVC.swift; sourceTree = "<group>"; };
 		524022ED296948A3003C17CE /* DayCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCVC.xib; sourceTree = "<group>"; };
 		524022F12969557A003C17CE /* StatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVC.swift; sourceTree = "<group>"; };
@@ -238,6 +245,8 @@
 				5F01846D29685881005F9EBF /* SettingsTVC.xib */,
 				5F01846C29685881005F9EBF /* TaskTVC.xib */,
 				41C606D029686512001BF536 /* LanguageTVC.xib */,
+				5205E02329699E8C00F91A05 /* GetTVC.xib */,
+				5205E02729699EA600F91A05 /* SendTVC.xib */,
 			);
 			path = TVC;
 			sourceTree = "<group>";
@@ -248,6 +257,8 @@
 				5F0184692968586F005F9EBF /* SettingsTVC.swift */,
 				5F0184682968586F005F9EBF /* TaskTVC.swift */,
 				41C606CF29686512001BF536 /* LanguageTVC.swift */,
+				5205E02229699E8C00F91A05 /* GetTVC.swift */,
+				5205E02629699EA600F91A05 /* SendTVC.swift */,
 			);
 			path = TVC;
 			sourceTree = "<group>";
@@ -370,6 +381,7 @@
 				5F01847A2968588C005F9EBF /* ProfileVC.xib in Resources */,
 				524022EF296948A3003C17CE /* DayCVC.xib in Resources */,
 				5F01846129685819005F9EBF /* LexendDeca-Bold.ttf in Resources */,
+				5205E02929699EA600F91A05 /* SendTVC.xib in Resources */,
 				5F0184792968588C005F9EBF /* TodaysTaskVC.xib in Resources */,
 				5F01847B2968588C005F9EBF /* StartVC.xib in Resources */,
 				5F01844C296856F5005F9EBF /* LaunchScreen.storyboard in Resources */,
@@ -379,6 +391,7 @@
 				5F01849129685CEF005F9EBF /* SignUpVC.xib in Resources */,
 				416248A2296962260080C77A /* TaskVC.xib in Resources */,
 				5F2C4BD42969855100D0285D /* EndTaskVC.xib in Resources */,
+				5205E02529699E8C00F91A05 /* GetTVC.xib in Resources */,
 				5F01846F29685881005F9EBF /* SettingsTVC.xib in Resources */,
 				5F01845E29685819005F9EBF /* LexendDeca-SemiBold.ttf in Resources */,
 			);
@@ -437,6 +450,7 @@
 				5F01849929685D55005F9EBF /* LanguageCache.swift in Sources */,
 				524022F32969557A003C17CE /* StatisticsVC.swift in Sources */,
 				5F2C4BD32969855100D0285D /* EndTaskVC.swift in Sources */,
+				5205E02429699E8C00F91A05 /* GetTVC.swift in Sources */,
 				5F018485296858A2005F9EBF /* ProfileVC.swift in Sources */,
 				416248A1296962260080C77A /* TaskVC.swift in Sources */,
 				5F01846A2968586F005F9EBF /* TaskTVC.swift in Sources */,
@@ -453,6 +467,7 @@
 				5F397BBF296869410059A1B0 /* EditProfileVC.swift in Sources */,
 				5F01848B296858A2005F9EBF /* HomeVC.swift in Sources */,
 				41C606D129686512001BF536 /* LanguageTVC.swift in Sources */,
+				5205E02829699EA600F91A05 /* SendTVC.swift in Sources */,
 				5F01849529685D08005F9EBF /* SignUpVC.swift in Sources */,
 				5F01846529685824005F9EBF /* Ex+UIViewController.swift in Sources */,
 				5F018488296858A2005F9EBF /* StartVC.swift in Sources */,

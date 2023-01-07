@@ -14,10 +14,13 @@ class ChatsVC: UIViewController {
     @IBOutlet weak var sendBtn:UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.title = "Comment"
+        textTf.layer.cornerRadius = 12
+        sendBtn.layer.cornerRadius = sendBtn.frame.width/2
         backV.addShadow(cornerRadius: 0)
         textTf.addShadow(cornerRadius: 12)
         sendBtn.addShadow(cornerRadius: sendBtn.frame.width/2)
+        
     }
 
 

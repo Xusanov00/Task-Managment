@@ -45,7 +45,7 @@ import UIKit
     func addShadow() {
             layer.masksToBounds = false
             layer.shadowColor = UIColor.black.cgColor
-            layer.shadowOpacity = 0.2
+            layer.shadowOpacity = 0.1
             layer.shadowOffset = CGSize(width: 0, height: 2)
             layer.shadowRadius = 5
             layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: 12).cgPath

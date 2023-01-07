@@ -19,6 +19,7 @@ class TaskTVC: UITableViewCell {
         // Initialization code
     }
     func updateCell(str:String) {
+        shadowV.addShadow()
         priorityLbl.text = str
         if priorityLbl.text == "Complation" {
             backV.backgroundColor = #colorLiteral(red: 0.9281279445, green: 0.9780753255, blue: 0.9470465779, alpha: 1)

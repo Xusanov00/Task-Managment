@@ -8,10 +8,12 @@
 import UIKit
 import FSCalendar
 import Charts
+import CircleProgressView
 class HomeVC: UIViewController, ChartViewDelegate,FSCalendarDelegate,FSCalendarDataSource {
 
+    @IBOutlet weak var progressLbl: UILabel!
     @IBOutlet weak var calendarV: UIView!
-    @IBOutlet weak var progressV: UIView!
+    @IBOutlet weak var progressV: CircleProgressView!
     @IBOutlet weak var diagramV: BarChartView!
     @IBOutlet weak var chartsV: LineChartView!
     var progressLayer = CAShapeLayer()
@@ -26,8 +28,9 @@ class HomeVC: UIViewController, ChartViewDelegate,FSCalendarDelegate,FSCalendarD
 
 
         setUpCharts()
-        setUpProgressV()
+        progressLbl.text = "\(progressV.progress * 100)%"
     }
+    
     func setUpCharts() {
 //        Bar Chart
         diagramV.delegate = self
@@ -53,51 +56,18 @@ class HomeVC: UIViewController, ChartViewDelegate,FSCalendarDelegate,FSCalendarD
         let data = LineChartData(dataSet: set)
         chartsV.data = data
     }
-    func setUpProgressV() {
-        let circlePath = UIBezierPath(arcCenter: progressV.center, radius: progressV.frame.width/2, startAngle: CGFloat.pi / 2, endAngle: CGFloat.pi * 2, clockwise: true)
-        
-        trackLayer.path = circlePath.cgPath
-        trackLayer.fillColor = UIColor.clear.cgColor
-        trackLayer.strokeColor = UIColor.blue.cgColor
-        trackLayer.lineWidth = 16
-        trackLayer.strokeEnd = 1.0
-        trackLayer.lineCap = CAShapeLayerLineCap.round
-        progressV.layer.addSublayer(trackLayer)
-        
-        progressLayer.path = circlePath.cgPath
-        progressLayer.fillColor = UIColor.clear.cgColor
-        progressLayer.strokeColor = UIColor.systemGray.cgColor
-        progressLayer.lineWidth = 16
-        progressLayer.strokeEnd = 0.0
-        progressV.layer.addSublayer(progressLayer)
-        
-        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        basicAnimation.toValue = 1
-        basicAnimation.duration = 3
-        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
-        basicAnimation.isRemovedOnCompletion = false
-        progressLayer.add(basicAnimation, forKey: "usSoBasic")
-        
-    }
+   
 
     
     @IBAction func profileBtnTapped(_ sender: Any) {
         navigationController?.pushViewController(ProfileVC.loadFromNib(), animated: true)
         navigationItem.backButtonTitle = ""
     }
-//    func setCalendar() {
-//
-//        let calendar = FSCalendar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 280))
-//        calendar.dataSource = self
-//        calendar.delegate = self
-//        calendarV.addSubview(calendar)
-//
-//        self.calendar = calendar
-//    }
-    
+ 
     @IBAction func taskTapped(_ sender: Any) {
+        let vc = TodaysTaskVC(nibName: "TodaysTaskVC", bundle: nil)
         
-        self.navigationController?.pushViewController(TodaysTaskVC(nibName: "TodaysTaskVC", bundle: nil), animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     

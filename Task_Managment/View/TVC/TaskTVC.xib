@@ -27,7 +27,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHe-JY-ikm">
-                        <rect key="frame" x="24" y="6" width="272" height="99"/>
+                        <rect key="frame" x="16" y="10" width="288" height="91"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i93-VH-1UJ">
                                 <rect key="frame" x="-2" y="16" width="7" height="16"/>
@@ -43,10 +43,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="kbU-F9-YfA">
-                                <rect key="frame" x="10" y="5" width="257" height="89"/>
+                                <rect key="frame" x="10" y="5" width="273" height="81"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="1S8-30-Ors">
-                                        <rect key="frame" x="0.0" y="0.0" width="257" height="35.666666666666664"/>
+                                        <rect key="frame" x="7.3333333333333428" y="0.0" width="258.33333333333326" height="35.666666666666664"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Competitive Analysis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6B-sz-2mL">
                                                 <rect key="frame" x="0.0" y="0.0" width="145" height="17.666666666666668"/>
@@ -55,7 +55,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This productive tool is designed productive..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvR-9x-CGd">
-                                                <rect key="frame" x="0.0" y="20.666666666666668" width="257" height="15.000000000000004"/>
+                                                <rect key="frame" x="0.0" y="20.666666666666664" width="258.33333333333331" height="15"/>
                                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="12"/>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <nil key="highlightedColor"/>
@@ -63,10 +63,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9fV-fH-tpy">
-                                        <rect key="frame" x="0.0" y="52.666666666666657" width="257" height="36.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="52.666666666666679" width="273" height="28.333333333333336"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="0ib-nO-LYa">
-                                                <rect key="frame" x="0.0" y="9.6666666666666643" width="85" height="17"/>
+                                                <rect key="frame" x="0.0" y="5.6666666666666572" width="85" height="17"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="q1r-9I-x0i">
                                                         <rect key="frame" x="0.0" y="0.99999999999999822" width="11" height="19"/>
@@ -88,7 +88,7 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BiO-sS-Toy">
-                                                <rect key="frame" x="187" y="9.6666666666666643" width="70" height="17"/>
+                                                <rect key="frame" x="203" y="5.6666666666666572" width="70" height="17"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdg-hL-HnG">
                                                         <rect key="frame" x="8" y="2" width="54" height="13"/>
@@ -134,20 +134,17 @@
                                 <real key="value" value="10"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                <real key="value" value="1"/>
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="OHe-JY-ikm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="79e-RK-IXl"/>
-                    <constraint firstAttribute="bottom" secondItem="OHe-JY-ikm" secondAttribute="bottom" constant="6" id="BIk-nG-n5S"/>
-                    <constraint firstAttribute="trailing" secondItem="OHe-JY-ikm" secondAttribute="trailing" constant="24" id="ns7-2o-eyY"/>
-                    <constraint firstItem="OHe-JY-ikm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="vRH-fA-TiN"/>
+                    <constraint firstItem="OHe-JY-ikm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="79e-RK-IXl"/>
+                    <constraint firstAttribute="bottom" secondItem="OHe-JY-ikm" secondAttribute="bottom" constant="10" id="BIk-nG-n5S"/>
+                    <constraint firstAttribute="trailing" secondItem="OHe-JY-ikm" secondAttribute="trailing" constant="16" id="ns7-2o-eyY"/>
+                    <constraint firstItem="OHe-JY-ikm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="vRH-fA-TiN"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

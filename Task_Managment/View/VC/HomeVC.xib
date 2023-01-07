@@ -22,6 +22,7 @@
                 <outlet property="calendarV" destination="DLg-ts-bXG" id="2ZV-nK-KRo"/>
                 <outlet property="chartsV" destination="Lat-EK-5YX" id="4sH-Xs-IUj"/>
                 <outlet property="diagramV" destination="YeO-vY-Upm" id="YVI-Zc-gHL"/>
+                <outlet property="progressLbl" destination="27J-h5-lAX" id="dYR-Vm-Jqd"/>
                 <outlet property="progressV" destination="JGT-v2-jvM" id="lmd-tW-Nzz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -166,18 +167,51 @@
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGT-v2-jvM">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGT-v2-jvM" customClass="CircleProgressView" customModule="CircleProgressView">
                                                             <rect key="frame" x="234.33333333333331" y="0.0" width="100" height="100"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27J-h5-lAX">
+                                                                    <rect key="frame" x="35.333333333333371" y="38" width="29.666666666666671" height="24"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
+                                                                <constraint firstItem="27J-h5-lAX" firstAttribute="centerY" secondItem="JGT-v2-jvM" secondAttribute="centerY" id="85d-Kr-adW"/>
                                                                 <constraint firstAttribute="height" constant="100" id="YUW-jn-e2c"/>
                                                                 <constraint firstAttribute="width" constant="100" id="gfl-HJ-LK8"/>
+                                                                <constraint firstItem="27J-h5-lAX" firstAttribute="centerX" secondItem="JGT-v2-jvM" secondAttribute="centerX" id="lV7-ni-OO1"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                                                    <real key="value" value="0.65000000000000002"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="trackFillColor">
+                                                                    <color key="value" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="trackBackgroundColor">
+                                                                    <color key="value" red="0.40000000000000002" green="0.45098039215686275" blue="0.89803921568627454" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="trackBorderColor">
+                                                                    <color key="value" systemColor="systemGrayColor"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="centerFillColor">
+                                                                    <color key="value" red="0.32156862745098036" green="0.39215686274509803" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="trackWidth">
+                                                                    <real key="value" value="16"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="refreshRate">
+                                                                    <real key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </view>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.33725491169999999" green="0.38823530080000002" blue="0.89019608500000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" red="0.32156862745098036" green="0.39215686274509803" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="OjO-yq-Qn3" secondAttribute="bottom" constant="16" id="Ruk-pi-8zH"/>
                                                 <constraint firstAttribute="trailing" secondItem="OjO-yq-Qn3" secondAttribute="trailing" constant="10.666666666666686" id="Tvq-bF-r6d"/>

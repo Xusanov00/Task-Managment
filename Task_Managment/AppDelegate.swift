@@ -15,7 +15,7 @@ var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let navvc = UINavigationController(rootViewController: TaskVC.loadFromNib())
+        let navvc = UINavigationController(rootViewController: TodaysTaskVC.loadFromNib())
         window?.rootViewController = navvc
         window?.makeKeyAndVisible()
         return true

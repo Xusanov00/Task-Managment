@@ -11,5 +11,7 @@ target 'Task_Managment' do
   pod 'SnapKit'
   pod 'PhoneNumberKit'
   pod 'IQKeyboardManagerSwift'
+  pod 'CircleProgressView'
+  pod 'OTPFieldView'
 
 end

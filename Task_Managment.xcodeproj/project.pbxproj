@@ -12,8 +12,7 @@
 		41C606D129686512001BF536 /* LanguageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606CF29686512001BF536 /* LanguageTVC.swift */; };
 		41C606D229686512001BF536 /* LanguageTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41C606D029686512001BF536 /* LanguageTVC.xib */; };
 		41C606D429686760001BF536 /* LanguageDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606D329686760001BF536 /* LanguageDM.swift */; };
-		41C606D629687316001BF536 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606D529687316001BF536 /* ShadowView.swift */; };
-		49BCBD14A7B77DFFEB972F93 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		49BCBD14A7B77DFFEB972F93 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		524022EE296948A3003C17CE /* DayCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524022EC296948A3003C17CE /* DayCVC.swift */; };
 		524022EF296948A3003C17CE /* DayCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524022ED296948A3003C17CE /* DayCVC.xib */; };
 		524022F32969557A003C17CE /* StatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524022F12969557A003C17CE /* StatisticsVC.swift */; };
@@ -48,6 +47,8 @@
 		5F01849729685D2A005F9EBF /* LanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01849629685D2A005F9EBF /* LanguageVC.swift */; };
 		5F01849929685D55005F9EBF /* LanguageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01849829685D55005F9EBF /* LanguageCache.swift */; };
 		5F2C4BD02969731E00D0285D /* Ex+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2C4BCF2969731E00D0285D /* Ex+String.swift */; };
+		5F2C4BD32969855100D0285D /* EndTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2C4BD12969855100D0285D /* EndTaskVC.swift */; };
+		5F2C4BD42969855100D0285D /* EndTaskVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2C4BD22969855100D0285D /* EndTaskVC.xib */; };
 		5F397BBF296869410059A1B0 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F397BBD296869410059A1B0 /* EditProfileVC.swift */; };
 		5F397BC0296869410059A1B0 /* EditProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F397BBE296869410059A1B0 /* EditProfileVC.xib */; };
 		A7B44C3ECBD77BF770A2BFB3 /* Pods_Task_Managment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085BCAAB5C6C7959AD3C5AF6 /* Pods_Task_Managment.framework */; };
@@ -60,10 +61,7 @@
 		41C606CF29686512001BF536 /* LanguageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTVC.swift; sourceTree = "<group>"; };
 		41C606D029686512001BF536 /* LanguageTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageTVC.xib; sourceTree = "<group>"; };
 		41C606D329686760001BF536 /* LanguageDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDM.swift; sourceTree = "<group>"; };
-		41C606D529687316001BF536 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		463C7CDD1E2BFC1B3791599C /* Pods-Task_Managment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.release.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.release.xcconfig"; sourceTree = "<group>"; };
-		3A3C209F8C62A39FD659B873 /* Pods-Task_Managment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.release.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.release.xcconfig"; sourceTree = "<group>"; };
-		4E53EB6BB3E48BE9AC6D334F /* Pods-Task_Managment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.debug.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.debug.xcconfig"; sourceTree = "<group>"; };
 		524022EC296948A3003C17CE /* DayCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCVC.swift; sourceTree = "<group>"; };
 		524022ED296948A3003C17CE /* DayCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCVC.xib; sourceTree = "<group>"; };
 		524022F12969557A003C17CE /* StatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVC.swift; sourceTree = "<group>"; };
@@ -100,6 +98,8 @@
 		5F01849629685D2A005F9EBF /* LanguageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageVC.swift; sourceTree = "<group>"; };
 		5F01849829685D55005F9EBF /* LanguageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCache.swift; sourceTree = "<group>"; };
 		5F2C4BCF2969731E00D0285D /* Ex+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+String.swift"; sourceTree = "<group>"; };
+		5F2C4BD12969855100D0285D /* EndTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndTaskVC.swift; sourceTree = "<group>"; };
+		5F2C4BD22969855100D0285D /* EndTaskVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EndTaskVC.xib; sourceTree = "<group>"; };
 		5F397BBD296869410059A1B0 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		5F397BBE296869410059A1B0 /* EditProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileVC.xib; sourceTree = "<group>"; };
 		E08D7915ABBC43DEA538AD38 /* Pods-Task_Managment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.debug.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49BCBD14A7B77DFFEB972F93 /* BuildFile in Frameworks */,
+				49BCBD14A7B77DFFEB972F93 /* (null) in Frameworks */,
 				A7B44C3ECBD77BF770A2BFB3 /* Pods_Task_Managment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				5F01846229685824005F9EBF /* Ex+UIView.swift */,
-				41C606D529687316001BF536 /* ShadowView.swift */,
 				5F01846329685824005F9EBF /* Ex+UIViewController.swift */,
 				5F01849829685D55005F9EBF /* LanguageCache.swift */,
 				5F2C4BCF2969731E00D0285D /* Ex+String.swift */,
@@ -261,6 +260,7 @@
 				5F397BBD296869410059A1B0 /* EditProfileVC.swift */,
 				4162489F296962260080C77A /* TaskVC.swift */,
 				524022F12969557A003C17CE /* StatisticsVC.swift */,
+				5F2C4BD12969855100D0285D /* EndTaskVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -278,6 +278,7 @@
 				5F397BBE296869410059A1B0 /* EditProfileVC.xib */,
 				416248A0296962260080C77A /* TaskVC.xib */,
 				524022F22969557A003C17CE /* StatisticsVC.xib */,
+				5F2C4BD22969855100D0285D /* EndTaskVC.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -369,6 +370,7 @@
 				5F0184782968588C005F9EBF /* HomeVC.xib in Resources */,
 				5F01849129685CEF005F9EBF /* SignUpVC.xib in Resources */,
 				416248A2296962260080C77A /* TaskVC.xib in Resources */,
+				5F2C4BD42969855100D0285D /* EndTaskVC.xib in Resources */,
 				5F01846F29685881005F9EBF /* SettingsTVC.xib in Resources */,
 				5F01845E29685819005F9EBF /* LexendDeca-SemiBold.ttf in Resources */,
 			);
@@ -426,6 +428,7 @@
 				41C606D429686760001BF536 /* LanguageDM.swift in Sources */,
 				5F01849929685D55005F9EBF /* LanguageCache.swift in Sources */,
 				524022F32969557A003C17CE /* StatisticsVC.swift in Sources */,
+				5F2C4BD32969855100D0285D /* EndTaskVC.swift in Sources */,
 				5F018485296858A2005F9EBF /* ProfileVC.swift in Sources */,
 				416248A1296962260080C77A /* TaskVC.swift in Sources */,
 				5F01846A2968586F005F9EBF /* TaskTVC.swift in Sources */,
@@ -443,7 +446,6 @@
 				41C606D129686512001BF536 /* LanguageTVC.swift in Sources */,
 				5F01849529685D08005F9EBF /* SignUpVC.swift in Sources */,
 				5F01846529685824005F9EBF /* Ex+UIViewController.swift in Sources */,
-				41C606D629687316001BF536 /* ShadowView.swift in Sources */,
 				5F018488296858A2005F9EBF /* StartVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

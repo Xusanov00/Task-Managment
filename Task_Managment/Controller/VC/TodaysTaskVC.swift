@@ -54,7 +54,6 @@ class TodaysTaskVC: UIViewController {
     @IBAction func btnTapped(_ sender: UIButton) {
         setBackColor(tag: sender.tag)
          num = sender.tag
-        print(<#T##items: Any...##Any#>)
         tableView.reloadData()
     }
     

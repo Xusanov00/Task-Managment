@@ -18,23 +18,15 @@ class TaskVC: UIViewController {
     fileprivate weak var calendar: FSCalendar!
     
     var taskArr: [TaskDM] = [
-        TaskDM(topic: "Topic1", definition: "Definition1", time: "12:00 - 18-00", priority: "Completed"),
-        TaskDM(topic: "Topic1", definition: "Definition2", time: "12:00 - 18-00", priority: "In Progress"),
-        TaskDM(topic: "Topic1", definition: "Definition3", time: "12:00 - 18-00", priority: "To Do"),
-        TaskDM(topic: "Topic1", definition: "Definition4", time: "12:00 - 18-00", priority: "Completed"),
-        TaskDM(topic: "Topic1", definition: "Definition5", time: "12:00 - 18-00", priority: "To Do"),
-        TaskDM(topic: "Topic1", definition: "Definition6", time: "12:00 - 18-00", priority: "In Progress"),
-        TaskDM(topic: "Topic1", definition: "Definition7", time: "12:00 - 18-00", priority: "Completed"),
-        TaskDM(topic: "Topic1", definition: "Definition8", time: "12:00 - 18-00", priority: "To Do"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "In Progress"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "In Progress"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
     ]
-    
-//    var arr = ["Complation",
-//                   "In Progress",
-//                   "Complation",
-//                   "In Progress",
-//                   "Complation",
-//                   "To Do", "Complation",
-//                   "Complation", "To Do"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

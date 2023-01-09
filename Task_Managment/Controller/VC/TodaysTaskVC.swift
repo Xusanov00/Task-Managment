@@ -16,14 +16,14 @@ class TodaysTaskVC: UIViewController {
     @IBOutlet weak var taskTableView: UITableView!
     var num = 0
     var taskArr: [TaskDM] = [
-        TaskDM(topic: "Topic1", definition: "Definition1", time: "12:00 - 18-00", priority: "Completed"),
-        TaskDM(topic: "Topic2", definition: "Definition2", time: "12:00 - 18-00", priority: "In Progress"),
-        TaskDM(topic: "Topic3", definition: "Definition3", time: "12:00 - 18-00", priority: "To Do"),
-        TaskDM(topic: "Topic4", definition: "Definition4", time: "12:00 - 18-00", priority: "Completed"),
-        TaskDM(topic: "Topic5", definition: "Definition5", time: "12:00 - 18-00", priority: "To Do"),
-        TaskDM(topic: "Topic6", definition: "Definition6", time: "12:00 - 18-00", priority: "In Progress"),
-        TaskDM(topic: "Topic7", definition: "Definition7", time: "12:00 - 18-00", priority: "Completed"),
-        TaskDM(topic: "Topic8", definition: "Definition8", time: "12:00 - 18-00", priority: "To Do"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "In Progress"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "In Progress"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
     ]
     var sortedTasks: [TaskDM] = []
     

@@ -96,7 +96,7 @@ extension TodaysTaskVC:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = .black
-        navigationController?.pushViewController(StartTaskVC.loadFromNib(), animated: true)
+        self.navigationController?.pushViewController(StartTaskVC.loadFromNib(), animated: true)
     }
 }
 

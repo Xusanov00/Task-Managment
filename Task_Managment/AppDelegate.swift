@@ -20,7 +20,7 @@ var window: UIWindow?
         if #available(iOS 13.0, *) {
                     window!.overrideUserInterfaceStyle = .light
                 }
-        let navvc = UINavigationController(rootViewController: StartVC.loadFromNib())
+        let navvc = UINavigationController(rootViewController: SignUpVC.loadFromNib())
         window?.rootViewController = navvc
         window?.makeKeyAndVisible()
         return true

@@ -11,22 +11,25 @@ import Alamofire
 
 class API {
     
-    static let url:String = "https://instagram47.p.rapidapi.com/user_following"
+    static let url:String = "https://taskbotapi.roundedteam.uz"
     
-    static func getData(number:Int,complation:@escaping ([String])->Void) {
-        let param:[String:Any] = ["userid":number]
-        let headers:HTTPHeaders = [
-            "X-RapidAPI-Key": "72f6496a11msha94dc1981014c21p1637d5jsne65d5bf63dbe",
-            "X-RapidAPI-Host": "instagram47.p.rapidapi.com"
+    
+    
+    static func getData(number:String,password:String,complation:@escaping (DataDM)->Void) {
+        let param:[String:Any] = [
+            "phoneNumber": number,
+            "password": password
         ]
-        NET.sendRequest(to: url, method: .get, param: param, headers: headers) { data in
-//            guard let data = data else {return}
-//            let info = data["body"]["users"].array
-//            guard let info = info else {return}
-//            let myData = info
-//            complation(myData)
+        
+        NET.sendRequest(to: url + "/login", method: .post, param: param) { data in
+            guard let data = data else {return }
+                let info = data["data"]
+                print("jsondata=",DataDM(json: info))
+                complation(DataDM(json: info))
+            
         }
     }
+    
      
     
 }

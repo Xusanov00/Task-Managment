@@ -15,4 +15,6 @@ target 'Task_Managment' do
   pod 'DTPagerController'
   pod'Alamofire'
   pod'SwiftyJSON'
+  pod'PasswordTextField'
+  pod'lottie-ios'
 end

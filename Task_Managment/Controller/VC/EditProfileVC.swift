@@ -28,7 +28,7 @@ class EditProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.title = "Profile Edit"
         settingShadowViewsAndBtns()
         setDatePicker()
     }

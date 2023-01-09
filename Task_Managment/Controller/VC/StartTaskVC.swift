@@ -32,4 +32,13 @@ class StartTaskVC: UIViewController {
         navigationController?.pushViewController(ChatsVC.loadFromNib(), animated: true)
     }
     
+    
+    @IBAction func startTaskTapped(_ sender: Any) {
+        self.navigationItem.backButtonTitle = ""
+        navigationController?.pushViewController(EndTaskVC.loadFromNib(), animated: true)
+        
+    }
+    
+    
+    
 }

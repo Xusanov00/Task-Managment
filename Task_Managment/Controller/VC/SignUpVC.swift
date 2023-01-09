@@ -17,6 +17,7 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var numberTF: PhoneNumberTextField!
     @IBOutlet weak var passwordTF: UIView!
     
+    @IBOutlet weak var passTf: PasswordTextField!
     
     @IBOutlet weak var continueBtn: UIButton!
     override func viewDidLoad() {
@@ -26,8 +27,21 @@ class SignUpVC: UIViewController {
         continueBtn.addShadow(cornerRadius: 12)
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = .black
+        
+        DispatchQueue.main.async {
+            if Reachability.isConnectedToNetwork() {
+                Loader.stop()
+            } else {
+                Loader.start()
+            }
+        }
 
     }
+    
+    
+    
+    
+    
     
     //language details
     func setLanguage() {
@@ -62,9 +76,29 @@ class SignUpVC: UIViewController {
 
     
     @IBAction func continueTapped(_ sender: UIButton) {
-            let vc = HomeVC(nibName: "HomeVC", bundle: nil)
-        navigationController?.pushViewController(vc, animated: true)
+        let num = numberTF.text!.replacingOccurrences(of: " ", with: "")
+        let pass = passTf.text!
+        if Reachability.isConnectedToNetwork() {
+            Loader.start()
+            getData(num: num, pass: pass)
+        } else {
+            Loader.start()
+            showErrorAlert(title: "No network connection", message: "")
+            Loader.stop()
+        }
+       
     }
+    
+    func getData (num:String,pass:String) {
+        API.getData(number: num, password: passTf.text!) { data in
+            print("data11=",num == data.phoneNumber)
+            if num == data.phoneNumber, pass == data.password {
+                Loader.stop()
+                self.navigationController?.pushViewController(HomeVC.loadFromNib(), animated: true)
+            }
+        }
+    }
+    
     
 }
 

@@ -42,6 +42,13 @@ class ProfileVC: UIViewController {
         
     }
     
+   
+    
+    
+    
+    
+    
+    
     func setUpNav() {
         self.navigationItem.backBarButtonItem?.image = UIImage(systemName: "chevron.left")
         self.navigationItem.title = "Profile"

@@ -30,6 +30,17 @@ class API {
         }
     }
     
+    static func getProfile(complation:@escaping (DataDM)->Void) {
+        NET.sendRequest(to: url + "/user", method: .get, param: nil) { data in
+            guard let data = data else {return}
+            let myData = DataDM(json: data["data"])
+            complation(myData)
+        }
+    }
+    
+    
+    
+    
      
     
 }

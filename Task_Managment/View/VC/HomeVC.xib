@@ -45,12 +45,17 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="F1T-4O-ja2">
                                                     <rect key="frame" x="0.0" y="0.0" width="238.66666666666666" height="46"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileImage" translatesAutoresizingMaskIntoConstraints="NO" id="JY2-QJ-pXp">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="JY2-QJ-pXp">
                                                             <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="JY2-QJ-pXp" secondAttribute="height" id="Z7f-Hd-F87"/>
                                                                 <constraint firstAttribute="height" constant="46" id="nwr-D6-16o"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="23"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="iuS-3o-zMK">
                                                             <rect key="frame" x="65.999999999999986" y="0.0" width="172.66666666666663" height="46"/>
@@ -290,9 +295,9 @@
         </view>
     </objects>
     <resources>
+        <image name="ProfileImage" width="840" height="881"/>
         <image name="Tick" width="32" height="32"/>
         <image name="bell.badge" catalog="system" width="125" height="128"/>
-        <image name="profileImage" width="92" height="92"/>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

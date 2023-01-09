@@ -259,6 +259,9 @@
                                     <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="startTaskTapped:" destination="-1" eventType="touchUpInside" id="sUL-e2-Ie8"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>

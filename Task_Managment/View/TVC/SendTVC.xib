@@ -23,36 +23,61 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iah-ug-3PX">
-                        <rect key="frame" x="10" y="22" width="300" height="75"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fK7-kP-d1N">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwV-Nd-IdE">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="75"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u30-p6-U0O">
-                                <rect key="frame" x="150" y="0.0" width="150" height="75"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="iah-ug-3PX">
+                                <rect key="frame" x="10" y="10" width="300" height="99"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENo-Bx-8gH">
-                                        <rect key="frame" x="12" y="12" width="126" height="51"/>
-                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwV-Nd-IdE">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="99"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u30-p6-U0O">
+                                        <rect key="frame" x="150" y="0.0" width="150" height="99"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENo-Bx-8gH">
+                                                <rect key="frame" x="12" y="12" width="126" height="75"/>
+                                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="ENo-Bx-8gH" secondAttribute="bottom" constant="12" id="Xxb-fs-c1F"/>
+                                            <constraint firstItem="ENo-Bx-8gH" firstAttribute="leading" secondItem="u30-p6-U0O" secondAttribute="leading" constant="12" id="isd-1e-UwJ"/>
+                                            <constraint firstItem="ENo-Bx-8gH" firstAttribute="top" secondItem="u30-p6-U0O" secondAttribute="top" constant="12" id="lzW-lq-pGx"/>
+                                            <constraint firstAttribute="trailing" secondItem="ENo-Bx-8gH" secondAttribute="trailing" constant="12" id="xDv-yN-rY4"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="ENo-Bx-8gH" secondAttribute="bottom" constant="12" id="Xxb-fs-c1F"/>
-                                    <constraint firstItem="ENo-Bx-8gH" firstAttribute="leading" secondItem="u30-p6-U0O" secondAttribute="leading" constant="12" id="isd-1e-UwJ"/>
-                                    <constraint firstItem="ENo-Bx-8gH" firstAttribute="top" secondItem="u30-p6-U0O" secondAttribute="top" constant="12" id="lzW-lq-pGx"/>
-                                    <constraint firstAttribute="trailing" secondItem="ENo-Bx-8gH" secondAttribute="trailing" constant="12" id="xDv-yN-rY4"/>
-                                </constraints>
-                            </view>
+                            </stackView>
                         </subviews>
-                    </stackView>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iah-ug-3PX" secondAttribute="trailing" constant="10" id="Tey-Gu-LR6"/>
+                            <constraint firstItem="iah-ug-3PX" firstAttribute="top" secondItem="fK7-kP-d1N" secondAttribute="top" constant="10" id="fUg-mi-o5c"/>
+                            <constraint firstItem="iah-ug-3PX" firstAttribute="leading" secondItem="fK7-kP-d1N" secondAttribute="leading" constant="10" id="hPw-ET-yko"/>
+                            <constraint firstAttribute="bottom" secondItem="iah-ug-3PX" secondAttribute="bottom" constant="10" id="n1I-Zj-7wg"/>
+                        </constraints>
+                    </view>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="fK7-kP-d1N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="01t-dP-Eld"/>
+                    <constraint firstItem="fK7-kP-d1N" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BuL-RA-XsZ"/>
+                    <constraint firstAttribute="bottom" secondItem="fK7-kP-d1N" secondAttribute="bottom" id="DkN-QJ-wTs"/>
+                    <constraint firstAttribute="trailing" secondItem="fK7-kP-d1N" secondAttribute="trailing" id="iTQ-Fz-tm2"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <constraints>
+                <constraint firstItem="fK7-kP-d1N" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" id="VOo-OK-6Yz"/>
+            </constraints>
+            <connections>
+                <outlet property="backV" destination="u30-p6-U0O" id="2hq-Ls-elE"/>
+                <outlet property="messageLbl" destination="ENo-Bx-8gH" id="W7L-or-OFB"/>
+            </connections>
             <point key="canvasLocation" x="184.73282442748092" y="-29.225352112676056"/>
         </tableViewCell>
     </objects>

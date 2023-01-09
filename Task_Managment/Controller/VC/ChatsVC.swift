@@ -29,6 +29,7 @@ class ChatsVC: UIViewController {
     func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "GetTVC", bundle: nil), forCellReuseIdentifier: "GetTVC")
         tableView.register(UINib(nibName: "SendTVC", bundle: nil), forCellReuseIdentifier: "SendTVC")
     }
@@ -42,9 +43,9 @@ extension ChatsVC:UITableViewDataSource {
         2
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let getcell = tableView.dequeueReusableCell(withIdentifier: "GetTVC", for: indexPath) as? GetTVC else {return UITableViewCell()}
+//        guard let getcell = tableView.dequeueReusableCell(withIdentifier: "GetTVC", for: indexPath) as? GetTVC else {return UITableViewCell()}
         guard let sendcell = tableView.dequeueReusableCell(withIdentifier: "SendTVC", for: indexPath) as? SendTVC else {return UITableViewCell()}
-       
+        sendcell.backV.layer.cornerRadius = sendcell.backV.layer.bounds.height/2
        
         return sendcell
     }

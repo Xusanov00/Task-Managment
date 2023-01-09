@@ -23,32 +23,32 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="hGz-IF-YMx">
-                        <rect key="frame" x="16" y="8" width="148" height="40"/>
+                        <rect key="frame" x="16" y="10" width="148" height="36"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="peP-d9-bLR">
-                                <rect key="frame" x="0.0" y="10" width="71" height="20"/>
+                                <rect key="frame" x="0.0" y="5.6666666666666643" width="74" height="25"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DGG-AO-U8D">
-                                        <rect key="frame" x="0.0" y="2.6666666666666652" width="18" height="15.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="2" width="24" height="21.333333333333336"/>
                                         <color key="tintColor" red="0.32156862749999998" green="0.3921568627" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="18" id="TRJ-YQ-k7G"/>
+                                            <constraint firstAttribute="height" constant="24" id="TRJ-YQ-k7G"/>
                                             <constraint firstAttribute="width" secondItem="DGG-AO-U8D" secondAttribute="height" id="VYC-Na-uKb"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BU-6D-alw">
-                                        <rect key="frame" x="28" y="0.0" width="43" height="20"/>
-                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="16"/>
+                                        <rect key="frame" x="34" y="0.0" width="40" height="25"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Qzj-O2-fLe">
-                                <rect key="frame" x="130" y="12.999999999999998" width="18" height="14.333333333333329"/>
+                                <rect key="frame" x="124" y="7.9999999999999982" width="24" height="20.333333333333329"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="18" id="IL9-H9-Z9l"/>
+                                    <constraint firstAttribute="height" constant="24" id="IL9-H9-Z9l"/>
                                     <constraint firstAttribute="width" secondItem="Qzj-O2-fLe" secondAttribute="height" id="NBO-mf-ymZ"/>
                                 </constraints>
                             </imageView>
@@ -57,9 +57,9 @@
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="hGz-IF-YMx" secondAttribute="bottom" constant="8" id="CwU-dx-i0m"/>
+                    <constraint firstAttribute="bottom" secondItem="hGz-IF-YMx" secondAttribute="bottom" constant="10" id="CwU-dx-i0m"/>
                     <constraint firstAttribute="trailing" secondItem="hGz-IF-YMx" secondAttribute="trailing" constant="20" id="N3L-kp-Xz9"/>
-                    <constraint firstItem="hGz-IF-YMx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="OHJ-TV-3ds"/>
+                    <constraint firstItem="hGz-IF-YMx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="OHJ-TV-3ds"/>
                     <constraint firstItem="hGz-IF-YMx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ppJ-2V-o68"/>
                 </constraints>
             </tableViewCellContentView>

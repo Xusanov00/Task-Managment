@@ -44,7 +44,7 @@ class ProfileVC: UIViewController {
     
     func setUpNav() {
         self.navigationItem.backBarButtonItem?.image = UIImage(systemName: "chevron.left")
-        self.navigationItem.title = "Profile Edit"
+        self.navigationItem.title = "Profile"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
         let alertBtn = UIBarButtonItem(image: UIImage(systemName: "bell.badge"), style: .done, target: self, action: #selector(alertTapped))
         
@@ -61,7 +61,9 @@ class ProfileVC: UIViewController {
     }
     
     @objc func alertTapped() {
-        //Alert
+        let vc = ChatsVC(nibName: "ChatsVC", bundle: nil)
+        vc.navigationItem.backButtonTitle = ""
+        navigationController?.pushViewController(ChatsVC.loadFromNib(), animated: true)
     }
 
 }
@@ -69,15 +71,31 @@ class ProfileVC: UIViewController {
 //MARK: - UITableViewDelegate
 extension ProfileVC: UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        let footerView = UIView()
-//        footerView.backgroundColor = .white
-//        return footerView
-//    }
-//    
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 10
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var index = 0
+        if indexPath.section == 0 {
+            index = indexPath.row
+        }else {
+            index = indexPath.row+3
+        }
+        
+        var vc = UIViewController()
+        
+        switch index {
+        case 0:
+            vc = EditProfileVC.loadFromNib()
+        case 1:
+            vc = TaskVC.loadFromNib()
+        case 2:
+            vc = StatisticsVC.loadFromNib()
+        default:
+            vc = StartVC.loadFromNib()
+        }
+        if vc != UIViewController() {
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
 
 }
 

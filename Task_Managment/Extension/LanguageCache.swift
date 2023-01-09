@@ -13,6 +13,7 @@ let cache = UserDefaults.standard
 //MARK: - enum for KeysDM
 enum KeysDM: String {
     case language = "APPLANGUAGE"
+    case token = "TOKEN"
 }
 
 enum LanguageEnum: String {

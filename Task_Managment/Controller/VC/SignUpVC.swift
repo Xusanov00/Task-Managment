@@ -91,10 +91,18 @@ class SignUpVC: UIViewController {
     
     func getData (num:String,pass:String) {
         API.getData(number: num, password: passTf.text!) { data in
+            Loader.stop()
             print("data11=",num == data.phoneNumber)
-            if num == data.phoneNumber, pass == data.password {
-                Loader.stop()
-                self.navigationController?.pushViewController(HomeVC.loadFromNib(), animated: true)
+            if num != "" ,pass != "" {
+                if num == data.phoneNumber, pass == data.password {
+                    SetCache.saveCache(for: data.token, for: KeysDM.token)
+                    self.navigationController?.pushViewController(HomeVC.loadFromNib(), animated: true)
+                } else {
+                    self.showErrorAlert(title: "Error", message: "Malumot kiritishda xatolik bor yoki bunday foydalanuvchi mavjud emas")
+                    
+                }
+            }else {
+                self.showErrorAlert(title: "Error", message: "iltimos raqam yoki passwordni kiriting")
             }
         }
     }

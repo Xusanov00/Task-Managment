@@ -26,8 +26,12 @@
                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iah-ug-3PX">
                         <rect key="frame" x="10" y="22" width="300" height="75"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u30-p6-U0O">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwV-Nd-IdE">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="75"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u30-p6-U0O">
+                                <rect key="frame" x="150" y="0.0" width="150" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENo-Bx-8gH">
                                         <rect key="frame" x="12" y="12" width="126" height="51"/>
@@ -43,10 +47,6 @@
                                     <constraint firstItem="ENo-Bx-8gH" firstAttribute="top" secondItem="u30-p6-U0O" secondAttribute="top" constant="12" id="lzW-lq-pGx"/>
                                     <constraint firstAttribute="trailing" secondItem="ENo-Bx-8gH" secondAttribute="trailing" constant="12" id="xDv-yN-rY4"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwV-Nd-IdE">
-                                <rect key="frame" x="150" y="0.0" width="150" height="75"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                     </stackView>

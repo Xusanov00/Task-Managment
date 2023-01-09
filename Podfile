@@ -13,4 +13,6 @@ target 'Task_Managment' do
   pod 'IQKeyboardManagerSwift'
   pod 'CircleProgressView'
   pod 'DTPagerController'
+  pod'Alamofire'
+  pod'SwiftyJSON'
 end

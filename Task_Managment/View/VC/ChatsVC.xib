@@ -18,6 +18,7 @@
             <connections>
                 <outlet property="backV" destination="5WE-rR-yG6" id="foq-Y0-u0Q"/>
                 <outlet property="sendBtn" destination="TZ5-4D-t0p" id="1VL-us-uqU"/>
+                <outlet property="tableView" destination="FLu-ZZ-snD" id="gLk-ZM-zGW"/>
                 <outlet property="textTf" destination="ww1-ZA-HVv" id="Nmx-C4-Dbp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

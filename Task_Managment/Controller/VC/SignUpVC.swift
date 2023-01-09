@@ -82,9 +82,6 @@ class SignUpVC: UIViewController {
             Loader.start()
             getData(num: num, pass: pass)
         } else {
-            Loader.start()
-            showErrorAlert(title: "No network connection", message: "")
-            Loader.stop()
         }
        
     }

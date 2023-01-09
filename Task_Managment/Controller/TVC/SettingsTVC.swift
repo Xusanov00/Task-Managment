@@ -32,5 +32,8 @@ class SettingsTVC: UITableViewCell {
         iconImg.tintColor = data.tintColor
         titleLbl.text = data.title
         titleLbl.textColor = data.titleColor
+        if data.title == "Logout" {
+            chevronImg.alpha = 0
+        }
     }
 }

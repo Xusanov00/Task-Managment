@@ -1,0 +1,59 @@
+PODS:
+  - Alamofire (5.6.4)
+  - Charts (4.1.0):
+    - Charts/Core (= 4.1.0)
+  - Charts/Core (4.1.0):
+    - SwiftAlgorithms (~> 1.0)
+  - CircleProgressView (1.2.0)
+  - DTPagerController (3.1.2)
+  - FSCalendar (2.8.4)
+  - IQKeyboardManagerSwift (6.5.10)
+  - PhoneNumberKit (3.3.4):
+    - PhoneNumberKit/PhoneNumberKitCore (= 3.3.4)
+    - PhoneNumberKit/UIKit (= 3.3.4)
+  - PhoneNumberKit/PhoneNumberKitCore (3.3.4)
+  - PhoneNumberKit/UIKit (3.3.4):
+    - PhoneNumberKit/PhoneNumberKitCore
+  - SnapKit (5.6.0)
+  - SwiftAlgorithms (1.0.0)
+  - SwiftyJSON (5.0.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - Charts
+  - CircleProgressView
+  - DTPagerController
+  - FSCalendar
+  - IQKeyboardManagerSwift
+  - PhoneNumberKit
+  - SnapKit
+  - SwiftyJSON
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Charts
+    - CircleProgressView
+    - DTPagerController
+    - FSCalendar
+    - IQKeyboardManagerSwift
+    - PhoneNumberKit
+    - SnapKit
+    - SwiftAlgorithms
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  Charts: 354f86803d11d9c35de280587fef50d1af063978
+  CircleProgressView: 6b5b091d59dc5e5d2fda84e637a40498cdc39937
+  DTPagerController: 91769c8711ad390bb48a984f3f1989712110e3f5
+  FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
+  IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
+  PhoneNumberKit: 441e8b26ec88d598e3591de9061eff18f5dd12e8
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+
+PODFILE CHECKSUM: 1f5efe5b67325f032d464bf7cded6f1eddfc0e25
+
+COCOAPODS: 1.11.3

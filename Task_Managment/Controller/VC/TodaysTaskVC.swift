@@ -95,7 +95,7 @@ extension TodaysTaskVC:UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTVC", for: indexPath) as? TaskTVC else {return UITableViewCell()}
-        
+        cell.shadowV.addShadow(cornerRadius: 12)
         cell.updateCell(str: str[indexPath.row])
         
         if self.num == 1 {

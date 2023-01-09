@@ -71,15 +71,31 @@ class ProfileVC: UIViewController {
 //MARK: - UITableViewDelegate
 extension ProfileVC: UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        let footerView = UIView()
-//        footerView.backgroundColor = .white
-//        return footerView
-//    }
-//    
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 10
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var index = 0
+        if indexPath.section == 0 {
+            index = indexPath.row
+        }else {
+            index = indexPath.row+3
+        }
+        
+        var vc = UIViewController()
+        
+        switch index {
+        case 0:
+            vc = EditProfileVC.loadFromNib()
+        case 1:
+            vc = TaskVC.loadFromNib()
+        case 2:
+            vc = StatisticsVC.loadFromNib()
+        default:
+            vc = StartVC.loadFromNib()
+        }
+        if vc != UIViewController() {
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
 
 }
 

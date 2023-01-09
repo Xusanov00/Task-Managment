@@ -82,19 +82,19 @@ class SignUpVC: UIViewController {
             Loader.start()
             getData(num: num, pass: pass)
         } else {
-            Loader.start()
-            showErrorAlert(title: "No network connection", message: "")
-            Loader.stop()
         }
        
     }
     
     func getData (num:String,pass:String) {
-        API.getData(number: num, password: passTf.text!) { data in
+        API.getData(number: num, password: passTf.text!) { [self] data in
             print("data11=",num == data.phoneNumber)
-            if num == data.phoneNumber, pass == data.password {
-                Loader.stop()
+            Loader.stop()
+            if num == data.phoneNumber, pass == data.password, !num.isEmpty, !pass.isEmpty {
+                
                 self.navigationController?.pushViewController(HomeVC.loadFromNib(), animated: true)
+            } else {
+                showErrorAlert(title: "Error", message: "Nimadir xato ketti!")
             }
         }
     }

@@ -23,7 +23,7 @@ public class Loader {
         
         load.frame = UIScreen.main.bounds
         
-        let customView = AnimationView()
+        let customView = LottieAnimationView()
         
         customView.frame = CGRect (x: 0, y: 0, width: 70, height: 70)
         
@@ -45,7 +45,7 @@ public class Loader {
         
         UIApplication.shared.keyWindow?.addSubview(load)
         
-        customView.animation = Animation.named("pulse" )
+        customView.animation = LottieAnimation.named("pulse" )
         
         customView.animationSpeed = 1.2
         

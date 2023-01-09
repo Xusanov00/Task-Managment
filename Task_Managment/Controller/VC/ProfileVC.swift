@@ -61,7 +61,9 @@ class ProfileVC: UIViewController {
     }
     
     @objc func alertTapped() {
-        //Alert
+        let vc = ChatsVC(nibName: "ChatsVC", bundle: nil)
+        vc.navigationItem.backButtonTitle = ""
+        navigationController?.pushViewController(ChatsVC.loadFromNib(), animated: true)
     }
 
 }

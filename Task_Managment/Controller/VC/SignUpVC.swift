@@ -7,6 +7,7 @@
 
 import UIKit
 import PhoneNumberKit
+import PasswordTextField
 
 
 class SignUpVC: UIViewController {
@@ -14,6 +15,7 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var signUpLbl: UILabel!
     @IBOutlet weak var signUpDescryptLbl: UILabel!
     @IBOutlet weak var numberTF: PhoneNumberTextField!
+    @IBOutlet weak var passwordTF: UIView!
     
     
     @IBOutlet weak var continueBtn: UIButton!
@@ -55,6 +57,7 @@ class SignUpVC: UIViewController {
         numberTF.withFlag = true
         numberTF.withExamplePlaceholder = true
         numberTF.addShadow(cornerRadius: 12)
+        passwordTF.addShadow(cornerRadius: 12)
     }
 
     

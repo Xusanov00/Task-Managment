@@ -34,6 +34,7 @@ class LanguageVC: UIViewController {
 
     @IBAction func continueTapped(_ sender: Any) {
         let vc = SignUpVC(nibName: "SignUpVC", bundle: nil)
+        self.navigationItem.backButtonTitle = ""
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -61,7 +62,7 @@ extension LanguageVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = langTablView.dequeueReusableCell(withIdentifier: LanguageTVC.id, for: indexPath) as? LanguageTVC else {return UITableViewCell()}
-        cell.addShadow(cornerRadius: 12)
+        cell.cellView.addShadow(cornerRadius: 12)
         cell.updateCell(cell: languageArr[indexPath.row])
         return cell
     }

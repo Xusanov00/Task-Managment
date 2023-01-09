@@ -52,7 +52,9 @@ class StatisticsVC: UIViewController, ChartViewDelegate {
         self.navigationItem.leftBarButtonItem?.tintColor = .black
     }
     @objc func notificTapped() {
-        
+         let vc = ChatsVC(nibName: "ChatsVC", bundle: nil)
+        vc.navigationItem.backButtonTitle = ""
+        navigationController?.pushViewController(ChatsVC.loadFromNib(), animated: true)
     }
 
 }

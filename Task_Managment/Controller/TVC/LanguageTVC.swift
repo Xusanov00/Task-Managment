@@ -27,7 +27,6 @@ class LanguageTVC: UITableViewCell {
     
     //updates cell details
     func updateCell(cell: LanguageDM) {
-        cellView.addShadow(cornerRadius: 12)
         flagImg.image = UIImage(named: cell.image)
         languageLbl.text = cell.language
     }

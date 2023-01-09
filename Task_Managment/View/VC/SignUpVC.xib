@@ -8,11 +8,18 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LexendDeca-Regular.ttf">
+            <string>LexendDeca-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
                 <outlet property="continueBtn" destination="HA3-qP-Py6" id="5oe-1C-OSQ"/>
                 <outlet property="numberTF" destination="uH9-LB-Iic" id="bPx-u7-pAS"/>
+                <outlet property="passTf" destination="7Px-Io-7V6" id="zjE-3L-WgP"/>
+                <outlet property="passwordTF" destination="slS-BT-y4o" id="JVT-TE-fib"/>
                 <outlet property="signUpDescryptLbl" destination="6Tl-VZ-YhX" id="oMx-30-aBU"/>
                 <outlet property="signUpLbl" destination="uTH-5f-XL0" id="kZC-om-h5U"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -30,7 +37,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="LcW-XU-azM">
-                                    <rect key="frame" x="24" y="180" width="345" height="204.33333333333337"/>
+                                    <rect key="frame" x="24" y="178.33333333333331" width="345" height="202.33333333333331"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="gd7-Qk-I1L">
                                             <rect key="frame" x="0.0" y="0.0" width="345" height="74.333333333333329"/>
@@ -42,7 +49,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up and start doing all your work with a plan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Tl-VZ-YhX">
-                                                    <rect key="frame" x="30" y="36" width="285" height="38.333333333333343"/>
+                                                    <rect key="frame" x="30" y="35.999999999999972" width="285" height="38.333333333333343"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.43137254901960786" green="0.41568627450980389" blue="0.48627450980392156" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -56,13 +63,13 @@
                                             </constraints>
                                         </stackView>
                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uH9-LB-Iic" customClass="PhoneNumberTextField" customModule="PhoneNumberKit">
-                                            <rect key="frame" x="0.0" y="98.333333333333314" width="345" height="48"/>
+                                            <rect key="frame" x="0.0" y="98.333333333333343" width="345" height="40"/>
                                             <color key="backgroundColor" systemColor="systemGray5Color"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="48" id="MNw-Jf-ywc"/>
+                                                <constraint firstAttribute="height" constant="40" id="MNw-Jf-ywc"/>
                                             </constraints>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -70,12 +77,34 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rKm-sp-IKl">
-                                            <rect key="frame" x="0.0" y="170.33333333333331" width="345" height="34"/>
-                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slS-BT-y4o">
+                                            <rect key="frame" x="0.0" y="162.33333333333334" width="345" height="40"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Px-Io-7V6" customClass="PasswordTextField" customModule="PasswordTextField">
+                                                    <rect key="frame" x="5" y="2" width="335" height="36"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="showToggleButtonWhile" value="editing"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="7Px-Io-7V6" firstAttribute="leading" secondItem="slS-BT-y4o" secondAttribute="leading" constant="5" id="6G9-2C-23L"/>
+                                                <constraint firstItem="7Px-Io-7V6" firstAttribute="top" secondItem="slS-BT-y4o" secondAttribute="top" constant="2" id="6Zu-Vx-ztb"/>
+                                                <constraint firstAttribute="bottom" secondItem="7Px-Io-7V6" secondAttribute="bottom" constant="2" id="8aB-W4-D8G"/>
+                                                <constraint firstAttribute="height" constant="40" id="VKM-tH-mDs"/>
+                                                <constraint firstAttribute="trailing" secondItem="7Px-Io-7V6" secondAttribute="trailing" constant="5" id="hvA-Eq-CGA"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="12"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Da1-Mx-Nxv">
@@ -150,11 +179,11 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="LcW-XU-azM" secondAttribute="trailing" constant="24" id="AeH-Mw-Wgf"/>
                                 <constraint firstAttribute="trailing" secondItem="Da1-Mx-Nxv" secondAttribute="trailing" constant="20" id="DUx-tC-ec6"/>
-                                <constraint firstItem="LcW-XU-azM" firstAttribute="top" secondItem="0cj-N1-gLZ" secondAttribute="top" constant="180" id="Ee5-dz-6KO"/>
+                                <constraint firstItem="LcW-XU-azM" firstAttribute="centerY" secondItem="0cj-N1-gLZ" secondAttribute="centerY" constant="-100" id="M7X-wx-edh"/>
                                 <constraint firstItem="Da1-Mx-Nxv" firstAttribute="leading" secondItem="0cj-N1-gLZ" secondAttribute="leading" constant="20" id="mAg-pM-Nxm"/>
                                 <constraint firstAttribute="bottom" secondItem="Da1-Mx-Nxv" secondAttribute="bottom" constant="34" id="qRr-p5-6zD"/>
                                 <constraint firstItem="LcW-XU-azM" firstAttribute="leading" secondItem="0cj-N1-gLZ" secondAttribute="leading" constant="24" id="sY9-Ir-RlZ"/>
@@ -183,14 +212,14 @@
         </view>
     </objects>
     <designables>
+        <designable name="7Px-Io-7V6">
+            <size key="intrinsicContentSize" width="65" height="19.333333333333332"/>
+        </designable>
         <designable name="uH9-LB-Iic">
-            <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="4" height="19.333333333333332"/>
         </designable>
     </designables>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

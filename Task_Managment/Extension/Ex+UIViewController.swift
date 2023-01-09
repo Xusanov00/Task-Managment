@@ -17,3 +17,26 @@ extension UIViewController {
         return instantiateFromNib()
     }
 }
+extension UIViewController {
+    
+    func showErrorAlert(title: String?, message: String?, completion: (() -> Void)? = nil) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "OK", style: .destructive) { (action) in
+            
+            if let _ = completion {
+                
+                completion!()
+                
+            }
+            
+        }
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+}

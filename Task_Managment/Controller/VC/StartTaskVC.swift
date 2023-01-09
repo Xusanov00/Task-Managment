@@ -27,7 +27,18 @@ class StartTaskVC: UIViewController {
     }
     
     @objc func alertTapped() {
-        //Alert
+        let vc = ChatsVC(nibName: "ChatsVC", bundle: nil)
+        vc.navigationItem.backButtonTitle = ""
+        navigationController?.pushViewController(ChatsVC.loadFromNib(), animated: true)
     }
+    
+    
+    @IBAction func startTaskTapped(_ sender: Any) {
+        self.navigationItem.backButtonTitle = ""
+        navigationController?.pushViewController(EndTaskVC.loadFromNib(), animated: true)
+        
+    }
+    
+    
     
 }

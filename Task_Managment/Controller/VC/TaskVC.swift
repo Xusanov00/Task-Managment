@@ -16,14 +16,24 @@ class TaskVC: UIViewController {
     @IBOutlet weak var taskTablView: UITableView!
     
     fileprivate weak var calendar: FSCalendar!
+    var taskArr: [TaskDM] = [
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "In Progress"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "In Progress"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
+    ]
     
-    var taskArr = ["Complation",
-                   "In Progress",
-                   "Complation",
-                   "In Progress",
-                   "Complation",
-                   "To Do", "Complation",
-                   "Complation", "To Do"]
+//    var taskArr = ["Complation",
+//                   "In Progress",
+//                   "Complation",
+//                   "In Progress",
+//                   "Complation",
+//                   "To Do", "Complation",
+//                   "Complation", "To Do"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +62,7 @@ extension TaskVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = taskTablView.dequeueReusableCell(withIdentifier: TaskTVC.id, for: indexPath) as? TaskTVC else {return UITableViewCell()}
-        cell.updateCell(str: taskArr[indexPath.row])
+        cell.updateCell(cell: taskArr[indexPath.row])
         return cell
     }
     

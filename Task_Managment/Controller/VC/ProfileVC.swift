@@ -44,7 +44,7 @@ class ProfileVC: UIViewController {
     
     func setUpNav() {
         self.navigationItem.backBarButtonItem?.image = UIImage(systemName: "chevron.left")
-        self.navigationItem.title = "Profile Edit"
+        self.navigationItem.title = "Profile"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
         let alertBtn = UIBarButtonItem(image: UIImage(systemName: "bell.badge"), style: .done, target: self, action: #selector(alertTapped))
         
@@ -61,7 +61,9 @@ class ProfileVC: UIViewController {
     }
     
     @objc func alertTapped() {
-        //Alert
+        let vc = ChatsVC(nibName: "ChatsVC", bundle: nil)
+        vc.navigationItem.backButtonTitle = ""
+        navigationController?.pushViewController(ChatsVC.loadFromNib(), animated: true)
     }
 
 }

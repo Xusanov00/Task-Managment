@@ -15,14 +15,23 @@ class TodaysTaskVC: UIViewController {
     @IBOutlet weak var backV: UIView!
     @IBOutlet weak var tableView: UITableView!
     var num = 0
-    var str = ["Complation","In Progress","Complation","In Progress","Complation","To Do", "Complation", "Complation", "To Do"]
+    var taskArr: [TaskDM] = [
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "In Progress"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "In Progress"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
+        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
+    ]
+    var sortedTasks: [TaskDM] = []
     var weeks:[String] = ["Du","Se","Chor","Pay","Ju","Shan","Yak"]
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.title = "Today’s task"
         self.navigationController?.navigationBar.tintColor = .black
-        backV.isHidden = true
         setUpNavigationV()
         setupTableView()
         setUpCollectionView()
@@ -90,38 +99,68 @@ extension TodaysTaskVC:UITableViewDelegate {
         navigationController?.pushViewController(StartTaskVC.loadFromNib(), animated: true)
     }
 }
+
+
 //MARK: - UITableViewDataSource
-extension TodaysTaskVC:UITableViewDataSource {
+extension TodaysTaskVC: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        str.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTVC", for: indexPath) as? TaskTVC else {return UITableViewCell()}
-        cell.shadowV.addShadow(cornerRadius: 12)
-        cell.updateCell(str: str[indexPath.row])
-        
-        if self.num == 1 {
-            if str[indexPath.row] == "Complation" {
-                return cell
-            }
-        } else  if self.num == 2 {
-            if str[indexPath.row] == "In Progress" {
-                return cell
-            }
-        }else if self.num == 3 {
-            if str[indexPath.row] == "To Do" {
-                return cell
-            }
+        switch num {
+        case 0:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr
+        case 1:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr.filter { $0.priority == "In Progress" }
+        case 2:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr.filter { $0.priority == "Completed" }
+        case 3:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr.filter { $0.priority == "To Do" }
+            
+        default:
+            print("")
         }
-        return cell
+        return sortedTasks.count
     }
-}
-//MARK: - UICollectionViewDelegate
-extension TodaysTaskVC:UICollectionViewDelegate {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: "TaskTVC", for: indexPath) as? TaskTVC else {return UITableViewCell()}
+        
+        
+        switch num {
+        case 0:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr
+        case 1:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr.filter { $0.priority == "In Progress" }
+        case 2:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr.filter { $0.priority == "Completed" }
+        case 3:
+            sortedTasks.removeAll()
+            sortedTasks = taskArr.filter { $0.priority == "To Do" }
+        default:
+            print("")
+        }
+        
+        cell.updateCell(cell: sortedTasks[indexPath.row])
+        return cell
+        
+    }
+    
     
 }
+
+
+
+
+
 //MARK: - UICollectionViewDataSource
 extension TodaysTaskVC:UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         weeks.count
     }
@@ -132,6 +171,8 @@ extension TodaysTaskVC:UICollectionViewDataSource {
         return cell
     }
 }
+
+
 //MARK: - UICollectionViewDelegate
 extension TodaysTaskVC:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

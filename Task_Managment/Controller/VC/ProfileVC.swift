@@ -9,7 +9,9 @@ import UIKit
 
 class ProfileVC: UIViewController {
     
+    @IBOutlet weak var fullnameLbl: UILabel!
     
+    @IBOutlet weak var numberLbl: UILabel!
     @IBOutlet var statusVs: [UIView]!
     
     @IBOutlet weak var tableView: UITableView!
@@ -28,6 +30,7 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         setUpNav()
         setUpTableView()
+        getData()
         self.navigationController?.navigationBar.tintColor = .black
         
     }
@@ -41,6 +44,21 @@ class ProfileVC: UIViewController {
         
         
     }
+    
+    func getData () {
+        Loader.start()
+        API.getProfile { data in
+            print("data=",data)
+            Loader.stop()
+            self.fullnameLbl.text = data.fullName
+            self.numberLbl.text = data.phoneNumber
+        }
+    }
+    
+    
+    
+    
+    
     
     func setUpNav() {
         self.navigationItem.backBarButtonItem?.image = UIImage(systemName: "chevron.left")

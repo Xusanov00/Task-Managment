@@ -6,15 +6,35 @@
 //
 
 import UIKit
+import CircleProgressView
 
 class StartTaskVC: UIViewController {
 
+    
+    
+    @IBOutlet weak var timerLbl: UILabel!
+    
+    @IBOutlet weak var progressView: CircleProgressView!
+    
+    
+    //variables
+    var progress = 0.0
+    var totalTime = 10.0
+    let totalProgress = 1.0
+    var timer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpNav()
-        
+        setProgressView()
     }
+    
+    func setProgressView() {
+        progressView.progress = progress
+    }
+    
+    
     
     func setUpNav() {
         self.navigationItem.backButtonTitle = ""
@@ -32,13 +52,8 @@ class StartTaskVC: UIViewController {
         navigationController?.pushViewController(ChatsVC.loadFromNib(), animated: true)
     }
     
-    
     @IBAction func startTaskTapped(_ sender: Any) {
-        self.navigationItem.backButtonTitle = ""
-        navigationController?.pushViewController(EndTaskVC.loadFromNib(), animated: true)
+        
         
     }
-    
-    
-    
 }

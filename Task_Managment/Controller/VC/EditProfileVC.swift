@@ -11,6 +11,8 @@ class EditProfileVC: UIViewController {
     
     @IBOutlet weak var camV: UIImageView!
     
+    @IBOutlet weak var profileImg: UIImageView!
+    
     @IBOutlet var tfViews: [UIView]!
     
     @IBOutlet weak var saveBtn: UIButton!
@@ -19,7 +21,17 @@ class EditProfileVC: UIViewController {
     
     @IBOutlet weak var phoneNumberTf: UITextField!
     
+    @IBOutlet weak var fullNameLbl: UILabel!
     
+    @IBOutlet weak var phoneNumberLbl: UILabel!
+    
+    @IBOutlet weak var nameTf: UITextField!
+    
+    @IBOutlet weak var lastnameTf: UITextField!
+    
+    
+    
+    var userData: UserDM?
     
     let datePicker = UIDatePicker()
     var birth = ""
@@ -28,9 +40,24 @@ class EditProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Profile Edit"
         settingShadowViewsAndBtns()
         setDatePicker()
+        setUI()
+    }
+    
+    
+    func setUI() {
+        self.navigationItem.title = "Profile Edit"
+        guard let data = userData else { return }
+        phoneNumberTf.text = data.phoneNumber
+        nameTf.text = data.fullName.components(separatedBy: " ")[0]
+        lastnameTf.text = data.fullName.components(separatedBy: " ")[1]
+        fullNameLbl.text = data.fullName
+        
+        
+        
+        
+        
     }
     
     
@@ -65,7 +92,7 @@ class EditProfileVC: UIViewController {
     
     @objc func doneDatePicker(){
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "dd-MM-yyyy"
         birth = formatter.string(from: datePicker.date)
         birthdateTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
@@ -85,12 +112,27 @@ class EditProfileVC: UIViewController {
         
         
         
+        
+        
         //MARK: - Formatter text
 //        guard let text = phoneNumberTf.text else { return }
 //        phoneNumberTf.text = text.applyPatternOnNumbers(pattern: "+### ## ### ## ##", replacementCharacter: "#")
     }
     
     
-    
-    
+    @IBAction func saveTapped(_ sender: Any) {
+        API.updateProfile(name: nameTf.text!, lastname: lastnameTf.text!, position: "NodeJS Developer", password: "123456") { [self] data in
+            updateUser(isUpdated: true)
+        }
+        
+    }
+
+}
+
+
+//MARK: - NotificationCenter
+extension EditProfileVC {
+    func updateUser(isUpdated: Bool) {
+        NotificationCenter.default.post(name: NSNotification.Name.init("UPDATEUSER"), object: isUpdated)
+    }
 }

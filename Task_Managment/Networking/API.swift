@@ -23,7 +23,8 @@ class API {
     //URLs
     
     static let loginByPhone: String = baseUrl+EndPoints.loginByPhoneURL
-    static let getProfile: String = baseUrl+EndPoints.getUpdtprofileURL
+    static let getProfile: String = baseUrl+EndPoints.getProfileURL
+    static let updateProfile: String = baseUrl+EndPoints.updateProfileURL
     static let getHr: String = baseUrl+EndPoints.getHRURL
     static let getImage: String = baseUrl+EndPoints.getImageURL
     
@@ -35,7 +36,7 @@ class API {
         ]
         
         NET.sendRequest(to: loginByPhone, method: .post, headers: nil, param: param) { data in
-            guard let data = data else {return }
+            guard let data = data else { return }
                 let info = data["data"]
                 complation(LoginUserDM(json: info))
             
@@ -43,22 +44,36 @@ class API {
     }
     
 
-    static func getProfile(complation:@escaping (LoginUserDM)->Void) {
+    static func getProfile(complation:@escaping (UserDM)->Void) {
 
         let header: HTTPHeaders = [
             "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
         ]
-        NET.sendRequest(to: getProfile, method: .get, headers:header ,param: nil) { data in
-            guard let data = data else {return}
-            let myData = LoginUserDM(json: data["data"])
+        NET.sendRequest(to: getProfile, method: .get, headers: header ,param: nil) { data in
+            guard let data = data else { return }
+            let myData = UserDM(json: data["data"])
             complation(myData)
         }
 
     }
     
-    
-    static func updateProfile(complation: @escaping ()->Void) {
+
+    static func updateProfile(name: String, lastname: String, position: String, password: String, complation: @escaping (UserDM)->Void) {
+        let header: HTTPHeaders = [
+            "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
+        ]
+        let params: [String: Any] = [
+            "fullName": name+" "+lastname,
+            "position": position,
+            "password": password
+        ]
         
+        NET.sendRequest(to: updateProfile, method: .put, headers: header, param: params) { data in
+            guard let data = data else { return }
+            let myData = UserDM(json: data["data"])
+            complation(myData)
+        }
+
     }
     
 }
@@ -68,7 +83,8 @@ extension API {
     
     enum EndPoints {
         static let loginByPhoneURL = "/login"
-        static let getUpdtprofileURL = "/user"
+        static let getProfileURL = "/user/myself"
+        static let updateProfileURL = "/user"
         static let getHRURL = "/user/hr"
         static let getImageURL = "/public/uploads/images/user.png"
         

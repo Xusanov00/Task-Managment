@@ -23,7 +23,12 @@
             <connections>
                 <outlet property="birthdateTextField" destination="pwJ-8S-1Ae" id="eh8-pi-Qqy"/>
                 <outlet property="camV" destination="DdB-II-IPN" id="Qdn-AF-kOQ"/>
+                <outlet property="fullNameLbl" destination="ZlG-67-MHY" id="zh0-m6-gFz"/>
+                <outlet property="lastnameTf" destination="TMv-pi-8ps" id="DGM-xO-vLO"/>
+                <outlet property="nameTf" destination="5TD-vL-XPm" id="1ru-PX-lh2"/>
+                <outlet property="phoneNumberLbl" destination="nb1-Bj-dax" id="XYx-9T-QmS"/>
                 <outlet property="phoneNumberTf" destination="29c-9v-lD1" id="po8-O8-vPd"/>
+                <outlet property="profileImg" destination="iDc-BX-wA5" id="W6q-Lu-4xf"/>
                 <outlet property="saveBtn" destination="IW3-DI-NmZ" id="dGF-pN-giW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="tfViews" destination="bh3-9W-Xwj" collectionClass="NSMutableArray" id="VRk-gI-WR9"/>
@@ -275,6 +280,9 @@
                                     <real key="value" value="12"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="saveTapped:" destination="-1" eventType="touchUpInside" id="8Bz-hp-8Bg"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>

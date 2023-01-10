@@ -19,30 +19,26 @@ class HomeVC: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
     @IBOutlet weak var fullnameLbl: UILabel!
     fileprivate weak var calendar: FSCalendar!
     
+    var userData: UserDM?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = .black
-        progressLbl.text = "\(progressV.progress * 100)%"
         self.navigationItem.hidesBackButton = true
         getData()
+        observeUserNotif()
     }
     
    
-    func getData () {
-        Loader.start()
-        API.getProfile { data in
-            print("data=",data)
-            Loader.stop()
-            self.fullnameLbl.text = data.fullName
-            self.numberLbl.text = data.phoneNumber
-        }
-    }
+
     
     
     @IBAction func profileBtnTapped(_ sender: Any) {
-        navigationController?.pushViewController(ProfileVC.loadFromNib(), animated: true)
+        let vc = ProfileVC.loadFromNib()
+        vc.userData = userData
+        navigationController?.pushViewController(vc, animated: true)
         navigationItem.backButtonTitle = ""
     }
     
@@ -70,3 +66,28 @@ class HomeVC: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
 
 }
 
+
+//MARK: Data from API
+extension HomeVC {
+    func getData () {
+        Loader.start()
+        API.getProfile {[self] data in
+            userData = data
+            guard let data = userData else { return }
+            self.fullnameLbl.text = data.fullName
+            self.numberLbl.text = data.phoneNumber
+            Loader.stop()
+            
+        }
+    }
+}
+
+extension HomeVC {
+    func observeUserNotif() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUser), name: NSNotification.Name.init("UPDATEUSER"), object: nil)
+    }
+    
+    @objc func updateUser() {
+        getData()
+    }
+}

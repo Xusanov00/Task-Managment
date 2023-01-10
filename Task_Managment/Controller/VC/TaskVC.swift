@@ -27,14 +27,6 @@ class TaskVC: UIViewController {
         TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
     ]
     
-//    var taskArr = ["Complation",
-//                   "In Progress",
-//                   "Complation",
-//                   "In Progress",
-//                   "Complation",
-//                   "To Do", "Complation",
-//                   "Complation", "To Do"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTaskTablView()

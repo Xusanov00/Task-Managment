@@ -9,9 +9,16 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
+
+
+
+enum EndPoint: String {
+    case
+}
+
 class API {
     
-    static let url:String = "https://taskbotapi.roundedteam.uz"
+    static let baseUrl:String = "https://taskbotapi.roundedteam.uz"
     
     
     
@@ -21,7 +28,7 @@ class API {
             "password": password
         ]
         
-        NET.sendRequest(to: url + "/login", method: .post, param: param) { data in
+        NET.sendRequest(to: baseUrl + "/login", method: .post, param: param) { data in
             guard let data = data else {return }
                 let info = data["data"]
                 print("jsondata=",DataDM(json: info))
@@ -33,3 +40,4 @@ class API {
      
     
 }
+

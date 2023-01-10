@@ -18,6 +18,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
+                <outlet property="fullnameLbl" destination="MHe-ca-1DK" id="3d1-Fb-Kzg"/>
+                <outlet property="numberLbl" destination="Yyi-47-O8Y" id="lvN-jW-4NJ"/>
                 <outlet property="tableView" destination="WMt-Fq-umK" id="oAL-Qb-x6r"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="statusVs" destination="Lcm-sB-zJe" collectionClass="NSMutableArray" id="WJx-Lw-zC9"/>

@@ -29,8 +29,8 @@ class SetCache {
     }
 
     //MARK: - func for getCache
-    class func getCache(for keyName: KeysDM) -> String {
-        cache.string(forKey: keyName.rawValue) ?? ""
+    class func getCache(for keyName: String) -> String {
+        cache.string(forKey: keyName) ?? ""
     }
 
     //MARK: - func for clearCache

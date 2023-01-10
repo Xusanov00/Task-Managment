@@ -45,7 +45,7 @@ class SignUpVC: UIViewController {
     
     //language details
     func setLanguage() {
-        switch SetCache.getCache(for: KeysDM.language) {
+        switch SetCache.getCache(for: KeysDM.language.rawValue) {
         case LanguageEnum.uz.rawValue:
             signUpLbl.text = "Ro'yhatdan o'tish"
             signUpDescryptLbl.text = "Ro'yhatdan o'ting va hamma ishingizni re'ja asosida qilishni boshlang"

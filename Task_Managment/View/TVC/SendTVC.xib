@@ -16,28 +16,28 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="119" id="KGk-i7-Jjw" customClass="SendTVC" customModule="Task_Managment" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="61" id="KGk-i7-Jjw" customClass="SendTVC" customModule="Task_Managment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fK7-kP-d1N">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="iah-ug-3PX">
-                                <rect key="frame" x="10" y="10" width="300" height="99"/>
+                                <rect key="frame" x="10" y="10" width="300" height="41"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwV-Nd-IdE">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="99"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="41"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u30-p6-U0O">
-                                        <rect key="frame" x="150" y="0.0" width="150" height="99"/>
+                                        <rect key="frame" x="150" y="0.0" width="150" height="41"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENo-Bx-8gH">
-                                                <rect key="frame" x="12" y="12" width="126" height="75"/>
+                                                <rect key="frame" x="12" y="8" width="126" height="25"/>
                                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -45,16 +45,21 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="ENo-Bx-8gH" secondAttribute="bottom" constant="12" id="Xxb-fs-c1F"/>
+                                            <constraint firstAttribute="bottom" secondItem="ENo-Bx-8gH" secondAttribute="bottom" constant="8" id="Xxb-fs-c1F"/>
                                             <constraint firstItem="ENo-Bx-8gH" firstAttribute="leading" secondItem="u30-p6-U0O" secondAttribute="leading" constant="12" id="isd-1e-UwJ"/>
-                                            <constraint firstItem="ENo-Bx-8gH" firstAttribute="top" secondItem="u30-p6-U0O" secondAttribute="top" constant="12" id="lzW-lq-pGx"/>
+                                            <constraint firstItem="ENo-Bx-8gH" firstAttribute="top" secondItem="u30-p6-U0O" secondAttribute="top" constant="8" id="lzW-lq-pGx"/>
                                             <constraint firstAttribute="trailing" secondItem="ENo-Bx-8gH" secondAttribute="trailing" constant="12" id="xDv-yN-rY4"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="iah-ug-3PX" secondAttribute="trailing" constant="10" id="Tey-Gu-LR6"/>
                             <constraint firstItem="iah-ug-3PX" firstAttribute="top" secondItem="fK7-kP-d1N" secondAttribute="top" constant="10" id="fUg-mi-o5c"/>
@@ -78,7 +83,7 @@
                 <outlet property="backV" destination="u30-p6-U0O" id="2hq-Ls-elE"/>
                 <outlet property="messageLbl" destination="ENo-Bx-8gH" id="W7L-or-OFB"/>
             </connections>
-            <point key="canvasLocation" x="184.73282442748092" y="-29.225352112676056"/>
+            <point key="canvasLocation" x="185" y="-52"/>
         </tableViewCell>
     </objects>
     <resources>

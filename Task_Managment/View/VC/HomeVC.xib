@@ -20,6 +20,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
                 <outlet property="calendarV" destination="DLg-ts-bXG" id="2ZV-nK-KRo"/>
+                <outlet property="fullnameLbl" destination="Scg-Ey-vpj" id="pVl-Ga-5sO"/>
+                <outlet property="numberLbl" destination="dSt-po-zTh" id="SIX-hV-2Bq"/>
                 <outlet property="progressLbl" destination="27J-h5-lAX" id="dYR-Vm-Jqd"/>
                 <outlet property="progressV" destination="JGT-v2-jvM" id="lmd-tW-Nzz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -45,7 +47,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="F1T-4O-ja2">
                                                     <rect key="frame" x="0.0" y="0.0" width="238.66666666666666" height="46"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="JY2-QJ-pXp">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileImage" translatesAutoresizingMaskIntoConstraints="NO" id="JY2-QJ-pXp">
                                                             <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="JY2-QJ-pXp" secondAttribute="height" id="Z7f-Hd-F87"/>
@@ -118,11 +120,11 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="947-w4-g7i">
                                                     <rect key="frame" x="0.0" y="0.0" width="194.33333333333334" height="100"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="30O-pk-LWZ">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="30O-pk-LWZ">
                                                             <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="40"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Today’s Tasks " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPs-3h-dZH">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="14"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="21"/>
                                                                     <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="16"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -174,8 +176,8 @@
                                                     <rect key="frame" x="234.33333333333331" y="0.0" width="100" height="100"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27J-h5-lAX">
-                                                            <rect key="frame" x="35.333333333333371" y="38" width="29.666666666666671" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <rect key="frame" x="35" y="37.666666666666657" width="30.333333333333329" height="25"/>
+                                                            <fontDescription key="fontDescription" name="LexendDeca-Medium" family="Lexend Deca" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -291,13 +293,13 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="US7-nh-XeZ" secondAttribute="bottom" constant="10" id="eer-bG-Oc7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="US7-nh-XeZ" secondAttribute="trailing" constant="16" id="oNx-cX-5gd"/>
             </constraints>
-            <point key="canvasLocation" x="64.885496183206101" y="20.422535211267608"/>
+            <point key="canvasLocation" x="234" y="-6"/>
         </view>
     </objects>
     <resources>
-        <image name="ProfileImage" width="840" height="881"/>
         <image name="Tick" width="32" height="32"/>
         <image name="bell.badge" catalog="system" width="125" height="128"/>
+        <image name="profileImage" width="840" height="881"/>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -15,6 +15,8 @@ class HomeVC: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
     @IBOutlet weak var calendarV: UIView!
     @IBOutlet weak var progressV: CircleProgressView!
   
+    @IBOutlet weak var numberLbl: UILabel!
+    @IBOutlet weak var fullnameLbl: UILabel!
     fileprivate weak var calendar: FSCalendar!
     
     override func viewDidLoad() {
@@ -24,10 +26,20 @@ class HomeVC: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
         self.navigationController?.navigationBar.tintColor = .black
         progressLbl.text = "\(progressV.progress * 100)%"
         self.navigationItem.hidesBackButton = true
+        getData()
     }
     
    
-
+    func getData () {
+        Loader.start()
+        API.getProfile { data in
+            print("data=",data)
+            Loader.stop()
+            self.fullnameLbl.text = data.fullName
+            self.numberLbl.text = data.phoneNumber
+        }
+    }
+    
     
     @IBAction func profileBtnTapped(_ sender: Any) {
         navigationController?.pushViewController(ProfileVC.loadFromNib(), animated: true)

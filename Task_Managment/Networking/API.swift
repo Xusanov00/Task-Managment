@@ -43,6 +43,40 @@ class API {
         }
     }
     
+    static func getProfile(complation:@escaping (LoginUserDM)->Void) {
+
+        let header: HTTPHeaders = [
+            "Authorization":"Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
+        ]
+        NET.sendRequest(to: baseUrl + "/task/comment", method: .get, headers:header ,param: nil) { data in
+            guard let data = data else {return}
+            let myData = LoginUserDM(json: data["data"])
+            print("myData",myData)
+            complation(myData)
+        }
+    }
+
+    static func postCommit(taskId:String,text:String,complation:@escaping (ChatDM)->Void) {
+
+
+        let param:[String : Any] = [
+            "taskId":taskId,
+            "text":text
+
+        ]
+//        SocketHelper.Events.emit(SocketHelper.Events(param))
+        NET.sendRequest(to: baseUrl + "/user", method: .get, headers:nil ,param: param) { data in
+            guard let data = data else {return}
+            let myData = ChatDM(json: data["data"])
+            print("data1212121=",data)
+            print("myData",myData)
+            complation(myData)
+        }
+    }
+
+    
+     
+    
 
     static func getProfile(complation:@escaping (UserDM)->Void) {
 

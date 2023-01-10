@@ -120,9 +120,6 @@ extension ProfileVC: UITableViewDelegate {
 //MARK: - UITableViewDataSource
 extension ProfileVC: UITableViewDataSource {
     
-    
-    
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         2
     }

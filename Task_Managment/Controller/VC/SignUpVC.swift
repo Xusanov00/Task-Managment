@@ -27,14 +27,7 @@ class SignUpVC: UIViewController {
         continueBtn.addShadow(cornerRadius: 12)
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = .black
-        
-        DispatchQueue.main.async {
-            if Reachability.isConnectedToNetwork() {
-                Loader.stop()
-            } else {
-                Loader.start()
-            }
-        }
+    
 
     }
     

@@ -9,6 +9,8 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 class NET {
+    
+    
     static let headers:HTTPHeaders  = []
     
     

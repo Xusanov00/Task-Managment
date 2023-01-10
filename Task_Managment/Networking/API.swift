@@ -15,11 +15,9 @@ import Alamofire
 
 class API {
     
-    
     //BaseURL
     static let baseUrl:String = "https://taskbotapi.roundedteam.uz"
-    
-    
+     
     //URLs
     
     static let loginByPhone: String = baseUrl+EndPoints.loginByPhoneURL

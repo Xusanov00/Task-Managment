@@ -19,7 +19,6 @@ class NET {
                 complation(jsonData)
             case.failure(let error):
                 print("error=",error)
-                
             }
         }
     }

@@ -19,6 +19,9 @@ var window: UIWindow?
         if #available(iOS 13.0, *) {
                     window!.overrideUserInterfaceStyle = .light
                 }
+        
+//        added
+        
         let navvc = UINavigationController(rootViewController: StartVC.loadFromNib())
         window?.rootViewController = navvc
         window?.makeKeyAndVisible()

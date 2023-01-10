@@ -6,6 +6,7 @@ target 'Task_Managment' do
   use_frameworks!
 
   # Pods for Task_Managment
+
   pod 'FSCalendar'
   pod 'Charts'
   pod 'SnapKit'

@@ -43,7 +43,7 @@ class ProfileVC: UIViewController {
 
     func setUserData() {
         guard let userData = userData else { return }
-        fullnameLbl.text = userData.fullName
+        fullnameLbl.text = userData.lastName + " " + userData.firstName
         numberLbl.text = userData.phoneNumber
         completedLbl.text = "\(userData.stats.completed)"
         inProgressLbl.text = "\(userData.stats.progress)"

@@ -16,45 +16,55 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var signUpDescryptLbl: UILabel!
     @IBOutlet weak var numberTF: PhoneNumberTextField!
     @IBOutlet weak var passwordTF: UIView!
+    @IBOutlet weak var privasyLbl: UITextView!
     
     @IBOutlet weak var passTf: PasswordTextField!
     
     @IBOutlet weak var continueBtn: UIButton!
+    
+//    let message = "By continuing, you agree to the Terms of Use and Privacy Policy".localized()
+//    let findWord = ["Terms of Use".localized(), "Privacy Policy".localized()]
+//
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setLanguage() 
         setTextField()
+        privacyPolicyLabel()
         continueBtn.addShadow(cornerRadius: 12)
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = .black
-    
+        
+        DispatchQueue.main.async {
+            if Reachability.isConnectedToNetwork() {
+                Loader.stop()
+            } else {
+                Loader.start()
+            }
+        }
 
     }
     
     
     
-    
+    //
+    func privacyPolicyLabel() {
+//        let attributeMutableStringLink = NSMutableAttributedString(string: message)
+//        attributeMutableStringLink.addAttribute(.link, value: "https://www.google.co.in/", range:
+//        message.createRangeinaLink(of: findWord[0]))
+//        attributeMutableStringLink.addAttribute(.link, value: "https://www.youtube.com/", range:
+//        message.createRangeinaLink(of: findWord[1]))
+//        privasyLbl.attributedText = attributeMutableStringLink
+    }
     
     
     //language details
     func setLanguage() {
-        switch SetCache.getCache(for: KeysDM.language.rawValue) {
-        case LanguageEnum.uz.rawValue:
-            signUpLbl.text = "Ro'yhatdan o'tish"
-            signUpDescryptLbl.text = "Ro'yhatdan o'ting va hamma ishingizni re'ja asosida qilishni boshlang"
-            continueBtn.setTitle("Davom etish", for: .normal)
-        case LanguageEnum.ru.rawValue:
-            signUpLbl.text = "Регистрация"
-            signUpDescryptLbl.text = "Зарегестрируйтесь и начните выполнять все свои дела с планом"
-            continueBtn.setTitle("Продолжить", for: .normal)
-        case LanguageEnum.en.rawValue:
-            signUpLbl.text = "Sign up"
-            signUpDescryptLbl.text = "Sign up and start doing all your work with a plan"
-            continueBtn.setTitle("Continue", for: .normal)
-        default:
-            print("")
-        }
-
+//       signUpLbl.text = "Sign up".localized()
+//       signUpDescryptLbl.text = "Sign up and start doing all your work with a plan".localized()
+//        continueBtn.setTitle("Continue".localized(), for: .normal)
+//        passTf.placeholder = "Password".localized()
     }
     
     //textField settings
@@ -73,19 +83,12 @@ class SignUpVC: UIViewController {
         let pass = passTf.text!
         if Reachability.isConnectedToNetwork() {
             Loader.start()
+            print(num)
             getData(num: num, pass: pass)
+        } else {
         }
        
     }
-    
-    
-    
-}
-
-
-
-//MARK: - GetData
-extension SignUpVC {
     
     func getData (num:String,pass:String) {
         API.getLogin(number: num, password: passTf.text!) { data in
@@ -96,7 +99,7 @@ extension SignUpVC {
                     SetCache.saveCache(for: data.token, for: KeysDM.token)
                     self.navigationController?.pushViewController(HomeVC.loadFromNib(), animated: true)
                 } else {
-                    self.showErrorAlert(title: "Error", message: "Parol yoki login noto'g'ri!")
+                    self.showErrorAlert(title: "Error", message: "Malumot kiritishda xatolik bor yoki bunday foydalanuvchi mavjud emas")
                     
                 }
             }else {
@@ -104,5 +107,15 @@ extension SignUpVC {
             }
         }
     }
+    
+    
 }
 
+
+
+extension String{
+    func createRangeinaLink(of findWord: String) -> NSRange {
+        let range = (self as NSString) .range(of: findWord, options: .caseInsensitive)
+        return range
+    }
+}

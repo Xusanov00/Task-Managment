@@ -27,11 +27,8 @@ class API {
     static let getHr: String = baseUrl+EndPoints.getHRURL
     static let getImage: String = baseUrl+EndPoints.getImageURL
     
-    
-    
-    
     static func getLogin(number:String,password:String,complation:@escaping (DataDM)->Void) {
-        
+       
         let param:[String:Any] = [
             "phoneNumber": number,
             "password": password
@@ -45,15 +42,21 @@ class API {
         }
     }
     
-    static func getProfile(complation: @escaping ()->Void) {
-        
+
+    static func getProfile(complation:@escaping (DataDM)->Void) {
+
+        let header: HTTPHeaders = [
+            "Authorization":"Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
+        ]
+        NET.sendRequest(to: url + "/user", method: .get, headers:header ,param: nil) { data in
+            guard let data = data else {return}
+            let myData = DataDM(json: data["data"])
+            print("myData",myData)
+            complation(myData)
+        }
+
     }
     
-    
-    
-    
-    
-     
     
 }
 

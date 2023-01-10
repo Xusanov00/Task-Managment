@@ -24,10 +24,11 @@ struct DataDM {
     var phoneNumber:String
     var password:String
     var token:String
-    
+    var fullName:String
     init(json:JSON) {
         self.phoneNumber = json["phoneNumber"].stringValue
         self.password = json["password"].stringValue
         self.token = json["token"].stringValue
+        self.fullName = json["fullName"].stringValue
     }
 }

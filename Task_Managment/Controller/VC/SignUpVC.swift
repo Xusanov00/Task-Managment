@@ -38,7 +38,7 @@ class SignUpVC: UIViewController {
     
     //language details
     func setLanguage() {
-        switch SetCache.getCache(for: KeysDM.language) {
+        switch SetCache.getCache(for: KeysDM.language.rawValue) {
         case LanguageEnum.uz.rawValue:
             signUpLbl.text = "Ro'yhatdan o'tish"
             signUpDescryptLbl.text = "Ro'yhatdan o'ting va hamma ishingizni re'ja asosida qilishni boshlang"
@@ -80,14 +80,19 @@ class SignUpVC: UIViewController {
     }
     
     func getData (num:String,pass:String) {
-        API.getLogin(number: num, password: passTf.text!) { [self] data in
-            print("data11=",num == data.phoneNumber)
+        API.getData(number: num, password: passTf.text!) { data in
             Loader.stop()
-            if num == data.phoneNumber, pass == data.password, !num.isEmpty, !pass.isEmpty {
-                
-                self.navigationController?.pushViewController(HomeVC.loadFromNib(), animated: true)
-            } else {
-                showErrorAlert(title: "Error", message: "Nimadir xato ketti!")
+            print("data11=",num == data.phoneNumber)
+            if num != "" ,pass != "" {
+                if num == data.phoneNumber, pass == data.password {
+                    SetCache.saveCache(for: data.token, for: KeysDM.token)
+                    self.navigationController?.pushViewController(HomeVC.loadFromNib(), animated: true)
+                } else {
+                    self.showErrorAlert(title: "Error", message: "Malumot kiritishda xatolik bor yoki bunday foydalanuvchi mavjud emas")
+                    
+                }
+            }else {
+                self.showErrorAlert(title: "Error", message: "iltimos raqam yoki passwordni kiriting")
             }
         }
     }

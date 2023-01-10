@@ -27,14 +27,7 @@ class SignUpVC: UIViewController {
         continueBtn.addShadow(cornerRadius: 12)
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = .black
-        
-        DispatchQueue.main.async {
-            if Reachability.isConnectedToNetwork() {
-                Loader.stop()
-            } else {
-                Loader.start()
-            }
-        }
+    
 
     }
     
@@ -87,7 +80,7 @@ class SignUpVC: UIViewController {
     }
     
     func getData (num:String,pass:String) {
-        API.getData(number: num, password: passTf.text!) { [self] data in
+        API.getLogin(number: num, password: passTf.text!) { [self] data in
             print("data11=",num == data.phoneNumber)
             Loader.stop()
             if num == data.phoneNumber, pass == data.password, !num.isEmpty, !pass.isEmpty {

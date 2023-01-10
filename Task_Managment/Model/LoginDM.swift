@@ -18,6 +18,8 @@ struct LoginDM {
     var isAdmen:String
     var token:String
 }
+
+
 struct DataDM {
     var phoneNumber:String
     var password:String

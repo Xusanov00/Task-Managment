@@ -9,28 +9,26 @@ import UIKit
 
 class LanguageVC: UIViewController {
 
-    
-    @IBOutlet weak var langTablView: UITableView!
-    
-    var languageArr: [LanguageDM] = [
-        LanguageDM(image: "uzbF", language: "O'zbekcha"),
-        LanguageDM(image: "rusF", language: "Русский"),
-        LanguageDM(image: "engF", language: "English"),
-    ]
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet var langView: [UIView]!
+    @IBOutlet var langBtn: [UIButton]!
+    @IBOutlet weak var nextBtn: UIButton!
     
     
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLangTableView()
+//        setLang()
+        langView[0].addShadow(cornerRadius: 12)
+        langView[1].addShadow(cornerRadius: 12)
+        langView[2].addShadow(cornerRadius: 12)
     }
     
-    //tableView registration
-    func setLangTableView() {
-        langTablView.separatorStyle = .none
-        langTablView.dataSource = self
-        langTablView.register(LanguageTVC.nib(), forCellReuseIdentifier: LanguageTVC.id)
-    }
-
+    //MARK: language settings
+//    func setLang() {
+//        titleLbl.text = "Select Language".localized()
+//        nextBtn.setTitle("Continue".localized(), for: .normal)
+//    }
 
     @IBAction func continueTapped(_ sender: Any) {
         let vc = SignUpVC(nibName: "SignUpVC", bundle: nil)
@@ -39,6 +37,7 @@ class LanguageVC: UIViewController {
     }
     
     @IBAction func languageTapped(_ sender: UIButton) {
+        borderColor(tag: sender.tag)
         switch sender.tag {
         case 0:
             SetCache.saveCache(for: LanguageEnum.uz.rawValue, for: KeysDM.language)
@@ -51,21 +50,14 @@ class LanguageVC: UIViewController {
         }
     }
     
+    func borderColor(tag: Int) {
+        langView[0].borderColor = .clear
+        langView[1].borderColor = .clear
+        langView[2].borderColor = .clear
+        langView[tag].borderColor = .green
+    }
+    
 }
 
 
-extension LanguageVC: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        languageArr.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = langTablView.dequeueReusableCell(withIdentifier: LanguageTVC.id, for: indexPath) as? LanguageTVC else {return UITableViewCell()}
-        cell.cellView.addShadow(cornerRadius: 12)
-        cell.updateCell(cell: languageArr[indexPath.row])
-        return cell
-    }
-    
-    
-}
+

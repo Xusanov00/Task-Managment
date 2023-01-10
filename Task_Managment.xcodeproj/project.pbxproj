@@ -65,6 +65,7 @@
 		5F2C4BD42969855100D0285D /* EndTaskVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2C4BD22969855100D0285D /* EndTaskVC.xib */; };
 		5F397BBF296869410059A1B0 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F397BBD296869410059A1B0 /* EditProfileVC.swift */; };
 		5F397BC0296869410059A1B0 /* EditProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F397BBE296869410059A1B0 /* EditProfileVC.xib */; };
+		5F9EC2EF296D4811002FC1D2 /* UserDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9EC2EE296D4811002FC1D2 /* UserDM.swift */; };
 		A7B44C3ECBD77BF770A2BFB3 /* Pods_Task_Managment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085BCAAB5C6C7959AD3C5AF6 /* Pods_Task_Managment.framework */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,7 @@
 		5F2C4BD22969855100D0285D /* EndTaskVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EndTaskVC.xib; sourceTree = "<group>"; };
 		5F397BBD296869410059A1B0 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		5F397BBE296869410059A1B0 /* EditProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileVC.xib; sourceTree = "<group>"; };
+		5F9EC2EE296D4811002FC1D2 /* UserDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDM.swift; sourceTree = "<group>"; };
 		E08D7915ABBC43DEA538AD38 /* Pods-Task_Managment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.debug.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -222,6 +224,7 @@
 				41C606D329686760001BF536 /* LanguageDM.swift */,
 				5F2644FC296C590F005C480C /* TaskDM.swift */,
 				52568B66296C3EE7006F337E /* LoginDM.swift */,
+				5F9EC2EE296D4811002FC1D2 /* UserDM.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				5F018489296858A2005F9EBF /* StartTaskVC.swift in Sources */,
 				526EDA67296BE15E00D5CA8C /* Reachibility.swift in Sources */,
 				524022EE296948A3003C17CE /* DayCVC.swift in Sources */,
+				5F9EC2EF296D4811002FC1D2 /* UserDM.swift in Sources */,
 				5205E00029698D9500F91A05 /* ChatsVC.swift in Sources */,
 				5F01848D296858B0005F9EBF /* SettingsDM.swift in Sources */,
 				5F01846429685824005F9EBF /* Ex+UIView.swift in Sources */,

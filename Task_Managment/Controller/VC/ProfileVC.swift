@@ -45,21 +45,6 @@ class ProfileVC: UIViewController {
         
     }
     
-    func getData () {
-        Loader.start()
-        API.getProfile { data in
-            print("data=",data)
-            Loader.stop()
-            self.fullnameLbl.text = data.fullName
-            self.numberLbl.text = data.phoneNumber
-        }
-    }
-    
-    
-    
-    
-    
-    
     func setUpNav() {
         self.navigationItem.backBarButtonItem?.image = UIImage(systemName: "chevron.left")
         self.navigationItem.title = "Profile"
@@ -144,3 +129,18 @@ extension ProfileVC: UITableViewDataSource {
     }
 }
 
+
+
+//MARK: - Get Data
+extension ProfileVC {
+    
+    func getData () {
+        Loader.start()
+        API.getProfile { data in
+            print("data=",data)
+            Loader.stop()
+            self.fullnameLbl.text = data.fullName
+            self.numberLbl.text = data.phoneNumber
+        }
+    }
+}

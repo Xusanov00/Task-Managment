@@ -11,11 +11,6 @@ import IQKeyboardManagerSwift
 class ChatsVC: UIViewController {
     
     var screenSize = UIScreen.main.bounds
-    
-    
-    
-    
-    
     @IBOutlet weak var backV:UIView!
     @IBOutlet weak var textTf:UITextField!
     @IBOutlet weak var sendBtn:UIButton!
@@ -27,12 +22,7 @@ class ChatsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         didload()
-        
-        
-        
-        self.view.addGestureRecognizer (UITapGestureRecognizer(target: self, action: #selector (hideKeyboard)))
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    
     }
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as?
@@ -48,11 +38,6 @@ class ChatsVC: UIViewController {
     @objc private func hideKeyboard() {
     self.view.endEditing (true)
     }
-    
-    
-    
-    
-    
     func didload() {
         self.navigationItem.title = "Comment"
         textTf.layer.cornerRadius = 12
@@ -63,23 +48,14 @@ class ChatsVC: UIViewController {
         setUpTableView()
         IQKeyboardManager.shared.enable = false
         IQKeyboardManager.shared.enableAutoToolbar = false
-        
+        self.view.addGestureRecognizer (UITapGestureRecognizer(target: self, action: #selector (hideKeyboard)))
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         if sendArr.count == 0 {
             tableView.backgroundColor = .clear
         }
        
     }
-    
-    
-    
-    
-    
-    
-    
-
-
-    
-    
     func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -89,10 +65,6 @@ class ChatsVC: UIViewController {
         
         
     }
-    
- 
-    
-    
     @IBAction func sendTapped(_ sender: UIButton) {
         tableView.backgroundColor = .white
         if textTf.text! != "" {
@@ -108,14 +80,6 @@ class ChatsVC: UIViewController {
     }
 
 }
-
-
-
-
-
-
-
-
 extension ChatsVC:UITableViewDelegate {
 }
 extension ChatsVC:UITableViewDataSource {
@@ -127,12 +91,15 @@ extension ChatsVC:UITableViewDataSource {
 //        guard let getcell = tableView.dequeueReusableCell(withIdentifier: "GetTVC", for: indexPath) as? GetTVC else {return UITableViewCell()}
         guard let sendcell = tableView.dequeueReusableCell(withIdentifier: "SendTVC", for: indexPath) as? SendTVC else {return UITableViewCell()}
         sendcell.UpdateCell(str: sendArr[indexPath.row])
+//        getcell.backV.addShadow(cornerRadius: 12)
+//        getcell.updateCell(str: sendArr[indexPath.row])
         return sendcell
     }
 }
 extension ChatsVC {
     func postComm(taskId:String,text:String) {
         API.postCommit(taskId: taskId, text: text) { data in
+            
             print("IsDelete=",data.isDelete)
             print("IsSeen",data.isSeen)
         }

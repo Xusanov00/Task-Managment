@@ -29,6 +29,7 @@ class HomeVC: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
         self.navigationItem.hidesBackButton = true
         getData()
         observeUserNotif()
+        
     }
     
    

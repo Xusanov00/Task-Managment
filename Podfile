@@ -14,10 +14,9 @@ target 'Task_Managment' do
   pod 'IQKeyboardManagerSwift'
   pod 'CircleProgressView'
   pod 'DTPagerController'
-  pod 'Alamofire'
-  pod 'SwiftyJSON'
-  pod 'lottie-ios'
-  pod 'PasswordTextField'
-
-
+  pod'Alamofire'
+  pod'SwiftyJSON'
+  pod'PasswordTextField'
+  pod'lottie-ios'
+pod 'Socket.IO-Client-Swift', '~> 15.2.0'
 end

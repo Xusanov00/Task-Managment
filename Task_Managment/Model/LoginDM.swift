@@ -33,3 +33,12 @@ struct LoginUserDM {
         self.fullName = json["fullName"].stringValue
     }
 }
+
+struct ChatDM {
+    var isDelete:Bool
+    var isSeen:Bool
+    init(json:JSON) {
+        self.isDelete = json["isDeleted"].boolValue
+        self.isSeen = json["isSeen"].boolValue
+    }
+}

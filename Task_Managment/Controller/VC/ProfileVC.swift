@@ -10,11 +10,15 @@ import UIKit
 class ProfileVC: UIViewController {
     
     @IBOutlet weak var fullnameLbl: UILabel!
-    
     @IBOutlet weak var numberLbl: UILabel!
     @IBOutlet var statusVs: [UIView]!
-    
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var completedLbl: UILabel!
+    @IBOutlet weak var inProgressLbl: UILabel!
+    @IBOutlet weak var toDoLbl: UILabel!
+    
+    var userData: UserDM?
     
     let settingsArr: [SettingsDM] = [
         SettingsDM(img: "person", title: "Edit Profile"),
@@ -26,15 +30,26 @@ class ProfileVC: UIViewController {
         SettingsDM(img: "trash", title: "Logout", tintColor: .systemRed, titleColor: .systemRed)
     ]
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNav()
         setUpTableView()
-        getData()
+        setUserData()
         self.navigationController?.navigationBar.tintColor = .black
         
     }
 
+    func setUserData() {
+        guard let userData = userData else { return }
+        fullnameLbl.text = userData.fullName
+        numberLbl.text = userData.phoneNumber
+        completedLbl.text = "\(userData.stats.completed)"
+        inProgressLbl.text = "\(userData.stats.progress)"
+        toDoLbl.text = "\(userData.stats.unCompleted)"
+        
+    }
     
     func setUpTableView() {
         
@@ -44,21 +59,6 @@ class ProfileVC: UIViewController {
         
         
     }
-    
-    func getData () {
-        Loader.start()
-        API.getProfile { data in
-            print("data=",data)
-            Loader.stop()
-            self.fullnameLbl.text = data.fullName
-            self.numberLbl.text = data.phoneNumber
-        }
-    }
-    
-    
-    
-    
-    
     
     func setUpNav() {
         self.navigationItem.backBarButtonItem?.image = UIImage(systemName: "chevron.left")
@@ -79,8 +79,9 @@ class ProfileVC: UIViewController {
     }
     
     @objc func alertTapped() {
-        let vc = ChatsVC(nibName: "ChatsVC", bundle: nil)
+        let vc = ChatsVC.loadFromNib()
         vc.navigationItem.backButtonTitle = ""
+        
         navigationController?.pushViewController(ChatsVC.loadFromNib(), animated: true)
     }
 
@@ -97,21 +98,24 @@ extension ProfileVC: UITableViewDelegate {
             index = indexPath.row+3
         }
         
-        var vc = UIViewController()
+
         
         switch index {
         case 0:
-            vc = EditProfileVC.loadFromNib()
+            let vc = EditProfileVC.loadFromNib()
+            vc.userData = userData
+            navigationController?.pushViewController(vc, animated: true)
         case 1:
-            vc = TaskVC.loadFromNib()
+            let vc = TaskVC.loadFromNib()
+            navigationController?.pushViewController(vc, animated: true)
         case 2:
-            vc = StatisticsVC.loadFromNib()
+            let vc = StatisticsVC.loadFromNib()
+            navigationController?.pushViewController(vc, animated: true)
         default:
-            vc = StartVC.loadFromNib()
-        }
-        if vc != UIViewController() {
+            let vc = StartVC.loadFromNib()
             navigationController?.pushViewController(vc, animated: true)
         }
+            
     }
 
 
@@ -119,9 +123,6 @@ extension ProfileVC: UITableViewDelegate {
 
 //MARK: - UITableViewDataSource
 extension ProfileVC: UITableViewDataSource {
-    
-    
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         2
@@ -146,4 +147,7 @@ extension ProfileVC: UITableViewDataSource {
         return cell
     }
 }
+
+
+
 

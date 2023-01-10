@@ -1,0 +1,30 @@
+//
+//  GetTVC.swift
+//  Task_Managment
+//
+//  Created by MacBook Pro on 07/01/23.
+//
+
+import UIKit
+
+class GetTVC: UITableViewCell {
+    @IBOutlet weak var backV: UIView!
+    @IBOutlet weak var messageLbl: UILabel!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+<<<<<<< HEAD:Task_Managment/Controller/TVC/LanguageTVC.swift
+    
+    //updates cell details
+    func updateCell(cell: LanguageDM) {
+        flagImg.image = UIImage(named: cell.image)
+        languageLbl.text = cell.language
+=======
+
+    func updateCell(str:String) {
+        messageLbl.text = str
+>>>>>>> muhammadali:Task_Managment/Controller/TVC/GetTVC.swift
+    }
+    
+}

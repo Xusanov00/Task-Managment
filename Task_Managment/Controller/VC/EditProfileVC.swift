@@ -50,9 +50,9 @@ class EditProfileVC: UIViewController {
         self.navigationItem.title = "Profile Edit"
         guard let data = userData else { return }
         phoneNumberTf.text = data.phoneNumber
-        nameTf.text = data.fullName.components(separatedBy: " ")[0]
-        lastnameTf.text = data.fullName.components(separatedBy: " ")[1]
-        fullNameLbl.text = data.fullName
+        nameTf.text = data.firstName
+        lastnameTf.text = data.lastName
+        fullNameLbl.text = data.lastName + " " + data.firstName
         
         
         

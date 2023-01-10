@@ -11,7 +11,8 @@ import SwiftyJSON
 struct UserDM {
     
     var _id: String
-    var fullName: String
+    var firstName: String
+    var lastName: String
     var position: String
     var username: String
     var phoneNumber: String
@@ -21,8 +22,10 @@ struct UserDM {
     var stats: StatsDM
     
     init(json: JSON) {
+
         _id = json["_id"].stringValue
-        fullName = json["fullName"].stringValue
+        firstName = json["firstName"].stringValue
+        lastName = json["lastName"].stringValue
         position = json["position"].stringValue
         username = json["username"].stringValue
         phoneNumber = json["phoneNumber"].stringValue

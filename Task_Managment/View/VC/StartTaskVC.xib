@@ -21,7 +21,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartTaskVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
                 <outlet property="progressView" destination="5UM-iP-hPU" id="OHn-xs-Yxc"/>
-                <outlet property="timerLbl" destination="bY5-Y5-Q8l" id="N8f-hU-Dwe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

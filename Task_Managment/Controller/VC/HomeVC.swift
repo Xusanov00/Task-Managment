@@ -74,7 +74,7 @@ extension HomeVC {
         API.getProfile {[self] data in
             userData = data
             guard let data = userData else { return }
-            self.fullnameLbl.text = data.fullName
+            self.fullnameLbl.text = data.lastName + " " + data.firstName
             self.numberLbl.text = data.phoneNumber
             Loader.stop()
             

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SwiftyJSON
+
 struct LoginDM {
     var isDirector:Bool
     var firstName:String
@@ -20,7 +21,7 @@ struct LoginDM {
 }
 
 
-struct DataDM {
+struct LoginUserDM {
     var phoneNumber:String
     var password:String
     var token:String

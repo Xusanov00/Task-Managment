@@ -27,36 +27,39 @@ class API {
     static let getHr: String = baseUrl+EndPoints.getHRURL
     static let getImage: String = baseUrl+EndPoints.getImageURL
     
-    static func getLogin(number:String,password:String,complation:@escaping (DataDM)->Void) {
+    static func getLogin(number:String, password:String, complation:@escaping (LoginUserDM)->Void) {
        
         let param:[String:Any] = [
             "phoneNumber": number,
             "password": password
         ]
         
-        NET.sendRequest(to: loginByPhone, method: .post, param: param) { data in
+        NET.sendRequest(to: loginByPhone, method: .post, headers: nil, param: param) { data in
             guard let data = data else {return }
                 let info = data["data"]
-                complation(DataDM(json: info))
+                complation(LoginUserDM(json: info))
             
         }
     }
     
 
-    static func getProfile(complation:@escaping (DataDM)->Void) {
+    static func getProfile(complation:@escaping (LoginUserDM)->Void) {
 
         let header: HTTPHeaders = [
-            "Authorization":"Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
+            "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
         ]
-        NET.sendRequest(to: url + "/user", method: .get, headers:header ,param: nil) { data in
+        NET.sendRequest(to: getProfile, method: .get, headers:header ,param: nil) { data in
             guard let data = data else {return}
-            let myData = DataDM(json: data["data"])
-            print("myData",myData)
+            let myData = LoginUserDM(json: data["data"])
             complation(myData)
         }
 
     }
     
+    
+    static func updateProfile(complation: @escaping ()->Void) {
+        
+    }
     
 }
 

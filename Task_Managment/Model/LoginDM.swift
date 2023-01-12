@@ -26,11 +26,13 @@ struct LoginUserDM {
     var password:String
     var token:String
     var fullName:String
+    var _id:String
     init(json:JSON) {
         self.phoneNumber = json["phoneNumber"].stringValue
         self.password = json["password"].stringValue
         self.token = json["token"].stringValue
         self.fullName = json["fullName"].stringValue
+        self._id = json["_id"].stringValue
     }
 }
 

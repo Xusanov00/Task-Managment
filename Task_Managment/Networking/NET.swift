@@ -22,4 +22,17 @@ class NET {
             }
         }
     }
+    
+    static func sendURLRequest(to url:String, method:HTTPMethod, headers: HTTPHeaders? , param:Parameters?, complation: @escaping (JSON?)->Void){
+        
+        AF.request(url, method: method, parameters: param, encoding: URLEncoding.default, headers: headers).responseData { response in
+            switch response.result {
+            case.success(let data):
+                let jsonData = JSON(data)
+                complation(jsonData)
+            case.failure(let error):
+                print("error=",error)
+            }
+        }
+    }
 }

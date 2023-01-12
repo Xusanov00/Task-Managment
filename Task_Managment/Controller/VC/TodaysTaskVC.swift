@@ -15,16 +15,7 @@ class TodaysTaskVC: UIViewController {
     @IBOutlet weak var backV: UIView!
     @IBOutlet weak var tableView: UITableView!
     var num = 0
-    var taskArr: [TaskDM] = [
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "In Progress"),
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "In Progress"),
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
-    ]
+    var taskArr: [TaskDM] = [ ]
     var sortedTasks: [TaskDM] = []
     var weeks:[String] = ["Du","Se","Chor","Pay","Ju","Shan","Yak"]
     override func viewDidLoad() {
@@ -33,8 +24,8 @@ class TodaysTaskVC: UIViewController {
         self.navigationItem.title = "Today’s task"
         self.navigationController?.navigationBar.tintColor = .black
         setUpNavigationV()
-        setupTableView()
         setUpCollectionView()
+        getTodaysTask()
     }
     
     func setUpCollectionView() {
@@ -178,5 +169,16 @@ extension TodaysTaskVC:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 2*(collectionView.frame.width - 50)/11, height: collectionView.frame.height-20)
         
+    }
+}
+//MARK: - getTodaysTask
+extension TodaysTaskVC {
+    func getTodaysTask() {
+        API.getTodaysTask { data in
+            
+            self.taskArr = data
+            self.setupTableView()
+            
+        }
     }
 }

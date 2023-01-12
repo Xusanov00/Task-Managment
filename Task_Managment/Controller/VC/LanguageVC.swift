@@ -18,17 +18,17 @@ class LanguageVC: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setLang()
+        setLang()
         langView[0].addShadow(cornerRadius: 12)
         langView[1].addShadow(cornerRadius: 12)
         langView[2].addShadow(cornerRadius: 12)
     }
     
     //MARK: language settings
-//    func setLang() {
+    func setLang() {
 //        titleLbl.text = "Select Language".localized()
 //        nextBtn.setTitle("Continue".localized(), for: .normal)
-//    }
+    }
 
     @IBAction func continueTapped(_ sender: Any) {
         let vc = SignUpVC(nibName: "SignUpVC", bundle: nil)

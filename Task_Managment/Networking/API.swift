@@ -197,7 +197,6 @@ extension API {
         static let getImageURL = "/public/uploads/images/user.png"
         static let todaysTaskURL = "/task/day"
         static let taskID = "/task/63b82310464c9232856ccd1c"
-        static let getImageURL = "/public/uploads/images/user.png"
         static let commentToTaskURL = "/task/comment"
     }
 }

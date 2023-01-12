@@ -65,6 +65,7 @@
 		5FF2621B2970072A0037AD66 /* LanguageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF2621A2970072A0037AD66 /* LanguageVC.xib */; };
 		5FF2621D297007380037AD66 /* LanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2621C297007380037AD66 /* LanguageVC.swift */; };
 		A7B44C3ECBD77BF770A2BFB3 /* Pods_Task_Managment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085BCAAB5C6C7959AD3C5AF6 /* Pods_Task_Managment.framework */; };
+		AFCC032D29704111000D5B5B /* CommentDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCC032C29704111000D5B5B /* CommentDM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,7 @@
 		5FF26218297007200037AD66 /* SignUpVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpVC.xib; sourceTree = "<group>"; };
 		5FF2621A2970072A0037AD66 /* LanguageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageVC.xib; sourceTree = "<group>"; };
 		5FF2621C297007380037AD66 /* LanguageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageVC.swift; sourceTree = "<group>"; };
+		AFCC032C29704111000D5B5B /* CommentDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDM.swift; sourceTree = "<group>"; };
 		E08D7915ABBC43DEA538AD38 /* Pods-Task_Managment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.debug.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -222,6 +224,7 @@
 				5F2644FC296C590F005C480C /* TaskDM.swift */,
 				52568B66296C3EE7006F337E /* LoginDM.swift */,
 				5F9EC2EE296D4811002FC1D2 /* UserDM.swift */,
+				AFCC032C29704111000D5B5B /* CommentDM.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				5F018487296858A2005F9EBF /* TodaysTaskVC.swift in Sources */,
 				5F01846B2968586F005F9EBF /* SettingsTVC.swift in Sources */,
 				5F2C4BD02969731E00D0285D /* Ex+String.swift in Sources */,
+				AFCC032D29704111000D5B5B /* CommentDM.swift in Sources */,
 				52568B69296C4F37006F337E /* Loader.swift in Sources */,
 				5F397BBF296869410059A1B0 /* EditProfileVC.swift in Sources */,
 				5F01848B296858A2005F9EBF /* HomeVC.swift in Sources */,

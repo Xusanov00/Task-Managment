@@ -7,6 +7,8 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Alamofire
+import SwiftyJSON
 
 class ChatsVC: UIViewController {
     
@@ -22,6 +24,7 @@ class ChatsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         didload()
+        getComments()
     
     }
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -70,6 +73,7 @@ class ChatsVC: UIViewController {
         if textTf.text! != "" {
             sendArr.append(textTf.text!)
             postComm(taskId: "63b82310464c9232856ccd1c", text: textTf.text!)
+            getCommentToTask(taskID: "63b82310464c9232856ccd1c", commentTxt: textTf.text!)
             DispatchQueue.main.async {
                     let indexPath = IndexPath(row: self.sendArr.count-1, section: 0)
                     self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
@@ -80,8 +84,12 @@ class ChatsVC: UIViewController {
     }
 
 }
+
+//MARK: - UITableViewDelegate
 extension ChatsVC:UITableViewDelegate {
 }
+
+//MARK: - UITableViewDataSource
 extension ChatsVC:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sendArr.count
@@ -96,6 +104,10 @@ extension ChatsVC:UITableViewDataSource {
         return sendcell
     }
 }
+
+
+
+//MARK: - postComm
 extension ChatsVC {
     func postComm(taskId:String,text:String) {
         API.postCommit(taskId: taskId, text: text) { data in
@@ -105,3 +117,25 @@ extension ChatsVC {
         }
     }
 }
+
+
+//MARK: - Get Comment To Task
+extension ChatsVC {
+    func getCommentToTask(taskID: String, commentTxt: String) {
+        API.getCommentTask(taskID: taskID, textComment: commentTxt) { data in
+            print(data.text)
+        }
+    }
+}
+
+//MARK: - Get Comments
+extension ChatsVC {
+    func getComments() {
+        API.getComments(taskID: "63b82310464c9232856ccd1c") { data in
+            self.sendArr = data
+            self.tableView.reloadData()
+            Loader.stop()
+        }
+    }
+}
+

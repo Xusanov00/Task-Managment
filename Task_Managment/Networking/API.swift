@@ -17,9 +17,9 @@ class API {
     
     //BaseURL
     static let baseUrl:String = "https://taskbotapi.roundedteam.uz"
-     
-    //URLs
     
+    //URLs
+
     static let loginByPhone: String = baseUrl+EndPoints.loginByPhoneURL
     static let getProfile: String = baseUrl+EndPoints.getProfileURL
     static let updateProfile: String = baseUrl+EndPoints.updateProfileURL
@@ -27,6 +27,8 @@ class API {
     static let getImage: String = baseUrl+EndPoints.getImageURL
     static let getTodaysTask: String = baseUrl + EndPoints.todaysTaskURL
     static let getTaskID: String = baseUrl+EndPoints.taskID
+    static let commentToTask: String = baseUrl+EndPoints.commentToTaskURL
+    
     static func getLogin(number:String, password:String, complation:@escaping (LoginUserDM)->Void) {
        
         let param:[String:Any] = [
@@ -67,8 +69,6 @@ class API {
         NET.sendRequest(to: baseUrl + "/user", method: .get, headers:nil ,param: param) { data in
             guard let data = data else {return}
             let myData = ChatDM(json: data["data"])
-            print("data1212121=",data)
-            print("myData",myData)
             complation(myData)
         }
     }
@@ -109,6 +109,20 @@ class API {
 
     }
     
+    static func getComments(taskID: String, complation: @escaping ([String])->Void) {
+        Loader.start()
+        let header : HTTPHeaders = [
+            "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
+        ]
+        NET.sendRequest(to: commentToTask+"/\(taskID)", method: .get, headers: header, param: nil) { data in
+            guard let data = data else { return }
+            let commentsData = data["data"].arrayValue.map{ CommentDM(json: $0).text}
+            complation(commentsData)
+        }
+        
+    }
+    
+    
     static func getTodaysTask(complation:@escaping([TaskDM])->Void) {
         
         let headers: HTTPHeaders = [
@@ -128,6 +142,28 @@ class API {
                 complation(mydata)
             }
             
+
+
+        }
+    }
+    
+    static func getCommentTask(taskID: String, textComment: String, complation: @escaping (CommentDM)->Void) {
+        
+        let header : HTTPHeaders = [
+            "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
+        ]
+        let param:[String:Any] = [
+            "taskId" : taskID,
+            "text" : textComment
+        ]
+        
+        NET.sendRequest(to: commentToTask, method: .post, headers: header, param: param) { data in
+            guard let data = data else { return }
+            let commentData = data["data"]
+            complation(CommentDM(json: commentData))
+            
+
+
         }
     }
     
@@ -142,6 +178,7 @@ class API {
             print("data=",data)
             complation(info)
         }
+        
     }
     
     
@@ -160,5 +197,7 @@ extension API {
         static let getImageURL = "/public/uploads/images/user.png"
         static let todaysTaskURL = "/task/day"
         static let taskID = "/task/63b82310464c9232856ccd1c"
+        static let commentToTaskURL = "/task/comment"
     }
 }
+

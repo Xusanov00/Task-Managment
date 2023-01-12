@@ -20,8 +20,6 @@ var window: UIWindow?
                     window!.overrideUserInterfaceStyle = .light
                 }
         
-//        added
-        
         let navvc = UINavigationController(rootViewController: SignUpVC.loadFromNib())
         window?.rootViewController = navvc
         window?.makeKeyAndVisible()

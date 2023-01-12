@@ -93,10 +93,12 @@ class SignUpVC: UIViewController {
     func getData (num:String,pass:String) {
         API.getLogin(number: num, password: passTf.text!) { data in
             Loader.stop()
+            
             print("data11=",num == data.phoneNumber)
             if num != "" ,pass != "" {
                 if num == data.phoneNumber, pass == data.password {
                     SetCache.saveCache(for: data.token, for: KeysDM.token)
+                    SetCache.saveCache(for: data._id, for: KeysDM.id)
                     self.navigationController?.pushViewController(HomeVC.loadFromNib(), animated: true)
                 } else {
                     self.showErrorAlert(title: "Error", message: "Malumot kiritishda xatolik bor yoki bunday foydalanuvchi mavjud emas")

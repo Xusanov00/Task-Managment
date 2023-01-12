@@ -16,7 +16,7 @@ target 'Task_Managment' do
   pod 'DTPagerController'
   pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'lottie-ios'
+  pod 'lottie-ios', '3.5'
   pod 'PasswordTextField'
 
 

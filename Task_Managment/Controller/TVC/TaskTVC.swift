@@ -37,7 +37,7 @@ class TaskTVC: UITableViewCell {
         shadowV.addShadow(cornerRadius: 12)
         topicLbl.text = cell.title
         descryptionLbl.text = cell.definition
-        timeLbl.text = cell.time
+        timeLbl.text = "\(cell.time)"
         priorityLbl.text = cell.priority
         
         if priorityLbl.text == "Completed" {

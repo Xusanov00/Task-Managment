@@ -25,7 +25,8 @@ class API {
     static let updateProfile: String = baseUrl+EndPoints.updateProfileURL
     static let getHr: String = baseUrl+EndPoints.getHRURL
     static let getImage: String = baseUrl+EndPoints.getImageURL
-    
+    static let getTodaysTask: String = baseUrl + EndPoints.todaysTaskURL
+    static let getTaskID: String = baseUrl+EndPoints.taskID
     static func getLogin(number:String, password:String, complation:@escaping (LoginUserDM)->Void) {
        
         let param:[String:Any] = [
@@ -108,10 +109,38 @@ class API {
 
     }
     
-    static func getTodaysTask(complation:(UserDM)->Void) {
-        NET.sendRequest(to: baseUrl + EndPoints.todaysTaskURL, method: .get, headers: nil, param: nil) { data in
+    static func getTodaysTask(complation:@escaping([TaskDM])->Void) {
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
+        ]
+        
+        let params: [String: Any] = [
+            "day": 1673548155
+        ]
+        
+        NET.sendURLRequest(to: getTodaysTask, method: .get, headers: headers, param: params) { data in
             guard let data = data else {return}
+            print("dataToday = ",data)
+            if let info = data["data"]["data"].array {
+             
+                let mydata = info.map{TaskDM(json: $0)}
+                complation(mydata)
+            }
             
+        }
+    }
+    
+    
+    static func getTaskID(complation:@escaping (TaskIDDM)->Void){
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
+        ]
+        NET.sendRequest(to: getTaskID, method: .get, headers: headers, param: nil) { data in
+            guard let data = data else {return}
+            let info = TaskIDDM(json:  data["data"])
+            print("data=",data)
+            complation(info)
         }
     }
     
@@ -129,6 +158,7 @@ extension API {
         static let updateProfileURL = "/user"
         static let getHRURL = "/user/hr"
         static let getImageURL = "/public/uploads/images/user.png"
-        static let todaysTaskURL = "/task/today"
+        static let todaysTaskURL = "/task/day"
+        static let taskID = "/task/63b82310464c9232856ccd1c"
     }
 }

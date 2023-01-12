@@ -11,16 +11,18 @@ class EndTaskVC: UIViewController {
 
     
     @IBOutlet weak var timerView: CircleProgressView!
-    
     @IBOutlet weak var timerLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var descLbl: UILabel!
+    @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var address: UILabel!
     
-    @IBOutlet weak var commentTv: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setUpNav()
-        settingTextView()
+        getTaskID()
     }
 
     
@@ -42,12 +44,19 @@ class EndTaskVC: UIViewController {
     }
     
     
-    func settingTextView() {
-        commentTv.delegate = self
-        commentTv.text = "Write comment"
-        commentTv.textColor = UIColor.lightGray
-        commentTv.addShadow(cornerRadius: 4)
+   
+    
+    @IBAction func commentTapped(_ sender: Any) {
+        ChatsVC.loadFromNib().navigationItem.backButtonTitle = ""
+        navigationController?.pushViewController(ChatsVC.loadFromNib(), animated: true)
     }
+    
+    
+    
+    @IBAction func finishTapped(_ sender: Any) {
+    }
+    
+    
     
 }
 
@@ -67,4 +76,18 @@ extension EndTaskVC: UITextViewDelegate {
         }
     }
     
+}
+extension EndTaskVC {
+    func getTaskID() {
+        
+        API.getTaskID() { data in
+            Loader.start()
+            self.address.text = data.address
+            self.timeLbl.text = "\(NSDate(timeIntervalSince1970: TimeInterval(data.time)))"
+            self.titleLbl.text = data.title
+            self.descLbl.text = data.definition
+//            self.timerLbl.text = "\(NSDate(timeIntervalSince1970: TimeInterval(data.to)) - NSDate(timeIntervalSince1970: TimeInterval(data.from)))"
+            Loader.stop()
+        }
+    }
 }

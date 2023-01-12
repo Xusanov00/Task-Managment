@@ -24,8 +24,8 @@ class TodaysTaskVC: UIViewController {
         self.navigationItem.title = "Today’s task"
         self.navigationController?.navigationBar.tintColor = .black
         setUpNavigationV()
-        setupTableView()
         setUpCollectionView()
+        getTodaysTask()
     }
     
     func setUpCollectionView() {
@@ -169,5 +169,16 @@ extension TodaysTaskVC:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 2*(collectionView.frame.width - 50)/11, height: collectionView.frame.height-20)
         
+    }
+}
+//MARK: - getTodaysTask
+extension TodaysTaskVC {
+    func getTodaysTask() {
+        API.getTodaysTask { data in
+            
+            self.taskArr = data
+            self.setupTableView()
+            
+        }
     }
 }

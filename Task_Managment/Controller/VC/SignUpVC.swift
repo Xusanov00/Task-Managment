@@ -21,7 +21,7 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var passTf: PasswordTextField!
     
     @IBOutlet weak var continueBtn: UIButton!
-    
+//
 //    let message = "By continuing, you agree to the Terms of Use and Privacy Policy".localized()
 //    let findWord = ["Terms of Use".localized(), "Privacy Policy".localized()]
 //

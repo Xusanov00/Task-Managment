@@ -15,16 +15,7 @@ class TodaysTaskVC: UIViewController {
     @IBOutlet weak var backV: UIView!
     @IBOutlet weak var tableView: UITableView!
     var num = 0
-    var taskArr: [TaskDM] = [
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "In Progress"),
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "In Progress"),
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "Completed"),
-        TaskDM(topic: "Competitive Analysis", definition: "This productive tool is designed productive...", time: "12:00 - 18-00", priority: "To Do"),
-    ]
+    var taskArr: [TaskDM] = [ ]
     var sortedTasks: [TaskDM] = []
     var weeks:[String] = ["Du","Se","Chor","Pay","Ju","Shan","Yak"]
     override func viewDidLoad() {

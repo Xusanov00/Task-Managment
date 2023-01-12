@@ -35,7 +35,7 @@ class TaskTVC: UITableViewCell {
     }
     func updateCell(cell: TaskDM) {
         shadowV.addShadow(cornerRadius: 12)
-        topicLbl.text = cell.topic
+        topicLbl.text = cell.title
         descryptionLbl.text = cell.definition
         timeLbl.text = cell.time
         priorityLbl.text = cell.priority

@@ -108,6 +108,16 @@ class API {
 
     }
     
+    static func getTodaysTask(complation:(UserDM)->Void) {
+        NET.sendRequest(to: baseUrl + EndPoints.todaysTaskURL, method: .get, headers: nil, param: nil) { data in
+            guard let data = data else {return}
+            
+        }
+    }
+    
+    
+    
+    
 }
 
 //MARK: - URLs
@@ -119,6 +129,6 @@ extension API {
         static let updateProfileURL = "/user"
         static let getHRURL = "/user/hr"
         static let getImageURL = "/public/uploads/images/user.png"
-        
+        static let todaysTaskURL = "/task/today"
     }
 }

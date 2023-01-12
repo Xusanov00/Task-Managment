@@ -22,7 +22,7 @@ var window: UIWindow?
         
 //        added
         
-        let navvc = UINavigationController(rootViewController: StartVC.loadFromNib())
+        let navvc = UINavigationController(rootViewController: SignUpVC.loadFromNib())
         window?.rootViewController = navvc
         window?.makeKeyAndVisible()
         return true

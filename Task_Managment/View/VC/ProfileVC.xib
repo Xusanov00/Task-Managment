@@ -19,12 +19,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
-                <outlet property="completedLbl" destination="bcg-ze-0WU" id="Qfn-mD-KAB"/>
+                <outlet property="completedLbl" destination="iGy-lE-Zfw" id="RRN-rw-Gmy"/>
                 <outlet property="fullnameLbl" destination="MHe-ca-1DK" id="3d1-Fb-Kzg"/>
-                <outlet property="inProgressLbl" destination="dog-0s-YMI" id="NUy-7I-LAf"/>
+                <outlet property="inProgressLbl" destination="YGV-TH-fUq" id="oRI-Ve-xVZ"/>
                 <outlet property="numberLbl" destination="Yyi-47-O8Y" id="lvN-jW-4NJ"/>
                 <outlet property="tableView" destination="WMt-Fq-umK" id="oAL-Qb-x6r"/>
-                <outlet property="toDoLbl" destination="w37-Na-9K1" id="zS8-Lj-AgP"/>
+                <outlet property="toDoLbl" destination="0ZK-ox-dXL" id="Kmc-FX-RZf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="statusVs" destination="Lcm-sB-zJe" collectionClass="NSMutableArray" id="WJx-Lw-zC9"/>
                 <outletCollection property="statusVs" destination="8yt-qA-IDj" collectionClass="NSMutableArray" id="dXV-qs-X7Z"/>

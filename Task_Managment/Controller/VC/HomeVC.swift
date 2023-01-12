@@ -10,15 +10,19 @@ import FSCalendar
 import Charts
 import CircleProgressView
 class HomeVC: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
-
+    
     @IBOutlet weak var progressLbl: UILabel!
     @IBOutlet weak var calendarV: UIView!
     @IBOutlet weak var progressV: CircleProgressView!
-  
+    @IBOutlet weak var statisticsBtn: UIButton!
     @IBOutlet weak var numberLbl: UILabel!
     @IBOutlet weak var fullnameLbl: UILabel!
     fileprivate weak var calendar: FSCalendar!
+    @IBOutlet weak var todaysTaskLbl: UILabel!
+    @IBOutlet weak var tasksCompletedLbl: UILabel!
+    @IBOutlet weak var viewTaskBtn: UIButton!
     
+    var number = ""
     var userData: UserDM?
     
     override func viewDidLoad() {
@@ -29,11 +33,17 @@ class HomeVC: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
         self.navigationItem.hidesBackButton = true
         getData()
         observeUserNotif()
-        
+        setLang()
     }
     
-   
-
+    
+    //localizatedLanguage
+    func setLang() {
+        statisticsBtn.setTitle("Statistics".localized(), for: .normal)
+        todaysTaskLbl.text = "Today’s Tasks".localized()
+        tasksCompletedLbl.text = number + "Tasks completed".localized()
+        viewTaskBtn.setTitle("View Task".localized(), for: .normal)
+    }
     
     
     @IBAction func profileBtnTapped(_ sender: Any) {
@@ -50,7 +60,7 @@ class HomeVC: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
     }
     
     
- 
+    
     @IBAction func taskTapped(_ sender: Any) {
         let vc = TodaysTaskVC(nibName: "TodaysTaskVC", bundle: nil)
         
@@ -64,7 +74,7 @@ class HomeVC: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-
+    
 }
 
 

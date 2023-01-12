@@ -168,7 +168,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="clock" catalog="system" width="128" height="123"/>
+        <image name="clock" catalog="system" width="32" height="32"/>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

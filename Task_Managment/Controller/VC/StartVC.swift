@@ -13,17 +13,18 @@ class StartVC: UIViewController {
     @IBOutlet weak var commentLbl: UILabel!
     @IBOutlet weak var nextBtn: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setLang()
+        setLang()
     }
 
     //MARK: lagnuage settings
-//    func setLang() {
-//        titleLbl.text = "Task Management & To-Do List".localized()
-//        commentLbl.text = "This productive tool is designed to help you better manage your task project-wise conveniently!".localized()
-//        nextBtn.setTitle("Get Started".localized(), for: .normal)
-//    }
+    func setLang() {
+        titleLbl.text = "Task Management & To-Do List".localized()
+        commentLbl.text = "This productive tool is designed to help you better manage your task project-wise conveniently!".localized()
+        nextBtn.setTitle("Get Started".localized(), for: .normal)
+    }
     
     
 

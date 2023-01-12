@@ -17,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
                 <outlet property="continueBtn" destination="HA3-qP-Py6" id="5oe-1C-OSQ"/>
+                <outlet property="internetLottieV" destination="NWy-T3-yu1" id="piF-2s-Az3"/>
                 <outlet property="numberTF" destination="uH9-LB-Iic" id="bPx-u7-pAS"/>
                 <outlet property="passTf" destination="7Px-Io-7V6" id="zjE-3L-WgP"/>
                 <outlet property="passwordTF" destination="slS-BT-y4o" id="B3B-K0-I7B"/>
@@ -157,6 +158,13 @@
                                 <constraint firstItem="LcW-XU-azM" firstAttribute="leading" secondItem="0cj-N1-gLZ" secondAttribute="leading" constant="24" id="sY9-Ir-RlZ"/>
                             </constraints>
                         </view>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWy-T3-yu1">
+                            <rect key="frame" x="50" y="233" width="293" height="293"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="NWy-T3-yu1" secondAttribute="height" id="adn-nN-UQx"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <constraints>
                         <constraint firstItem="0cj-N1-gLZ" firstAttribute="leading" secondItem="F3b-5j-jxT" secondAttribute="leading" id="4hq-ig-mHT"/>
@@ -165,6 +173,9 @@
                         <constraint firstItem="0cj-N1-gLZ" firstAttribute="top" secondItem="F3b-5j-jxT" secondAttribute="top" id="bvF-DN-Bfi"/>
                         <constraint firstItem="0cj-N1-gLZ" firstAttribute="width" secondItem="F3b-5j-jxT" secondAttribute="width" id="nme-03-eCx"/>
                         <constraint firstItem="0cj-N1-gLZ" firstAttribute="height" secondItem="F3b-5j-jxT" secondAttribute="height" id="qMa-GZ-6Mb"/>
+                        <constraint firstItem="NWy-T3-yu1" firstAttribute="leading" secondItem="F3b-5j-jxT" secondAttribute="leading" constant="50" id="qQ3-1X-MYj"/>
+                        <constraint firstAttribute="trailing" secondItem="NWy-T3-yu1" secondAttribute="trailing" constant="50" id="rBL-Gp-XFe"/>
+                        <constraint firstItem="NWy-T3-yu1" firstAttribute="centerY" secondItem="F3b-5j-jxT" secondAttribute="centerY" id="uzs-LC-LlP"/>
                     </constraints>
                 </scrollView>
             </subviews>

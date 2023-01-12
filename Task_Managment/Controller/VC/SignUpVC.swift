@@ -11,7 +11,7 @@ import PasswordTextField
 
 
 class SignUpVC: UIViewController {
-
+    
     @IBOutlet weak var signUpLbl: UILabel!
     @IBOutlet weak var signUpDescryptLbl: UILabel!
     @IBOutlet weak var numberTF: PhoneNumberTextField!
@@ -20,54 +20,58 @@ class SignUpVC: UIViewController {
     
     @IBOutlet weak var passTf: PasswordTextField!
     
+    @IBOutlet weak var internetLottieV: UIView!
     @IBOutlet weak var continueBtn: UIButton!
-//
-//    let message = "By continuing, you agree to the Terms of Use and Privacy Policy".localized()
-//    let findWord = ["Terms of Use".localized(), "Privacy Policy".localized()]
-//
+    //
+    let message = "By continuing, you agree to the Terms of Use and Privacy Policy".localized()
+    let findWord = ["Terms of Use".localized(), "Privacy Policy".localized()]
+    //
     
     
+    
+    //MARK: DidLoad func
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLanguage() 
+        setLanguage()
         setTextField()
         privacyPolicyLabel()
         continueBtn.addShadow(cornerRadius: 12)
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = .black
         
-        DispatchQueue.main.async {
-            if Reachability.isConnectedToNetwork() {
-                Loader.stop()
-            } else {
-                Loader.start()
-            }
+        if Reachability.isConnectedToNetwork() {
+            Loader.stop()
+        } else {
+            ConnectionLottie.setUpAnimationView(lottie: "no-internet", view: self.internetLottieV)
         }
-
+        
     }
     
     
     
-    //
+    //MARK: privacyPolicyLabel
     func privacyPolicyLabel() {
-//        let attributeMutableStringLink = NSMutableAttributedString(string: message)
-//        attributeMutableStringLink.addAttribute(.link, value: "https://www.google.co.in/", range:
-//        message.createRangeinaLink(of: findWord[0]))
-//        attributeMutableStringLink.addAttribute(.link, value: "https://www.youtube.com/", range:
-//        message.createRangeinaLink(of: findWord[1]))
-//        privasyLbl.attributedText = attributeMutableStringLink
+        let attributeMutableStringLink = NSMutableAttributedString(string: message)
+        attributeMutableStringLink.addAttribute(.link, value: "https://www.google.co.in/", range:
+                                                    message.createRangeinaLink(of: findWord[0]))
+        attributeMutableStringLink.addAttribute(.link, value: "https://www.youtube.com/", range:
+                                                    message.createRangeinaLink(of: findWord[1]))
+        privasyLbl.attributedText = attributeMutableStringLink
     }
     
     
-    //language details
+    //MARK: Language Settings
     func setLanguage() {
-//       signUpLbl.text = "Sign up".localized()
-//       signUpDescryptLbl.text = "Sign up and start doing all your work with a plan".localized()
-//        continueBtn.setTitle("Continue".localized(), for: .normal)
-//        passTf.placeholder = "Password".localized()
+        signUpLbl.text = "Sign in".localized()
+        signUpDescryptLbl.text = "Start doing all your work with a plan".localized()
+        continueBtn.setTitle("Continue".localized(), for: .normal)
+        passTf.placeholder = "Password".localized()
     }
     
-    //textField settings
+    
+    
+    
+    //MARK: number textField
     func setTextField() {
         numberTF.defaultRegion = "UZ"
         numberTF.backgroundColor = .white
@@ -76,8 +80,11 @@ class SignUpVC: UIViewController {
         numberTF.addShadow(cornerRadius: 12)
         passwordTF.addShadow(cornerRadius: 12)
     }
-
     
+    
+    
+    
+    //MARK: Continue Tapped
     @IBAction func continueTapped(_ sender: UIButton) {
         let num = numberTF.text!.replacingOccurrences(of: " ", with: "")
         let pass = passTf.text!
@@ -86,9 +93,17 @@ class SignUpVC: UIViewController {
             print(num)
             getData(num: num, pass: pass)
         } else {
+            ConnectionLottie.setUpAnimationView(lottie: "no-internet", view: self.internetLottieV, button: continueBtn)
         }
-       
+        
     }
+    
+    
+}
+
+
+//MARK: - Sending Number of User to BackEnd
+extension SignUpVC {
     
     func getData (num:String,pass:String) {
         API.getLogin(number: num, password: passTf.text!) { data in
@@ -106,14 +121,14 @@ class SignUpVC: UIViewController {
                 self.showErrorAlert(title: "Error", message: "iltimos raqam yoki passwordni kiriting")
             }
         }
+        
     }
-    
-    
 }
 
 
 
-extension String{
+//MARK: - createRangeinaLink func
+extension String {
     func createRangeinaLink(of findWord: String) -> NSRange {
         let range = (self as NSString) .range(of: findWord, options: .caseInsensitive)
         return range

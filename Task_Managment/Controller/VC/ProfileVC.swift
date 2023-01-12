@@ -12,11 +12,11 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var fullnameLbl: UILabel!
     @IBOutlet weak var numberLbl: UILabel!
     @IBOutlet var statusVs: [UIView]!
-    @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var tableView: UITableView!    
     @IBOutlet weak var completedLbl: UILabel!
     @IBOutlet weak var inProgressLbl: UILabel!
     @IBOutlet weak var toDoLbl: UILabel!
+
     
     var userData: UserDM?
     
@@ -27,7 +27,7 @@ class ProfileVC: UIViewController {
         SettingsDM(img: "bell", title: "Notifications"),
         SettingsDM(img: "checkmark.shield", title: "Security"),
         SettingsDM(img: "exclamationmark.circle", title: "Help"),
-        SettingsDM(img: "trash", title: "Logout", tintColor: .systemRed, titleColor: .systemRed)
+        SettingsDM(img: "door.right.hand.open", title: "Logout", tintColor: .systemRed, titleColor: .systemRed)
     ]
     
     
@@ -35,10 +35,18 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNav()
+        setLang()
         setUpTableView()
         setUserData()
         self.navigationController?.navigationBar.tintColor = .black
         
+    }
+    
+    //MARK: localizated languages
+    func setLang() {
+        completedLbl.text = "Completed".localized()
+        inProgressLbl.text = "In Rrogress".localized()
+        toDoLbl.text = "To Do".localized()
     }
 
     func setUserData() {

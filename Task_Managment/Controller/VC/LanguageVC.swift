@@ -26,8 +26,8 @@ class LanguageVC: UIViewController {
     
     //MARK: language settings
     func setLang() {
-//        titleLbl.text = "Select Language".localized()
-//        nextBtn.setTitle("Continue".localized(), for: .normal)
+        titleLbl.text = "Select Language".localized()
+        nextBtn.setTitle("Continue".localized(), for: .normal)
     }
 
     @IBAction func continueTapped(_ sender: Any) {
@@ -54,7 +54,7 @@ class LanguageVC: UIViewController {
         langView[0].borderColor = .clear
         langView[1].borderColor = .clear
         langView[2].borderColor = .clear
-        langView[tag].borderColor = .green
+        langView[tag].borderColor = #colorLiteral(red: 0.324398458, green: 0.3902252913, blue: 0.9221590161, alpha: 1)
     }
     
 }

@@ -30,7 +30,7 @@ class SettingsTVC: UITableViewCell {
     func updateCell(data: SettingsDM) {
         iconImg.image = data.image
         iconImg.tintColor = data.tintColor
-        titleLbl.text = data.title
+        titleLbl.text = data.title.localized()
         titleLbl.textColor = data.titleColor
         if data.title == "Logout" {
             chevronImg.alpha = 0

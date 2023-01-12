@@ -16,6 +16,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
+                <outlet property="commentLbl" destination="FSd-J0-hoy" id="Vay-kK-p9G"/>
+                <outlet property="nextBtn" destination="C5h-1U-XBv" id="bPx-mp-tMn"/>
+                <outlet property="titleLbl" destination="afX-B8-vS7" id="I3Q-Gs-5Ko"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

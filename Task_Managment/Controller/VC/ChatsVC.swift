@@ -17,9 +17,11 @@ class ChatsVC: UIViewController {
     @IBOutlet weak var textTf:UITextField!
     @IBOutlet weak var sendBtn:UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyChatImg: UIImageView!
     
     //variables
     var screenSize = UIScreen.main.bounds
+  
     var sendArr:[String] = []
     var myConstraint_DefualtValue = CGFloat(30)
 
@@ -29,6 +31,8 @@ class ChatsVC: UIViewController {
         setUpUI()
         getComments()
     }
+    
+    
     
     //MARK: - will show keyboard
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -69,6 +73,16 @@ class ChatsVC: UIViewController {
         }
     }
     
+ 
+    //MARK: empty chat image set
+    func setImg() {
+        if !sendArr.isEmpty {
+            emptyChatImg.isHidden = true
+        }else {
+            emptyChatImg.isHidden = false
+        }
+    }
+    
     //MARK: - Set Up TableView
     func setUpTableView() {
         tableView.delegate = self
@@ -88,6 +102,7 @@ class ChatsVC: UIViewController {
                     let indexPath = IndexPath(row: self.sendArr.count-1, section: 0)
                     self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
                 }
+            setImg()
             tableView.reloadData()
             textTf.text = ""
         }
@@ -151,6 +166,7 @@ extension ChatsVC {
     func getComments() {
         API.getComments(taskID: "63b82310464c9232856ccd1c") { data in
             self.sendArr = data
+            self.setImg()
             self.tableView.reloadData()
             Loader.stop()
         }

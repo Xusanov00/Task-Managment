@@ -182,6 +182,20 @@ class API {
     }
     
     
+    static func getMainPage(complation:@escaping (MainDM)->Void) {
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
+        ]
+        NET.sendRequest(to: baseUrl + EndPoints.getHome, method: .get, headers: headers, param: nil) { data in
+            guard let data = data else {return}
+            print("dataaaa=",data)
+            let info = MainDM(json: data["data"])
+            complation(info)
+            
+        }
+    }
+    
+    
     
     
 }
@@ -198,6 +212,7 @@ extension API {
         static let todaysTaskURL = "/task/day"
         static let taskID = "/task/63b82310464c9232856ccd1c"
         static let commentToTaskURL = "/task/comment"
+        static let getHome = "/task/main"
     }
 }
 

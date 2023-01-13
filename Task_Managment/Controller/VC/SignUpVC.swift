@@ -89,7 +89,7 @@ class SignUpVC: UIViewController {
 extension SignUpVC {
     func getData (num:String,pass:String) {
         API.getLogin(number: num, password: passTf.text!) { data in
-            Loader.stop()
+            
             if num != "" ,pass != "" {
                 if num == data.phoneNumber, pass == data.password {
                     SetCache.saveCache(for: data.token, for: KeysDM.token)

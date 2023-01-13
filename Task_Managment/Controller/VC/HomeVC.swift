@@ -9,7 +9,7 @@ import UIKit
 import FSCalendar
 import Charts
 import CircleProgressView
-class HomeVC: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
+class HomeVC: UIViewController {
     
     @IBOutlet weak var progressLbl: UILabel!
     @IBOutlet weak var calendarV: UIView!
@@ -17,16 +17,19 @@ class HomeVC: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
     @IBOutlet weak var statisticsBtn: UIButton!
     @IBOutlet weak var numberLbl: UILabel!
     @IBOutlet weak var fullnameLbl: UILabel!
-    fileprivate weak var calendar: FSCalendar!
     @IBOutlet weak var todaysTaskLbl: UILabel!
     @IBOutlet weak var tasksCompletedLbl: UILabel!
     @IBOutlet weak var viewTaskBtn: UIButton!
+    @IBOutlet weak var pandingCount: UILabel!
+    
+    var calendar: FSCalendar!
     
     var number = ""
     var userData: UserDM?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pandingCount.layer.cornerRadius = pandingCount.frame.height/2
         
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = .black
@@ -34,15 +37,16 @@ class HomeVC: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
         getData()
         observeUserNotif()
         setLang()
+        getHomeData()
     }
     
     
     //localizatedLanguage
     func setLang() {
-//        statisticsBtn.setTitle("Statistics".localized(), for: .normal)
-//        todaysTaskLbl.text = "Today’s Tasks".localized()
-//        tasksCompletedLbl.text = number + "Tasks completed".localized()
-//        viewTaskBtn.setTitle("View Task".localized(), for: .normal)
+        //        statisticsBtn.setTitle("Statistics".localized(), for: .normal)
+        //        todaysTaskLbl.text = "Today’s Tasks".localized()
+        //        tasksCompletedLbl.text = number + "Tasks completed".localized()
+        //        viewTaskBtn.setTitle("View Task".localized(), for: .normal)
     }
     
     
@@ -78,6 +82,9 @@ class HomeVC: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
 }
 
 
+
+
+
 //MARK: Data from API
 extension HomeVC {
     func getData () {
@@ -100,5 +107,18 @@ extension HomeVC {
     
     @objc func updateUser() {
         getData()
+    }
+}
+//MARK: - getHomePageData
+extension HomeVC {
+    func getHomeData() {
+        API.getMainPage { data in
+            Loader.stop()
+            self.progressV.progress = Double(data.pecent)
+            self.progressLbl.text = "\(data.pecent)%"
+            self.tasksCompletedLbl.text = "\(data.complatedTask)/\(data.allTasks) Task Completed"
+            self.pandingCount.text = "\(data.pendingCount)"
+            
+        }
     }
 }

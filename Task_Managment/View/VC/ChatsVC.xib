@@ -17,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatsVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
                 <outlet property="backV" destination="5WE-rR-yG6" id="foq-Y0-u0Q"/>
+                <outlet property="emptyChatImg" destination="L49-Ig-7pf" id="cf6-jz-0n9"/>
                 <outlet property="sendBtn" destination="TZ5-4D-t0p" id="1VL-us-uqU"/>
                 <outlet property="tableView" destination="FLu-ZZ-snD" id="gLk-ZM-zGW"/>
                 <outlet property="textTf" destination="ww1-ZA-HVv" id="Nmx-C4-Dbp"/>

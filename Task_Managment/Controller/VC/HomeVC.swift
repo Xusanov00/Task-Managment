@@ -30,7 +30,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         pandingCount.layer.cornerRadius = pandingCount.frame.height/2
-        
+        setCalendar()
         self.navigationItem.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationItem.hidesBackButton = true
@@ -39,6 +39,15 @@ class HomeVC: UIViewController {
         setLang()
         getHomeData()
     }
+//    SetCalendar
+    func setCalendar() {
+        calendar = FSCalendar(frame: CGRect(x: 0, y: 0, width: self.calendarV.frame.width, height: self.calendarV.frame.height))
+        calendar.scrollDirection = .horizontal
+        calendar.scope = .month
+        calendar.locale = Locale(identifier: "uz")
+        self.calendarV.addSubview(calendar)
+    }
+    
     
     
     //localizatedLanguage

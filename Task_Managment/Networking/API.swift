@@ -123,14 +123,14 @@ class API {
     }
     
     
-    static func getTodaysTask(complation:@escaping([TaskDM])->Void) {
+    static func getTodaysTask(day: Int, complation:@escaping([TaskDM])->Void) {
         
         let headers: HTTPHeaders = [
             "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
         ]
         
         let params: [String: Any] = [
-            "day": 1673548155
+            "day": day
         ]
         
         NET.sendURLRequest(to: getTodaysTask, method: .get, headers: headers, param: params) { data in

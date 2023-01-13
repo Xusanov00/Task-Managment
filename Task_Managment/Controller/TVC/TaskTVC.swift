@@ -31,24 +31,24 @@ class TaskTVC: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.selectionStyle = .none
     }
     func updateCell(cell: TaskDM) {
         shadowV.addShadow(cornerRadius: 12)
         topicLbl.text = cell.title
         descryptionLbl.text = cell.definition
         timeLbl.text = "\(cell.time)"
-        priorityLbl.text = cell.priority
+        priorityLbl.text = cell.priority.capitalized
         
         if priorityLbl.text == "Completed" {
-            priorityView.backgroundColor = #colorLiteral(red: 0.9281279445, green: 0.9780753255, blue: 0.9470465779, alpha: 1)
-            priorityLbl.textColor = #colorLiteral(red: 0.2781714797, green: 0.7590492368, blue: 0.4490745068, alpha: 1)
-        } else if priorityLbl.text == "In Progress" {
-            priorityView.backgroundColor = #colorLiteral(red: 0.9998732209, green: 0.9553380609, blue: 0.8955518603, alpha: 1)
-            priorityLbl.textColor = #colorLiteral(red: 1, green: 0.540979445, blue: 0.0009590052068, alpha: 1)
-        } else if priorityLbl.text == "To Do" {
-            priorityView.backgroundColor = #colorLiteral(red: 0.921910584, green: 0.941830337, blue: 0.9972619414, alpha: 1)
-            priorityLbl.textColor = #colorLiteral(red: 0.2226326466, green: 0.4325051904, blue: 0.9460671544, alpha: 1)
+            priorityView.backgroundColor = #colorLiteral(red: 0.2784313725, green: 0.7607843137, blue: 0.4470588235, alpha: 0.1)
+            priorityLbl.textColor = #colorLiteral(red: 0.2784313725, green: 0.7607843137, blue: 0.4470588235, alpha: 1)
+        } else if priorityLbl.text == "Progress" {
+            priorityView.backgroundColor = #colorLiteral(red: 1, green: 0.5411764706, blue: 0, alpha: 0.1)
+            priorityLbl.textColor = #colorLiteral(red: 1, green: 0.5411764706, blue: 0, alpha: 1)
+        } else if priorityLbl.text == "Pending" {
+            priorityView.backgroundColor = #colorLiteral(red: 0.2235294118, green: 0.431372549, blue: 0.9450980392, alpha: 0.1)
+            priorityLbl.textColor = #colorLiteral(red: 0.2235294118, green: 0.431372549, blue: 0.9450980392, alpha: 1)
         } else {
             priorityView.backgroundColor = .green
             priorityLbl.textColor = .red

@@ -93,6 +93,7 @@ extension HomeVC {
     }
 }
 
+//MARK: - Observe Notification Center
 extension HomeVC {
     func observeUserNotif() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateUser), name: NSNotification.Name.init("UPDATEUSER"), object: nil)

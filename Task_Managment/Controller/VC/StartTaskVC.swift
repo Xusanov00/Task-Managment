@@ -27,7 +27,7 @@ class StartTaskVC: UIViewController {
     //variables
    
     var timer: Timer!
-    var value = 1.0
+    var value = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,14 +40,15 @@ class StartTaskVC: UIViewController {
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            print("shake")
+            setUpTimer()
+            Vibration.heavy.vibrate()
+            
         }
     }
 
     
     func setUpTimer() {
-        
-        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimer() {
@@ -58,8 +59,8 @@ class StartTaskVC: UIViewController {
         
         timerView.setProgress(value, animated: true)
         timerLbl.text = "\(Int(value*100))"
-        value -= 0.01
-        if value <= 0 {
+        value += 0.01
+        if value >= 1 {
             timer.invalidate()
             timer = nil
             timerLbl.text = "Time Out"
@@ -99,8 +100,11 @@ class StartTaskVC: UIViewController {
         
     }
 }
+
+
 extension StartTaskVC {
     func getTaskID() {
+        
         API.getTaskID() { data in
            
             self.dateLbl.text = "\(NSDate(timeIntervalSince1970: TimeInterval(data.from)))"

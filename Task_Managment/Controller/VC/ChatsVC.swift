@@ -97,6 +97,28 @@ class ChatsVC: UIViewController {
 
 //MARK: - UITableViewDelegate
 extension ChatsVC:UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        
+        let deleteAction = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive, state: .off) { [self]_ in
+                        
+            sendArr.remove(at: indexPath.row)
+            tableView.reloadData()
+            
+        }
+                
+        let menu = UIMenu(title: "Delete of Comment", options: .displayInline, children: [deleteAction])
+        
+        let contextmenu = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            
+            return menu
+            
+        }
+        
+        return contextmenu
+        
+    }
+    
 }
 
 
@@ -134,4 +156,5 @@ extension ChatsVC {
         }
     }
 }
+
 

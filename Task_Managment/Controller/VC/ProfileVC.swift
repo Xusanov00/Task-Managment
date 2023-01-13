@@ -16,6 +16,12 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var completedLbl: UILabel!
     @IBOutlet weak var inProgressLbl: UILabel!
     @IBOutlet weak var toDoLbl: UILabel!
+    
+    @IBOutlet weak var completedCountLbl: UILabel!
+    @IBOutlet weak var inProgressCountLbl: UILabel!
+    @IBOutlet weak var toDoCountLbl: UILabel!
+    
+    
 
     
     var userData: UserDM?
@@ -53,9 +59,9 @@ class ProfileVC: UIViewController {
         guard let userData = userData else { return }
         fullnameLbl.text = userData.lastName + " " + userData.firstName
         numberLbl.text = userData.phoneNumber
-        completedLbl.text = "\(userData.stats.completed)"
-        inProgressLbl.text = "\(userData.stats.progress)"
-        toDoLbl.text = "\(userData.stats.unCompleted)"
+        completedCountLbl.text = "\(userData.stats.completed)"
+        inProgressCountLbl.text = "\(userData.stats.progress)"
+        toDoCountLbl.text = "\(userData.stats.unCompleted)"
         
     }
     
@@ -155,7 +161,3 @@ extension ProfileVC: UITableViewDataSource {
         return cell
     }
 }
-
-
-
-

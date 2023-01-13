@@ -19,6 +19,7 @@ class TodaysTaskVC: UIViewController {
     var num = 0
     var taskArr: [TaskDM] = [ ]
     var sortedTasks: [TaskDM] = []
+    
     var weeks:[String] = ["Du","Se","Chor","Pay","Ju","Shan","Yak"]
 
     override func viewDidLoad() {
@@ -105,13 +106,13 @@ extension TodaysTaskVC: UITableViewDataSource {
             sortedTasks = taskArr
         case 1:
             sortedTasks.removeAll()
-            sortedTasks = taskArr.filter { $0.priority == "In Progress" }
+            sortedTasks = taskArr.filter { $0.priority == "progress" }
         case 2:
             sortedTasks.removeAll()
-            sortedTasks = taskArr.filter { $0.priority == "Completed" }
+            sortedTasks = taskArr.filter { $0.priority == "completed" }
         case 3:
             sortedTasks.removeAll()
-            sortedTasks = taskArr.filter { $0.priority == "To Do" }
+            sortedTasks = taskArr.filter { $0.priority == "pending" }
             
         default:
             print("")
@@ -129,13 +130,13 @@ extension TodaysTaskVC: UITableViewDataSource {
             sortedTasks = taskArr
         case 1:
             sortedTasks.removeAll()
-            sortedTasks = taskArr.filter { $0.priority == "In Progress" }
+            sortedTasks = taskArr.filter { $0.priority == "progress" }
         case 2:
             sortedTasks.removeAll()
-            sortedTasks = taskArr.filter { $0.priority == "Completed" }
+            sortedTasks = taskArr.filter { $0.priority == "completed" }
         case 3:
             sortedTasks.removeAll()
-            sortedTasks = taskArr.filter { $0.priority == "To Do" }
+            sortedTasks = taskArr.filter { $0.priority == "pending" }
         default:
             print("")
         }
@@ -177,7 +178,7 @@ extension TodaysTaskVC:UICollectionViewDelegateFlowLayout {
 //MARK: - getTodaysTask
 extension TodaysTaskVC {
     func getTodaysTask() {
-        API.getTodaysTask { data in
+        API.getTodaysTask(day: 1673588475) { data in
             
             self.taskArr = data
             self.setupTableView()

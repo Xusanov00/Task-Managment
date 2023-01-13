@@ -15,6 +15,9 @@
         <array key="LexendDeca-Regular.ttf">
             <string>LexendDeca-Regular</string>
         </array>
+        <array key="LexendDeca-SemiBold.ttf">
+            <string>LexendDeca-SemiBold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -92,7 +95,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdg-hL-HnG">
                                                         <rect key="frame" x="8" y="2" width="54" height="13"/>
-                                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="10"/>
+                                                        <fontDescription key="fontDescription" name="LexendDeca-SemiBold" family="Lexend Deca" pointSize="10"/>
                                                         <color key="textColor" red="0.4196078479" green="0.74901962280000001" blue="0.47843140360000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -168,7 +171,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="clock" catalog="system" width="32" height="32"/>
+        <image name="clock" catalog="system" width="128" height="123"/>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

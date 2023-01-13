@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41576B2C297137750089DA7F /* Lang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41576B2B297137750089DA7F /* Lang.swift */; };
+		41576B3029714C830089DA7F /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41576B2F29714C830089DA7F /* Cache.swift */; };
+		41576B3229714F860089DA7F /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41576B3129714F860089DA7F /* Keys.swift */; };
 		416248A1296962260080C77A /* TaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4162489F296962260080C77A /* TaskVC.swift */; };
 		416248A2296962260080C77A /* TaskVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416248A0296962260080C77A /* TaskVC.xib */; };
 		419499FD29703A7400332313 /* connectionLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419499FC29703A7400332313 /* connectionLottie.swift */; };
@@ -71,6 +74,9 @@
 
 /* Begin PBXFileReference section */
 		085BCAAB5C6C7959AD3C5AF6 /* Pods_Task_Managment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task_Managment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41576B2B297137750089DA7F /* Lang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lang.swift; sourceTree = "<group>"; };
+		41576B2F29714C830089DA7F /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		41576B3129714F860089DA7F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		4162489F296962260080C77A /* TaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskVC.swift; sourceTree = "<group>"; };
 		416248A0296962260080C77A /* TaskVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskVC.xib; sourceTree = "<group>"; };
 		4165992C2970272E00B221CF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -159,6 +165,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		41576B2A297137560089DA7F /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				41576B2B297137750089DA7F /* Lang.swift */,
+				41576B2F29714C830089DA7F /* Cache.swift */,
+				41576B3129714F860089DA7F /* Keys.swift */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
 		524022EB2969487D003C17CE /* CVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				5F01843F296856F4005F9EBF /* AppDelegate.swift */,
+				41576B2A297137560089DA7F /* Language */,
 				526EDA65296BE14C00D5CA8C /* Networking */,
 				5F01845329685771005F9EBF /* Model */,
 				5F01845629685789005F9EBF /* View */,
@@ -491,7 +508,9 @@
 				5F01849929685D55005F9EBF /* LanguageCache.swift in Sources */,
 				524022F32969557A003C17CE /* StatisticsVC.swift in Sources */,
 				5205E02429699E8C00F91A05 /* GetTVC.swift in Sources */,
+				41576B3029714C830089DA7F /* Cache.swift in Sources */,
 				5F9EC2FC296DC9A6002FC1D2 /* StartVC.swift in Sources */,
+				41576B2C297137750089DA7F /* Lang.swift in Sources */,
 				526EDA69296BE16800D5CA8C /* NET.swift in Sources */,
 				526EDA6B296BE17000D5CA8C /* API.swift in Sources */,
 				5FF2621D297007380037AD66 /* LanguageVC.swift in Sources */,
@@ -509,6 +528,7 @@
 				5FF26217297007160037AD66 /* SignUpVC.swift in Sources */,
 				5F01846429685824005F9EBF /* Ex+UIView.swift in Sources */,
 				5F018487296858A2005F9EBF /* TodaysTaskVC.swift in Sources */,
+				41576B3229714F860089DA7F /* Keys.swift in Sources */,
 				5F01846B2968586F005F9EBF /* SettingsTVC.swift in Sources */,
 				5F2C4BD02969731E00D0285D /* Ex+String.swift in Sources */,
 				AFCC032D29704111000D5B5B /* CommentDM.swift in Sources */,

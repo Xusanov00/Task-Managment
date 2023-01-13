@@ -7,11 +7,14 @@
 
 import UIKit
 import CircleProgressView
+import GoogleMaps
 
 class StartTaskVC: UIViewController {
 
     
     @IBOutlet weak var timerStack: UIStackView!
+    
+    
     
     @IBOutlet weak var timerView: CircleProgressView!
     @IBOutlet weak var timerTitleLbl: UILabel!
@@ -21,50 +24,108 @@ class StartTaskVC: UIViewController {
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var laddressLbl: UILabel!
     @IBOutlet weak var descLbl: UILabel!
-
+    @IBOutlet weak var gmsMap: GMSMapView!
+    
     
     
     //variables
-   
+    var task: TaskDM?
     var timer: Timer!
     var value = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         timerStack.isHidden = true
-        Loader.start()
         setUpNav()
-        getTaskID()
+        setUpUI()
     }
  
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            setUpTimer()
-            Vibration.heavy.vibrate()
+            if timer == nil {
+                setUpTimer()
+                Vibration.success.vibrate()
+            }
             
         }
     }
 
     
+    func setUpUI() {
+        
+        guard let data = task else { return }
+        self.dateLbl.text = dateFormatter(unixDate: data.from)
+        self.laddressLbl.text = data.address
+        self.timeLbl.text = ""
+        self.titleLbl.text = data.title
+        self.descLbl.text = data.definition
+        self.timerLbl.text = "\(data.deadline)"
+        setUPMap(lat: data.location.latitude, long: data.location.longitude)
+        
+    }
+    
+    func setUPMap(lat: Double, long: Double) {
+        // Do any additional setup after loading the view.
+        // Create a GMSCameraPosition that tells the map to display the
+        // coordinate -33.86,151.20 at zoom level 6.
+        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 6.0)
+        gmsMap.camera = camera
+        showMarker(position: camera.target)
+        gmsMap.settings.scrollGestures = false
+        gmsMap.settings.zoomGestures = false
+        gmsMap.settings.tiltGestures = false
+        gmsMap.settings.rotateGestures = false
+      
+    }
+    
+    func showMarker(position: CLLocationCoordinate2D){
+           let marker = GMSMarker()
+           marker.position = position
+           marker.title = "Uzbekistan"
+           marker.snippet = "Tashkent"
+           marker.map = gmsMap
+       }
+    
+    
+    func dateFormatter(unixDate: Int) -> String{
+          
+        if let timeResult = unixDate as? Int {
+            let date = Date(timeIntervalSince1970: TimeInterval(timeResult))
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = DateFormatter.Style.none//Set time style
+            dateFormatter.dateStyle = DateFormatter.Style.short //Set date style
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            dateFormatter.timeZone = .current
+            let localDate = dateFormatter.string(from: date)
+            return localDate
+        }
+    }
+    
+
     func setUpTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimer() {
         if timerStack.isHidden {
-            UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear) {
+
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 2, options: .curveEaseIn) {
                 self.timerStack.isHidden = false
-            } }
-        
-        timerView.setProgress(value, animated: true)
-        timerLbl.text = "\(Int(value*100))"
-        value += 0.01
-        if value >= 1 {
-            timer.invalidate()
-            timer = nil
-            timerLbl.text = "Time Out"
+            }
         }
+        
+        self.timerView.setProgress(self.value, animated: true)
+        self.timerLbl.text = "\(Int(self.value*100))"
+        self.value += 0.01
+        if self.value >= 1 {
+            self.timer.invalidate()
+            self.timer = nil
+            self.value = 0.0
+            self.timerLbl.text = "Time Out"
+        }
+        
+        
     }
     
     
@@ -95,25 +156,19 @@ class StartTaskVC: UIViewController {
     
     @IBAction func startTaskTapped(_ sender: UIButton) {
 
-        setUpTimer()
+        if timer == nil {
+            setUpTimer()
+            Vibration.success.vibrate()
+        }
+        
         sender.setTitle("Finish Task", for: .normal)
         
     }
 }
 
 
-extension StartTaskVC {
-    func getTaskID() {
-        
-        API.getTaskID() { data in
-           
-            self.dateLbl.text = "\(NSDate(timeIntervalSince1970: TimeInterval(data.from)))"
-            self.laddressLbl.text = data.address
-            self.timeLbl.text = "\(NSDate(timeIntervalSince1970: TimeInterval(data.time)))"
-            self.titleLbl.text = data.title
-            self.descLbl.text = data.definition
-            Loader.stop()
-            
-        }
-    }
+//MARK: - Google Maps Delegate
+extension StartTaskVC: GMSMapViewDelegate{
+    
 }
+

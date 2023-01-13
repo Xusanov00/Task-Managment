@@ -39,10 +39,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="LcW-XU-azM">
-                                    <rect key="frame" x="24" y="178.33333333333331" width="345" height="202.33333333333331"/>
+                                    <rect key="frame" x="24" y="188" width="345" height="183.33333333333337"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="gd7-Qk-I1L">
-                                            <rect key="frame" x="0.0" y="0.0" width="345" height="74.333333333333329"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="55.333333333333336"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTH-5f-XL0">
                                                     <rect key="frame" x="0.0" y="0.0" width="345" height="24"/>
@@ -50,8 +50,8 @@
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up and start doing all your work with a plan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Tl-VZ-YhX">
-                                                    <rect key="frame" x="30" y="35.999999999999972" width="285" height="38.333333333333343"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start doing all your work with a plan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Tl-VZ-YhX">
+                                                    <rect key="frame" x="30" y="36" width="285" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.43137254901960786" green="0.41568627450980389" blue="0.48627450980392156" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                                             </constraints>
                                         </stackView>
                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uH9-LB-Iic" customClass="PhoneNumberTextField" customModule="PhoneNumberKit">
-                                            <rect key="frame" x="0.0" y="98.333333333333343" width="345" height="40"/>
+                                            <rect key="frame" x="0.0" y="79.333333333333314" width="345" height="40"/>
                                             <color key="backgroundColor" systemColor="systemGray5Color"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="MNw-Jf-ywc"/>
@@ -80,7 +80,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slS-BT-y4o">
-                                            <rect key="frame" x="0.0" y="162.33333333333334" width="345" height="40"/>
+                                            <rect key="frame" x="0.0" y="143.33333333333331" width="345" height="40"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Px-Io-7V6" customClass="PasswordTextField" customModule="PasswordTextField">
                                                     <rect key="frame" x="5" y="2" width="335" height="36"/>

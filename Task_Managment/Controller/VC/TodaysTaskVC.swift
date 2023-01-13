@@ -9,15 +9,18 @@ import UIKit
 
 class TodaysTaskVC: UIViewController {
 
+    //outlets
     @IBOutlet var btns: [UIButton]!
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var backV: UIView!
     @IBOutlet weak var tableView: UITableView!
+    
+    //variables
     var num = 0
     var taskArr: [TaskDM] = [ ]
     var sortedTasks: [TaskDM] = []
     var weeks:[String] = ["Du","Se","Chor","Pay","Ju","Shan","Yak"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false

@@ -9,10 +9,7 @@
 /* Begin PBXBuildFile section */
 		416248A1296962260080C77A /* TaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4162489F296962260080C77A /* TaskVC.swift */; };
 		416248A2296962260080C77A /* TaskVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416248A0296962260080C77A /* TaskVC.xib */; };
-		416599302970277700B221CF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 416599322970277700B221CF /* Localizable.strings */; };
-		41659936297027B100B221CF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41659935297027B100B221CF /* String.swift */; };
 		419499FD29703A7400332313 /* connectionLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419499FC29703A7400332313 /* connectionLottie.swift */; };
-		41949A01297046DC00332313 /* no-internet.json in Resources */ = {isa = PBXBuildFile; fileRef = 41949A00297046DB00332313 /* no-internet.json */; };
 		41C606D429686760001BF536 /* LanguageDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606D329686760001BF536 /* LanguageDM.swift */; };
 		49BCBD14A7B77DFFEB972F93 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		5205E00029698D9500F91A05 /* ChatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205DFFE29698D9500F91A05 /* ChatsVC.swift */; };
@@ -57,8 +54,6 @@
 		5F264501296C5949005C480C /* TaskTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F264500296C5949005C480C /* TaskTVC.swift */; };
 		5F264503296C6636005C480C /* Ex+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F264502296C6636005C480C /* Ex+UIWindow.swift */; };
 		5F2C4BD02969731E00D0285D /* Ex+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2C4BCF2969731E00D0285D /* Ex+String.swift */; };
-		5F2C4BD32969855100D0285D /* EndTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2C4BD12969855100D0285D /* EndTaskVC.swift */; };
-		5F2C4BD42969855100D0285D /* EndTaskVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2C4BD22969855100D0285D /* EndTaskVC.xib */; };
 		5F397BBF296869410059A1B0 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F397BBD296869410059A1B0 /* EditProfileVC.swift */; };
 		5F397BC0296869410059A1B0 /* EditProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F397BBE296869410059A1B0 /* EditProfileVC.xib */; };
 		5F9EC2EF296D4811002FC1D2 /* UserDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9EC2EE296D4811002FC1D2 /* UserDM.swift */; };
@@ -68,6 +63,7 @@
 		5FF26219297007200037AD66 /* SignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF26218297007200037AD66 /* SignUpVC.xib */; };
 		5FF2621B2970072A0037AD66 /* LanguageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF2621A2970072A0037AD66 /* LanguageVC.xib */; };
 		5FF2621D297007380037AD66 /* LanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2621C297007380037AD66 /* LanguageVC.swift */; };
+		5FF2621F2970D2730037AD66 /* Vibration Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2621E2970D2730037AD66 /* Vibration Enum.swift */; };
 		A7B44C3ECBD77BF770A2BFB3 /* Pods_Task_Managment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085BCAAB5C6C7959AD3C5AF6 /* Pods_Task_Managment.framework */; };
 		AFCC032D29704111000D5B5B /* CommentDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCC032C29704111000D5B5B /* CommentDM.swift */; };
 /* End PBXBuildFile section */
@@ -78,12 +74,7 @@
 		416248A0296962260080C77A /* TaskVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskVC.xib; sourceTree = "<group>"; };
 		4165992C2970272E00B221CF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4165992D2970275300B221CF /* uz-UZ */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "uz-UZ"; path = "uz-UZ.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		416599312970277700B221CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		416599332970277A00B221CF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		416599342970277A00B221CF /* uz-UZ */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "uz-UZ"; path = "uz-UZ.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		41659935297027B100B221CF /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = ../../../../Desktop/Localizable/String.swift; sourceTree = "<group>"; };
 		419499FC29703A7400332313 /* connectionLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connectionLottie.swift; sourceTree = "<group>"; };
-		41949A00297046DB00332313 /* no-internet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "no-internet.json"; path = "../../../../Downloads/no-internet.json"; sourceTree = "<group>"; };
 		41C606D329686760001BF536 /* LanguageDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDM.swift; sourceTree = "<group>"; };
 		463C7CDD1E2BFC1B3791599C /* Pods-Task_Managment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.release.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.release.xcconfig"; sourceTree = "<group>"; };
 		5205DFFE29698D9500F91A05 /* ChatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsVC.swift; sourceTree = "<group>"; };
@@ -131,8 +122,6 @@
 		5F264500296C5949005C480C /* TaskTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTVC.swift; sourceTree = "<group>"; };
 		5F264502296C6636005C480C /* Ex+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+UIWindow.swift"; sourceTree = "<group>"; };
 		5F2C4BCF2969731E00D0285D /* Ex+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+String.swift"; sourceTree = "<group>"; };
-		5F2C4BD12969855100D0285D /* EndTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndTaskVC.swift; sourceTree = "<group>"; };
-		5F2C4BD22969855100D0285D /* EndTaskVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EndTaskVC.xib; sourceTree = "<group>"; };
 		5F397BBD296869410059A1B0 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		5F397BBE296869410059A1B0 /* EditProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileVC.xib; sourceTree = "<group>"; };
 		5F9EC2EE296D4811002FC1D2 /* UserDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDM.swift; sourceTree = "<group>"; };
@@ -142,6 +131,7 @@
 		5FF26218297007200037AD66 /* SignUpVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpVC.xib; sourceTree = "<group>"; };
 		5FF2621A2970072A0037AD66 /* LanguageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageVC.xib; sourceTree = "<group>"; };
 		5FF2621C297007380037AD66 /* LanguageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageVC.swift; sourceTree = "<group>"; };
+		5FF2621E2970D2730037AD66 /* Vibration Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vibration Enum.swift"; sourceTree = "<group>"; };
 		AFCC032C29704111000D5B5B /* CommentDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDM.swift; sourceTree = "<group>"; };
 		E08D7915ABBC43DEA538AD38 /* Pods-Task_Managment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.debug.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,15 +157,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4165992B297026CD00B221CF /* Localizable */ = {
-			isa = PBXGroup;
-			children = (
-				416599322970277700B221CF /* Localizable.strings */,
-				41659935297027B100B221CF /* String.swift */,
-			);
-			path = Localizable;
-			sourceTree = "<group>";
-		};
 		524022EB2969487D003C17CE /* CVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +180,6 @@
 				526EDA68296BE16800D5CA8C /* NET.swift */,
 				526EDA6A296BE17000D5CA8C /* API.swift */,
 				419499FC29703A7400332313 /* connectionLottie.swift */,
-				41949A00297046DB00332313 /* no-internet.json */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -225,7 +205,6 @@
 		5F01843E296856F4005F9EBF /* Task_Managment */ = {
 			isa = PBXGroup;
 			children = (
-				4165992B297026CD00B221CF /* Localizable */,
 				5F01843F296856F4005F9EBF /* AppDelegate.swift */,
 				526EDA65296BE14C00D5CA8C /* Networking */,
 				5F01845329685771005F9EBF /* Model */,
@@ -274,6 +253,7 @@
 				52568B72296C5346006F337E /* pulse.json */,
 				5F264502296C6636005C480C /* Ex+UIWindow.swift */,
 				52E5CEA5296D9A3D00DE66F3 /* SocketIo.swift */,
+				5FF2621E2970D2730037AD66 /* Vibration Enum.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -335,7 +315,6 @@
 				4162489F296962260080C77A /* TaskVC.swift */,
 				524022F12969557A003C17CE /* StatisticsVC.swift */,
 				5205DFFE29698D9500F91A05 /* ChatsVC.swift */,
-				5F2C4BD12969855100D0285D /* EndTaskVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -354,7 +333,6 @@
 				416248A0296962260080C77A /* TaskVC.xib */,
 				524022F22969557A003C17CE /* StatisticsVC.xib */,
 				5205DFFF29698D9500F91A05 /* ChatsVC.xib */,
-				5F2C4BD22969855100D0285D /* EndTaskVC.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -440,7 +418,6 @@
 				5F0184772968588C005F9EBF /* StartTaskVC.xib in Resources */,
 				5F01847A2968588C005F9EBF /* ProfileVC.xib in Resources */,
 				524022EF296948A3003C17CE /* DayCVC.xib in Resources */,
-				416599302970277700B221CF /* Localizable.strings in Resources */,
 				5F01846129685819005F9EBF /* LexendDeca-Bold.ttf in Resources */,
 				5205E02929699EA600F91A05 /* SendTVC.xib in Resources */,
 				5FF2621B2970072A0037AD66 /* LanguageVC.xib in Resources */,
@@ -448,11 +425,9 @@
 				5F01844C296856F5005F9EBF /* LaunchScreen.storyboard in Resources */,
 				5F018449296856F5005F9EBF /* Assets.xcassets in Resources */,
 				5F0184782968588C005F9EBF /* HomeVC.xib in Resources */,
-				41949A01297046DC00332313 /* no-internet.json in Resources */,
 				52568B73296C5346006F337E /* pulse.json in Resources */,
 				416248A2296962260080C77A /* TaskVC.xib in Resources */,
 				5F9EC2F8296DC967002FC1D2 /* StartVC.xib in Resources */,
-				5F2C4BD42969855100D0285D /* EndTaskVC.xib in Resources */,
 				5205E02529699E8C00F91A05 /* GetTVC.xib in Resources */,
 				5F01846F29685881005F9EBF /* SettingsTVC.xib in Resources */,
 				5F01845E29685819005F9EBF /* LexendDeca-SemiBold.ttf in Resources */,
@@ -511,7 +486,6 @@
 				41C606D429686760001BF536 /* LanguageDM.swift in Sources */,
 				5F01849929685D55005F9EBF /* LanguageCache.swift in Sources */,
 				524022F32969557A003C17CE /* StatisticsVC.swift in Sources */,
-				5F2C4BD32969855100D0285D /* EndTaskVC.swift in Sources */,
 				5205E02429699E8C00F91A05 /* GetTVC.swift in Sources */,
 				5F9EC2FC296DC9A6002FC1D2 /* StartVC.swift in Sources */,
 				526EDA69296BE16800D5CA8C /* NET.swift in Sources */,
@@ -520,7 +494,6 @@
 				5F018485296858A2005F9EBF /* ProfileVC.swift in Sources */,
 				52568B67296C3EE7006F337E /* LoginDM.swift in Sources */,
 				416248A1296962260080C77A /* TaskVC.swift in Sources */,
-				41659936297027B100B221CF /* String.swift in Sources */,
 				5F264503296C6636005C480C /* Ex+UIWindow.swift in Sources */,
 				5F018440296856F4005F9EBF /* AppDelegate.swift in Sources */,
 				5F018489296858A2005F9EBF /* StartTaskVC.swift in Sources */,
@@ -542,6 +515,7 @@
 				5F2644FD296C590F005C480C /* TaskDM.swift in Sources */,
 				5F264501296C5949005C480C /* TaskTVC.swift in Sources */,
 				5205E02829699EA600F91A05 /* SendTVC.swift in Sources */,
+				5FF2621F2970D2730037AD66 /* Vibration Enum.swift in Sources */,
 				5F01846529685824005F9EBF /* Ex+UIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,16 +523,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		416599322970277700B221CF /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				416599312970277700B221CF /* en */,
-				416599332970277A00B221CF /* ru */,
-				416599342970277A00B221CF /* uz-UZ */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		5F01844A296856F5005F9EBF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

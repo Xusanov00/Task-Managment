@@ -10,12 +10,12 @@ import FSCalendar
 
 class TaskVC: UIViewController {
     
-    
+    //outlets
     @IBOutlet weak var calendarV: UIView!
-    
     @IBOutlet weak var taskTablView: UITableView!
-    
     fileprivate weak var calendar: FSCalendar!
+    
+    //variables
     var taskArr: [TaskDM] = [ ]
     
     override func viewDidLoad() {
@@ -25,18 +25,16 @@ class TaskVC: UIViewController {
     }
     
     
-    //task tableView settings
+    //MARK: - Set Up TableView
     func setTaskTablView() {
         taskTablView.separatorStyle = .none
         taskTablView.dataSource = self
         taskTablView.register(TaskTVC.nib(), forCellReuseIdentifier: TaskTVC.id)
     }
-    
-    
 }
 
 
-
+//MARK: - UITableViewDataSource
 extension TaskVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,6 +51,8 @@ extension TaskVC: UITableViewDataSource {
 }
 
 
+
+//MARK: - FSCalendarDataSource, FSCalendarDelegate
 extension TaskVC: FSCalendarDataSource, FSCalendarDelegate {
     
     func setCalendar() {

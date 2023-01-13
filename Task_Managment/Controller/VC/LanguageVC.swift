@@ -9,27 +9,31 @@ import UIKit
 
 class LanguageVC: UIViewController {
 
+    
+    //outlets
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet var langView: [UIView]!
     @IBOutlet var langBtn: [UIButton]!
     @IBOutlet weak var nextBtn: UIButton!
     
-    
- 
     override func viewDidLoad() {
         super.viewDidLoad()
         setLang()
+    }
+    
+    
+    
+    //MARK: - language and lang UI settings
+    func setLang() {
         langView[0].addShadow(cornerRadius: 12)
         langView[1].addShadow(cornerRadius: 12)
         langView[2].addShadow(cornerRadius: 12)
-    }
-    
-    //MARK: language settings
-    func setLang() {
-        titleLbl.text = "Select Language".localized()
-        nextBtn.setTitle("Continue".localized(), for: .normal)
+//        titleLbl.text = "Select Language".localized()
+//        nextBtn.setTitle("Continue".localized(), for: .normal)
     }
 
+    
+    //MARK: - Actions
     @IBAction func continueTapped(_ sender: Any) {
         let vc = SignUpVC(nibName: "SignUpVC", bundle: nil)
         self.navigationItem.backButtonTitle = ""
@@ -50,13 +54,13 @@ class LanguageVC: UIViewController {
         }
     }
     
+    //MARK: - Border Color for LangBtn
     func borderColor(tag: Int) {
         langView[0].borderColor = .clear
         langView[1].borderColor = .clear
         langView[2].borderColor = .clear
         langView[tag].borderColor = #colorLiteral(red: 0.324398458, green: 0.3902252913, blue: 0.9221590161, alpha: 1)
     }
-    
 }
 
 

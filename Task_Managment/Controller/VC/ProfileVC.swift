@@ -44,9 +44,9 @@ class ProfileVC: UIViewController {
     
     //MARK: localizated languages
     func setLang() {
-        completedLbl.text = "Completed".localized()
-        inProgressLbl.text = "In Rrogress".localized()
-        toDoLbl.text = "To Do".localized()
+//        completedLbl.text = "Completed".localized()
+//        inProgressLbl.text = "In Rrogress".localized()
+//        toDoLbl.text = "To Do".localized()
     }
 
     func setUserData() {

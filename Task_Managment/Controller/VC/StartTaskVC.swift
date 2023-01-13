@@ -11,33 +11,60 @@ import CircleProgressView
 class StartTaskVC: UIViewController {
 
     
-    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var timerStack: UIStackView!
     
-    @IBOutlet weak var timLbl: UILabel!
+    @IBOutlet weak var timerView: CircleProgressView!
+    @IBOutlet weak var timerTitleLbl: UILabel!
+    @IBOutlet weak var timerLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var laddressLbl: UILabel!
-    
-    
     @IBOutlet weak var descLbl: UILabel!
-    
-    
-    @IBOutlet weak var progressView: CircleProgressView!
+
     
     
     //variables
    
-    var timer: Timer?
+    var timer: Timer!
+    var value = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        timerStack.isHidden = true
         Loader.start()
         setUpNav()
-        
         getTaskID()
     }
  
     
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            print("shake")
+        }
+    }
+
+    
+    func setUpTimer() {
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTimer() {
+        if timerStack.isHidden {
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear) {
+                self.timerStack.isHidden = false
+            } }
+        
+        timerView.setProgress(value, animated: true)
+        timerLbl.text = "\(Int(value*100))"
+        value -= 0.01
+        if value <= 0 {
+            timer.invalidate()
+            timer = nil
+            timerLbl.text = "Time Out"
+        }
+    }
     
     
     func setUpNav() {
@@ -51,7 +78,7 @@ class StartTaskVC: UIViewController {
     }
     
     @objc func alertTapped() {
-        let vc = ChatsVC(nibName: "ChatsVC", bundle: nil)
+        let vc = ChatsVC.loadFromNib()
         vc.navigationItem.backButtonTitle = ""
         navigationController?.pushViewController(ChatsVC.loadFromNib(), animated: true)
     }
@@ -65,9 +92,10 @@ class StartTaskVC: UIViewController {
     
     
     
-    @IBAction func startTaskTapped(_ sender: Any) {
-        EndTaskVC.loadFromNib().navigationItem.backButtonTitle = ""
-        navigationController?.pushViewController(EndTaskVC.loadFromNib(), animated: true)
+    @IBAction func startTaskTapped(_ sender: UIButton) {
+
+        setUpTimer()
+        sender.setTitle("Finish Task", for: .normal)
         
     }
 }

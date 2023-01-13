@@ -12,21 +12,25 @@ import SwiftyJSON
 
 class ChatsVC: UIViewController {
     
-    var screenSize = UIScreen.main.bounds
+    //outlets
     @IBOutlet weak var backV:UIView!
     @IBOutlet weak var textTf:UITextField!
     @IBOutlet weak var sendBtn:UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    //variables
+    var screenSize = UIScreen.main.bounds
     var sendArr:[String] = []
     var myConstraint_DefualtValue = CGFloat(30)
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        didload()
+        setUpUI()
         getComments()
-    
     }
+    
+    //MARK: - will show keyboard
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as?
             NSValue {
@@ -35,13 +39,19 @@ class ChatsVC: UIViewController {
             self.backV.frame = CGRect(x: 0, y: CGFloat(Int(backV.frame.origin.y + 10 - keyboardHeight)), width: self.backV.frame.width, height: self.backV.frame.height)
         }
     }
+    
+    //MARK: - will hide keyboard
     @objc func keyboardWillHide(notification: NSNotification) {
         self.backV.frame = CGRect(x: 0, y: CGFloat(Int(self.view.frame.height - backV.frame.height - 100)), width: self.backV.frame.width, height: self.backV.frame.height)
     }
+    
+    //MARK: -  hide keyboard
     @objc private func hideKeyboard() {
     self.view.endEditing (true)
     }
-    func didload() {
+    
+    //MARK: - Set UP UI
+    func setUpUI() {
         self.navigationItem.title = "Comment"
         textTf.layer.cornerRadius = 12
         sendBtn.layer.cornerRadius = sendBtn.frame.width/2
@@ -57,22 +67,22 @@ class ChatsVC: UIViewController {
         if sendArr.count == 0 {
             tableView.backgroundColor = .clear
         }
-       
     }
+    
+    //MARK: - Set Up TableView
     func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "GetTVC", bundle: nil), forCellReuseIdentifier: "GetTVC")
         tableView.register(UINib(nibName: "SendTVC", bundle: nil), forCellReuseIdentifier: "SendTVC")
-        
-        
     }
+        
+    //MARK: - Actions
     @IBAction func sendTapped(_ sender: UIButton) {
         tableView.backgroundColor = .white
         if textTf.text! != "" {
             sendArr.append(textTf.text!)
-            postComm(taskId: "63b82310464c9232856ccd1c", text: textTf.text!)
             getCommentToTask(taskID: "63b82310464c9232856ccd1c", commentTxt: textTf.text!)
             DispatchQueue.main.async {
                     let indexPath = IndexPath(row: self.sendArr.count-1, section: 0)
@@ -89,32 +99,17 @@ class ChatsVC: UIViewController {
 extension ChatsVC:UITableViewDelegate {
 }
 
+
 //MARK: - UITableViewDataSource
 extension ChatsVC:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sendArr.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-//        guard let getcell = tableView.dequeueReusableCell(withIdentifier: "GetTVC", for: indexPath) as? GetTVC else {return UITableViewCell()}
         guard let sendcell = tableView.dequeueReusableCell(withIdentifier: "SendTVC", for: indexPath) as? SendTVC else {return UITableViewCell()}
         sendcell.UpdateCell(str: sendArr[indexPath.row])
-//        getcell.backV.addShadow(cornerRadius: 12)
-//        getcell.updateCell(str: sendArr[indexPath.row])
+        sendcell.backV.addShadow(cornerRadius: 12)
         return sendcell
-    }
-}
-
-
-
-//MARK: - postComm
-extension ChatsVC {
-    func postComm(taskId:String,text:String) {
-        API.postCommit(taskId: taskId, text: text) { data in
-            
-            print("IsDelete=",data.isDelete)
-            print("IsSeen",data.isSeen)
-        }
     }
 }
 
@@ -127,6 +122,7 @@ extension ChatsVC {
         }
     }
 }
+
 
 //MARK: - Get Comments
 extension ChatsVC {

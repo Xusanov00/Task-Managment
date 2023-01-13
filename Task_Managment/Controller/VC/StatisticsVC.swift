@@ -9,18 +9,25 @@ import UIKit
 import Charts
 class StatisticsVC: UIViewController, ChartViewDelegate {
 
-    @IBOutlet weak var diagramV: BarChartView!
     
+    //outlets
+    @IBOutlet weak var diagramV: BarChartView!
     @IBOutlet weak var chartsV: LineChartView!
+    
+    //variables
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Statistics"
-        
          setUpCharts()
         setUpNavigationV()
     }
+    
+    
+    //MARK: - Set Up Charts
     func setUpCharts() {
-//        Bar Chart
+        
+        //Bar Chart
         diagramV.delegate = self
         var entries1 = [BarChartDataEntry]()
         for i in 0..<10 {
@@ -31,9 +38,7 @@ class StatisticsVC: UIViewController, ChartViewDelegate {
         let data1 = BarChartData(dataSet: set1)
         diagramV.data = data1
         
-        
-//        Liner Chart
-        
+        //Liner Chart
         chartsV.delegate = self
         var entries = [ChartDataEntry]()
         for i in 0..<10 {
@@ -45,16 +50,19 @@ class StatisticsVC: UIViewController, ChartViewDelegate {
         chartsV.data = data
     }
 
+    
+    //MARK: - Set Up NavigationController
     func setUpNavigationV () {
         let notificBtn = UIBarButtonItem(image: UIImage(systemName: "bell.badge"), style: .done, target: self, action: #selector(notificTapped))
         self.navigationItem.rightBarButtonItem = notificBtn
         self.navigationItem.rightBarButtonItem?.tintColor = .black
         self.navigationItem.leftBarButtonItem?.tintColor = .black
     }
+    
+    //objc func for notification btn actions
     @objc func notificTapped() {
          let vc = ChatsVC(nibName: "ChatsVC", bundle: nil)
         vc.navigationItem.backButtonTitle = ""
         navigationController?.pushViewController(ChatsVC.loadFromNib(), animated: true)
     }
-
 }

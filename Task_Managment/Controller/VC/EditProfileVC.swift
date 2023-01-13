@@ -9,33 +9,23 @@ import UIKit
 
 class EditProfileVC: UIViewController {
     
+    
+    // outlets
     @IBOutlet weak var camV: UIImageView!
-    
     @IBOutlet weak var profileImg: UIImageView!
-    
     @IBOutlet var tfViews: [UIView]!
-    
     @IBOutlet weak var saveBtn: UIButton!
-    
     @IBOutlet weak var birthdateTextField: UITextField!
-    
     @IBOutlet weak var phoneNumberTf: UITextField!
-    
     @IBOutlet weak var fullNameLbl: UILabel!
-    
     @IBOutlet weak var phoneNumberLbl: UILabel!
-    
     @IBOutlet weak var nameTf: UITextField!
-    
     @IBOutlet weak var lastnameTf: UITextField!
     
-    
-    
+    //variables
     var userData: UserDM?
-    
     let datePicker = UIDatePicker()
     var birth = ""
-    
     
     
     override func viewDidLoad() {
@@ -43,9 +33,35 @@ class EditProfileVC: UIViewController {
         settingShadowViewsAndBtns()
         setDatePicker()
         setUI()
+        setUpGesture()
     }
     
     
+    //MARK: - Get Image from Gallery
+    func setImageFromGallery() {
+        let imgVC = UIImagePickerController()
+        imgVC.delegate = self
+        imgVC.sourceType = .savedPhotosAlbum
+        imgVC.allowsEditing = true
+        profileImg.contentMode = .scaleAspectFill
+        self.present (imgVC, animated: true)
+    }
+    
+  
+    //MARK: - Set Up Gesture to ImageView
+    func setUpGesture() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+         profileImg.isUserInteractionEnabled = true
+         profileImg.addGestureRecognizer(tapGestureRecognizer)
+     }
+
+     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+         let tappedImage = tapGestureRecognizer.view as! UIImageView
+         setImageFromGallery()
+    }
+
+   
+    //MARK: - Set Up UI
     func setUI() {
         self.navigationItem.title = "Profile Edit"
         guard let data = userData else { return }
@@ -53,14 +69,10 @@ class EditProfileVC: UIViewController {
         nameTf.text = data.firstName
         lastnameTf.text = data.lastName
         fullNameLbl.text = data.lastName + " " + data.firstName
-        
-        
-        
-        
-        
     }
     
     
+    //MARK: - Set Up Shadow
     func settingShadowViewsAndBtns() {
         for v in tfViews {
             v.addShadow(cornerRadius: 12)
@@ -69,6 +81,8 @@ class EditProfileVC: UIViewController {
         saveBtn.addShadow(cornerRadius: 12)
     }
     
+    
+    //MARK: - Set DatePicker to keyboard
     func setDatePicker() {
         //Format Date
         datePicker.datePickerMode = .date
@@ -103,27 +117,13 @@ class EditProfileVC: UIViewController {
     }
     
     
+    
+    //MARK: - Actions
     @IBAction func calendarTapped(_ sender: UIButton) {
         birthdateTextField.becomeFirstResponder()
     }
     
     @IBAction func changeTapped(_ sender: UIButton) {
-        
-        
-        
-        
-        
-        
-        //MARK: - Formatter text
-//        guard let text = phoneNumberTf.text else { return }
-//        phoneNumberTf.text = text.applyPatternOnNumbers(pattern: "+### ## ### ## ##", replacementCharacter: "#")
-    }
-    
-    
-    @IBAction func saveTapped(_ sender: Any) {
-        API.updateProfile(name: nameTf.text!, lastname: lastnameTf.text!, position: "NodeJS Developer", password: "123456") { [self] data in
-            updateUser(isUpdated: true)
-        }
         
     }
 
@@ -134,5 +134,18 @@ class EditProfileVC: UIViewController {
 extension EditProfileVC {
     func updateUser(isUpdated: Bool) {
         NotificationCenter.default.post(name: NSNotification.Name.init("UPDATEUSER"), object: isUpdated)
+    }
+}
+
+
+//MARK: - UIImagePickerControllerDelegate, UIPopoverControllerDelegate, UINavigationControllerDelegate
+extension EditProfileVC: UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate  {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let editedImg = info[.editedImage] as? UIImage
+        self.profileImg.image = editedImg
+        self.dismiss(animated: true)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true)
     }
 }

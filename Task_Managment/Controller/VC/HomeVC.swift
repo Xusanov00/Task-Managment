@@ -39,10 +39,10 @@ class HomeVC: UIViewController,FSCalendarDelegate,FSCalendarDataSource {
     
     //localizatedLanguage
     func setLang() {
-        statisticsBtn.setTitle("Statistics".localized(), for: .normal)
-        todaysTaskLbl.text = "Today’s Tasks".localized()
-        tasksCompletedLbl.text = number + "Tasks completed".localized()
-        viewTaskBtn.setTitle("View Task".localized(), for: .normal)
+//        statisticsBtn.setTitle("Statistics".localized(), for: .normal)
+//        todaysTaskLbl.text = "Today’s Tasks".localized()
+//        tasksCompletedLbl.text = number + "Tasks completed".localized()
+//        viewTaskBtn.setTitle("View Task".localized(), for: .normal)
     }
     
     

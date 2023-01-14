@@ -14,7 +14,7 @@
 		416248A2296962260080C77A /* TaskVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416248A0296962260080C77A /* TaskVC.xib */; };
 		419499FD29703A7400332313 /* connectionLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419499FC29703A7400332313 /* connectionLottie.swift */; };
 		41C606D429686760001BF536 /* LanguageDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606D329686760001BF536 /* LanguageDM.swift */; };
-		49BCBD14A7B77DFFEB972F93 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		49BCBD14A7B77DFFEB972F93 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		5205E00029698D9500F91A05 /* ChatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205DFFE29698D9500F91A05 /* ChatsVC.swift */; };
 		5205E00129698D9500F91A05 /* ChatsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5205DFFF29698D9500F91A05 /* ChatsVC.xib */; };
 		5205E02429699E8C00F91A05 /* GetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205E02229699E8C00F91A05 /* GetTVC.swift */; };
@@ -33,6 +33,7 @@
 		526EDA6B296BE17000D5CA8C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526EDA6A296BE17000D5CA8C /* API.swift */; };
 		5287DAD4297162EC00D65DB7 /* MainDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287DAD3297162EC00D65DB7 /* MainDM.swift */; };
 		52ADB1FA297284F70034CD51 /* WeekDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADB1F9297284F70034CD51 /* WeekDM.swift */; };
+		55B40376F61387C6188FDFCF /* Pods_Task_Managment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8596196ED0E636483066A340 /* Pods_Task_Managment.framework */; };
 		5F018440296856F4005F9EBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F01843F296856F4005F9EBF /* AppDelegate.swift */; };
 		5F018449296856F5005F9EBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F018448296856F5005F9EBF /* Assets.xcassets */; };
 		5F01844C296856F5005F9EBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F01844A296856F5005F9EBF /* LaunchScreen.storyboard */; };
@@ -72,7 +73,6 @@
 		5FF2621F2970D2730037AD66 /* Vibration Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2621E2970D2730037AD66 /* Vibration Enum.swift */; };
 		AFCC032D29704111000D5B5B /* CommentDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCC032C29704111000D5B5B /* CommentDM.swift */; };
 		AFDB61982972B20B00EA4301 /* SendMessage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AFDB61972972B20B00EA4301 /* SendMessage.mp3 */; };
-		DA320764EC3176F17C85C398 /* Pods_Task_Managment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8596196ED0E636483066A340 /* Pods_Task_Managment.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,8 +155,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49BCBD14A7B77DFFEB972F93 /* (null) in Frameworks */,
-				A7B44C3ECBD77BF770A2BFB3 /* Pods_Task_Managment.framework in Frameworks */,
+				49BCBD14A7B77DFFEB972F93 /* BuildFile in Frameworks */,
+				55B40376F61387C6188FDFCF /* Pods_Task_Managment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

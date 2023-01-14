@@ -93,7 +93,7 @@ extension TodaysTaskVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         navigationItem.backButtonTitle = ""
         let vc = StartTaskVC.loadFromNib()
-        vc.task = taskArr[indexPath.row]
+        vc.task = sortedTasks[indexPath.row]
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -190,7 +190,7 @@ extension TodaysTaskVC:UICollectionViewDelegateFlowLayout {
 //MARK: - getTodaysTask
 extension TodaysTaskVC {
     func getTodaysTask() {
-        API.getTodaysTask(day: 1673588475) { data in
+        API.getTodaysTask(day: 1673690400) { data in
             
             self.taskArr = data
             self.setupTableView()
@@ -200,9 +200,8 @@ extension TodaysTaskVC {
     
     func getWeekendlyStatus(day:Int) {
         API.getWeekendlyStatus(userId: cache.string(forKey: KeysDM.id.rawValue) ?? "ID", day: day) { data in
-                self.weeks = data
-            print("dataWeek=",data)
-               self.setUpCollectionView()
+            self.weeks = data
+            self.setUpCollectionView()
         }
     }
     

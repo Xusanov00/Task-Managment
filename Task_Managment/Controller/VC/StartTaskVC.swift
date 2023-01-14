@@ -13,9 +13,6 @@ class StartTaskVC: UIViewController {
 
     
     @IBOutlet weak var timerStack: UIStackView!
-    
-    
-    
     @IBOutlet weak var timerView: CircleProgressView!
     @IBOutlet weak var timerTitleLbl: UILabel!
     @IBOutlet weak var timerLbl: UILabel!
@@ -25,12 +22,17 @@ class StartTaskVC: UIViewController {
     @IBOutlet weak var laddressLbl: UILabel!
     @IBOutlet weak var descLbl: UILabel!
     @IBOutlet weak var gmsMap: GMSMapView!
-    
+    @IBOutlet weak var startFinishBtn: UIButton!
     
     
     //variables
     var task: TaskDM?
     var timer: Timer!
+    var total = 0
+    var totalTime = 0
+    var hour = 0
+    var minute = 0
+    var second = 0
     var value = 0.0
     
     override func viewDidLoad() {
@@ -46,6 +48,9 @@ class StartTaskVC: UIViewController {
             if timer == nil {
                 setUpTimer()
                 Vibration.success.vibrate()
+                startFinishBtn.setTitle("Finish Task", for: .normal)
+            } else {
+                navigationController?.popViewController(animated: true)
             }
             
         }
@@ -57,7 +62,8 @@ class StartTaskVC: UIViewController {
         guard let data = task else { return }
         self.dateLbl.text = dateFormatter(unixDate: data.from)
         self.laddressLbl.text = data.address
-        self.timeLbl.text = ""
+        self.totalTime = data.deadline
+        self.total = self.totalTime
         self.titleLbl.text = data.title
         self.timeLbl.text = "\(dateFormatter(unixDate: data.from, isDate: false)) - \(dateFormatter(unixDate: data.to, isDate: false))"
         self.descLbl.text = data.definition
@@ -106,7 +112,7 @@ class StartTaskVC: UIViewController {
     
 
     func setUpTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimer() {
@@ -117,13 +123,24 @@ class StartTaskVC: UIViewController {
             }
         }
         
+        self.hour = totalTime / 3600
+        if hour == 0 {
+            self.minute = totalTime / 60
+            self.second = totalTime % 60
+        } else {
+            self.minute = (totalTime - hour*3600) / 60
+            self.second = totalTime % 60
+        }
+        value = Double(totalTime)/Double(total)
+        print(value)
         self.timerView.setProgress(self.value, animated: true)
-        self.timerLbl.text = "\(Int(self.value*100))"
-        self.value += 0.01
-        if self.value >= 1 {
+        self.timerLbl.text = "\(self.hour):\(self.minute):\(self.second)"
+        self.totalTime -= 1
+        if self.totalTime <= 0 {
+            Vibration.warning.vibrate()
             self.timer.invalidate()
             self.timer = nil
-            self.value = 0.0
+            self.totalTime = 0
             self.timerLbl.text = "Time Out"
         }
         
@@ -161,9 +178,10 @@ class StartTaskVC: UIViewController {
         if timer == nil {
             setUpTimer()
             Vibration.success.vibrate()
+            startFinishBtn.setTitle("Finish Task", for: .normal)
+        } else {
+            navigationController?.popViewController(animated: true)
         }
-        
-        sender.setTitle("Finish Task", for: .normal)
         
     }
 }

@@ -14,7 +14,7 @@
 		416248A2296962260080C77A /* TaskVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416248A0296962260080C77A /* TaskVC.xib */; };
 		419499FD29703A7400332313 /* connectionLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419499FC29703A7400332313 /* connectionLottie.swift */; };
 		41C606D429686760001BF536 /* LanguageDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C606D329686760001BF536 /* LanguageDM.swift */; };
-		49BCBD14A7B77DFFEB972F93 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		49BCBD14A7B77DFFEB972F93 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		5205E00029698D9500F91A05 /* ChatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205DFFE29698D9500F91A05 /* ChatsVC.swift */; };
 		5205E00129698D9500F91A05 /* ChatsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5205DFFF29698D9500F91A05 /* ChatsVC.xib */; };
 		5205E02429699E8C00F91A05 /* GetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205E02229699E8C00F91A05 /* GetTVC.swift */; };
@@ -69,13 +69,12 @@
 		5FF2621B2970072A0037AD66 /* LanguageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF2621A2970072A0037AD66 /* LanguageVC.xib */; };
 		5FF2621D297007380037AD66 /* LanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2621C297007380037AD66 /* LanguageVC.swift */; };
 		5FF2621F2970D2730037AD66 /* Vibration Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2621E2970D2730037AD66 /* Vibration Enum.swift */; };
-		A7B44C3ECBD77BF770A2BFB3 /* Pods_Task_Managment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085BCAAB5C6C7959AD3C5AF6 /* Pods_Task_Managment.framework */; };
 		AFCC032D29704111000D5B5B /* CommentDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCC032C29704111000D5B5B /* CommentDM.swift */; };
-		AFDB6121297278ED00EA4301 /* SendMessage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AFDB6120297278ED00EA4301 /* SendMessage.mp3 */; };
+		AFDB61982972B20B00EA4301 /* SendMessage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AFDB61972972B20B00EA4301 /* SendMessage.mp3 */; };
+		DA320764EC3176F17C85C398 /* Pods_Task_Managment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8596196ED0E636483066A340 /* Pods_Task_Managment.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		085BCAAB5C6C7959AD3C5AF6 /* Pods_Task_Managment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task_Managment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41576B2B297137750089DA7F /* Lang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lang.swift; sourceTree = "<group>"; };
 		41576B2F29714C830089DA7F /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		41576B3129714F860089DA7F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -85,7 +84,6 @@
 		4165992D2970275300B221CF /* uz-UZ */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "uz-UZ"; path = "uz-UZ.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		419499FC29703A7400332313 /* connectionLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connectionLottie.swift; sourceTree = "<group>"; };
 		41C606D329686760001BF536 /* LanguageDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDM.swift; sourceTree = "<group>"; };
-		463C7CDD1E2BFC1B3791599C /* Pods-Task_Managment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.release.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.release.xcconfig"; sourceTree = "<group>"; };
 		5205DFFE29698D9500F91A05 /* ChatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsVC.swift; sourceTree = "<group>"; };
 		5205DFFF29698D9500F91A05 /* ChatsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatsVC.xib; sourceTree = "<group>"; };
 		5205E02229699E8C00F91A05 /* GetTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTVC.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 		5287DAD3297162EC00D65DB7 /* MainDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDM.swift; sourceTree = "<group>"; };
 		52ADB1F9297284F70034CD51 /* WeekDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDM.swift; sourceTree = "<group>"; };
 		52E5CEA5296D9A3D00DE66F3 /* SocketIo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIo.swift; sourceTree = "<group>"; };
-		5F01843C296856F4005F9EBF /* Task_Managment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task_Managment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F01843F296856F4005F9EBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F018448296856F5005F9EBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F01844B296856F5005F9EBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -143,9 +140,12 @@
 		5FF2621A2970072A0037AD66 /* LanguageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageVC.xib; sourceTree = "<group>"; };
 		5FF2621C297007380037AD66 /* LanguageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageVC.swift; sourceTree = "<group>"; };
 		5FF2621E2970D2730037AD66 /* Vibration Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vibration Enum.swift"; sourceTree = "<group>"; };
+		63BA53F3C017F18464E637AC /* Pods-Task_Managment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.debug.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.debug.xcconfig"; sourceTree = "<group>"; };
+		8596196ED0E636483066A340 /* Pods_Task_Managment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task_Managment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFCC032C29704111000D5B5B /* CommentDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDM.swift; sourceTree = "<group>"; };
-		AFDB6120297278ED00EA4301 /* SendMessage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = SendMessage.mp3; path = ../../../../Downloads/SendMessage.mp3; sourceTree = "<group>"; };
-		E08D7915ABBC43DEA538AD38 /* Pods-Task_Managment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.debug.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.debug.xcconfig"; sourceTree = "<group>"; };
+		AFDB61952972AAA100EA4301 /* Task_Managment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task_Managment.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDB61972972B20B00EA4301 /* SendMessage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SendMessage.mp3; sourceTree = "<group>"; };
+		BE2127B484C2832727CBCC6B /* Pods-Task_Managment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.release.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,22 +153,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49BCBD14A7B77DFFEB972F93 /* BuildFile in Frameworks */,
-				A7B44C3ECBD77BF770A2BFB3 /* Pods_Task_Managment.framework in Frameworks */,
+				49BCBD14A7B77DFFEB972F93 /* (null) in Frameworks */,
+				DA320764EC3176F17C85C398 /* Pods_Task_Managment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		28C33BEAF0F9C59E34C0366C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				085BCAAB5C6C7959AD3C5AF6 /* Pods_Task_Managment.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		41576B2A297137560089DA7F /* Language */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,18 +202,11 @@
 			isa = PBXGroup;
 			children = (
 				5F01843E296856F4005F9EBF /* Task_Managment */,
-				5F01843D296856F4005F9EBF /* Products */,
-				637A5331000C842F32FC8A08 /* Pods */,
-				28C33BEAF0F9C59E34C0366C /* Frameworks */,
+				6539893F3FA50533CF104A80 /* Pods */,
+				AFDB61962972B1C900EA4301 /* Sounds */,
+				DA701A09A473AE69A8C241BF /* Frameworks */,
+				AFDB61952972AAA100EA4301 /* Task_Managment.app */,
 			);
-			sourceTree = "<group>";
-		};
-		5F01843D296856F4005F9EBF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5F01843C296856F4005F9EBF /* Task_Managment.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		5F01843E296856F4005F9EBF /* Task_Managment */ = {
@@ -234,7 +219,6 @@
 				5F01845629685789005F9EBF /* View */,
 				5F01845429685776005F9EBF /* Controller */,
 				5F018457296857A1005F9EBF /* Fonts */,
-				AF35D41B2971A62D007E026A /* Sounds */,
 				5F01845529685780005F9EBF /* Extension */,
 				5F018448296856F5005F9EBF /* Assets.xcassets */,
 				5F01844A296856F5005F9EBF /* LaunchScreen.storyboard */,
@@ -363,21 +347,29 @@
 			path = VC;
 			sourceTree = "<group>";
 		};
-		637A5331000C842F32FC8A08 /* Pods */ = {
+		6539893F3FA50533CF104A80 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				463C7CDD1E2BFC1B3791599C /* Pods-Task_Managment.release.xcconfig */,
-				E08D7915ABBC43DEA538AD38 /* Pods-Task_Managment.debug.xcconfig */,
+				63BA53F3C017F18464E637AC /* Pods-Task_Managment.debug.xcconfig */,
+				BE2127B484C2832727CBCC6B /* Pods-Task_Managment.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		AF35D41B2971A62D007E026A /* Sounds */ = {
+		AFDB61962972B1C900EA4301 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				AFDB6120297278ED00EA4301 /* SendMessage.mp3 */,
+				AFDB61972972B20B00EA4301 /* SendMessage.mp3 */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		DA701A09A473AE69A8C241BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8596196ED0E636483066A340 /* Pods_Task_Managment.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,7 +392,7 @@
 			);
 			name = Task_Managment;
 			productName = Task_Managment;
-			productReference = 5F01843C296856F4005F9EBF /* Task_Managment.app */;
+			productReference = AFDB61952972AAA100EA4301 /* Task_Managment.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -429,7 +421,7 @@
 				"uz-UZ",
 			);
 			mainGroup = 5F018433296856F4005F9EBF;
-			productRefGroup = 5F01843D296856F4005F9EBF /* Products */;
+			productRefGroup = 5F018433296856F4005F9EBF;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -463,7 +455,7 @@
 				52568B73296C5346006F337E /* pulse.json in Resources */,
 				416248A2296962260080C77A /* TaskVC.xib in Resources */,
 				5F9EC2F8296DC967002FC1D2 /* StartVC.xib in Resources */,
-				AFDB6121297278ED00EA4301 /* SendMessage.mp3 in Resources */,
+				AFDB61982972B20B00EA4301 /* SendMessage.mp3 in Resources */,
 				5205E02529699E8C00F91A05 /* GetTVC.xib in Resources */,
 				5F01846F29685881005F9EBF /* SettingsTVC.xib in Resources */,
 				5F01845E29685819005F9EBF /* LexendDeca-SemiBold.ttf in Resources */,
@@ -712,7 +704,7 @@
 		};
 		5F018451296856F5005F9EBF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E08D7915ABBC43DEA538AD38 /* Pods-Task_Managment.debug.xcconfig */;
+			baseConfigurationReference = 63BA53F3C017F18464E637AC /* Pods-Task_Managment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -745,7 +737,7 @@
 		};
 		5F018452296856F5005F9EBF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 463C7CDD1E2BFC1B3791599C /* Pods-Task_Managment.release.xcconfig */;
+			baseConfigurationReference = BE2127B484C2832727CBCC6B /* Pods-Task_Managment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

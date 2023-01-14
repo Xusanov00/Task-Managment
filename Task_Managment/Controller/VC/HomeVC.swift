@@ -44,7 +44,7 @@ class HomeVC: UIViewController {
     func setCalendar() {
         calendar = FSCalendar(frame: CGRect(x: 0, y: 0, width: self.calendarV.frame.width, height: self.calendarV.frame.height))
         calendar.scrollDirection = .horizontal
-        calendar.scope = .week
+        calendar.scope = .month
         calendar.locale = Locale(identifier: "uz")
         calendar.delegate = self
         calendar.dataSource = self

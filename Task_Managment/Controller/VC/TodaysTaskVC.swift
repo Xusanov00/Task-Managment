@@ -199,7 +199,7 @@ extension TodaysTaskVC {
     }
     
     func getWeekendlyStatus(day:Int) {
-        API.getWeekendlyStatus(day: day) { data in
+        API.getWeekendlyStatus(userId: cache.string(forKey: KeysDM.id.rawValue) ?? "ID", day: day) { data in
                 self.weeks = data
             print("dataWeek=",data)
                self.setUpCollectionView()

@@ -59,6 +59,7 @@ class StartTaskVC: UIViewController {
         self.laddressLbl.text = data.address
         self.timeLbl.text = ""
         self.titleLbl.text = data.title
+        self.timeLbl.text = "\(dateFormatter(unixDate: data.from, isDate: false)) - \(dateFormatter(unixDate: data.to, isDate: false))"
         self.descLbl.text = data.definition
         self.timerLbl.text = "\(data.deadline)"
         setUPMap(lat: data.location.latitude, long: data.location.longitude)
@@ -66,10 +67,7 @@ class StartTaskVC: UIViewController {
     }
     
     func setUPMap(lat: Double, long: Double) {
-        // Do any additional setup after loading the view.
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinate -33.86,151.20 at zoom level 6.
-        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 6.0)
+        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 5.0)
         gmsMap.camera = camera
         showMarker(position: camera.target)
         gmsMap.settings.scrollGestures = false
@@ -82,20 +80,24 @@ class StartTaskVC: UIViewController {
     func showMarker(position: CLLocationCoordinate2D){
            let marker = GMSMarker()
            marker.position = position
-           marker.title = "Uzbekistan"
-           marker.snippet = "Tashkent"
            marker.map = gmsMap
        }
     
     
-    func dateFormatter(unixDate: Int) -> String{
+    func dateFormatter(unixDate: Int, isDate: Bool = true) -> String{
           
         if let timeResult = unixDate as? Int {
             let date = Date(timeIntervalSince1970: TimeInterval(timeResult))
             let dateFormatter = DateFormatter()
-            dateFormatter.timeStyle = DateFormatter.Style.none//Set time style
-            dateFormatter.dateStyle = DateFormatter.Style.short //Set date style
-            dateFormatter.dateFormat = "dd-MM-yyyy"
+            if isDate {
+                dateFormatter.timeStyle = DateFormatter.Style.none//Set time style
+                dateFormatter.dateStyle = DateFormatter.Style.short //Set date style
+                dateFormatter.dateFormat = "dd-MM-yyyy"
+            } else {
+                dateFormatter.timeStyle = DateFormatter.Style.short//Set time style
+                dateFormatter.dateStyle = DateFormatter.Style.none //Set date style
+                dateFormatter.dateFormat = "HH:mm"
+            }
             dateFormatter.timeZone = .current
             let localDate = dateFormatter.string(from: date)
             return localDate

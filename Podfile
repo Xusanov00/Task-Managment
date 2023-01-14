@@ -18,6 +18,7 @@ target 'Task_Managment' do
   pod 'SwiftyJSON'
   pod 'lottie-ios', '3.5'
   pod 'PasswordTextField'
+  pod 'GoogleMaps'
 
 
 end

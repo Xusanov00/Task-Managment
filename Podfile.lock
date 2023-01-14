@@ -7,6 +7,11 @@ PODS:
   - CircleProgressView (1.2.0)
   - DTPagerController (3.1.2)
   - FSCalendar (2.8.4)
+  - GoogleMaps (7.3.0):
+    - GoogleMaps/Maps (= 7.3.0)
+  - GoogleMaps/Base (7.3.0)
+  - GoogleMaps/Maps (7.3.0):
+    - GoogleMaps/Base
   - IQKeyboardManagerSwift (6.5.10)
   - lottie-ios (3.5.0)
   - PasswordTextField (1.2.0)
@@ -26,6 +31,7 @@ DEPENDENCIES:
   - CircleProgressView
   - DTPagerController
   - FSCalendar
+  - GoogleMaps
   - IQKeyboardManagerSwift
   - lottie-ios (= 3.5)
   - PasswordTextField
@@ -40,6 +46,7 @@ SPEC REPOS:
     - CircleProgressView
     - DTPagerController
     - FSCalendar
+    - GoogleMaps
     - IQKeyboardManagerSwift
     - lottie-ios
     - PasswordTextField
@@ -54,6 +61,7 @@ SPEC CHECKSUMS:
   CircleProgressView: 6b5b091d59dc5e5d2fda84e637a40498cdc39937
   DTPagerController: 91769c8711ad390bb48a984f3f1989712110e3f5
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
+  GoogleMaps: a146f275ee429d14822178c7a841c03366ec92a1
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   lottie-ios: c55158d67d0629a260625cc2ded2052b829e3c3e
   PasswordTextField: 2548de43f150fc90a014da47b0d97e31aada4b94
@@ -62,6 +70,6 @@ SPEC CHECKSUMS:
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 8a793c4da520e95b4d38bfdeae2071dce7bc131d
+PODFILE CHECKSUM: aca7d7ee16fa8c07f3c5100c8c66e1083449adcc
 
 COCOAPODS: 1.11.3

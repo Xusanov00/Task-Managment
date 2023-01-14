@@ -13,8 +13,6 @@ class TaskVC: UIViewController {
     //outlets
     @IBOutlet weak var calendarV: UIView!
     @IBOutlet weak var taskTablView: UITableView!
-    
-    
     fileprivate weak var calendar: FSCalendar!
     
     //variables

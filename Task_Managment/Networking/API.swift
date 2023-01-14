@@ -26,8 +26,9 @@ class API {
     static let getHr: String = baseUrl+EndPoints.getHRURL
     static let getImage: String = baseUrl+EndPoints.getImageURL
     static let getTodaysTask: String = baseUrl + EndPoints.todaysTaskURL
-    static let getTaskID: String = baseUrl+EndPoints.taskID
+    static let getTaskID: String = baseUrl+EndPoints.getTaskIDURL
     static let commentToTask: String = baseUrl+EndPoints.commentToTaskURL
+    
     
     static func getLogin(number:String, password:String, complation:@escaping (LoginUserDM)->Void) {
        
@@ -56,26 +57,6 @@ class API {
             complation(myData)
         }
     }
-
-    static func postCommit(taskId:String,text:String,complation:@escaping (ChatDM)->Void) {
-
-
-        let param:[String : Any] = [
-            "taskId":taskId,
-            "text":text
-
-        ]
-//        SocketHelper.Events.emit(SocketHelper.Events(param))
-        NET.sendRequest(to: baseUrl + "/user", method: .get, headers:nil ,param: param) { data in
-            guard let data = data else {return}
-            let myData = ChatDM(json: data["data"])
-            complation(myData)
-        }
-    }
-
-    
-     
-    
 
     static func getProfile(complation:@escaping (UserDM)->Void) {
 
@@ -168,13 +149,13 @@ class API {
     }
     
     
-    static func getTaskID(complation:@escaping (TaskIDDM)->Void){
+    static func getTaskID(taskID: String, complation:@escaping (TaskDM)->Void){
         let headers: HTTPHeaders = [
             "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
         ]
-        NET.sendRequest(to: getTaskID, method: .get, headers: headers, param: nil) { data in
+        NET.sendRequest(to: getTaskID+taskID, method: .get, headers: headers, param: nil) { data in
             guard let data = data else {return}
-            let info = TaskIDDM(json:  data["data"])
+            let info = TaskDM(json: data["data"])
             print("data=",data)
             complation(info)
         }
@@ -213,6 +194,7 @@ extension API {
         static let taskID = "/task/63b82310464c9232856ccd1c"
         static let commentToTaskURL = "/task/comment"
         static let getHome = "/task/main"
+        static let getTaskIDURL = "/task/"
     }
 }
 

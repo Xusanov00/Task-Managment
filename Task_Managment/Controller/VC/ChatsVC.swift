@@ -9,6 +9,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import Alamofire
 import SwiftyJSON
+import AVFoundation
 
 class ChatsVC: UIViewController {
     
@@ -24,6 +25,9 @@ class ChatsVC: UIViewController {
   
     var sendArr:[String] = []
     var myConstraint_DefualtValue = CGFloat(30)
+    
+    var player: AVAudioPlayer?
+    var indexPath: IndexPath?
 
     
     override func viewDidLoad() {
@@ -94,6 +98,7 @@ class ChatsVC: UIViewController {
         
     //MARK: - Actions
     @IBAction func sendTapped(_ sender: UIButton) {
+        playSendSound()
         tableView.backgroundColor = .white
         if textTf.text! != "" {
             sendArr.append(textTf.text!)
@@ -173,4 +178,17 @@ extension ChatsVC {
     }
 }
 
+//MARK: - Send Sound
+extension ChatsVC {
+    func playSendSound() {
+        let soundURL = Bundle.main.url(forResource: "SendMessage", withExtension: "mp3")
+        
+        do {
+            try player = AVAudioPlayer(contentsOf: soundURL!)
+        } catch {
+            print(error)
+        }
+        player?.play()
+    }
+}
 

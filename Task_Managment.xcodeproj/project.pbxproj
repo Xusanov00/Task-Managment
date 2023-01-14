@@ -70,6 +70,7 @@
 		5FF2621F2970D2730037AD66 /* Vibration Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2621E2970D2730037AD66 /* Vibration Enum.swift */; };
 		A7B44C3ECBD77BF770A2BFB3 /* Pods_Task_Managment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085BCAAB5C6C7959AD3C5AF6 /* Pods_Task_Managment.framework */; };
 		AFCC032D29704111000D5B5B /* CommentDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCC032C29704111000D5B5B /* CommentDM.swift */; };
+		AFDB6121297278ED00EA4301 /* SendMessage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AFDB6120297278ED00EA4301 /* SendMessage.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +142,7 @@
 		5FF2621C297007380037AD66 /* LanguageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageVC.swift; sourceTree = "<group>"; };
 		5FF2621E2970D2730037AD66 /* Vibration Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vibration Enum.swift"; sourceTree = "<group>"; };
 		AFCC032C29704111000D5B5B /* CommentDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDM.swift; sourceTree = "<group>"; };
+		AFDB6120297278ED00EA4301 /* SendMessage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = SendMessage.mp3; path = ../../../../Downloads/SendMessage.mp3; sourceTree = "<group>"; };
 		E08D7915ABBC43DEA538AD38 /* Pods-Task_Managment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Managment.debug.xcconfig"; path = "Target Support Files/Pods-Task_Managment/Pods-Task_Managment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,6 +232,7 @@
 				5F01845629685789005F9EBF /* View */,
 				5F01845429685776005F9EBF /* Controller */,
 				5F018457296857A1005F9EBF /* Fonts */,
+				AF35D41B2971A62D007E026A /* Sounds */,
 				5F01845529685780005F9EBF /* Extension */,
 				5F018448296856F5005F9EBF /* Assets.xcassets */,
 				5F01844A296856F5005F9EBF /* LaunchScreen.storyboard */,
@@ -366,6 +369,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AF35D41B2971A62D007E026A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				AFDB6120297278ED00EA4301 /* SendMessage.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -448,6 +459,7 @@
 				52568B73296C5346006F337E /* pulse.json in Resources */,
 				416248A2296962260080C77A /* TaskVC.xib in Resources */,
 				5F9EC2F8296DC967002FC1D2 /* StartVC.xib in Resources */,
+				AFDB6121297278ED00EA4301 /* SendMessage.mp3 in Resources */,
 				5205E02529699E8C00F91A05 /* GetTVC.xib in Resources */,
 				5F01846F29685881005F9EBF /* SettingsTVC.xib in Resources */,
 				5F01845E29685819005F9EBF /* LexendDeca-SemiBold.ttf in Resources */,

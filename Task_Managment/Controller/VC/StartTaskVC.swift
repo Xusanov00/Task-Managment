@@ -8,6 +8,7 @@
 import UIKit
 import CircleProgressView
 import GoogleMaps
+import SkeletonView
 
 class StartTaskVC: UIViewController {
 
@@ -55,7 +56,6 @@ class StartTaskVC: UIViewController {
             
         }
     }
-
     
     func setUpUI() {
         

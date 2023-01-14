@@ -18,5 +18,6 @@ target 'Task_Managment' do
   pod 'lottie-ios', '3.5'
   pod 'PasswordTextField'
   pod 'GoogleMaps'
+  pod 'SkeletonView'
 
 end

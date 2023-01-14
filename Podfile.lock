@@ -21,6 +21,7 @@ PODS:
   - PhoneNumberKit/PhoneNumberKitCore (3.3.4)
   - PhoneNumberKit/UIKit (3.3.4):
     - PhoneNumberKit/PhoneNumberKitCore
+  - SkeletonView (1.30.4)
   - SnapKit (5.6.0)
   - SwiftAlgorithms (1.0.0)
   - SwiftyJSON (5.0.1)
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - lottie-ios (= 3.5)
   - PasswordTextField
   - PhoneNumberKit
+  - SkeletonView
   - SnapKit
   - SwiftyJSON
 
@@ -51,6 +53,7 @@ SPEC REPOS:
     - lottie-ios
     - PasswordTextField
     - PhoneNumberKit
+    - SkeletonView
     - SnapKit
     - SwiftAlgorithms
     - SwiftyJSON
@@ -66,10 +69,11 @@ SPEC CHECKSUMS:
   lottie-ios: c55158d67d0629a260625cc2ded2052b829e3c3e
   PasswordTextField: 2548de43f150fc90a014da47b0d97e31aada4b94
   PhoneNumberKit: 441e8b26ec88d598e3591de9061eff18f5dd12e8
+  SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 858db18c6b93d478d680acf4e2fee04fc75a82c3
+PODFILE CHECKSUM: 9b26a4bf962ef3f6b41a9c9d7ecacd72d991493d
 
 COCOAPODS: 1.11.3

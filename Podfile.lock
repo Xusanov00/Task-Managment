@@ -12,7 +12,7 @@ PODS:
   - GoogleMaps/Base (7.3.0)
   - GoogleMaps/Maps (7.3.0):
     - GoogleMaps/Base
-  - IQKeyboardManagerSwift (6.5.10)
+  - IQKeyboardManagerSwift (6.5.11)
   - lottie-ios (3.5.0)
   - PasswordTextField (1.2.0)
   - PhoneNumberKit (3.3.4):
@@ -62,7 +62,7 @@ SPEC CHECKSUMS:
   DTPagerController: 91769c8711ad390bb48a984f3f1989712110e3f5
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   GoogleMaps: a146f275ee429d14822178c7a841c03366ec92a1
-  IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
+  IQKeyboardManagerSwift: c7955c0bdbf7b2eb29bb7daaa44e3d90f55a9a85
   lottie-ios: c55158d67d0629a260625cc2ded2052b829e3c3e
   PasswordTextField: 2548de43f150fc90a014da47b0d97e31aada4b94
   PhoneNumberKit: 441e8b26ec88d598e3591de9061eff18f5dd12e8
@@ -70,6 +70,6 @@ SPEC CHECKSUMS:
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: aca7d7ee16fa8c07f3c5100c8c66e1083449adcc
+PODFILE CHECKSUM: 858db18c6b93d478d680acf4e2fee04fc75a82c3
 
 COCOAPODS: 1.11.3

@@ -22,6 +22,7 @@
             <connections>
                 <outlet property="dateLbl" destination="j0B-Kk-3oI" id="2MO-g5-cl0"/>
                 <outlet property="descLbl" destination="5lt-eV-N23" id="1Tc-Wl-QLx"/>
+                <outlet property="gmsMap" destination="y07-Lo-rxu" id="DTS-kx-qZd"/>
                 <outlet property="laddressLbl" destination="0sW-9q-ZDk" id="fcZ-i1-Yyj"/>
                 <outlet property="timeLbl" destination="1V1-S5-m9Y" id="JGC-D1-wm6"/>
                 <outlet property="timerLbl" destination="ois-fc-DFu" id="rPg-FC-qF5"/>
@@ -71,7 +72,7 @@
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="progress">
-                                                    <real key="value" value="0.42999999999999999"/>
+                                                    <real key="value" value="0.40000000000000002"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="refreshRate">
                                                     <real key="value" value="1"/>
@@ -85,10 +86,14 @@
                                                 <userDefinedRuntimeAttribute type="color" keyPath="centerFillColor">
                                                     <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCap" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCap" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="trackBackgroundColor">
-                                                    <color key="value" white="0.52000000000000002" alpha="0.070000000000000007" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="trackBorderColor">
+                                                    <color key="value" red="0.32156862749999998" green="0.3921568627" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="clockwise" value="NO"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
@@ -271,7 +276,7 @@
                                                 </stackView>
                                             </subviews>
                                         </stackView>
-                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y07-Lo-rxu">
+                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y07-Lo-rxu" customClass="GMSMapView">
                                             <rect key="frame" x="0.0" y="288" width="382" height="176"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="176" id="8An-aa-2Yu"/>

@@ -148,16 +148,16 @@
                                     <rect key="frame" x="251.33333333333329" y="0.0" width="109.66666666666666" height="82.333333333333329"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="2TX-ml-L5e">
-                                            <rect key="frame" x="36.333333333333371" y="19.333333333333339" width="37" height="43.666666666666657"/>
+                                            <rect key="frame" x="26.999999999999996" y="19.333333333333339" width="55.666666666666657" height="43.666666666666657"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w37-Na-9K1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="37" height="20"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="55.666666666666664" height="20"/>
                                                     <fontDescription key="fontDescription" name="LexendDeca-SemiBold" family="Lexend Deca" pointSize="16"/>
                                                     <color key="textColor" red="0.22352941176470587" green="0.43137254901960786" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To do" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZK-ox-dXL">
-                                                    <rect key="frame" x="0.0" y="26" width="37" height="17.666666666666671"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZK-ox-dXL">
+                                                    <rect key="frame" x="0.0" y="26" width="55.666666666666664" height="17.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
                                                     <color key="textColor" red="0.46666666670000001" green="0.45098039220000002" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>

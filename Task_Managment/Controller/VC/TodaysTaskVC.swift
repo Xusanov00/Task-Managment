@@ -89,11 +89,13 @@ class TodaysTaskVC: UIViewController {
 
 }
 //MARK: - UITableViewDelegate
-extension TodaysTaskVC:UITableViewDelegate {
+extension TodaysTaskVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         navigationItem.backButtonTitle = ""
+        let vc = StartTaskVC.loadFromNib()
+        vc.task = taskArr[indexPath.row]
         self.navigationController?.navigationBar.tintColor = .black
-        self.navigationController?.pushViewController(StartTaskVC.loadFromNib(), animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

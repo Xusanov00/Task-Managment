@@ -142,6 +142,8 @@ extension HomeVC {
         getData()
     }
 }
+
+
 //MARK: - getHomePageData
 extension HomeVC {
     func getHomeData() {

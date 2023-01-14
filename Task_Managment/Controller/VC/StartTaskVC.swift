@@ -50,7 +50,7 @@ class StartTaskVC: UIViewController {
             
         }
     }
-
+//SetUpUI
     
     func setUpUI() {
         
@@ -64,7 +64,7 @@ class StartTaskVC: UIViewController {
         setUPMap(lat: data.location.latitude, long: data.location.longitude)
         
     }
-    
+//  SetUpMap
     func setUPMap(lat: Double, long: Double) {
         // Do any additional setup after loading the view.
         // Create a GMSCameraPosition that tells the map to display the
@@ -78,7 +78,7 @@ class StartTaskVC: UIViewController {
         gmsMap.settings.rotateGestures = false
       
     }
-    
+//    ShowMarket
     func showMarker(position: CLLocationCoordinate2D){
            let marker = GMSMarker()
            marker.position = position

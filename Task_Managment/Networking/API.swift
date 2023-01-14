@@ -185,7 +185,7 @@ class API {
         let params:[String:Any] = [
             "day": day
         ]
-        NET.sendURLRequest(to: baseUrl + EndPoints.weekStatus, method: .get, headers: headers, param: params) { data in
+        NET.sendURLRequest(to: baseUrl + EndPoints.weekStatusUrl, method: .get, headers: headers, param: params) { data in
             guard let data = data else {return}
             
             let mydata = data["data"].array
@@ -217,6 +217,7 @@ extension API {
         static let commentToTaskURL = "/task/comment"
         static let getHome = "/task/main"
         static let getTaskIDURL = "/task/"
+        static let weekStatusUrl = "/task/stats/63ad7eab68ffe44cfc0dc522"
     }
 }
 

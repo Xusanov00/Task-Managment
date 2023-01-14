@@ -23,7 +23,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var pandingCount: UILabel!
     
     var calendar: FSCalendar!
-    
+    var formatter = DateFormatter()
     var number = ""
     var userData: UserDM?
     
@@ -38,13 +38,16 @@ class HomeVC: UIViewController {
         observeUserNotif()
         setLang()
         getHomeData()
+        progressV.setProgress(0, animated: true)
     }
 //    SetCalendar
     func setCalendar() {
         calendar = FSCalendar(frame: CGRect(x: 0, y: 0, width: self.calendarV.frame.width, height: self.calendarV.frame.height))
         calendar.scrollDirection = .horizontal
-        calendar.scope = .month
+        calendar.scope = .week
         calendar.locale = Locale(identifier: "uz")
+        calendar.delegate = self
+        calendar.dataSource = self
         self.calendarV.addSubview(calendar)
     }
     
@@ -58,29 +61,24 @@ class HomeVC: UIViewController {
         //        viewTaskBtn.setTitle("View Task".localized(), for: .normal)
     }
     
-    
+    //profileBtnTapped
     @IBAction func profileBtnTapped(_ sender: Any) {
         let vc = ProfileVC.loadFromNib()
         vc.userData = userData
         navigationController?.pushViewController(vc, animated: true)
         navigationItem.backButtonTitle = ""
     }
-    
+//openChatsTapped
     @IBAction func openChatsTapped(_ sender: Any) {
         let vc = ChatsVC(nibName: "ChatsVC", bundle: nil)
         vc.navigationItem.backButtonTitle = ""
         navigationController?.pushViewController(ChatsVC.loadFromNib(), animated: true)
     }
-    
-    
-    
     @IBAction func taskTapped(_ sender: Any) {
         let vc = TodaysTaskVC(nibName: "TodaysTaskVC", bundle: nil)
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    
     @IBAction func statistictsTapped(_ sender: Any) {
         let vc = StatisticsVC.loadFromNib()
         vc.navigationController?.navigationItem.backButtonTitle = ""
@@ -90,8 +88,33 @@ class HomeVC: UIViewController {
     
 }
 
-
-
+//MARK: - FSCalendarDelegate
+extension HomeVC:FSCalendarDelegate {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        formatter.dateFormat = "dd-MM-yyyy"
+         
+        let vc = TodaysTaskVC(nibName: "TodaysTaskVC", bundle: nil)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+//MARK: - FSCalendarDataSource
+extension HomeVC:FSCalendarDataSource {
+    func minimumDate(for calendar: FSCalendar) -> Date {
+        return calendar.minimumDate
+    }
+    func maximumDate(for calendar: FSCalendar) -> Date {
+        return calendar.maximumDate
+    }
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        formatter.dateFormat = "dd-MM-yyyy"
+        guard let eventData = formatter.date(from: "15-01-2020") else {return 0}
+        if date.compare(eventData) == .orderedSame {
+            return 3
+        }
+        return 0
+    }
+}
 
 
 //MARK: Data from API
@@ -124,7 +147,7 @@ extension HomeVC {
     func getHomeData() {
         API.getMainPage { data in
             Loader.stop()
-            self.progressV.progress = Double(data.pecent)
+            self.progressV.setProgress(Double(data.pecent)/100, animated: true)
             self.progressLbl.text = "\(data.pecent)%"
             self.tasksCompletedLbl.text = "\(data.complatedTask)/\(data.allTasks) Task Completed"
             self.pandingCount.text = "\(data.pendingCount)"

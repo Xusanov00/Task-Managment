@@ -6,40 +6,42 @@
 //
 
 import UIKit
-
+import FSCalendar
 class TodaysTaskVC: UIViewController {
 
     //outlets
     @IBOutlet var btns: [UIButton]!
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var backV: UIView!
+    @IBOutlet weak var stackV:UIStackView!
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var backV:UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
     //variables
+    var calendar:FSCalendar!
     var num = 0
     var taskArr: [TaskDM] = [ ]
     var sortedTasks: [TaskDM] = []
     
-    var weeks:[String] = ["Du","Se","Chor","Pay","Ju","Shan","Yak"]
+    var weeks:[WeekDM] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.title = "Today’s task"
         self.navigationController?.navigationBar.tintColor = .black
+        getWeekendlyStatus(day: 1673548155)
         setUpNavigationV()
-        setUpCollectionView()
         getTodaysTask()
+        
     }
-    
     func setUpCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         collectionView.register(UINib(nibName: "DayCVC", bundle: nil), forCellWithReuseIdentifier: "DayCVC")
     }
+
     
-    
+   
     
     
     func setupTableView() {
@@ -149,10 +151,6 @@ extension TodaysTaskVC: UITableViewDataSource {
     
 }
 
-
-
-
-
 //MARK: - UICollectionViewDataSource
 extension TodaysTaskVC:UICollectionViewDataSource {
     
@@ -161,8 +159,16 @@ extension TodaysTaskVC:UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCVC", for: indexPath) as? DayCVC else {return UICollectionViewCell()}
-        cell.addShadow(cornerRadius: 10)
         cell.updateCell(weekdays: weeks[indexPath.item])
+        if indexPath.item == 0 {
+            cell.backV.backgroundColor = #colorLiteral(red: 0.324398458, green: 0.3902252913, blue: 0.9221590161, alpha: 1)
+            cell.icobV.backgroundColor = #colorLiteral(red: 0.324398458, green: 0.3902252913, blue: 0.9221590161, alpha: 1)
+            cell.weeks.textColor = .white
+            cell.monthDays.textColor = .white
+        } else{
+            cell.backV.addShadow(cornerRadius: 10)
+            
+        }
         return cell
     }
 }
@@ -175,6 +181,10 @@ extension TodaysTaskVC:UICollectionViewDelegateFlowLayout {
         
     }
 }
+
+
+
+
 //MARK: - getTodaysTask
 extension TodaysTaskVC {
     func getTodaysTask() {
@@ -185,4 +195,15 @@ extension TodaysTaskVC {
             
         }
     }
+    
+    func getWeekendlyStatus(day:Int) {
+        API.getWeekendlyStatus(day: day) { data in
+                self.weeks = data
+            print("dataWeek=",data)
+               self.setUpCollectionView()
+        }
+    }
+    
+    
+    
 }

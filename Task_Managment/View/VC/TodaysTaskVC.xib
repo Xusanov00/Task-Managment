@@ -16,8 +16,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TodaysTaskVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
-                <outlet property="backV" destination="O0c-Yi-yDN" id="PW5-VW-Yee"/>
-                <outlet property="collectionView" destination="Jut-ux-moA" id="WLT-Gm-eYb"/>
+                <outlet property="backV" destination="6ec-F6-EZ5" id="YDn-1M-Zbn"/>
+                <outlet property="collectionView" destination="vNf-fH-gV6" id="0ri-Sj-Qu7"/>
+                <outlet property="stackV" destination="nPS-RW-cWY" id="sKO-01-kKN"/>
                 <outlet property="tableView" destination="I3W-Ck-gGi" id="4Hr-V3-VSu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="btns" destination="4o1-2v-dEb" collectionClass="NSMutableArray" id="AYp-E4-x8q"/>
@@ -34,13 +35,13 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="nPS-RW-cWY">
                     <rect key="frame" x="16" y="59" width="361" height="793"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0c-Yi-yDN">
-                            <rect key="frame" x="0.0" y="0.0" width="361" height="100"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ec-F6-EZ5">
+                            <rect key="frame" x="0.0" y="0.0" width="361" height="110"/>
                             <subviews>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Jut-ux-moA">
-                                    <rect key="frame" x="0.0" y="0.0" width="361" height="100"/>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vNf-fH-gV6">
+                                    <rect key="frame" x="0.0" y="0.0" width="361" height="110"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cz2-1e-x99">
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kms-ag-1bp">
                                         <size key="itemSize" width="128" height="128"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -50,15 +51,15 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="Jut-ux-moA" secondAttribute="trailing" id="JPD-GL-fnS"/>
-                                <constraint firstItem="Jut-ux-moA" firstAttribute="leading" secondItem="O0c-Yi-yDN" secondAttribute="leading" id="OGf-wH-bRE"/>
-                                <constraint firstAttribute="height" constant="100" id="QLj-aN-YRm"/>
-                                <constraint firstItem="Jut-ux-moA" firstAttribute="top" secondItem="O0c-Yi-yDN" secondAttribute="top" id="n5r-su-2cv"/>
-                                <constraint firstAttribute="bottom" secondItem="Jut-ux-moA" secondAttribute="bottom" id="tbp-UN-mA4"/>
+                                <constraint firstAttribute="height" constant="110" id="7gV-9Y-IEM"/>
+                                <constraint firstAttribute="bottom" secondItem="vNf-fH-gV6" secondAttribute="bottom" id="Y7x-O3-0Ur"/>
+                                <constraint firstAttribute="trailing" secondItem="vNf-fH-gV6" secondAttribute="trailing" id="ZlY-xD-BiU"/>
+                                <constraint firstItem="vNf-fH-gV6" firstAttribute="top" secondItem="6ec-F6-EZ5" secondAttribute="top" id="dkZ-sd-ME9"/>
+                                <constraint firstItem="vNf-fH-gV6" firstAttribute="leading" secondItem="6ec-F6-EZ5" secondAttribute="leading" id="o2H-wC-FFD"/>
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="rm9-lv-cVw">
-                            <rect key="frame" x="0.0" y="104" width="361" height="32"/>
+                            <rect key="frame" x="0.0" y="114" width="361" height="32"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4o1-2v-dEb">
                                     <rect key="frame" x="0.0" y="0.0" width="51" height="32"/>
@@ -131,7 +132,7 @@
                             </constraints>
                         </stackView>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="I3W-Ck-gGi">
-                            <rect key="frame" x="0.0" y="140" width="361" height="653"/>
+                            <rect key="frame" x="0.0" y="150" width="361" height="643"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                     </subviews>
@@ -145,7 +146,7 @@
                 <constraint firstItem="nPS-RW-cWY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="swa-TA-FzN"/>
                 <constraint firstItem="nPS-RW-cWY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="vB9-kb-jcz"/>
             </constraints>
-            <point key="canvasLocation" x="57.251908396946561" y="20.422535211267608"/>
+            <point key="canvasLocation" x="-19" y="-112"/>
         </view>
     </objects>
     <resources>

@@ -31,24 +31,14 @@ class ChatsVC: UIViewController {
         setUpUI()
         getComments()
     }
-    
-    
-    
-    //MARK: - will show keyboard
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as?
-            NSValue {
-            let keyboardHeight = keyboardFrame.cgRectValue.height
-            let backVSpace = self.view.frame.height - (backV.frame.origin.y + backV.frame.height)
-            self.backV.frame = CGRect(x: 0, y: CGFloat(Int(backV.frame.origin.y + 10 - keyboardHeight)), width: self.backV.frame.width, height: self.backV.frame.height)
+//   SetKeyboard
+    func setKeyboard() {
+        if textTf.isFirstResponder {
+            
         }
     }
     
-    //MARK: - will hide keyboard
-    @objc func keyboardWillHide(notification: NSNotification) {
-        self.backV.frame = CGRect(x: 0, y: CGFloat(Int(self.view.frame.height - backV.frame.height - 100)), width: self.backV.frame.width, height: self.backV.frame.height)
-    }
-    
+  
     //MARK: -  hide keyboard
     @objc private func hideKeyboard() {
     self.view.endEditing (true)
@@ -66,8 +56,7 @@ class ChatsVC: UIViewController {
         IQKeyboardManager.shared.enable = false
         IQKeyboardManager.shared.enableAutoToolbar = false
         self.view.addGestureRecognizer (UITapGestureRecognizer(target: self, action: #selector (hideKeyboard)))
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+       
         if sendArr.count == 0 {
             tableView.backgroundColor = .clear
         }

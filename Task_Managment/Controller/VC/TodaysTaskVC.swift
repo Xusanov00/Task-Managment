@@ -21,15 +21,7 @@ class TodaysTaskVC: UIViewController {
     var taskArr: [TaskDM] = [ ]
     var sortedTasks: [TaskDM] = []
     
-    var weeks:[String] = [
-        Lang.getString(type: .mon),
-        Lang.getString(type: .tue),
-        Lang.getString(type: .wed),
-        Lang.getString(type: .thu),
-        Lang.getString(type: .fri),
-        Lang.getString(type: .sat),
-        Lang.getString(type: .sun)
-    ]
+    var weeks:[WeekDM] = []
     
     
     
@@ -61,6 +53,7 @@ class TodaysTaskVC: UIViewController {
         btns[3].setTitle(Lang.getString(type: .toDo), for: .normal)
     }
     
+   
     
     
     func setupTableView() {

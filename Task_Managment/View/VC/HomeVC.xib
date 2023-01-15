@@ -22,6 +22,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
+                <outlet property="backView" destination="wOJ-6r-j3E" id="4Wc-aG-cfM"/>
                 <outlet property="calendarV" destination="Vuw-8k-6D8" id="58x-Vj-Av7"/>
                 <outlet property="fullnameLbl" destination="Scg-Ey-vpj" id="pVl-Ga-5sO"/>
                 <outlet property="numberLbl" destination="dSt-po-zTh" id="SIX-hV-2Bq"/>
@@ -89,6 +90,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RV9-Pq-mpH">
                                                     <rect key="frame" x="0.0" y="0.0" width="238.66666666666666" height="46"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="profileBtnTapped:" destination="-1" eventType="touchUpInside" id="jvQ-eQ-cec"/>
                                                     </connections>
@@ -113,6 +117,9 @@
                                             <state key="normal" image="bell.badge" catalog="system">
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23"/>
                                             </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="openChatsTapped:" destination="-1" eventType="touchUpInside" id="XcG-TT-zXD"/>
                                             </connections>
@@ -125,20 +132,20 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="OjO-yq-Qn3">
                                             <rect key="frame" x="16" y="16" width="334.33333333333331" height="100"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="947-w4-g7i">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="947-w4-g7i">
                                                     <rect key="frame" x="0.0" y="0.0" width="194.33333333333334" height="100"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="30O-pk-LWZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="42"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="30O-pk-LWZ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="30"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Today’s Tasks " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPs-3h-dZH">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="19"/>
-                                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="15"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="11"/>
+                                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="16"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="duL-mU-xOI">
-                                                                    <rect key="frame" x="0.0" y="26" width="148.66666666666666" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="14" width="148.66666666666666" height="16"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tick" translatesAutoresizingMaskIntoConstraints="NO" id="f39-D6-cek">
                                                                             <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
@@ -146,6 +153,9 @@
                                                                                 <constraint firstAttribute="width" constant="16" id="IMM-Mt-tl2"/>
                                                                                 <constraint firstAttribute="height" constant="16" id="qtM-pe-xCa"/>
                                                                             </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                            </userDefinedRuntimeAttributes>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2/3 Tasks completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSF-fm-5mO">
                                                                             <rect key="frame" x="24.000000000000007" y="0.0" width="124.66666666666669" height="16"/>
@@ -167,7 +177,7 @@
                                                                         <constraint firstAttribute="width" constant="100" id="QR5-xS-uYZ"/>
                                                                         <constraint firstAttribute="height" constant="36" id="y1x-TI-Q2d"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="13"/>
+                                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" title="Today’s Tasks">
                                                                         <color key="titleColor" red="0.31372550129999999" green="0.45490196350000001" blue="0.91764706370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -176,6 +186,7 @@
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                             <real key="value" value="6"/>
                                                                         </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
                                                                         <action selector="taskTapped:" destination="-1" eventType="touchUpInside" id="Brs-aa-YOb"/>
@@ -191,6 +202,9 @@
                                                                     <fontDescription key="fontDescription" name="LexendDeca-SemiBold" family="Lexend Deca" pointSize="10"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                                                    </userDefinedRuntimeAttributes>
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -224,7 +238,7 @@
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="progress">
-                                                            <real key="value" value="0.65000000000000002"/>
+                                                            <real key="value" value="0.0"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="trackFillColor">
                                                             <color key="value" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
@@ -245,6 +259,7 @@
                                                             <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCap" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
@@ -274,6 +289,9 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vuw-8k-6D8">
                                             <rect key="frame" x="0.0" y="0.0" width="351" height="270"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
                                 </stackView>
@@ -304,6 +322,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="12"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="statistictsTapped:" destination="-1" eventType="touchUpInside" id="KwJ-4d-nya"/>
@@ -320,12 +339,12 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="US7-nh-XeZ" secondAttribute="bottom" constant="10" id="eer-bG-Oc7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="US7-nh-XeZ" secondAttribute="trailing" constant="16" id="oNx-cX-5gd"/>
             </constraints>
-            <point key="canvasLocation" x="232.82442748091603" y="-6.3380281690140849"/>
+            <point key="canvasLocation" x="234" y="-6"/>
         </view>
     </objects>
     <resources>
         <image name="Tick" width="32" height="32"/>
-        <image name="bell.badge" catalog="system" width="32" height="32"/>
+        <image name="bell.badge" catalog="system" width="125" height="128"/>
         <image name="profileImage" width="840" height="881"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

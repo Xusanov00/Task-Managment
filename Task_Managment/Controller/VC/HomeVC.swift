@@ -47,7 +47,7 @@ class HomeVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setUpSkeletonView()
+        //setUpSkeletonView()
     }
 //    SetCalendar
     func setCalendar() {
@@ -161,7 +161,7 @@ extension HomeVC {
             guard let data = userData else { return }
             self.fullnameLbl.text = data.lastName + " " + data.firstName
             self.numberLbl.text = data.phoneNumber
-            
+            Loader.stop()
         }
     }
 }
@@ -186,6 +186,7 @@ extension HomeVC {
             self.progressLbl.text = "\(data.pecent)%"
             self.tasksCompletedLbl.text = "\(data.complatedTask)/\(data.allTasks) " + Lang.getString(type: .tasksCompleted)
             self.pandingCount.text = "\(data.pendingCount)"
+            Loader.stop()
             
         }
     }
@@ -193,33 +194,6 @@ extension HomeVC {
 
 
 
-
-
-
-
-
-//extension HomeVC {
-//    func observeLangNotif() {
-//        NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
-//        print("Notification HomeVC")
-//    }
-//    @objc func changLang(_ notification: NSNotification) {
-//        guard let lang = notification.object as? Int else { return }
-//        print("Notification HomeVC1")
-//        switch lang {
-//        case 0:
-//            Cache.save(appLanguage: .uz)
-//            setLang()
-//        case 1:
-//            Cache.save(appLanguage: .ru)
-//            setLang()
-//        case 2:
-//            Cache.save(appLanguage: .en)
-//            setLang()
-//        default: break
-//        }
-//    }
-//}
 
 //MARK: - NnotificationCenter for language changing
 extension HomeVC {

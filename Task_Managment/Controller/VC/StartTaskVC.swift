@@ -22,6 +22,8 @@ class StartTaskVC: UIViewController {
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var laddressLbl: UILabel!
     @IBOutlet weak var descLbl: UILabel!
+    @IBOutlet weak var gmsMap: GMSMapView!
+    @IBOutlet weak var startFinishBtn: UIButton!
     @IBOutlet weak var commentBtn: UIButton!
     @IBOutlet weak var startTaskBtn: UIButton!
     
@@ -46,7 +48,7 @@ class StartTaskVC: UIViewController {
         super.viewDidLoad()
         timerStack.isHidden = true
         setUpNav()
-        getTaskID()
+        setUpUI()
         setLang()
         setUpUI()
     }
@@ -202,11 +204,16 @@ class StartTaskVC: UIViewController {
         } else {
             navigationController?.popViewController(animated: true)
         }
+        
     }
 }
 
 
-//MARK: - NnotificationCenter for language changing
+//MARK: - Google Maps Delegate
+extension StartTaskVC: GMSMapViewDelegate{
+}
+
+    //MARK: - NnotificationCenter for language changing
 extension StartTaskVC {
     func observeLangNotif() {
         NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)

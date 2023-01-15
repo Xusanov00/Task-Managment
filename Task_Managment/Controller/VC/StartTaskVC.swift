@@ -47,7 +47,6 @@ class StartTaskVC: UIViewController {
         timerStack.isHidden = true
         setUpNav()
         setUpUI()
-        getTaskID()
         setLang()
     }
  
@@ -209,8 +208,9 @@ class StartTaskVC: UIViewController {
 
 //MARK: - Google Maps Delegate
 extension StartTaskVC: GMSMapViewDelegate{
-    
-//MARK: - NnotificationCenter for language changing
+}
+
+    //MARK: - NnotificationCenter for language changing
 extension StartTaskVC {
     func observeLangNotif() {
         NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
@@ -232,4 +232,4 @@ extension StartTaskVC {
         }
     }
 }
-
+    

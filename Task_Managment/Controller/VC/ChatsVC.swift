@@ -37,7 +37,7 @@ class ChatsVC: UIViewController {
     
     //MARK: language settings
     func setLang() {
-        noSmsLbl.text = Lang.getString(type: )
+        noSmsLbl.text = Lang.getString(type: .noSms)
         title = Lang.getString(type: .comment)
         textTf.placeholder = Lang.getString(type: .enterSms)
     }

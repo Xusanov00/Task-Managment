@@ -6,16 +6,17 @@
 //
 
 import UIKit
-
+import FSCalendar
 class TodaysTaskVC: UIViewController {
     
     //outlets
     @IBOutlet var btns: [UIButton]!
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var backV: UIView!
+    @IBOutlet weak var stackV:UIStackView!
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var backV:UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
     //variables
+    var calendar:FSCalendar!
     var num = 0
     var taskArr: [TaskDM] = [ ]
     var sortedTasks: [TaskDM] = []
@@ -32,17 +33,18 @@ class TodaysTaskVC: UIViewController {
     
     
     
+//    var weeks:[WeekDM] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.title = Lang.getString(type: .todaysTasks)
         self.navigationController?.navigationBar.tintColor = .black
+        getWeekendlyStatus(day: 1673548155)
         setUpNavigationV()
-        setUpCollectionView()
         getTodaysTask()
         setLang()
     }
-    
     func setUpCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -106,11 +108,13 @@ class TodaysTaskVC: UIViewController {
     
 }
 //MARK: - UITableViewDelegate
-extension TodaysTaskVC:UITableViewDelegate {
+extension TodaysTaskVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         navigationItem.backButtonTitle = ""
+        let vc = StartTaskVC.loadFromNib()
+        vc.task = sortedTasks[indexPath.row]
         self.navigationController?.navigationBar.tintColor = .black
-        self.navigationController?.pushViewController(StartTaskVC.loadFromNib(), animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -168,10 +172,6 @@ extension TodaysTaskVC: UITableViewDataSource {
     
 }
 
-
-
-
-
 //MARK: - UICollectionViewDataSource
 extension TodaysTaskVC:UICollectionViewDataSource {
     
@@ -180,8 +180,16 @@ extension TodaysTaskVC:UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCVC", for: indexPath) as? DayCVC else {return UICollectionViewCell()}
-        cell.addShadow(cornerRadius: 10)
         cell.updateCell(weekdays: weeks[indexPath.item])
+        if indexPath.item == 0 {
+            cell.backV.backgroundColor = #colorLiteral(red: 0.324398458, green: 0.3902252913, blue: 0.9221590161, alpha: 1)
+            cell.icobV.backgroundColor = #colorLiteral(red: 0.324398458, green: 0.3902252913, blue: 0.9221590161, alpha: 1)
+            cell.weeks.textColor = .white
+            cell.monthDays.textColor = .white
+        } else{
+            cell.backV.addShadow(cornerRadius: 10)
+            
+        }
         return cell
     }
 }
@@ -194,16 +202,30 @@ extension TodaysTaskVC:UICollectionViewDelegateFlowLayout {
         
     }
 }
+
+
+
+
 //MARK: - getTodaysTask
 extension TodaysTaskVC {
     func getTodaysTask() {
-        API.getTodaysTask(day: 1673588475) { data in
+        API.getTodaysTask(day: 1673690400) { data in
             
             self.taskArr = data
             self.setupTableView()
             
         }
     }
+    
+    func getWeekendlyStatus(day:Int) {
+        API.getWeekendlyStatus(userId: cache.string(forKey: KeysDM.id.rawValue) ?? "ID", day: day) { data in
+            self.weeks = data
+            self.setUpCollectionView()
+        }
+    }
+    
+    
+    
 }
 
 

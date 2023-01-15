@@ -9,6 +9,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import Alamofire
 import SwiftyJSON
+import AVFoundation
 
 class ChatsVC: UIViewController {
     
@@ -25,6 +26,9 @@ class ChatsVC: UIViewController {
   
     var sendArr:[String] = []
     var myConstraint_DefualtValue = CGFloat(30)
+    
+    var player: AVAudioPlayer?
+    var indexPath: IndexPath?
 
     
     override func viewDidLoad() {
@@ -49,14 +53,15 @@ class ChatsVC: UIViewController {
             let keyboardHeight = keyboardFrame.cgRectValue.height
             let backVSpace = self.view.frame.height - (backV.frame.origin.y + backV.frame.height)
             self.backV.frame = CGRect(x: 0, y: CGFloat(Int(backV.frame.origin.y + 10 - keyboardHeight)), width: self.backV.frame.width, height: self.backV.frame.height)
+    }
+//   SetKeyboard
+    func setKeyboard() {
+        if textTf.isFirstResponder {
+            
         }
     }
     
-    //MARK: - will hide keyboard
-    @objc func keyboardWillHide(notification: NSNotification) {
-        self.backV.frame = CGRect(x: 0, y: CGFloat(Int(self.view.frame.height - backV.frame.height - 100)), width: self.backV.frame.width, height: self.backV.frame.height)
-    }
-    
+  
     //MARK: -  hide keyboard
     @objc private func hideKeyboard() {
     self.view.endEditing (true)
@@ -74,8 +79,7 @@ class ChatsVC: UIViewController {
         IQKeyboardManager.shared.enable = false
         IQKeyboardManager.shared.enableAutoToolbar = false
         self.view.addGestureRecognizer (UITapGestureRecognizer(target: self, action: #selector (hideKeyboard)))
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+       
         if sendArr.count == 0 {
             tableView.backgroundColor = .clear
         }
@@ -102,6 +106,7 @@ class ChatsVC: UIViewController {
         
     //MARK: - Actions
     @IBAction func sendTapped(_ sender: UIButton) {
+        playSendSound()
         tableView.backgroundColor = .white
         if textTf.text! != "" {
             sendArr.append(textTf.text!)
@@ -181,6 +186,19 @@ extension ChatsVC {
     }
 }
 
+//MARK: - Send Sound
+extension ChatsVC {
+    func playSendSound() {
+        let soundURL = Bundle.main.url(forResource: "SendMessage", withExtension: "mp3")
+        
+        do {
+            try player = AVAudioPlayer(contentsOf: soundURL!)
+        } catch {
+            print(error)
+        }
+        player?.play()
+    }
+}
 
 
 

@@ -17,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TaskVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
                 <outlet property="calendarV" destination="Ohl-RY-F0M" id="dfe-TT-Ivw"/>
+                <outlet property="chooseDateLbl" destination="9p9-UY-A7v" id="Ojc-V1-6Lw"/>
                 <outlet property="taskTablView" destination="EUP-yd-JqJ" id="Z5U-1F-LjP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

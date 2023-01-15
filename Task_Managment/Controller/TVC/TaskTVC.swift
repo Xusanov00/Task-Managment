@@ -33,20 +33,24 @@ class TaskTVC: UITableViewCell {
         super.awakeFromNib()
         self.selectionStyle = .none
     }
+    
+    
     func updateCell(cell: TaskDM) {
         shadowV.addShadow(cornerRadius: 12)
         topicLbl.text = cell.title
         descryptionLbl.text = cell.definition
         timeLbl.text = "\(cell.time)"
-        priorityLbl.text = cell.priority.capitalized
         
-        if priorityLbl.text == "Completed" {
+        if cell.priority.uppercased() == "COMPLETED" {
+            priorityLbl.text = Lang.getString(type: .completed)
             priorityView.backgroundColor = #colorLiteral(red: 0.2784313725, green: 0.7607843137, blue: 0.4470588235, alpha: 0.1)
             priorityLbl.textColor = #colorLiteral(red: 0.2784313725, green: 0.7607843137, blue: 0.4470588235, alpha: 1)
-        } else if priorityLbl.text == "Progress" {
+        } else if cell.priority.uppercased() == "PROGRESS" {
+            priorityLbl.text = Lang.getString(type: .inProgress)
             priorityView.backgroundColor = #colorLiteral(red: 1, green: 0.5411764706, blue: 0, alpha: 0.1)
             priorityLbl.textColor = #colorLiteral(red: 1, green: 0.5411764706, blue: 0, alpha: 1)
-        } else if priorityLbl.text == "Pending" {
+        } else if cell.priority.uppercased() == "PENDING" {
+            priorityLbl.text = Lang.getString(type: .toDo)
             priorityView.backgroundColor = #colorLiteral(red: 0.2235294118, green: 0.431372549, blue: 0.9450980392, alpha: 0.1)
             priorityLbl.textColor = #colorLiteral(red: 0.2235294118, green: 0.431372549, blue: 0.9450980392, alpha: 1)
         } else {
@@ -57,3 +61,5 @@ class TaskTVC: UITableViewCell {
     
     
 }
+
+

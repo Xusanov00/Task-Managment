@@ -19,6 +19,7 @@ class ChatsVC: UIViewController {
     @IBOutlet weak var sendBtn:UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyChatImg: UIImageView!
+    @IBOutlet weak var noSmsLbl: UILabel!
     
     //variables
     var screenSize = UIScreen.main.bounds
@@ -34,11 +35,24 @@ class ChatsVC: UIViewController {
         super.viewDidLoad()
         setUpUI()
         getComments()
+        setLang()
     }
-//   SetKeyboard
-    func setKeyboard() {
-        if textTf.isFirstResponder {
-            
+    
+    
+    //MARK: language settings
+    func setLang() {
+        noSmsLbl.text = Lang.getString(type: .noSms)
+        title = Lang.getString(type: .comment)
+        textTf.placeholder = Lang.getString(type: .enterSms)
+    }
+    
+    //MARK: - will show keyboard
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as?
+            NSValue {
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            let backVSpace = self.view.frame.height - (backV.frame.origin.y + backV.frame.height)
+            self.backV.frame = CGRect(x: 0, y: CGFloat(Int(backV.frame.origin.y + 10 - keyboardHeight)), width: self.backV.frame.width, height: self.backV.frame.height)
         }
     }
     
@@ -181,3 +195,28 @@ extension ChatsVC {
     }
 }
 
+
+
+
+//MARK: - NnotificationCenter for language changing
+extension ChatsVC {
+    func observeLangNotif() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
+        print("NotificationCenter ChatsVC")
+    }
+    @objc func changLang(_ notification: NSNotification) {
+        guard let lang = notification.object as? Int else { return }
+        switch lang {
+        case 0:
+            Cache.save(appLanguage: .uz)
+            setLang()
+        case 1:
+            Cache.save(appLanguage: .ru)
+            setLang()
+        case 2:
+            Cache.save(appLanguage: .en)
+            setLang()
+        default: break
+        }
+    }
+}

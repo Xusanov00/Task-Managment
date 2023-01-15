@@ -18,7 +18,7 @@ class StatisticsVC: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Statistics"
+        self.navigationItem.title = Lang.getString(type: .statistics)
          setUpCharts()
         setUpNavigationV()
     }
@@ -66,3 +66,6 @@ class StatisticsVC: UIViewController, ChartViewDelegate {
         navigationController?.pushViewController(ChatsVC.loadFromNib(), animated: true)
     }
 }
+
+
+

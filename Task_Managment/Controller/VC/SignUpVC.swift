@@ -23,13 +23,13 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var continueBtn: UIButton!
     
     //variables
-//    let message = "By continuing, you agree to the Terms of Use and Privacy Policy".localized()
-//    let findWord = ["Terms of Use".localized(), "Privacy Policy".localized()]
+    let message = Lang.getString(type: .privacyPolicyDescrypt)
+    let findWord = [Lang.getString(type: .termsUse), Lang.getString(type: .privacyPolicy)]
 //    //
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLanguage()
+        setLang()
         setTextField()
         privacyPolicyLabel()
         continueBtn.addShadow(cornerRadius: 12)
@@ -44,21 +44,21 @@ class SignUpVC: UIViewController {
     
     //MARK: Privacy Policy Label Text Attributes
     func privacyPolicyLabel() {
-//        let attributeMutableStringLink = NSMutableAttributedString(string: message)
-//        attributeMutableStringLink.addAttribute(.link, value: "https://www.google.co.in/", range:
-//                                                    message.createRangeinaLink(of: findWord[0]))
-//        attributeMutableStringLink.addAttribute(.link, value: "https://www.youtube.com/", range:
-//                                                    message.createRangeinaLink(of: findWord[1]))
-//        privasyLbl.attributedText = attributeMutableStringLink
+        let attributeMutableStringLink = NSMutableAttributedString(string: message)
+        attributeMutableStringLink.addAttribute(.link, value: "https://www.google.co.in/", range:
+                                                    message.createRangeinaLink(of: findWord[0]))
+        attributeMutableStringLink.addAttribute(.link, value: "https://www.youtube.com/", range:
+                                                    message.createRangeinaLink(of: findWord[1]))
+        privasyLbl.attributedText = attributeMutableStringLink
     }
     
     
     //MARK: Language Settings
-    func setLanguage() {
-//        signUpLbl.text = "Sign in".localized()
-//        signUpDescryptLbl.text = "Start doing all your work with a plan".localized()
-//        continueBtn.setTitle("Continue".localized(), for: .normal)
-//        passTf.placeholder = "Password".localized()
+    func setLang() {
+        signUpLbl.text = Lang.getString(type: .signIn)
+        signUpDescryptLbl.text = Lang.getString(type: .signipVCDesc)
+        continueBtn.setTitle(Lang.getString(type: .continu), for: .normal)
+        passTf.placeholder = Lang.getString(type: .password)
     }
     
     //MARK: Number textField
@@ -96,10 +96,10 @@ extension SignUpVC {
                     SetCache.saveCache(for: data._id, for: KeysDM.id)
                     self.navigationController?.pushViewController(HomeVC.loadFromNib(), animated: true)
                 } else {
-                    self.showErrorAlert(title: "Error", message: "Malumot kiritishda xatolik bor yoki bunday foydalanuvchi mavjud emas")
+                    self.showErrorAlert(title: Lang.getString(type: .alertError), message: Lang.getString(type: .alertNumbError))
                 }
             }else {
-                self.showErrorAlert(title: "Error", message: "iltimos raqam yoki passwordni kiriting")
+                self.showErrorAlert(title: Lang.getString(type: .alertError), message: Lang.getString(type: .alertEnterNumb))
             }
         }
     }
@@ -111,5 +111,29 @@ extension String {
     func createRangeinaLink(of findWord: String) -> NSRange {
         let range = (self as NSString) .range(of: findWord, options: .caseInsensitive)
         return range
+    }
+}
+
+
+//MARK: - NnotificationCenter for language changing
+extension SignUpVC {
+    func observeLangNotif() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
+        print("NotificationCenter SignUpVC")
+    }
+    @objc func changLang(_ notification: NSNotification) {
+        guard let lang = notification.object as? Int else { return }
+        switch lang {
+        case 0:
+            Cache.save(appLanguage: .uz)
+            setLang()
+        case 1:
+            Cache.save(appLanguage: .ru)
+            setLang()
+        case 2:
+            Cache.save(appLanguage: .en)
+            setLang()
+        default: break
+        }
     }
 }

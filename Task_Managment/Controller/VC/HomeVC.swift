@@ -39,6 +39,7 @@ class HomeVC: UIViewController {
         self.navigationItem.hidesBackButton = true
         getData()
         observeUserNotif()
+        observeLangNotif()
         setLang()
         getHomeData()
         progressV.setProgress(0, animated: true)
@@ -90,10 +91,9 @@ class HomeVC: UIViewController {
     
     //localizatedLanguage
     func setLang() {
-        //        statisticsBtn.setTitle("Statistics".localized(), for: .normal)
-        //        todaysTaskLbl.text = "Today’s Tasks".localized()
-        //        tasksCompletedLbl.text = number + "Tasks completed".localized()
-        //        viewTaskBtn.setTitle("View Task".localized(), for: .normal)
+        statisticsBtn.setTitle(Lang.getString(type: .statistics), for: .normal)
+        todaysTaskLbl.text = Lang.getString(type: .todaysTasks)
+        viewTaskBtn.setTitle(Lang.getString(type: .todaysTasks), for: .normal)
     }
     
     //profileBtnTapped
@@ -155,6 +155,7 @@ extension HomeVC:FSCalendarDataSource {
 //MARK: Data from API
 extension HomeVC {
     func getData () {
+//        Loader.start()
         API.getProfile {[self] data in
             userData = data
             guard let data = userData else { return }
@@ -183,9 +184,67 @@ extension HomeVC {
         API.getMainPage { data in
             self.progressV.setProgress(Double(data.pecent)/100, animated: true)
             self.progressLbl.text = "\(data.pecent)%"
-            self.tasksCompletedLbl.text = "\(data.complatedTask)/\(data.allTasks) Task Completed"
+            self.tasksCompletedLbl.text = "\(data.complatedTask)/\(data.allTasks) " + Lang.getString(type: .tasksCompleted)
             self.pandingCount.text = "\(data.pendingCount)"
             
         }
     }
 }
+
+
+
+
+
+
+
+
+//extension HomeVC {
+//    func observeLangNotif() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
+//        print("Notification HomeVC")
+//    }
+//    @objc func changLang(_ notification: NSNotification) {
+//        guard let lang = notification.object as? Int else { return }
+//        print("Notification HomeVC1")
+//        switch lang {
+//        case 0:
+//            Cache.save(appLanguage: .uz)
+//            setLang()
+//        case 1:
+//            Cache.save(appLanguage: .ru)
+//            setLang()
+//        case 2:
+//            Cache.save(appLanguage: .en)
+//            setLang()
+//        default: break
+//        }
+//    }
+//}
+
+//MARK: - NnotificationCenter for language changing
+extension HomeVC {
+
+    func observeLangNotif() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changeLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
+    }
+
+    @objc func changeLang(_ notification: NSNotification) {
+        guard let lang = notification.object as? Int else { return }
+        switch lang {
+        case 0:
+            Cache.save(appLanguage: .uz)
+            setLang()
+        case 1:
+            Cache.save(appLanguage: .ru)
+            setLang()
+        case 2:
+            Cache.save(appLanguage: .en)
+            setLang()
+        default: break
+        }
+
+        setLang()
+        print("home language updated to ", Cache.getAppLanguage())
+    }
+}
+

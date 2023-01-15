@@ -8,7 +8,7 @@
 import UIKit
 
 class LanguageVC: UIViewController {
-
+    
     
     //outlets
     @IBOutlet weak var titleLbl: UILabel!
@@ -28,10 +28,10 @@ class LanguageVC: UIViewController {
         langView[0].addShadow(cornerRadius: 12)
         langView[1].addShadow(cornerRadius: 12)
         langView[2].addShadow(cornerRadius: 12)
-//        titleLbl.text = "Select Language".localized()
-//        nextBtn.setTitle("Continue".localized(), for: .normal)
+        titleLbl.text = Lang.getString(type: .selectLang)
+        nextBtn.setTitle(Lang.getString(type: .continu), for: .normal)
     }
-
+    
     
     //MARK: - Actions
     @IBAction func continueTapped(_ sender: Any) {
@@ -44,14 +44,18 @@ class LanguageVC: UIViewController {
         borderColor(tag: sender.tag)
         switch sender.tag {
         case 0:
-            SetCache.saveCache(for: LanguageEnum.uz.rawValue, for: KeysDM.language)
+            postNotif(lang: sender.tag)
+            Cache.save(appLanguage: .uz)
         case 1:
-            SetCache.saveCache(for: LanguageEnum.ru.rawValue, for: KeysDM.language)
+            postNotif(lang: sender.tag)
+            Cache.save(appLanguage: .ru)
         case 2:
-            SetCache.saveCache(for: LanguageEnum.en.rawValue, for: KeysDM.language)
+            postNotif(lang: sender.tag)
+            Cache.save(appLanguage: .en)
         default:
             print("error select language button tag")
         }
+        setLang()
     }
     
     //MARK: - Border Color for LangBtn
@@ -65,3 +69,33 @@ class LanguageVC: UIViewController {
 
 
 
+//MARK: -Lang Notif
+extension LanguageVC {
+    func postNotif(lang: Int) {
+        NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: lang, userInfo: nil)
+        print("NotificationCenter LanguageVC \(lang)")
+    }
+}
+
+//MARK: - NnotificationCenter for language changing
+extension LanguageVC {
+    func observeLangNotif() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
+        print("NotificationCenter LanguageVC")
+    }
+    @objc func changLang(_ notification: NSNotification) {
+        guard let lang = notification.object as? Int else { return }
+        switch lang {
+        case 0:
+            Cache.save(appLanguage: .uz)
+            setLang()
+        case 1:
+            Cache.save(appLanguage: .ru)
+            setLang()
+        case 2:
+            Cache.save(appLanguage: .en)
+            setLang()
+        default: break
+        }
+    }
+}

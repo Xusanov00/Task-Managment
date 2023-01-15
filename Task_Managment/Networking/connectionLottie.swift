@@ -21,6 +21,7 @@ class ConnectionLottie {
         animationView.snp.makeConstraints { make in
             make.left.right.top.bottom.equalToSuperview()
         }
+        
         animationView.stop()
         button?.isEnabled = false
         button?.layer.opacity = 0.8
@@ -28,7 +29,7 @@ class ConnectionLottie {
         _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
             animationView.stop()
                 view.isHidden = true
-                animationView.isHidden = true
+//                animationView.isHidden = true
             button?.layer.opacity = 1
             button?.isEnabled = true
         })

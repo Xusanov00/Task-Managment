@@ -12,12 +12,16 @@
         <array key="LexendDeca-Regular.ttf">
             <string>LexendDeca-Regular</string>
         </array>
+        <array key="TimesNewRoman.ttf">
+            <string>.SFUI-Semibold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatsVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
                 <outlet property="backV" destination="5WE-rR-yG6" id="foq-Y0-u0Q"/>
                 <outlet property="emptyChatImg" destination="L49-Ig-7pf" id="cf6-jz-0n9"/>
+                <outlet property="noSmsLbl" destination="XjD-SG-Nmg" id="YWR-c3-5Lf"/>
                 <outlet property="sendBtn" destination="TZ5-4D-t0p" id="1VL-us-uqU"/>
                 <outlet property="tableView" destination="FLu-ZZ-snD" id="gLk-ZM-zGW"/>
                 <outlet property="textTf" destination="ww1-ZA-HVv" id="Nmx-C4-Dbp"/>
@@ -29,12 +33,23 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame 624754" translatesAutoresizingMaskIntoConstraints="NO" id="L49-Ig-7pf">
-                    <rect key="frame" x="50" y="219.66666666666663" width="293" height="293"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="L49-Ig-7pf" secondAttribute="height" id="WO6-5A-cl4"/>
-                    </constraints>
-                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="mGd-DI-Pgr">
+                    <rect key="frame" x="92" y="309.33333333333331" width="209" height="233.66666666666669"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame 624754" translatesAutoresizingMaskIntoConstraints="NO" id="L49-Ig-7pf">
+                            <rect key="frame" x="0.0" y="0.0" width="209" height="209"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="L49-Ig-7pf" secondAttribute="height" id="WO6-5A-cl4"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjD-SG-Nmg">
+                            <rect key="frame" x="0.0" y="209.00000000000006" width="209" height="24.666666666666657"/>
+                            <fontDescription key="fontDescription" name=".SFUI-Semibold" family=".AppleSystemUIFont" pointSize="22"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="y2H-6f-oqG">
                     <rect key="frame" x="0.0" y="59" width="393" height="783"/>
                     <subviews>
@@ -85,20 +100,23 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="L49-Ig-7pf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Eje-Gi-dY3"/>
                 <constraint firstAttribute="bottom" secondItem="y2H-6f-oqG" secondAttribute="bottom" constant="10" id="Eqe-KX-6Gb"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="L49-Ig-7pf" secondAttribute="trailing" constant="50" id="GhK-4B-9mS"/>
-                <constraint firstItem="L49-Ig-7pf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="NJF-DL-lp0"/>
-                <constraint firstItem="L49-Ig-7pf" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-60" id="OKy-fy-N8z"/>
+                <constraint firstItem="mGd-DI-Pgr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VvB-iU-iVo"/>
                 <constraint firstItem="y2H-6f-oqG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="cma-2T-kbs"/>
                 <constraint firstItem="y2H-6f-oqG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="r7x-G9-jYB"/>
+                <constraint firstItem="mGd-DI-Pgr" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="uif-Nh-CZH"/>
                 <constraint firstItem="y2H-6f-oqG" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="vL7-ec-eYh"/>
             </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="y2H-6f-oqG"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="26.717557251908396" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
-        <image name="Frame 624754" width="209" height="236"/>
+        <image name="Frame 624754" width="209" height="184"/>
         <image name="Send" width="38" height="38"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

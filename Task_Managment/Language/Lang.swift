@@ -33,8 +33,7 @@ class Lang {
                 
             case .start: return "Начать"
                 
-                
-            case .signupVCDesc: return "Начните выполнять всю свою работу по плану"
+            case .signipVCDesc: return "Начните выполнять всю свою работу по плану"
                 
             case .signIn: return "Вход"
                 
@@ -109,6 +108,29 @@ class Lang {
                 
             case .privacyPolicy: return "Политикой Конфиденциальности"
                 
+            case .alertError: return "Ошибка"
+                
+            case .alertEnterNumb: return "Пожалуйста введите номер или пароль"
+                
+            case .alertNumbError: return "Ошибка при вводе данных или нет такого пользователя"
+                
+            case .totalTime: return "Общее время"
+                
+            case .startTask: return "Начать Задание"
+                
+            case .finishTask: return "Завершить Задание"
+                
+            case .chooseDate: return "Выберите нужное время"
+                
+            case .changeLang: return "Изменить язык"
+                
+            case .mon: return "Пн"
+            case .tue: return "Вт"
+            case .wed: return "Ср"
+            case .thu: return "Чт"
+            case .fri: return "Пт"
+            case .sat: return "Сб"
+            case .sun: return "Вс"
             }
             
             //
@@ -123,7 +145,7 @@ class Lang {
                 
             case .getStart: return "Boshlash"
                 
-            case .signupVCDesc: return "Barcha ishlaringizni reja bilan bajarishni boshlang"
+            case .signipVCDesc: return "Barcha ishlaringizni reja bilan bajarishni boshlang"
                 
             case .signIn: return "Kirish"
                 
@@ -199,6 +221,29 @@ class Lang {
                 
             case .privacyPolicy: return "Maxfiylik Siyosatiga"
                 
+            case .alertError: return "Hatolik"
+                
+            case .alertEnterNumb: return "Iltimos, raqam yoki parolni kiriting"
+                
+            case .alertNumbError: return "Ma'lumot kiritishda xatolik bor yoki bunday foydalanuvchi mavjud emas"
+                
+            case .totalTime: return "Umumiy vaqt"
+                
+            case .startTask: return "Vazifani Boshlash"
+                
+            case .finishTask: return "Vazifani Yakunlash"
+                
+            case .chooseDate: return "Kerakli vaqtni tanlang"
+                
+            case .changeLang: return "Tilni o'zgartirish"
+                
+            case .mon: return "Du"
+            case .tue: return "Se"
+            case .wed: return "Cho"
+            case .thu: return "Pa"
+            case .fri: return "Ju"
+            case .sat: return "Sha"
+            case .sun: return "Ya"
             }
             
             //
@@ -217,7 +262,7 @@ class Lang {
                 
             case .start: return "Start"
                 
-            case .signupVCDesc: return "Start doing all your work with a plan"
+            case .signipVCDesc: return "Start doing all your work with a plan"
                 
             case .signIn: return "Sign In"
                 
@@ -291,6 +336,29 @@ class Lang {
                 
             case .privacyPolicy: return "Privacy Policy Конфиденциальности"
                 
+            case .alertError: return "Error"
+                
+            case .alertEnterNumb: return "Please enter the phone number or password"
+                
+            case .alertNumbError: return "There is a data entry error or there is no such user"
+                
+            case .totalTime: return "Total time"
+                
+            case .startTask: return "Start Task"
+                
+            case .finishTask: return "Finish Task"
+                
+            case .chooseDate: return "Choose required date"
+                
+            case .changeLang: return "Change language"
+                
+            case .mon: return "Mon"
+            case .tue: return "Tue"
+            case .wed: return "Wed"
+            case .thu: return "Thu"
+            case .fri: return "Fri"
+            case .sat: return "Sat"
+            case .sun: return "Sun"
             }
             
         }
@@ -303,7 +371,7 @@ class Lang {
         case startVCDescrypt
         case start
         case getStart
-        case signupVCDesc
+        case signipVCDesc
         case signIn
         case password
         case selectLang
@@ -341,6 +409,22 @@ class Lang {
         case privacyPolicyDescrypt
         case termsUse
         case privacyPolicy
+        case alertError
+        case alertEnterNumb
+        case alertNumbError
+        case totalTime
+        case startTask
+        case finishTask
+        case chooseDate
+        case changeLang
+        
+        case mon
+        case tue
+        case wed
+        case thu
+        case fri
+        case sat
+        case sun
     }
     
 }

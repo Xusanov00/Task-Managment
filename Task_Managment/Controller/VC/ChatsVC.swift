@@ -18,6 +18,7 @@ class ChatsVC: UIViewController {
     @IBOutlet weak var sendBtn:UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyChatImg: UIImageView!
+    @IBOutlet weak var noSmsLbl: UILabel!
     
     //variables
     var screenSize = UIScreen.main.bounds
@@ -30,9 +31,16 @@ class ChatsVC: UIViewController {
         super.viewDidLoad()
         setUpUI()
         getComments()
+        setLang()
     }
     
     
+    //MARK: language settings
+    func setLang() {
+        noSmsLbl.text = Lang.getString(type: )
+        title = Lang.getString(type: .comment)
+        textTf.placeholder = Lang.getString(type: .enterSms)
+    }
     
     //MARK: - will show keyboard
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -174,3 +182,28 @@ extension ChatsVC {
 }
 
 
+
+
+
+//MARK: - NnotificationCenter for language changing
+extension ChatsVC {
+    func observeLangNotif() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
+        print("NotificationCenter ChatsVC")
+    }
+    @objc func changLang(_ notification: NSNotification) {
+        guard let lang = notification.object as? Int else { return }
+        switch lang {
+        case 0:
+            Cache.save(appLanguage: .uz)
+            setLang()
+        case 1:
+            Cache.save(appLanguage: .ru)
+            setLang()
+        case 2:
+            Cache.save(appLanguage: .en)
+            setLang()
+        default: break
+        }
+    }
+}

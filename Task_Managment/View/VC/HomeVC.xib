@@ -125,20 +125,20 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="OjO-yq-Qn3">
                                             <rect key="frame" x="16" y="16" width="334.33333333333331" height="100"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="947-w4-g7i">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="947-w4-g7i">
                                                     <rect key="frame" x="0.0" y="0.0" width="194.33333333333334" height="100"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="30O-pk-LWZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="30"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="30O-pk-LWZ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="42"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Today’s Tasks " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPs-3h-dZH">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="11"/>
-                                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="16"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="19"/>
+                                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="15"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="duL-mU-xOI">
-                                                                    <rect key="frame" x="0.0" y="14" width="148.66666666666666" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="26" width="148.66666666666666" height="16"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tick" translatesAutoresizingMaskIntoConstraints="NO" id="f39-D6-cek">
                                                                             <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
@@ -167,7 +167,7 @@
                                                                         <constraint firstAttribute="width" constant="100" id="QR5-xS-uYZ"/>
                                                                         <constraint firstAttribute="height" constant="36" id="y1x-TI-Q2d"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
+                                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="13"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" title="Today’s Tasks">
                                                                         <color key="titleColor" red="0.31372550129999999" green="0.45490196350000001" blue="0.91764706370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -320,12 +320,12 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="US7-nh-XeZ" secondAttribute="bottom" constant="10" id="eer-bG-Oc7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="US7-nh-XeZ" secondAttribute="trailing" constant="16" id="oNx-cX-5gd"/>
             </constraints>
-            <point key="canvasLocation" x="234" y="-6"/>
+            <point key="canvasLocation" x="232.82442748091603" y="-6.3380281690140849"/>
         </view>
     </objects>
     <resources>
         <image name="Tick" width="32" height="32"/>
-        <image name="bell.badge" catalog="system" width="125" height="128"/>
+        <image name="bell.badge" catalog="system" width="32" height="32"/>
         <image name="profileImage" width="840" height="881"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

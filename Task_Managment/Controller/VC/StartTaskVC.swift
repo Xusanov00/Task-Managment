@@ -21,7 +21,12 @@ class StartTaskVC: UIViewController {
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var laddressLbl: UILabel!
     @IBOutlet weak var descLbl: UILabel!
-
+    @IBOutlet weak var commentBtn: UIButton!
+    @IBOutlet weak var startTaskBtn: UIButton!
+    
+    @IBOutlet weak var datELbl: UILabel!
+    @IBOutlet weak var timELbl: UILabel!
+    @IBOutlet weak var locatioNLbl: UILabel!
     
     
     //variables
@@ -35,6 +40,7 @@ class StartTaskVC: UIViewController {
         Loader.start()
         setUpNav()
         getTaskID()
+        setLang()
     }
  
     
@@ -66,6 +72,18 @@ class StartTaskVC: UIViewController {
             timerLbl.text = "Time Out"
         }
     }
+    
+    
+    //MARK: language settings
+    func setLang() {
+        datELbl.text = Lang.getString(type: .datE)
+        timELbl.text = Lang.getString(type: .timE)
+        locatioNLbl.text = Lang.getString(type: .locatioN)
+        timerTitleLbl.text = Lang.getString(type: .totalTime)
+        commentBtn.setTitle(Lang.getString(type: .comment), for: .normal)
+        startTaskBtn.setTitle(Lang.getString(type: .startTask), for: .normal)
+    }
+    
     
     
     func setUpNav() {
@@ -114,6 +132,30 @@ extension StartTaskVC {
             self.descLbl.text = data.definition
             Loader.stop()
             
+        }
+    }
+}
+
+
+//MARK: - NnotificationCenter for language changing
+extension StartTaskVC {
+    func observeLangNotif() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
+        print("NotificationCenter StartTaskVC")
+    }
+    @objc func changLang(_ notification: NSNotification) {
+        guard let lang = notification.object as? Int else { return }
+        switch lang {
+        case 0:
+            Cache.save(appLanguage: .uz)
+            setLang()
+        case 1:
+            Cache.save(appLanguage: .ru)
+            setLang()
+        case 2:
+            Cache.save(appLanguage: .en)
+            setLang()
+        default: break
         }
     }
 }

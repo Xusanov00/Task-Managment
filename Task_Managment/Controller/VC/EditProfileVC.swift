@@ -37,6 +37,15 @@ class EditProfileVC: UIViewController {
     }
     
     
+    //MARK: language settings
+    func setLang() {
+        nameTf.placeholder = Lang.getString(type: .name)
+        lastnameTf.placeholder = Lang.getString(type: .surname)
+        birthdateTextField.placeholder = Lang.getString(type: .dateBirth)
+        phoneNumberTf.placeholder = Lang.getString(type: .number)
+        saveBtn.setTitle(Lang.getString(type: .save), for: .normal)
+    }
+    
     //MARK: - Get Image from Gallery
     func setImageFromGallery() {
         let imgVC = UIImagePickerController()
@@ -122,10 +131,6 @@ class EditProfileVC: UIViewController {
     @IBAction func calendarTapped(_ sender: UIButton) {
         birthdateTextField.becomeFirstResponder()
     }
-    
-    @IBAction func changeTapped(_ sender: UIButton) {
-        
-    }
 
 }
 
@@ -147,5 +152,30 @@ extension EditProfileVC: UIImagePickerControllerDelegate,UIPopoverControllerDele
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true)
+    }
+}
+
+
+
+//MARK: - NnotificationCenter for language changing
+extension EditProfileVC {
+    func observeLangNotif() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
+        print("NotificationCenter EditProfileVC")
+    }
+    @objc func changLang(_ notification: NSNotification) {
+        guard let lang = notification.object as? Int else { return }
+        switch lang {
+        case 0:
+            Cache.save(appLanguage: .uz)
+            setLang()
+        case 1:
+            Cache.save(appLanguage: .ru)
+            setLang()
+        case 2:
+            Cache.save(appLanguage: .en)
+            setLang()
+        default: break
+        }
     }
 }

@@ -72,13 +72,13 @@
                                                             <rect key="frame" x="65.999999999999986" y="0.0" width="172.66666666666663" height="46"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Sabrina Samadova" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scg-Ey-vpj">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="25.666666666666668"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="24.333333333333332"/>
                                                                     <fontDescription key="fontDescription" name="LexendDeca-Medium" family="Lexend Deca" pointSize="14"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+998 97 777 77 77" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSt-po-zTh">
-                                                                    <rect key="frame" x="0.0" y="29.666666666666671" width="172.66666666666666" height="16.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="28.333333333333329" width="172.66666666666666" height="17.666666666666671"/>
                                                                     <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="14"/>
                                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -91,7 +91,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="238.66666666666666" height="46"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="profileBtnTapped:" destination="-1" eventType="touchUpInside" id="jvQ-eQ-cec"/>
@@ -118,7 +118,7 @@
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="openChatsTapped:" destination="-1" eventType="touchUpInside" id="XcG-TT-zXD"/>
@@ -136,19 +136,16 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="194.33333333333334" height="100"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="30O-pk-LWZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="140.33333333333334" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="30"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Today’s Tasks " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPs-3h-dZH">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="140.33333333333334" height="11"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="11"/>
                                                                     <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="16"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                                                    </userDefinedRuntimeAttributes>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="duL-mU-xOI">
-                                                                    <rect key="frame" x="0.0" y="14" width="140.33333333333334" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="14" width="148.66666666666666" height="16"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tick" translatesAutoresizingMaskIntoConstraints="NO" id="f39-D6-cek">
                                                                             <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
@@ -161,13 +158,10 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2/3 Tasks completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSF-fm-5mO">
-                                                                            <rect key="frame" x="23.999999999999993" y="0.0" width="116.33333333333331" height="16"/>
+                                                                            <rect key="frame" x="24.000000000000007" y="0.0" width="124.66666666666669" height="16"/>
                                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="12.5"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
-                                                                            <userDefinedRuntimeAttributes>
-                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                                                            </userDefinedRuntimeAttributes>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
@@ -192,7 +186,7 @@
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                             <real key="value" value="6"/>
                                                                         </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
                                                                         <action selector="taskTapped:" destination="-1" eventType="touchUpInside" id="Brs-aa-YOb"/>
@@ -209,7 +203,7 @@
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                             </subviews>
@@ -229,13 +223,10 @@
                                                     <rect key="frame" x="234.33333333333331" y="0.0" width="100" height="100"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27J-h5-lAX">
-                                                            <rect key="frame" x="34.333333333333371" y="38.333333333333343" width="31.333333333333329" height="23.333333333333329"/>
+                                                            <rect key="frame" x="35" y="37.666666666666657" width="30.333333333333329" height="25"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Medium" family="Lexend Deca" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                                            </userDefinedRuntimeAttributes>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -299,7 +290,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="351" height="270"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
@@ -331,7 +322,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="12"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="statistictsTapped:" destination="-1" eventType="touchUpInside" id="KwJ-4d-nya"/>

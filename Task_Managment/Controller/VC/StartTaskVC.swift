@@ -10,6 +10,7 @@ import CircleProgressView
 import GoogleMaps
 import SkeletonView
 
+
 class StartTaskVC: UIViewController {
 
     
@@ -30,9 +31,6 @@ class StartTaskVC: UIViewController {
     @IBOutlet weak var datELbl: UILabel!
     @IBOutlet weak var timELbl: UILabel!
     @IBOutlet weak var locatioNLbl: UILabel!
-    @IBOutlet weak var gmsMap: GMSMapView!
-    @IBOutlet weak var startFinishBtn: UIButton!
-    
     
     //variables
     var task: TaskDM?
@@ -234,8 +232,9 @@ extension StartTaskVC {
         default: break
         }
     }
-//MARK: - Google Maps Delegate
-extension StartTaskVC: GMSMapViewDelegate{
-    
 }
+////MARK: - Google Maps Delegate
+//extension StartTaskVC: GMSMapViewDelegate{
+//
+//}
 

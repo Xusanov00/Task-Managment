@@ -126,6 +126,8 @@ class Lang {
                 
             case .noSms: return "Нет сообщений"
                 
+            case .lang: return "ru"
+                
             case .mon: return "Пн"
             case .tue: return "Вт"
             case .wed: return "Ср"
@@ -240,6 +242,8 @@ class Lang {
             case .changeLang: return "Tilni o'zgartirish"
                 
             case .noSms: return "Habarlar yo'q"
+                
+            case .lang: return "uz"
                 
             case .mon: return "Du"
             case .tue: return "Se"
@@ -358,6 +362,8 @@ class Lang {
                 
             case .noSms: return "No message"
                 
+            case .lang: return "en"
+                
             case .mon: return "Mon"
             case .tue: return "Tue"
             case .wed: return "Wed"
@@ -424,6 +430,7 @@ class Lang {
         case chooseDate
         case changeLang
         case noSms
+        case lang
         
         case mon
         case tue

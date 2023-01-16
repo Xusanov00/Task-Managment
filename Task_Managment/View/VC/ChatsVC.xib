@@ -18,6 +18,7 @@
             <connections>
                 <outlet property="backV" destination="5WE-rR-yG6" id="foq-Y0-u0Q"/>
                 <outlet property="emptyChatImg" destination="L49-Ig-7pf" id="cf6-jz-0n9"/>
+                <outlet property="noSmsLbl" destination="EbN-a5-IO8" id="mIa-lb-kbK"/>
                 <outlet property="sendBtn" destination="TZ5-4D-t0p" id="1VL-us-uqU"/>
                 <outlet property="tableView" destination="FLu-ZZ-snD" id="gLk-ZM-zGW"/>
                 <outlet property="textTf" destination="ww1-ZA-HVv" id="Nmx-C4-Dbp"/>
@@ -29,12 +30,27 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame 624754" translatesAutoresizingMaskIntoConstraints="NO" id="L49-Ig-7pf">
-                    <rect key="frame" x="50" y="219.66666666666663" width="293" height="293"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="t4U-y3-axf">
+                    <rect key="frame" x="30" y="259.66666666666669" width="333" height="333.00000000000006"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame 624754" translatesAutoresizingMaskIntoConstraints="NO" id="L49-Ig-7pf">
+                            <rect key="frame" x="0.0" y="0.0" width="333" height="333"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="L49-Ig-7pf" secondAttribute="height" id="WO6-5A-cl4"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbN-a5-IO8">
+                            <rect key="frame" x="0.0" y="332.99999999999994" width="333" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="L49-Ig-7pf" secondAttribute="height" id="WO6-5A-cl4"/>
+                        <constraint firstAttribute="width" secondItem="t4U-y3-axf" secondAttribute="height" id="By6-Sb-buQ"/>
                     </constraints>
-                </imageView>
+                </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OAE-ce-H9v">
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <subviews>
@@ -68,7 +84,7 @@
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="Send"/>
                                             <connections>
-                                                <action selector="sendTapped:" destination="-1" eventType="touchUpInside" id="6RA-B4-ba6"/>
+                                                <action selector="sendTapped:" destination="-1" eventType="touchUpInside" id="df2-iv-cOV"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -88,20 +104,20 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="t4U-y3-axf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="2Xm-U9-bqe"/>
                 <constraint firstItem="OAE-ce-H9v" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="4V4-cq-ApB"/>
-                <constraint firstItem="L49-Ig-7pf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Eje-Gi-dY3"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="L49-Ig-7pf" secondAttribute="trailing" constant="50" id="GhK-4B-9mS"/>
-                <constraint firstItem="L49-Ig-7pf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="NJF-DL-lp0"/>
-                <constraint firstItem="L49-Ig-7pf" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-60" id="OKy-fy-N8z"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="t4U-y3-axf" secondAttribute="trailing" constant="30" id="InM-UH-37S"/>
+                <constraint firstItem="t4U-y3-axf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Iuz-IM-Mbl"/>
                 <constraint firstItem="OAE-ce-H9v" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" constant="-34" id="PIp-uD-f5J"/>
                 <constraint firstItem="OAE-ce-H9v" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="YVi-sJ-V0T"/>
                 <constraint firstItem="OAE-ce-H9v" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ecM-Na-ask"/>
+                <constraint firstItem="t4U-y3-axf" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="g3K-LW-Uw9"/>
             </constraints>
             <point key="canvasLocation" x="26.717557251908396" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
-        <image name="Frame 624754" width="209" height="236"/>
+        <image name="Frame 624754" width="209" height="184"/>
         <image name="Send" width="2384" height="2384"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

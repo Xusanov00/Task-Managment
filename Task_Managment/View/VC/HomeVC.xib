@@ -30,7 +30,8 @@
                 <outlet property="progressLbl" destination="27J-h5-lAX" id="dYR-Vm-Jqd"/>
                 <outlet property="progressV" destination="JGT-v2-jvM" id="lmd-tW-Nzz"/>
                 <outlet property="statisticsBtn" destination="US7-nh-XeZ" id="jPq-Qp-kCk"/>
-                <outlet property="tasksCompletedLbl" destination="zSF-fm-5mO" id="Ane-9k-Icb"/>
+                <outlet property="taskCompletedLbl" destination="8Pa-JR-AmZ" id="em0-AT-Kkd"/>
+                <outlet property="tasksCompletedCountLbl" destination="zSF-fm-5mO" id="ASR-gK-HKd"/>
                 <outlet property="todaysTaskLbl" destination="bPs-3h-dZH" id="ETn-RY-EYU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewTaskBtn" destination="MG8-ob-Pfr" id="zTH-9P-ocA"/>
@@ -132,20 +133,20 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="OjO-yq-Qn3">
                                             <rect key="frame" x="16" y="16" width="334.33333333333331" height="100"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="947-w4-g7i">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="947-w4-g7i">
                                                     <rect key="frame" x="0.0" y="0.0" width="194.33333333333334" height="100"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="30O-pk-LWZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="148.33333333333334" height="44"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Today’s Tasks " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPs-3h-dZH">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="11"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="148.33333333333334" height="25"/>
                                                                     <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="16"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="duL-mU-xOI">
-                                                                    <rect key="frame" x="0.0" y="14" width="148.66666666666666" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="28" width="148.33333333333334" height="16"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tick" translatesAutoresizingMaskIntoConstraints="NO" id="f39-D6-cek">
                                                                             <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
@@ -157,12 +158,23 @@
                                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2/3 Tasks completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSF-fm-5mO">
-                                                                            <rect key="frame" x="24.000000000000007" y="0.0" width="124.66666666666669" height="16"/>
-                                                                            <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="12.5"/>
-                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="6ND-KJ-kyT">
+                                                                            <rect key="frame" x="23.999999999999993" y="0.0" width="124.33333333333331" height="16"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2/3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSF-fm-5mO">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20.666666666666668" height="16"/>
+                                                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="12.5"/>
+                                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Pa-JR-AmZ">
+                                                                                    <rect key="frame" x="23.666666666666664" y="0.0" width="100.66666666666669" height="16"/>
+                                                                                    <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="12.5"/>
+                                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
@@ -344,7 +356,7 @@
     </objects>
     <resources>
         <image name="Tick" width="32" height="32"/>
-        <image name="bell.badge" catalog="system" width="125" height="128"/>
+        <image name="bell.badge" catalog="system" width="32" height="32"/>
         <image name="profileImage" width="840" height="881"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

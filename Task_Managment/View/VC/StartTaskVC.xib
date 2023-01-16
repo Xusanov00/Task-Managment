@@ -20,11 +20,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartTaskVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
+                <outlet property="commentBtn" destination="bgO-f4-dlN" id="3jk-3e-x3X"/>
+                <outlet property="datELbl" destination="3o1-gz-zEX" id="Enm-8g-OcX"/>
                 <outlet property="dateLbl" destination="j0B-Kk-3oI" id="2MO-g5-cl0"/>
                 <outlet property="descLbl" destination="5lt-eV-N23" id="1Tc-Wl-QLx"/>
                 <outlet property="gmsMap" destination="y07-Lo-rxu" id="DTS-kx-qZd"/>
                 <outlet property="laddressLbl" destination="0sW-9q-ZDk" id="fcZ-i1-Yyj"/>
+                <outlet property="locatioNLbl" destination="dO2-pt-Jyb" id="yLC-zw-bvd"/>
                 <outlet property="startFinishBtn" destination="LKV-bN-OSp" id="FD3-lk-dSd"/>
+                <outlet property="startTaskBtn" destination="LKV-bN-OSp" id="m30-hs-phw"/>
+                <outlet property="timELbl" destination="1Aa-T3-NiP" id="vPC-dW-rad"/>
                 <outlet property="timeLbl" destination="1V1-S5-m9Y" id="JGC-D1-wm6"/>
                 <outlet property="timerLbl" destination="ois-fc-DFu" id="rPg-FC-qF5"/>
                 <outlet property="timerStack" destination="0LD-4s-ScX" id="NhC-Ia-3Hy"/>
@@ -388,9 +393,9 @@
         </view>
     </objects>
     <resources>
-        <image name="calendar" catalog="system" width="128" height="107"/>
-        <image name="clock" catalog="system" width="128" height="123"/>
-        <image name="map" catalog="system" width="128" height="112"/>
+        <image name="calendar" catalog="system" width="32" height="32"/>
+        <image name="clock" catalog="system" width="32" height="32"/>
+        <image name="map" catalog="system" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

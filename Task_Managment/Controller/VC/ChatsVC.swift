@@ -23,13 +23,13 @@ class ChatsVC: UIViewController {
     
     //variables
     var screenSize = UIScreen.main.bounds
-  
+    
     var sendArr:[String] = []
     var myConstraint_DefualtValue = CGFloat(30)
     
     var player: AVAudioPlayer?
     var indexPath: IndexPath?
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class ChatsVC: UIViewController {
     
     //MARK: language settings
     func setLang() {
-       // noSmsLbl.text = Lang.getString(type: .noSms)
+         noSmsLbl.text = Lang.getString(type: .noSms)
         title = Lang.getString(type: .comment)
         textTf.placeholder = Lang.getString(type: .enterSms)
     }
@@ -53,56 +53,58 @@ class ChatsVC: UIViewController {
             let keyboardHeight = keyboardFrame.cgRectValue.height
             let backVSpace = self.view.frame.height - (backV.frame.origin.y + backV.frame.height)
             self.backV.frame = CGRect(x: 0, y: CGFloat(Int(backV.frame.origin.y + 10 - keyboardHeight)), width: self.backV.frame.width, height: self.backV.frame.height)
+        }
+//           SetKeyboard
+        func setKeyboard() {
+            if textTf.isFirstResponder {
+                
+            }
+        }
+        
     }
-//   SetKeyboard
-    func setKeyboard() {
-        if textTf.isFirstResponder {
+        //MARK: -  hide keyboard
+        @objc private func hideKeyboard() {
+            self.view.endEditing (true)
+        }
+        
+        //MARK: - Set UP UI
+        func setUpUI() {
+            self.navigationItem.title = "Comment"
+            textTf.layer.cornerRadius = 12
+            sendBtn.layer.cornerRadius = sendBtn.frame.width/2
+            backV.addShadow(cornerRadius: 0)
+            textTf.addShadow(cornerRadius: 12)
+            sendBtn.addShadow(cornerRadius: sendBtn.frame.width/2)
+            setUpTableView()
+            IQKeyboardManager.shared.enable = false
+            IQKeyboardManager.shared.enableAutoToolbar = false
+            self.view.addGestureRecognizer (UITapGestureRecognizer(target: self, action: #selector (hideKeyboard)))
             
+            if sendArr.count == 0 {
+                tableView.backgroundColor = .clear
+            }
         }
-    }
-    
-  
-    //MARK: -  hide keyboard
-    @objc private func hideKeyboard() {
-    self.view.endEditing (true)
-    }
-    
-    //MARK: - Set UP UI
-    func setUpUI() {
-        self.navigationItem.title = "Comment"
-        textTf.layer.cornerRadius = 12
-        sendBtn.layer.cornerRadius = sendBtn.frame.width/2
-        backV.addShadow(cornerRadius: 0)
-        textTf.addShadow(cornerRadius: 12)
-        sendBtn.addShadow(cornerRadius: sendBtn.frame.width/2)
-        setUpTableView()
-        IQKeyboardManager.shared.enable = false
-        IQKeyboardManager.shared.enableAutoToolbar = false
-        self.view.addGestureRecognizer (UITapGestureRecognizer(target: self, action: #selector (hideKeyboard)))
-       
-        if sendArr.count == 0 {
-            tableView.backgroundColor = .clear
+        
+        
+        //MARK: empty chat image set
+        func setImg() {
+            if !sendArr.isEmpty {
+                emptyChatImg.isHidden = true
+                noSmsLbl.isHidden = true
+            }else {
+                emptyChatImg.isHidden = false
+                noSmsLbl.isHidden = false
+            }
         }
-    }
-    
- 
-    //MARK: empty chat image set
-    func setImg() {
-        if !sendArr.isEmpty {
-            emptyChatImg.isHidden = true
-        }else {
-            emptyChatImg.isHidden = false
+        
+        //MARK: - Set Up TableView
+        func setUpTableView() {
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.separatorStyle = .none
+            tableView.register(UINib(nibName: "GetTVC", bundle: nil), forCellReuseIdentifier: "GetTVC")
+            tableView.register(UINib(nibName: "SendTVC", bundle: nil), forCellReuseIdentifier: "SendTVC")
         }
-    }
-    
-    //MARK: - Set Up TableView
-    func setUpTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorStyle = .none
-        tableView.register(UINib(nibName: "GetTVC", bundle: nil), forCellReuseIdentifier: "GetTVC")
-        tableView.register(UINib(nibName: "SendTVC", bundle: nil), forCellReuseIdentifier: "SendTVC")
-    }
         
     //MARK: - Actions
     @IBAction func sendTapped(_ sender: UIButton) {
@@ -112,16 +114,18 @@ class ChatsVC: UIViewController {
             sendArr.append(textTf.text!)
             getCommentToTask(taskID: "63b82310464c9232856ccd1c", commentTxt: textTf.text!)
             DispatchQueue.main.async {
-                    let indexPath = IndexPath(row: self.sendArr.count-1, section: 0)
-                    self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-                }
+                let indexPath = IndexPath(row: self.sendArr.count-1, section: 0)
+                self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            }
             setImg()
             tableView.reloadData()
             textTf.text = ""
         }
     }
+        
+    }
 
-}
+
 
 //MARK: - UITableViewDelegate
 extension ChatsVC:UITableViewDelegate {
@@ -186,6 +190,7 @@ extension ChatsVC {
     }
 }
 
+
 //MARK: - Send Sound
 extension ChatsVC {
     func playSendSound() {
@@ -199,8 +204,6 @@ extension ChatsVC {
         player?.play()
     }
 }
-
-
 
 
 //MARK: - NnotificationCenter for language changing

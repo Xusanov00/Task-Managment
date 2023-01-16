@@ -38,6 +38,7 @@ class StatisticsVC: UIViewController, ChartViewDelegate {
         let data1 = BarChartData(dataSet: set1)
         diagramV.data = data1
         
+        
         //Liner Chart
         chartsV.delegate = self
         var entries = [ChartDataEntry]()

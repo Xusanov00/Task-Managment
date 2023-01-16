@@ -139,7 +139,6 @@ class StartTaskVC: UIViewController {
             self.second = totalTime % 60
         }
         value = Double(totalTime)/Double(total)
-        print(value)
         self.timerView.setProgress(self.value, animated: true)
         self.timerLbl.text = "\(self.hour):\(self.minute):\(self.second)"
         self.totalTime -= 1
@@ -157,12 +156,12 @@ class StartTaskVC: UIViewController {
     
     //MARK: language settings
     func setLang() {
-        datELbl.text = Lang.getString(type: .datE)
-        timELbl.text = Lang.getString(type: .timE)
-        locatioNLbl.text = Lang.getString(type: .locatioN)
+//        datELbl.text = Lang.getString(type: .datE)
+//        timELbl.text = Lang.getString(type: .timE)
+        //locatioNLbl.text = Lang.getString(type: .locatioN)
         timerTitleLbl.text = Lang.getString(type: .totalTime)
-        commentBtn.setTitle(Lang.getString(type: .comment), for: .normal)
-        startTaskBtn.setTitle(Lang.getString(type: .startTask), for: .normal)
+        //commentBtn.setTitle(Lang.getString(type: .comment), for: .normal)
+       // startTaskBtn.setTitle(Lang.getString(type: .startTask), for: .normal)
     }
     
     
@@ -197,6 +196,8 @@ class StartTaskVC: UIViewController {
         if timer == nil {
             setUpTimer()
             Vibration.success.vibrate()
+            guard let task = task else { return }
+            getData(id: task.taskId, status: task.priority)
             startFinishBtn.setTitle("Finish Task", for: .normal)
         } else {
             navigationController?.popViewController(animated: true)
@@ -214,7 +215,6 @@ extension StartTaskVC: GMSMapViewDelegate{
 extension StartTaskVC {
     func observeLangNotif() {
         NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
-        print("NotificationCenter StartTaskVC")
     }
     @objc func changLang(_ notification: NSNotification) {
         guard let lang = notification.object as? Int else { return }
@@ -233,3 +233,12 @@ extension StartTaskVC {
     }
 }
     
+//MARK: - Start Task Data
+extension StartTaskVC {
+    func getData(id: String, status: String) {
+        API.startTask(_id: id, status: status) { data in
+            self.task = data
+        }
+    }
+}
+

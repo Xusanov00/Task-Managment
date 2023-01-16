@@ -24,7 +24,7 @@ var window: UIWindow?
         
         var navvc = UINavigationController(rootViewController: HomeVC.loadFromNib())
         if SetCache.getCache(for: KeysDM.token.rawValue).isEmpty {
-             navvc = UINavigationController(rootViewController: SignUpVC.loadFromNib())
+             navvc = UINavigationController(rootViewController: StartVC.loadFromNib())
         }
         window?.rootViewController = navvc
         window?.makeKeyAndVisible()

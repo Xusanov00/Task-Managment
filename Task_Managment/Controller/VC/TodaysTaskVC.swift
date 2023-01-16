@@ -8,7 +8,7 @@
 import UIKit
 import FSCalendar
 class TodaysTaskVC: UIViewController {
-
+    
     //outlets
     @IBOutlet var btns: [UIButton]!
     @IBOutlet weak var stackV:UIStackView!
@@ -22,16 +22,18 @@ class TodaysTaskVC: UIViewController {
     var sortedTasks: [TaskDM] = []
     
     var weeks:[WeekDM] = []
-
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
-        self.navigationItem.title = "Today’s task"
+        self.navigationItem.title = Lang.getString(type: .todaysTasks)
         self.navigationController?.navigationBar.tintColor = .black
         getWeekendlyStatus(day: 1673548155)
         setUpNavigationV()
         getTodaysTask()
-        
+        setLang()
     }
     func setUpCollectionView() {
         collectionView.delegate = self
@@ -39,7 +41,15 @@ class TodaysTaskVC: UIViewController {
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         collectionView.register(UINib(nibName: "DayCVC", bundle: nil), forCellWithReuseIdentifier: "DayCVC")
     }
-
+    
+    
+    //MARK: language settings
+    func setLang() {
+        btns[0].setTitle(Lang.getString(type: .all), for: .normal)
+        btns[1].setTitle(Lang.getString(type: .inProgress), for: .normal)
+        btns[2].setTitle(Lang.getString(type: .completed), for: .normal)
+        btns[3].setTitle(Lang.getString(type: .toDo), for: .normal)
+    }
     
    
     
@@ -59,7 +69,7 @@ class TodaysTaskVC: UIViewController {
     
     @IBAction func btnTapped(_ sender: UIButton) {
         setBackColor(tag: sender.tag)
-         num = sender.tag
+        num = sender.tag
         tableView.reloadData()
     }
     
@@ -86,14 +96,14 @@ class TodaysTaskVC: UIViewController {
         btns[tag].backgroundColor = #colorLiteral(red: 0.324398458, green: 0.3902252913, blue: 0.9221590161, alpha: 1)
         btns[tag].setTitleColor(.white, for: .normal)
     }
-
+    
 }
 //MARK: - UITableViewDelegate
 extension TodaysTaskVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         navigationItem.backButtonTitle = ""
         let vc = StartTaskVC.loadFromNib()
-        vc.task = taskArr[indexPath.row]
+        vc.task = sortedTasks[indexPath.row]
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -190,7 +200,7 @@ extension TodaysTaskVC:UICollectionViewDelegateFlowLayout {
 //MARK: - getTodaysTask
 extension TodaysTaskVC {
     func getTodaysTask() {
-        API.getTodaysTask(day: 1673588475) { data in
+        API.getTodaysTask(day: 1673690400) { data in
             
             self.taskArr = data
             self.setupTableView()
@@ -199,13 +209,38 @@ extension TodaysTaskVC {
     }
     
     func getWeekendlyStatus(day:Int) {
-        API.getWeekendlyStatus(day: day) { data in
-                self.weeks = data
-            print("dataWeek=",data)
-               self.setUpCollectionView()
+        API.getWeekendlyStatus(userId: cache.string(forKey: KeysDM.id.rawValue) ?? "ID", day: day) { data in
+            self.weeks = data
+            self.setUpCollectionView()
         }
     }
     
     
     
+}
+
+
+
+
+//MARK: - NnotificationCenter for language changing
+extension TodaysTaskVC {
+    func observeLangNotif() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
+        print("NotificationCenter TodaysTaskVC")
+    }
+    @objc func changLang(_ notification: NSNotification) {
+        guard let lang = notification.object as? Int else { return }
+        switch lang {
+        case 0:
+            Cache.save(appLanguage: .uz)
+            setLang()
+        case 1:
+            Cache.save(appLanguage: .ru)
+            setLang()
+        case 2:
+            Cache.save(appLanguage: .en)
+            setLang()
+        default: break
+        }
+    }
 }

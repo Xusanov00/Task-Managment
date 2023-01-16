@@ -12,7 +12,8 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var fullnameLbl: UILabel!
     @IBOutlet weak var numberLbl: UILabel!
     @IBOutlet var statusVs: [UIView]!
-    @IBOutlet weak var tableView: UITableView!    
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var completedLbl: UILabel!
     @IBOutlet weak var inProgressLbl: UILabel!
     @IBOutlet weak var toDoLbl: UILabel!
@@ -22,18 +23,19 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var toDoCountLbl: UILabel!
     
     
-
+    
     
     var userData: UserDM?
     
     let settingsArr: [SettingsDM] = [
-        SettingsDM(img: "person", title: "Edit Profile"),
-        SettingsDM(img: "doc.text", title: "Tasks"),
-        SettingsDM(img: "chart.xyaxis.line", title: "Statistics"),
-        SettingsDM(img: "bell", title: "Notifications"),
-        SettingsDM(img: "checkmark.shield", title: "Security"),
-        SettingsDM(img: "exclamationmark.circle", title: "Help"),
-        SettingsDM(img: "door.right.hand.open", title: "Logout", tintColor: .systemRed, titleColor: .systemRed)
+        SettingsDM(img: "person", title: Lang.getString(type: .editProf)),
+        SettingsDM(img: "flag", title: Lang.getString(type: .changeLang)),
+        SettingsDM(img: "doc.text", title: Lang.getString(type: .tasks)),
+        SettingsDM(img: "chart.xyaxis.line", title: Lang.getString(type: .statistics)),
+        SettingsDM(img: "bell", title: Lang.getString(type: .notifications)),
+        SettingsDM(img: "checkmark.shield", title: Lang.getString(type: .security)),
+        SettingsDM(img: "exclamationmark.circle", title: Lang.getString(type: .help)),
+        SettingsDM(img: "door.right.hand.open", title: Lang.getString(type: .logout), tintColor: .systemRed, titleColor: .systemRed)
     ]
     
     
@@ -45,16 +47,19 @@ class ProfileVC: UIViewController {
         setUpTableView()
         setUserData()
         self.navigationController?.navigationBar.tintColor = .black
-        
+        observeLangNotif()
     }
+    
+    
     
     //MARK: localizated languages
     func setLang() {
-//        completedLbl.text = "Completed".localized()
-//        inProgressLbl.text = "In Rrogress".localized()
-//        toDoLbl.text = "To Do".localized()
+        completedLbl.text = Lang.getString(type: .completed)
+        inProgressLbl.text = Lang.getString(type: .inProgress)
+        toDoLbl.text = Lang.getString(type: .toDo)
+        print("til o'zgardi------------")
     }
-
+    
     func setUserData() {
         guard let userData = userData else { return }
         fullnameLbl.text = userData.lastName + " " + userData.firstName
@@ -76,12 +81,12 @@ class ProfileVC: UIViewController {
     
     func setUpNav() {
         self.navigationItem.backBarButtonItem?.image = UIImage(systemName: "chevron.left")
-        self.navigationItem.title = "Profile"
+        self.navigationItem.title = Lang.getString(type: .profile)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
         let alertBtn = UIBarButtonItem(image: UIImage(systemName: "bell.badge"), style: .done, target: self, action: #selector(alertTapped))
         
         alertBtn.tintColor = .black
-        self.navigationItem.backButtonTitle = ""
+        self.navigationItem.backButtonTitle = Lang.getString(type: .profile)
         self.navigationItem.rightBarButtonItems = [alertBtn]
         self.navigationItem.leftBarButtonItem?.tintColor = .black
         self.navigationItem.rightBarButtonItem?.tintColor = .black
@@ -98,7 +103,7 @@ class ProfileVC: UIViewController {
         
         navigationController?.pushViewController(ChatsVC.loadFromNib(), animated: true)
     }
-
+    
 }
 
 //MARK: - UITableViewDelegate
@@ -112,7 +117,7 @@ extension ProfileVC: UITableViewDelegate {
             index = indexPath.row+3
         }
         
-
+        
         
         switch index {
         case 0:
@@ -120,19 +125,22 @@ extension ProfileVC: UITableViewDelegate {
             vc.userData = userData
             navigationController?.pushViewController(vc, animated: true)
         case 1:
-            let vc = TaskVC.loadFromNib()
+            let vc = ChangeLangVC.loadFromNib()
             navigationController?.pushViewController(vc, animated: true)
         case 2:
+            let vc = TaskVC.loadFromNib()
+            navigationController?.pushViewController(vc, animated: true)
+        case 3:
             let vc = StatisticsVC.loadFromNib()
             navigationController?.pushViewController(vc, animated: true)
         default:
             let vc = StartVC.loadFromNib()
             navigationController?.pushViewController(vc, animated: true)
         }
-            
+        
     }
-
-
+    
+    
 }
 
 //MARK: - UITableViewDataSource
@@ -141,7 +149,7 @@ extension ProfileVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         2
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 3
@@ -159,5 +167,30 @@ extension ProfileVC: UITableViewDataSource {
             cell.updateCell(data: settingsArr[indexPath.row+3])
         }
         return cell
+    }
+}
+
+
+
+//MARK: - NnotificationCenter for language changing
+extension ProfileVC {
+    func observeLangNotif() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
+        print("NotificationCenter ProfileVC")
+    }
+    @objc func changLang(_ notification: NSNotification) {
+        guard let lang = notification.object as? Int else { return }
+        switch lang {
+        case 0:
+            Cache.save(appLanguage: .uz)
+            setLang()
+        case 1:
+            Cache.save(appLanguage: .ru)
+            setLang()
+        case 2:
+            Cache.save(appLanguage: .en)
+            setLang()
+        default: break
+        }
     }
 }

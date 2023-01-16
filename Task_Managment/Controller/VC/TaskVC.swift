@@ -11,6 +11,8 @@ import FSCalendar
 class TaskVC: UIViewController {
     
     //outlets
+    @IBOutlet weak var chooseDateLbl: UILabel!
+    
     @IBOutlet weak var calendarV: UIView!
     @IBOutlet weak var taskTablView: UITableView!
     fileprivate weak var calendar: FSCalendar!
@@ -22,8 +24,14 @@ class TaskVC: UIViewController {
         super.viewDidLoad()
         setTaskTablView()
         setCalendar()
+        setLang()
+        title = Lang.getString(type: .tasks)
     }
     
+    //MARK: language settings
+    func setLang() {
+        chooseDateLbl.text = Lang.getString(type: .chooseDate)
+    }
     
     //MARK: - Set Up TableView
     func setTaskTablView() {
@@ -63,5 +71,30 @@ extension TaskVC: FSCalendarDataSource, FSCalendarDelegate {
         calendarV.addSubview(calendar)
         
         self.calendar = calendar
+    }
+}
+
+
+
+//MARK: - NnotificationCenter for language changing
+extension TaskVC {
+    func observeLangNotif() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
+        print("NotificationCenter TaskVC")
+    }
+    @objc func changLang(_ notification: NSNotification) {
+        guard let lang = notification.object as? Int else { return }
+        switch lang {
+        case 0:
+            Cache.save(appLanguage: .uz)
+            setLang()
+        case 1:
+            Cache.save(appLanguage: .ru)
+            setLang()
+        case 2:
+            Cache.save(appLanguage: .en)
+            setLang()
+        default: break
+        }
     }
 }

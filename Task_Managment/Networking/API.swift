@@ -28,6 +28,7 @@ class API {
     static let getTodaysTask: String = baseUrl + EndPoints.todaysTaskURL
     static let getTaskID: String = baseUrl+EndPoints.getTaskIDURL
     static let commentToTask: String = baseUrl+EndPoints.commentToTaskURL
+    static let getWeeklyStats: String = baseUrl+EndPoints.weeklyStatsURL
     
     
     static func getLogin(number:String, password:String, complation:@escaping (LoginUserDM)->Void) {
@@ -95,7 +96,7 @@ class API {
         let header : HTTPHeaders = [
             "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
         ]
-        NET.sendRequest(to: commentToTask+"/\(taskID)", method: .get, headers: header, param: nil) { data in
+        NET.sendRequest(to: commentToTask+taskID, method: .get, headers: header, param: nil) { data in
             guard let data = data else { return }
             let commentsData = data["data"].arrayValue.map{ CommentDM(json: $0).text}
             complation(commentsData)
@@ -178,14 +179,14 @@ class API {
     
     
     
-    static func getWeekendlyStatus(day:Int,complation: @escaping ([WeekDM])->Void) {
+    static func getWeekendlyStatus(userId: String, day: Int, complation: @escaping ([WeekDM])->Void) {
         let headers: HTTPHeaders = [
             "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
         ]
         let params:[String:Any] = [
             "day": day
         ]
-        NET.sendURLRequest(to: baseUrl + EndPoints.weekStatusUrl, method: .get, headers: headers, param: params) { data in
+        NET.sendURLRequest(to: getWeeklyStats+userId, method: .get, headers: headers, param: params) { data in
             guard let data = data else {return}
             
             let mydata = data["data"].array
@@ -214,10 +215,10 @@ extension API {
         static let getImageURL = "/public/uploads/images/user.png"
         static let todaysTaskURL = "/task/day"
         static let taskID = "/task/63b82310464c9232856ccd1c"
-        static let commentToTaskURL = "/task/comment"
+        static let commentToTaskURL = "/task/comment/"
         static let getHome = "/task/main"
         static let getTaskIDURL = "/task/"
-        static let weekStatusUrl = "/task/stats/63ad7eab68ffe44cfc0dc522"
+        static let weeklyStatsURL = "/task/stats/"
     }
 }
 

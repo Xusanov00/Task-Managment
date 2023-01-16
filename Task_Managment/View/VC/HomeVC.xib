@@ -22,6 +22,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="Task_Managment" customModuleProvider="target">
             <connections>
+                <outlet property="backView" destination="wOJ-6r-j3E" id="4Wc-aG-cfM"/>
                 <outlet property="calendarV" destination="Vuw-8k-6D8" id="58x-Vj-Av7"/>
                 <outlet property="fullnameLbl" destination="Scg-Ey-vpj" id="pVl-Ga-5sO"/>
                 <outlet property="numberLbl" destination="dSt-po-zTh" id="SIX-hV-2Bq"/>
@@ -89,6 +90,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RV9-Pq-mpH">
                                                     <rect key="frame" x="0.0" y="0.0" width="238.66666666666666" height="46"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="profileBtnTapped:" destination="-1" eventType="touchUpInside" id="jvQ-eQ-cec"/>
                                                     </connections>
@@ -113,6 +117,9 @@
                                             <state key="normal" image="bell.badge" catalog="system">
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23"/>
                                             </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="openChatsTapped:" destination="-1" eventType="touchUpInside" id="XcG-TT-zXD"/>
                                             </connections>
@@ -146,6 +153,9 @@
                                                                                 <constraint firstAttribute="width" constant="16" id="IMM-Mt-tl2"/>
                                                                                 <constraint firstAttribute="height" constant="16" id="qtM-pe-xCa"/>
                                                                             </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                            </userDefinedRuntimeAttributes>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2/3 Tasks completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSF-fm-5mO">
                                                                             <rect key="frame" x="24.000000000000007" y="0.0" width="124.66666666666669" height="16"/>
@@ -176,6 +186,7 @@
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                             <real key="value" value="6"/>
                                                                         </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
                                                                         <action selector="taskTapped:" destination="-1" eventType="touchUpInside" id="Brs-aa-YOb"/>
@@ -191,6 +202,9 @@
                                                                     <fontDescription key="fontDescription" name="LexendDeca-SemiBold" family="Lexend Deca" pointSize="10"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                                                    </userDefinedRuntimeAttributes>
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -245,6 +259,7 @@
                                                             <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCap" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
@@ -274,6 +289,9 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vuw-8k-6D8">
                                             <rect key="frame" x="0.0" y="0.0" width="351" height="270"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
                                 </stackView>
@@ -304,6 +322,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="12"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="statistictsTapped:" destination="-1" eventType="touchUpInside" id="KwJ-4d-nya"/>

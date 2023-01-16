@@ -8,14 +8,12 @@
 import UIKit
 import CircleProgressView
 import GoogleMaps
+import SkeletonView
 
 class StartTaskVC: UIViewController {
 
     
     @IBOutlet weak var timerStack: UIStackView!
-    
-    
-    
     @IBOutlet weak var timerView: CircleProgressView!
     @IBOutlet weak var timerTitleLbl: UILabel!
     @IBOutlet weak var timerLbl: UILabel!
@@ -25,12 +23,23 @@ class StartTaskVC: UIViewController {
     @IBOutlet weak var laddressLbl: UILabel!
     @IBOutlet weak var descLbl: UILabel!
     @IBOutlet weak var gmsMap: GMSMapView!
+    @IBOutlet weak var startFinishBtn: UIButton!
+    @IBOutlet weak var commentBtn: UIButton!
+    @IBOutlet weak var startTaskBtn: UIButton!
     
+    @IBOutlet weak var datELbl: UILabel!
+    @IBOutlet weak var timELbl: UILabel!
+    @IBOutlet weak var locatioNLbl: UILabel!
     
     
     //variables
     var task: TaskDM?
     var timer: Timer!
+    var total = 0
+    var totalTime = 0
+    var hour = 0
+    var minute = 0
+    var second = 0
     var value = 0.0
     
     override func viewDidLoad() {
@@ -38,6 +47,7 @@ class StartTaskVC: UIViewController {
         timerStack.isHidden = true
         setUpNav()
         setUpUI()
+        setLang()
     }
  
     
@@ -46,6 +56,9 @@ class StartTaskVC: UIViewController {
             if timer == nil {
                 setUpTimer()
                 Vibration.success.vibrate()
+                startFinishBtn.setTitle("Finish Task", for: .normal)
+            } else {
+                navigationController?.popViewController(animated: true)
             }
             
         }
@@ -57,8 +70,10 @@ class StartTaskVC: UIViewController {
         guard let data = task else { return }
         self.dateLbl.text = dateFormatter(unixDate: data.from)
         self.laddressLbl.text = data.address
-        self.timeLbl.text = ""
+        self.totalTime = data.deadline
+        self.total = self.totalTime
         self.titleLbl.text = data.title
+        self.timeLbl.text = "\(dateFormatter(unixDate: data.from, isDate: false)) - \(dateFormatter(unixDate: data.to, isDate: false))"
         self.descLbl.text = data.definition
         self.timerLbl.text = "\(data.deadline)"
         setUPMap(lat: data.location.latitude, long: data.location.longitude)
@@ -66,10 +81,7 @@ class StartTaskVC: UIViewController {
     }
 //  SetUpMap
     func setUPMap(lat: Double, long: Double) {
-        // Do any additional setup after loading the view.
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinate -33.86,151.20 at zoom level 6.
-        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 6.0)
+        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 5.0)
         gmsMap.camera = camera
         showMarker(position: camera.target)
         gmsMap.settings.scrollGestures = false
@@ -82,20 +94,24 @@ class StartTaskVC: UIViewController {
     func showMarker(position: CLLocationCoordinate2D){
            let marker = GMSMarker()
            marker.position = position
-           marker.title = "Uzbekistan"
-           marker.snippet = "Tashkent"
            marker.map = gmsMap
        }
     
     
-    func dateFormatter(unixDate: Int) -> String{
+    func dateFormatter(unixDate: Int, isDate: Bool = true) -> String{
           
         if let timeResult = unixDate as? Int {
             let date = Date(timeIntervalSince1970: TimeInterval(timeResult))
             let dateFormatter = DateFormatter()
-            dateFormatter.timeStyle = DateFormatter.Style.none//Set time style
-            dateFormatter.dateStyle = DateFormatter.Style.short //Set date style
-            dateFormatter.dateFormat = "dd-MM-yyyy"
+            if isDate {
+                dateFormatter.timeStyle = DateFormatter.Style.none//Set time style
+                dateFormatter.dateStyle = DateFormatter.Style.short //Set date style
+                dateFormatter.dateFormat = "dd-MM-yyyy"
+            } else {
+                dateFormatter.timeStyle = DateFormatter.Style.short//Set time style
+                dateFormatter.dateStyle = DateFormatter.Style.none //Set date style
+                dateFormatter.dateFormat = "HH:mm"
+            }
             dateFormatter.timeZone = .current
             let localDate = dateFormatter.string(from: date)
             return localDate
@@ -104,7 +120,7 @@ class StartTaskVC: UIViewController {
     
 
     func setUpTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimer() {
@@ -115,18 +131,41 @@ class StartTaskVC: UIViewController {
             }
         }
         
+        self.hour = totalTime / 3600
+        if hour == 0 {
+            self.minute = totalTime / 60
+            self.second = totalTime % 60
+        } else {
+            self.minute = (totalTime - hour*3600) / 60
+            self.second = totalTime % 60
+        }
+        value = Double(totalTime)/Double(total)
+        print(value)
         self.timerView.setProgress(self.value, animated: true)
-        self.timerLbl.text = "\(Int(self.value*100))"
-        self.value += 0.01
-        if self.value >= 1 {
+        self.timerLbl.text = "\(self.hour):\(self.minute):\(self.second)"
+        self.totalTime -= 1
+        if self.totalTime <= 0 {
+            Vibration.warning.vibrate()
             self.timer.invalidate()
             self.timer = nil
-            self.value = 0.0
+            self.totalTime = 0
             self.timerLbl.text = "Time Out"
         }
         
         
     }
+    
+    
+    //MARK: language settings
+    func setLang() {
+        datELbl.text = Lang.getString(type: .datE)
+        timELbl.text = Lang.getString(type: .timE)
+        locatioNLbl.text = Lang.getString(type: .locatioN)
+        timerTitleLbl.text = Lang.getString(type: .totalTime)
+        commentBtn.setTitle(Lang.getString(type: .comment), for: .normal)
+        startTaskBtn.setTitle(Lang.getString(type: .startTask), for: .normal)
+    }
+    
     
     
     func setUpNav() {
@@ -159,9 +198,10 @@ class StartTaskVC: UIViewController {
         if timer == nil {
             setUpTimer()
             Vibration.success.vibrate()
+            startFinishBtn.setTitle("Finish Task", for: .normal)
+        } else {
+            navigationController?.popViewController(animated: true)
         }
-        
-        sender.setTitle("Finish Task", for: .normal)
         
     }
 }
@@ -169,6 +209,28 @@ class StartTaskVC: UIViewController {
 
 //MARK: - Google Maps Delegate
 extension StartTaskVC: GMSMapViewDelegate{
-    
 }
 
+    //MARK: - NnotificationCenter for language changing
+extension StartTaskVC {
+    func observeLangNotif() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
+        print("NotificationCenter StartTaskVC")
+    }
+    @objc func changLang(_ notification: NSNotification) {
+        guard let lang = notification.object as? Int else { return }
+        switch lang {
+        case 0:
+            Cache.save(appLanguage: .uz)
+            setLang()
+        case 1:
+            Cache.save(appLanguage: .ru)
+            setLang()
+        case 2:
+            Cache.save(appLanguage: .en)
+            setLang()
+        default: break
+        }
+    }
+}
+    

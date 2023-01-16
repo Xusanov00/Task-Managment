@@ -9,8 +9,11 @@ import UIKit
 import FSCalendar
 import Charts
 import CircleProgressView
+import SkeletonView
+
 class HomeVC: UIViewController {
     
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var progressLbl: UILabel!
     @IBOutlet weak var calendarV: UIView!
     @IBOutlet weak var progressV: CircleProgressView!
@@ -36,9 +39,15 @@ class HomeVC: UIViewController {
         self.navigationItem.hidesBackButton = true
         getData()
         observeUserNotif()
+        observeLangNotif()
         setLang()
         getHomeData()
         progressV.setProgress(0, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //setUpSkeletonView()
     }
 //    SetCalendar
     func setCalendar() {
@@ -53,12 +62,38 @@ class HomeVC: UIViewController {
     
     
     
+    func setUpSkeletonView() {
+        backView.isSkeletonable = true
+        calendarV.isSkeletonable = true
+        progressV.isSkeletonable = true
+        progressLbl.isSkeletonable = true
+        statisticsBtn.isSkeletonable = true
+        numberLbl.isSkeletonable = true
+        fullnameLbl.isSkeletonable = true
+        todaysTaskLbl.isSkeletonable = true
+        tasksCompletedLbl.isSkeletonable = true
+        viewTaskBtn.isSkeletonable = true
+        pandingCount.isSkeletonable = true
+        progressV.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
+        progressLbl.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
+        statisticsBtn.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
+        numberLbl.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
+        fullnameLbl.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
+        todaysTaskLbl.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
+        tasksCompletedLbl.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
+        viewTaskBtn.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
+        pandingCount.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
+        calendarV.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
+        backView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
+        
+        
+    }
+    
     //localizatedLanguage
     func setLang() {
-        //        statisticsBtn.setTitle("Statistics".localized(), for: .normal)
-        //        todaysTaskLbl.text = "Today’s Tasks".localized()
-        //        tasksCompletedLbl.text = number + "Tasks completed".localized()
-        //        viewTaskBtn.setTitle("View Task".localized(), for: .normal)
+        statisticsBtn.setTitle(Lang.getString(type: .statistics), for: .normal)
+        todaysTaskLbl.text = Lang.getString(type: .todaysTasks)
+        viewTaskBtn.setTitle(Lang.getString(type: .todaysTasks), for: .normal)
     }
     
     //profileBtnTapped
@@ -120,14 +155,13 @@ extension HomeVC:FSCalendarDataSource {
 //MARK: Data from API
 extension HomeVC {
     func getData () {
-        Loader.start()
+//        Loader.start()
         API.getProfile {[self] data in
             userData = data
             guard let data = userData else { return }
             self.fullnameLbl.text = data.lastName + " " + data.firstName
             self.numberLbl.text = data.phoneNumber
             Loader.stop()
-            
         }
     }
 }
@@ -148,12 +182,43 @@ extension HomeVC {
 extension HomeVC {
     func getHomeData() {
         API.getMainPage { data in
-            Loader.stop()
             self.progressV.setProgress(Double(data.pecent)/100, animated: true)
             self.progressLbl.text = "\(data.pecent)%"
-            self.tasksCompletedLbl.text = "\(data.complatedTask)/\(data.allTasks) Task Completed"
+            self.tasksCompletedLbl.text = "\(data.complatedTask)/\(data.allTasks) " + Lang.getString(type: .tasksCompleted)
             self.pandingCount.text = "\(data.pendingCount)"
+            Loader.stop()
             
         }
     }
 }
+
+
+
+
+//MARK: - NnotificationCenter for language changing
+extension HomeVC {
+
+    func observeLangNotif() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changeLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
+    }
+
+    @objc func changeLang(_ notification: NSNotification) {
+        guard let lang = notification.object as? Int else { return }
+        switch lang {
+        case 0:
+            Cache.save(appLanguage: .uz)
+            setLang()
+        case 1:
+            Cache.save(appLanguage: .ru)
+            setLang()
+        case 2:
+            Cache.save(appLanguage: .en)
+            setLang()
+        default: break
+        }
+
+        setLang()
+        print("home language updated to ", Cache.getAppLanguage())
+    }
+}
+

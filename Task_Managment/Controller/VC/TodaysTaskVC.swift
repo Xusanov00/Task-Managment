@@ -105,6 +105,7 @@ extension TodaysTaskVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         navigationItem.backButtonTitle = ""
         let vc = StartTaskVC.loadFromNib()
+        vc.delegate = self
         vc.task = sortedTasks[indexPath.row]
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationController?.pushViewController(vc, animated: true)
@@ -202,6 +203,7 @@ extension TodaysTaskVC {
             
             self.taskArr = data
             self.setupTableView()
+            self.tableView.reloadData()
             
         }
     }
@@ -237,4 +239,13 @@ extension TodaysTaskVC {
         default: break
         }
     }
+}
+
+//MARK: ReloadData Delegate
+extension TodaysTaskVC: ReloadDataDelegate {
+    func reloadedData() {
+        getTodaysTask()
+    }
+    
+    
 }

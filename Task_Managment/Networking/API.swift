@@ -29,6 +29,8 @@ class API {
     static let getTaskID: String = baseUrl+EndPoints.getTaskIDURL
     static let commentToTask: String = baseUrl+EndPoints.commentToTaskURL
     static let getWeeklyStats: String = baseUrl+EndPoints.weeklyStatsURL
+    static let startTask: String = baseUrl+EndPoints.startTaskUrl
+    static let endTask: String = baseUrl+EndPoints.endTaskUrl
     
     
     static func getLogin(number:String, password:String, complation:@escaping (LoginUserDM)->Void) {
@@ -200,6 +202,37 @@ class API {
     }
     
     
+    static func startTask(_id: String, status: String, completion: @escaping (TaskDM)->Void) {
+        
+        let params: [String: Any] = [
+            "_id": _id,
+            "status": status
+        ]
+        
+        NET.sendRequest(to: startTask, method: .put, headers: nil, param: params) { data in
+            guard let data = data else { return }
+            let myData = TaskDM(json: data["data"])
+            completion(myData)
+        }
+        
+    }
+    static func endTask(_id: String, status: String, completion: @escaping (TaskDM)->Void) {
+        
+        let params: [String: Any] = [
+            "_id": _id,
+            "status": status
+        ]
+        
+        NET.sendRequest(to: startTask, method: .put, headers: nil, param: params) { data in
+            guard let data = data else { return }
+            let myData = TaskDM(json: data["data"])
+            completion(myData)
+        }
+        
+    }
+    
+  
+    
     
     
 }
@@ -219,6 +252,8 @@ extension API {
         static let getHome = "/task/main"
         static let getTaskIDURL = "/task/"
         static let weeklyStatsURL = "/task/stats/"
+        static let startTaskUrl = "/task/start"
+        static let endTaskUrl = "/task/end"
     }
 }
 

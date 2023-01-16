@@ -11,6 +11,8 @@ import Charts
 import CircleProgressView
 import SkeletonView
 
+
+
 class HomeVC: UIViewController {
     
     @IBOutlet weak var backView: UIView!
@@ -25,6 +27,9 @@ class HomeVC: UIViewController {
     @IBOutlet weak var taskCompletedLbl: UILabel!
     @IBOutlet weak var viewTaskBtn: UIButton!
     @IBOutlet weak var pandingCount: UILabel!
+    @IBOutlet weak var taskCompletedLbl: UILabel!
+    
+    
     
     var calendar: FSCalendar!
     var formatter = DateFormatter()

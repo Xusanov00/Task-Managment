@@ -23,16 +23,16 @@ class ChatsVC: UIViewController {
     
     //variables
     var screenSize = UIScreen.main.bounds
-  
+    
     var sendArr:[String] = []
     var myConstraint_DefualtValue = CGFloat(30)
     
     var player: AVAudioPlayer?
     var indexPath: IndexPath?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         setUpUI()
         getComments()
         setLang()
@@ -73,6 +73,7 @@ class ChatsVC: UIViewController {
         setUpTableView()
         IQKeyboardManager.shared.enable = false
         IQKeyboardManager.shared.enableAutoToolbar = false
+        
         self.view.addGestureRecognizer (UITapGestureRecognizer(target: self, action: #selector (hideKeyboard)))
        
         if sendArr.count == 0 {

@@ -108,8 +108,6 @@ extension TodaysTaskVC: UITableViewDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
-
-
 //MARK: - UITableViewDataSource
 extension TodaysTaskVC: UITableViewDataSource {
     
@@ -162,10 +160,14 @@ extension TodaysTaskVC: UITableViewDataSource {
     
     
 }
-
+//MARK: - UICollectionViewDelegate
+extension TodaysTaskVC:UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+}
 //MARK: - UICollectionViewDataSource
 extension TodaysTaskVC:UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         weeks.count
     }
@@ -184,19 +186,13 @@ extension TodaysTaskVC:UICollectionViewDataSource {
         return cell
     }
 }
-
-
-//MARK: - UICollectionViewDelegate
+//MARK: - UICollectionViewDelegateFlowLayout
 extension TodaysTaskVC:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 2*(collectionView.frame.width - 50)/11, height: collectionView.frame.height-20)
         
     }
 }
-
-
-
-
 //MARK: - getTodaysTask
 extension TodaysTaskVC {
     func getTodaysTask() {
@@ -218,10 +214,6 @@ extension TodaysTaskVC {
     
     
 }
-
-
-
-
 //MARK: - NnotificationCenter for language changing
 extension TodaysTaskVC {
     func observeLangNotif() {

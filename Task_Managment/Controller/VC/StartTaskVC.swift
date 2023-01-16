@@ -10,6 +10,12 @@ import CircleProgressView
 import GoogleMaps
 import SkeletonView
 
+
+protocol ReloadDataDelegate {
+    func reloadedData()
+}
+
+
 class StartTaskVC: UIViewController {
 
     
@@ -41,10 +47,10 @@ class StartTaskVC: UIViewController {
     var minute = 0
     var second = 0
     var value = 0.0
+    var delegate: ReloadDataDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timerStack.isHidden = true
         setUpNav()
         setUpUI()
         setLang()
@@ -53,15 +59,31 @@ class StartTaskVC: UIViewController {
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            if timer == nil {
-                setUpTimer()
-                Vibration.success.vibrate()
-                startFinishBtn.setTitle("Finish Task", for: .normal)
-            } else {
-                navigationController?.popViewController(animated: true)
-            }
             
+
+            Vibration.success.vibrate()
+            guard let task = task else { return }
+            if task.priority == "completed" {
+                startFinishBtn.isEnabled = false
+                navigationController?.popViewController(animated: true)
+            } else if task.priority == "progress" {
+                finishTask(id: task.taskId, status: task.priority)
+                startFinishBtn.isEnabled = true
+                startFinishBtn.setTitle("Finished", for: .normal)
+            } else if task.priority == "pending" {
+                getData(id: task.taskId, status: task.priority)
+                if timer == nil {
+                    setUpTimer()
+                }
+                startFinishBtn.isEnabled = true
+                startFinishBtn.setTitle("Finish Task", for: .normal)
+            }
+            delegate?.reloadedData()
+            
+        } else {
+            navigationController?.popViewController(animated: true)
         }
+        
     }
 //SetUpUI
     
@@ -77,6 +99,22 @@ class StartTaskVC: UIViewController {
         self.descLbl.text = data.definition
         self.timerLbl.text = "\(data.deadline)"
         setUPMap(lat: data.location.latitude, long: data.location.longitude)
+        
+        guard let task = task else { return }
+        if task.priority == "completed" {
+            startFinishBtn.setTitle("Finished", for: .normal)
+            startFinishBtn.isEnabled = false
+            timerStack.isHidden = false
+        } else if task.priority == "progress" {
+            finishTask(id: task.taskId, status: task.priority)
+            startFinishBtn.isEnabled = true
+            timerStack.isHidden = false
+            startFinishBtn.setTitle("Finish Task", for: .normal)
+        } else if task.priority == "pending" {
+            getData(id: task.taskId, status: task.priority)
+            startFinishBtn.isEnabled = true
+            timerStack.isHidden = true
+        }
         
     }
 //  SetUpMap
@@ -193,16 +231,30 @@ class StartTaskVC: UIViewController {
     
     
     @IBAction func startTaskTapped(_ sender: UIButton) {
-
-        if timer == nil {
-            setUpTimer()
-            Vibration.success.vibrate()
-            guard let task = task else { return }
-            getData(id: task.taskId, status: task.priority)
-            startFinishBtn.setTitle("Finish Task", for: .normal)
-        } else {
+        
+        
+        Vibration.success.vibrate()
+        guard let task = task else { return }
+        if task.priority == "completed" {
+            startFinishBtn.isEnabled = false
+            timerStack.isHidden = true
             navigationController?.popViewController(animated: true)
+        } else if task.priority == "progress" {
+            finishTask(id: task.taskId, status: "completed")
+            //getTask(id: task.taskId)
+            startFinishBtn.isEnabled = true
+            startFinishBtn.setTitle("Finished", for: .normal)
+            timerStack.isHidden = true
+        } else if task.priority == "pending" {
+            getData(id: task.taskId, status: "progress")
+            //getTask(id: task.taskId)
+            if timer == nil {
+                setUpTimer()
+            }
+            startFinishBtn.isEnabled = true
+            startFinishBtn.setTitle("Finish Task", for: .normal)
         }
+        delegate?.reloadedData()
         
     }
 }
@@ -243,3 +295,35 @@ extension StartTaskVC {
     }
 }
 
+//MARK: - Finish Task Data
+extension StartTaskVC {
+    func finishTask(id: String, status: String) {
+        API.endTask(_id: id, status: status) { data in
+            self.task = data
+            print(data)
+        }
+    }
+}
+
+//MARK: - Get Task
+extension StartTaskVC {
+    func getTask(id: String) {
+        API.getTaskID(taskID: task!.taskId) {[self] task in
+            self.task = task
+            if task.priority == "completed" {
+                startFinishBtn.setTitle("Finished", for: .normal)
+                startFinishBtn.isEnabled = false
+                timerStack.isHidden = true
+            } else if task.priority == "progress" {
+                finishTask(id: task.taskId, status: task.priority)
+                startFinishBtn.isEnabled = true
+                timerStack.isHidden = false
+                startFinishBtn.setTitle("Finish Task", for: .normal)
+            } else if task.priority == "pending" {
+                getData(id: task.taskId, status: task.priority)
+                startFinishBtn.isEnabled = true
+                timerStack.isHidden = true
+            }
+        }
+    }
+}

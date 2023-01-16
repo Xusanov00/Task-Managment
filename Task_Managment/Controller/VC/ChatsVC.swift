@@ -46,17 +46,7 @@ class ChatsVC: UIViewController {
         textTf.placeholder = Lang.getString(type: .enterSms)
     }
     
-    //MARK: - will show keyboard
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as?
-            NSValue {
-            let keyboardHeight = keyboardFrame.cgRectValue.height
-            let backVSpace = self.view.frame.height - (backV.frame.origin.y + backV.frame.height)
-            self.backV.frame = CGRect(x: 0, y: CGFloat(Int(backV.frame.origin.y + 10 - keyboardHeight)), width: self.backV.frame.width, height: self.backV.frame.height)
-        }
-    }
-    
-  
+   
     //MARK: -  hide keyboard
     @objc private func hideKeyboard() {
     self.view.endEditing (true)
@@ -71,7 +61,7 @@ class ChatsVC: UIViewController {
         textTf.addShadow(cornerRadius: 12)
         sendBtn.addShadow(cornerRadius: sendBtn.frame.width/2)
         setUpTableView()
-        IQKeyboardManager.shared.enable = false
+        IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         
         self.view.addGestureRecognizer (UITapGestureRecognizer(target: self, action: #selector (hideKeyboard)))

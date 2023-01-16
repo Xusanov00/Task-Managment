@@ -11,6 +11,8 @@ import Charts
 import CircleProgressView
 import SkeletonView
 
+
+
 class HomeVC: UIViewController {
     
     @IBOutlet weak var backView: UIView!
@@ -21,9 +23,12 @@ class HomeVC: UIViewController {
     @IBOutlet weak var numberLbl: UILabel!
     @IBOutlet weak var fullnameLbl: UILabel!
     @IBOutlet weak var todaysTaskLbl: UILabel!
-    @IBOutlet weak var tasksCompletedLbl: UILabel!
+    @IBOutlet weak var tasksCompletedCountLbl: UILabel!
     @IBOutlet weak var viewTaskBtn: UIButton!
     @IBOutlet weak var pandingCount: UILabel!
+    @IBOutlet weak var taskCompletedLbl: UILabel!
+    
+    
     
     var calendar: FSCalendar!
     var formatter = DateFormatter()
@@ -71,7 +76,7 @@ class HomeVC: UIViewController {
         numberLbl.isSkeletonable = true
         fullnameLbl.isSkeletonable = true
         todaysTaskLbl.isSkeletonable = true
-        tasksCompletedLbl.isSkeletonable = true
+        tasksCompletedCountLbl.isSkeletonable = true
         viewTaskBtn.isSkeletonable = true
         pandingCount.isSkeletonable = true
         progressV.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
@@ -80,7 +85,7 @@ class HomeVC: UIViewController {
         numberLbl.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
         fullnameLbl.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
         todaysTaskLbl.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
-        tasksCompletedLbl.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
+        tasksCompletedCountLbl.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
         viewTaskBtn.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
         pandingCount.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
         calendarV.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: .none, transition: .crossDissolve(0.25))
@@ -91,6 +96,7 @@ class HomeVC: UIViewController {
     
     //localizatedLanguage
     func setLang() {
+        taskCompletedLbl.text = Lang.getString(type: .tasksCompleted)
         statisticsBtn.setTitle(Lang.getString(type: .statistics), for: .normal)
         todaysTaskLbl.text = Lang.getString(type: .todaysTasks)
         viewTaskBtn.setTitle(Lang.getString(type: .todaysTasks), for: .normal)
@@ -184,7 +190,7 @@ extension HomeVC {
         API.getMainPage { data in
             self.progressV.setProgress(Double(data.pecent)/100, animated: true)
             self.progressLbl.text = "\(data.pecent)%"
-            self.tasksCompletedLbl.text = "\(data.complatedTask)/\(data.allTasks) " + Lang.getString(type: .tasksCompleted)
+            self.tasksCompletedCountLbl.text = "\(data.complatedTask)/\(data.allTasks)"
             self.pandingCount.text = "\(data.pendingCount)"
             Loader.stop()
             

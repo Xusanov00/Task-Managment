@@ -48,7 +48,7 @@ class Lang {
                 
             case .toDo: return "Новые"
                 
-            case .todaysTask: return "Задания"
+            case .todaysTask: return "Сегодняшние Задания"
                 
             case .verifCode: return "Код подтверждения"
                 
@@ -165,7 +165,7 @@ class Lang {
                 
             case .toDo: return "Yangi"
                 
-            case .todaysTask: return "Vazifalar"
+            case .todaysTask: return "Bugungi Vazifa"
                 
             case .verifCode: return "Tasdiqlash kodi"
                 
@@ -334,7 +334,7 @@ class Lang {
                 
             case .tasksCompleted: return "Tasks completed"
                 
-            case .todaysTasks: return "Tasks"
+            case .todaysTasks: return "Today’s Tasks"
                 
             case .viewTask: return "View Task"
                 

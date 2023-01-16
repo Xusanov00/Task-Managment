@@ -99,8 +99,8 @@ class HomeVC: UIViewController {
         taskCompletedLbl.text = Lang.getString(type: .tasksCompleted)
         calendar.locale = Locale(identifier: Lang.getString(type: .lang))
         statisticsBtn.setTitle(Lang.getString(type: .statistics), for: .normal)
-        todaysTaskLbl.text = Lang.getString(type: .todaysTasks)
-        viewTaskBtn.setTitle(Lang.getString(type: .todaysTasks), for: .normal)
+        todaysTaskLbl.text = Lang.getString(type: .tasks)
+        viewTaskBtn.setTitle(Lang.getString(type: .tasks), for: .normal)
     }
     
     //profileBtnTapped

@@ -33,6 +33,7 @@ class ChatsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         setUpUI()
         getComments()
         setLang()
@@ -54,13 +55,50 @@ class ChatsVC: UIViewController {
             let backVSpace = self.view.frame.height - (backV.frame.origin.y + backV.frame.height)
             self.backV.frame = CGRect(x: 0, y: CGFloat(Int(backV.frame.origin.y + 10 - keyboardHeight)), width: self.backV.frame.width, height: self.backV.frame.height)
         }
-//           SetKeyboard
-        func setKeyboard() {
-            if textTf.isFirstResponder {
-                
-            }
-        }
+    }
+    
+  
+    //MARK: -  hide keyboard
+    @objc private func hideKeyboard() {
+    self.view.endEditing (true)
+    }
+    
+    //MARK: - Set UP UI
+    func setUpUI() {
+        self.navigationItem.title = "Comment"
+        textTf.layer.cornerRadius = 12
+        sendBtn.layer.cornerRadius = sendBtn.frame.width/2
+        backV.addShadow(cornerRadius: 0)
+        textTf.addShadow(cornerRadius: 12)
+        sendBtn.addShadow(cornerRadius: sendBtn.frame.width/2)
+        setUpTableView()
+        IQKeyboardManager.shared.enable = false
+        IQKeyboardManager.shared.enableAutoToolbar = false
         
+        self.view.addGestureRecognizer (UITapGestureRecognizer(target: self, action: #selector (hideKeyboard)))
+       
+        if sendArr.count == 0 {
+            tableView.backgroundColor = .clear
+        }
+    }
+    
+ 
+    //MARK: empty chat image set
+    func setImg() {
+        if !sendArr.isEmpty {
+            emptyChatImg.isHidden = true
+        }else {
+            emptyChatImg.isHidden = false
+        }
+    }
+    
+    //MARK: - Set Up TableView
+    func setUpTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+        tableView.register(UINib(nibName: "GetTVC", bundle: nil), forCellReuseIdentifier: "GetTVC")
+        tableView.register(UINib(nibName: "SendTVC", bundle: nil), forCellReuseIdentifier: "SendTVC")
     }
         //MARK: -  hide keyboard
         @objc private func hideKeyboard() {

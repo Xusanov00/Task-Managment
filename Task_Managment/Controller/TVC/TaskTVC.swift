@@ -39,7 +39,10 @@ class TaskTVC: UITableViewCell {
         shadowV.addShadow(cornerRadius: 12)
         topicLbl.text = cell.title
         descryptionLbl.text = cell.definition
-        timeLbl.text = "\(cell.time)"
+        let ad = "\(NSDate(timeIntervalSince1970: TimeInterval(cell.time)))"
+        let add1 = String(ad.suffix(14))
+        timeLbl.text = String(add1.prefix(5))
+        
         
         if cell.priority.uppercased() == "COMPLETED" {
             priorityLbl.text = Lang.getString(type: .completed)

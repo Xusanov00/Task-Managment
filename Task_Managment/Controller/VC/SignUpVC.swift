@@ -25,7 +25,7 @@ class SignUpVC: UIViewController {
     //variables
     let message = Lang.getString(type: .privacyPolicyDescrypt)
     let findWord = [Lang.getString(type: .termsUse), Lang.getString(type: .privacyPolicy)]
-//    //
+    //    //
     
     override func viewDidLoad() {
         super.viewDidLoad()

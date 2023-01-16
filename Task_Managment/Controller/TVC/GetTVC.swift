@@ -14,7 +14,7 @@ class GetTVC: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     func updateCell(str:String) {
         messageLbl.text = str
     }

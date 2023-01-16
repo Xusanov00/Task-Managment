@@ -22,7 +22,7 @@ struct UserDM {
     var stats: StatsDM
     
     init(json: JSON) {
-
+        
         _id = json["_id"].stringValue
         firstName = json["firstName"].stringValue
         lastName = json["lastName"].stringValue

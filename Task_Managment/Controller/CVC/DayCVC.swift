@@ -8,7 +8,7 @@
 import UIKit
 
 class DayCVC: UICollectionViewCell {
-
+    
     @IBOutlet weak var backV: UIView!
     @IBOutlet weak var weeks: UILabel!
     @IBOutlet weak var icobV: UIView!
@@ -17,7 +17,7 @@ class DayCVC: UICollectionViewCell {
         super.awakeFromNib()
         
     }
-
+    
     func updateCell(weekdays:WeekDM) {
         weeks.text = String(weekdays.day.prefix(3))
         monthDays.text = String((weekdays.time).suffix(2))

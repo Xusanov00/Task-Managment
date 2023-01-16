@@ -16,7 +16,7 @@ class TaskTVC: UITableViewCell {
     
     
     @IBOutlet weak var topicLbl: UILabel!
- 
+    
     @IBOutlet weak var descryptionLbl: UILabel!
     
     @IBOutlet weak var timeLbl: UILabel!

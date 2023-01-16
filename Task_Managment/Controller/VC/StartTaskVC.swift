@@ -12,7 +12,7 @@ import SkeletonView
 
 
 class StartTaskVC: UIViewController {
-
+    
     
     @IBOutlet weak var timerStack: UIStackView!
     @IBOutlet weak var timerView: CircleProgressView!
@@ -50,7 +50,7 @@ class StartTaskVC: UIViewController {
         setLang()
         setUpUI()
     }
- 
+    
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
@@ -64,7 +64,7 @@ class StartTaskVC: UIViewController {
             
         }
     }
-//SetUpUI
+    //SetUpUI
     
     func setUpUI() {
         
@@ -80,7 +80,7 @@ class StartTaskVC: UIViewController {
         setUPMap(lat: data.location.latitude, long: data.location.longitude)
         
     }
-//  SetUpMap
+    //  SetUpMap
     func setUPMap(lat: Double, long: Double) {
         let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 5.0)
         gmsMap.camera = camera
@@ -89,18 +89,18 @@ class StartTaskVC: UIViewController {
         gmsMap.settings.zoomGestures = false
         gmsMap.settings.tiltGestures = false
         gmsMap.settings.rotateGestures = false
-      
+        
     }
-//    ShowMarket
+    //    ShowMarket
     func showMarker(position: CLLocationCoordinate2D){
-           let marker = GMSMarker()
-           marker.position = position
-           marker.map = gmsMap
-       }
+        let marker = GMSMarker()
+        marker.position = position
+        marker.map = gmsMap
+    }
     
     
     func dateFormatter(unixDate: Int, isDate: Bool = true) -> String{
-          
+        
         if let timeResult = unixDate as? Int {
             let date = Date(timeIntervalSince1970: TimeInterval(timeResult))
             let dateFormatter = DateFormatter()
@@ -119,14 +119,14 @@ class StartTaskVC: UIViewController {
         }
     }
     
-
+    
     func setUpTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimer() {
         if timerStack.isHidden {
-
+            
             UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 2, options: .curveEaseIn) {
                 self.timerStack.isHidden = false
             }
@@ -172,7 +172,7 @@ class StartTaskVC: UIViewController {
     func setUpNav() {
         self.navigationItem.backButtonTitle = ""
         let alertBtn = UIBarButtonItem(image: UIImage(systemName: "bell.badge"), style: .done, target: self, action: #selector(alertTapped))
-       
+        
         alertBtn.tintColor = .black
         
         
@@ -195,7 +195,7 @@ class StartTaskVC: UIViewController {
     
     
     @IBAction func startTaskTapped(_ sender: UIButton) {
-
+        
         if timer == nil {
             setUpTimer()
             Vibration.success.vibrate()
@@ -212,7 +212,7 @@ class StartTaskVC: UIViewController {
 extension StartTaskVC: GMSMapViewDelegate{
 }
 
-    //MARK: - NnotificationCenter for language changing
+//MARK: - NnotificationCenter for language changing
 extension StartTaskVC {
     func observeLangNotif() {
         NotificationCenter.default.addObserver(self, selector: #selector(changLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)

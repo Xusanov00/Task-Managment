@@ -33,7 +33,6 @@ class ChatsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         setUpUI()
         getComments()
         setLang()
@@ -41,14 +40,14 @@ class ChatsVC: UIViewController {
     
     
     //MARK: language settings
-    func setLang() {
-         noSmsLbl.text = Lang.getString(type: .noSms)
+    func setLang(){
+        noSmsLbl.text = Lang.getString(type: .noSms)
         title = Lang.getString(type: .comment)
         textTf.placeholder = Lang.getString(type: .enterSms)
     }
     
     //MARK: - will show keyboard
-    @objc func keyboardWillShow(notification: NSNotification) {
+    @objc func keyboardWillShow(notification: NSNotification){
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as?
             NSValue {
             let keyboardHeight = keyboardFrame.cgRectValue.height
@@ -57,11 +56,12 @@ class ChatsVC: UIViewController {
         }
     }
     
-  
+    
     //MARK: -  hide keyboard
     @objc private func hideKeyboard() {
-    self.view.endEditing (true)
+        self.view.endEditing (true)
     }
+    
     
     //MARK: - Set UP UI
     func setUpUI() {
@@ -76,19 +76,21 @@ class ChatsVC: UIViewController {
         IQKeyboardManager.shared.enableAutoToolbar = false
         
         self.view.addGestureRecognizer (UITapGestureRecognizer(target: self, action: #selector (hideKeyboard)))
-       
+        
         if sendArr.count == 0 {
             tableView.backgroundColor = .clear
         }
     }
     
- 
+    
     //MARK: empty chat image set
     func setImg() {
         if !sendArr.isEmpty {
             emptyChatImg.isHidden = true
+            noSmsLbl.isHidden = true
         }else {
             emptyChatImg.isHidden = false
+            noSmsLbl.isHidden = false
         }
     }
     
@@ -100,50 +102,7 @@ class ChatsVC: UIViewController {
         tableView.register(UINib(nibName: "GetTVC", bundle: nil), forCellReuseIdentifier: "GetTVC")
         tableView.register(UINib(nibName: "SendTVC", bundle: nil), forCellReuseIdentifier: "SendTVC")
     }
-        //MARK: -  hide keyboard
-        @objc private func hideKeyboard() {
-            self.view.endEditing (true)
-        }
-        
-        //MARK: - Set UP UI
-        func setUpUI() {
-            self.navigationItem.title = "Comment"
-            textTf.layer.cornerRadius = 12
-            sendBtn.layer.cornerRadius = sendBtn.frame.width/2
-            backV.addShadow(cornerRadius: 0)
-            textTf.addShadow(cornerRadius: 12)
-            sendBtn.addShadow(cornerRadius: sendBtn.frame.width/2)
-            setUpTableView()
-            IQKeyboardManager.shared.enable = false
-            IQKeyboardManager.shared.enableAutoToolbar = false
-            self.view.addGestureRecognizer (UITapGestureRecognizer(target: self, action: #selector (hideKeyboard)))
-            
-            if sendArr.count == 0 {
-                tableView.backgroundColor = .clear
-            }
-        }
-        
-        
-        //MARK: empty chat image set
-        func setImg() {
-            if !sendArr.isEmpty {
-                emptyChatImg.isHidden = true
-                noSmsLbl.isHidden = true
-            }else {
-                emptyChatImg.isHidden = false
-                noSmsLbl.isHidden = false
-            }
-        }
-        
-        //MARK: - Set Up TableView
-        func setUpTableView() {
-            tableView.delegate = self
-            tableView.dataSource = self
-            tableView.separatorStyle = .none
-            tableView.register(UINib(nibName: "GetTVC", bundle: nil), forCellReuseIdentifier: "GetTVC")
-            tableView.register(UINib(nibName: "SendTVC", bundle: nil), forCellReuseIdentifier: "SendTVC")
-        }
-        
+    
     //MARK: - Actions
     @IBAction func sendTapped(_ sender: UIButton) {
         playSendSound()
@@ -160,8 +119,10 @@ class ChatsVC: UIViewController {
             textTf.text = ""
         }
     }
-        
-    }
+    
+    
+}
+
 
 
 
@@ -171,12 +132,12 @@ extension ChatsVC:UITableViewDelegate {
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         
         let deleteAction = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive, state: .off) { [self]_ in
-                        
+            
             sendArr.remove(at: indexPath.row)
             tableView.reloadData()
             
         }
-                
+        
         let menu = UIMenu(title: "Delete of Comment", options: .displayInline, children: [deleteAction])
         
         let contextmenu = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in

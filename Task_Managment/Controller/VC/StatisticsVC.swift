@@ -8,7 +8,7 @@
 import UIKit
 import Charts
 class StatisticsVC: UIViewController, ChartViewDelegate {
-
+    
     
     //outlets
     @IBOutlet weak var diagramV: BarChartView!
@@ -19,7 +19,7 @@ class StatisticsVC: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = Lang.getString(type: .statistics)
-         setUpCharts()
+        setUpCharts()
         setUpNavigationV()
     }
     
@@ -50,7 +50,7 @@ class StatisticsVC: UIViewController, ChartViewDelegate {
         let data = LineChartData(dataSet: set)
         chartsV.data = data
     }
-
+    
     
     //MARK: - Set Up NavigationController
     func setUpNavigationV () {
@@ -62,7 +62,7 @@ class StatisticsVC: UIViewController, ChartViewDelegate {
     
     //objc func for notification btn actions
     @objc func notificTapped() {
-         let vc = ChatsVC(nibName: "ChatsVC", bundle: nil)
+        let vc = ChatsVC(nibName: "ChatsVC", bundle: nil)
         vc.navigationItem.backButtonTitle = ""
         navigationController?.pushViewController(ChatsVC.loadFromNib(), animated: true)
     }

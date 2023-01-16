@@ -25,8 +25,8 @@ class TodaysTaskVC: UIViewController {
     
     
     
-//    var weeks:[WeekDM] = []
-
+    //    var weeks:[WeekDM] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
@@ -53,7 +53,7 @@ class TodaysTaskVC: UIViewController {
         btns[3].setTitle(Lang.getString(type: .toDo), for: .normal)
     }
     
-   
+    
     
     
     func setupTableView() {

@@ -28,8 +28,8 @@ class ConnectionLottie {
         animationView.play()
         _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
             animationView.stop()
-                view.isHidden = true
-//                animationView.isHidden = true
+            view.isHidden = true
+            //                animationView.isHidden = true
             button?.layer.opacity = 1
             button?.isEnabled = true
         })

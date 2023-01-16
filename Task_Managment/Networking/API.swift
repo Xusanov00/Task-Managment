@@ -19,7 +19,7 @@ class API {
     static let baseUrl:String = "https://taskbotapi.roundedteam.uz"
     
     //URLs
-
+    
     static let loginByPhone: String = baseUrl+EndPoints.loginByPhoneURL
     static let getProfile: String = baseUrl+EndPoints.getProfileURL
     static let updateProfile: String = baseUrl+EndPoints.updateProfileURL
@@ -32,7 +32,7 @@ class API {
     
     
     static func getLogin(number:String, password:String, complation:@escaping (LoginUserDM)->Void) {
-       
+        
         let param:[String:Any] = [
             "phoneNumber": number,
             "password": password
@@ -40,14 +40,14 @@ class API {
         
         NET.sendRequest(to: loginByPhone, method: .post, headers: nil, param: param) { data in
             guard let data = data else { return }
-                let info = data["data"]
-                complation(LoginUserDM(json: info))
+            let info = data["data"]
+            complation(LoginUserDM(json: info))
             
         }
     }
     
     static func getProfile(complation:@escaping (LoginUserDM)->Void) {
-
+        
         let header: HTTPHeaders = [
             "Authorization":"Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
         ]
@@ -58,9 +58,9 @@ class API {
             complation(myData)
         }
     }
-
+    
     static func getProfile(complation:@escaping (UserDM)->Void) {
-
+        
         let header: HTTPHeaders = [
             "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
         ]
@@ -69,10 +69,10 @@ class API {
             let myData = UserDM(json: data["data"])
             complation(myData)
         }
-
+        
     }
     
-
+    
     static func updateProfile(name: String, lastname: String, position: String, password: String, complation: @escaping (UserDM)->Void) {
         let header: HTTPHeaders = [
             "Authorization": "Bearer " + UserDefaults.standard.string(forKey: "TOKEN")!
@@ -88,7 +88,7 @@ class API {
             let myData = UserDM(json: data["data"])
             complation(myData)
         }
-
+        
     }
     
     static func getComments(taskID: String, complation: @escaping ([String])->Void) {
@@ -119,13 +119,13 @@ class API {
             guard let data = data else {return}
             print("dataToday = ",data)
             if let info = data["data"]["data"].array {
-             
+                
                 let mydata = info.map{TaskDM(json: $0)}
                 complation(mydata)
             }
             
-
-
+            
+            
         }
     }
     
@@ -144,8 +144,8 @@ class API {
             let commentData = data["data"]
             complation(CommentDM(json: commentData))
             
-
-
+            
+            
         }
     }
     
@@ -192,8 +192,8 @@ class API {
             let mydata = data["data"].array
             guard let mydata = mydata else {return}
             let info = mydata.map{WeekDM(json: $0) }
-           
-             complation(info)
+            
+            complation(info)
             
         }
         

@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingsTVC: UITableViewCell {
-
+    
     @IBOutlet weak var iconImg: UIImageView!
     
     @IBOutlet weak var titleLbl: UILabel!

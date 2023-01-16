@@ -10,21 +10,21 @@ import IQKeyboardManagerSwift
 import GoogleMaps
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-var window: UIWindow?
-
+    
+    var window: UIWindow?
+    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         IQKeyboardManager.shared.enable = true
         GMSServices.provideAPIKey("AIzaSyDyIYU9ntbMg5ZEDHnLmCaQWnISnVj5kB4")
         if #available(iOS 13.0, *) {
-                    window!.overrideUserInterfaceStyle = .light
-                }
+            window!.overrideUserInterfaceStyle = .light
+        }
         
         var navvc = UINavigationController(rootViewController: HomeVC.loadFromNib())
         if SetCache.getCache(for: KeysDM.token.rawValue).isEmpty {
-             navvc = UINavigationController(rootViewController: SignUpVC.loadFromNib())
+            navvc = UINavigationController(rootViewController: SignUpVC.loadFromNib())
         }
         window?.rootViewController = navvc
         window?.makeKeyAndVisible()

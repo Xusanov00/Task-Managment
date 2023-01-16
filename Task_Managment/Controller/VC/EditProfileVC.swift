@@ -56,20 +56,20 @@ class EditProfileVC: UIViewController {
         self.present (imgVC, animated: true)
     }
     
-  
+    
     //MARK: - Set Up Gesture to ImageView
     func setUpGesture() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-         profileImg.isUserInteractionEnabled = true
-         profileImg.addGestureRecognizer(tapGestureRecognizer)
-     }
-
-     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-         let tappedImage = tapGestureRecognizer.view as! UIImageView
-         setImageFromGallery()
+        profileImg.isUserInteractionEnabled = true
+        profileImg.addGestureRecognizer(tapGestureRecognizer)
     }
-
-   
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        setImageFromGallery()
+    }
+    
+    
     //MARK: - Set Up UI
     func setUI() {
         self.navigationItem.title = "Profile Edit"
@@ -131,7 +131,7 @@ class EditProfileVC: UIViewController {
     @IBAction func calendarTapped(_ sender: UIButton) {
         birthdateTextField.becomeFirstResponder()
     }
-
+    
 }
 
 

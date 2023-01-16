@@ -50,7 +50,7 @@ class HomeVC: UIViewController {
         super.viewDidAppear(animated)
         //setUpSkeletonView()
     }
-//    SetCalendar
+    //    SetCalendar
     func setCalendar() {
         calendar = FSCalendar(frame: CGRect(x: 0, y: 0, width: self.calendarV.frame.width, height: self.calendarV.frame.height))
         calendar.scrollDirection = .horizontal
@@ -105,7 +105,7 @@ class HomeVC: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
         navigationItem.backButtonTitle = ""
     }
-//openChatsTapped
+    //openChatsTapped
     @IBAction func openChatsTapped(_ sender: Any) {
         let vc = ChatsVC(nibName: "ChatsVC", bundle: nil)
         vc.navigationItem.backButtonTitle = ""
@@ -129,7 +129,7 @@ class HomeVC: UIViewController {
 extension HomeVC:FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         formatter.dateFormat = "dd-MM-yyyy"
-         
+        
         let vc = TodaysTaskVC(nibName: "TodaysTaskVC", bundle: nil)
         
         self.navigationController?.pushViewController(vc, animated: true)
@@ -157,7 +157,7 @@ extension HomeVC:FSCalendarDataSource {
 //MARK: Data from API
 extension HomeVC {
     func getData () {
-//        Loader.start()
+        //        Loader.start()
         API.getProfile {[self] data in
             userData = data
             guard let data = userData else { return }
@@ -199,11 +199,11 @@ extension HomeVC {
 
 //MARK: - NnotificationCenter for language changing
 extension HomeVC {
-
+    
     func observeLangNotif() {
         NotificationCenter.default.addObserver(self, selector: #selector(changeLang), name: NSNotification.Name.init(rawValue: "LANGNOTIFICATION"), object: nil)
     }
-
+    
     @objc func changeLang(_ notification: NSNotification) {
         guard let lang = notification.object as? Int else { return }
         switch lang {
@@ -218,7 +218,7 @@ extension HomeVC {
             setLang()
         default: break
         }
-
+        
         setLang()
         print("home language updated to ", Cache.getAppLanguage())
     }

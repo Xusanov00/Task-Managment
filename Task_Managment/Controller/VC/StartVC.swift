@@ -8,7 +8,7 @@
 import UIKit
 
 class StartVC: UIViewController {
-
+    
     //outlets
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var commentLbl: UILabel!

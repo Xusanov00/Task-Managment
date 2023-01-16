@@ -8,7 +8,7 @@
 import UIKit
 
 class SendTVC: UITableViewCell {
-
+    
     @IBOutlet weak var messageLbl: UILabel!
     @IBOutlet weak var backV: UIView!
     override func awakeFromNib() {

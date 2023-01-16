@@ -27,7 +27,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var taskCompletedLbl: UILabel!
     @IBOutlet weak var viewTaskBtn: UIButton!
     @IBOutlet weak var pandingCount: UILabel!
-    @IBOutlet weak var taskCompletedLbl: UILabel!
+
     
     
     

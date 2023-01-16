@@ -356,7 +356,7 @@
     </objects>
     <resources>
         <image name="Tick" width="32" height="32"/>
-        <image name="bell.badge" catalog="system" width="125" height="128"/>
+        <image name="bell.badge" catalog="system" width="32" height="32"/>
         <image name="profileImage" width="840" height="881"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

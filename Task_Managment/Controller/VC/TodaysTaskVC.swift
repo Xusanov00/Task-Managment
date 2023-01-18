@@ -146,12 +146,15 @@ extension TodaysTaskVC: UITableViewDataSource {
         case 1:
             sortedTasks.removeAll()
             sortedTasks = taskArr.filter { $0.priority == "progress" }
+            sortedTasks = sortedTasks.sorted{ $0.time < $1.time }
         case 2:
             sortedTasks.removeAll()
             sortedTasks = taskArr.filter { $0.priority == "completed" }
+            sortedTasks = sortedTasks.sorted{ $0.time < $1.time }
         case 3:
             sortedTasks.removeAll()
             sortedTasks = taskArr.filter { $0.priority == "pending" }
+            sortedTasks = sortedTasks.sorted{ $0.time < $1.time }
         default:
             print("")
         }

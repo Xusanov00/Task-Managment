@@ -23,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         var navvc = UINavigationController(rootViewController: HomeVC.loadFromNib())
-        if SetCache.getCache(for: KeysDM.token.rawValue).isEmpty {
+//        if SetCache.getCache(for: KeysDM.token.rawValue).isEmpty {
              navvc = UINavigationController(rootViewController: StartVC.loadFromNib())
-        }
+//        }
         window?.rootViewController = navvc
         window?.makeKeyAndVisible()
         return true

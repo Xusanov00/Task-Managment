@@ -23,7 +23,11 @@ class TodaysTaskVC: UIViewController {
     
     var weeks:[WeekDM] = []
     
-    
+    let scrollView: UIScrollView = {
+       let cv = UIScrollView()
+        
+        return cv
+    }()
     
     //    var weeks:[WeekDM] = []
     

@@ -72,16 +72,8 @@ class SignUpVC: UIViewController {
     }
     
     //MARK: Actions
-    @IBAction func continueTapped(_ sender: UIButton) {
-        let num = numberTF.text!.replacingOccurrences(of: " ", with: "")
-        let pass = passTf.text!
-        if Reachability.isConnectedToNetwork() {
-            Loader.start()
-            getData(num: num, pass: pass)
-        } else {
-            ConnectionLottie.setUpAnimationView(lottie: "no-internet", view: self.internetLottieV, button: continueBtn)
-        }
-    }
+    @IBAction func continueTapped(_ sender: UIButton)
+    
 }
 
 
